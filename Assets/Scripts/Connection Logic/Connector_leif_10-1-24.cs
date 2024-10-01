@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Connector
 {
-    /// <summary>
+    // TODO uncomment!
+    /*/// <summary>
     /// The block object this connector represents.
     /// </summary>
     private Block block;
@@ -21,10 +22,10 @@ public class Connector
     /// </summary>
     private BuildArea buildArea;
 
-/*    /// <summary>
+*//*    /// <summary>
     /// As a standard,the left-most connection on the connector is facing.
     /// </summary>
-    private float direction;*/
+    private float direction;*//*
 
     /// <summary>
     /// constructor overload. See main constructor for details.
@@ -33,7 +34,7 @@ public class Connector
     /// <param name="location">Coordinate location within the build area. Should be an integer vector.</param>
     /// <param name="allConnections">Relative locations this connector will try to connect to. This is intended to be an orthogonal unit vector.</param>
     /// <param name="buildArea">The build area that this connector is a part of.</param>
-/*    /// <param name="angle"></param>*/
+*//*    /// <param name="angle"></param>*//*
     public Connector(Block block, Vector2 location, Vector2[] allConnections, BuildArea buildArea, Direction angle)
     {
         Connector(block, location, allConnections, buildArea, (float)angle);
@@ -49,5 +50,5 @@ public class Connector
     public Connector(Block block, Vector2 location, Vector2[] allConnections, BuildArea buildArea, float angle)
 	{
 
-	}
+	}*/
 }
