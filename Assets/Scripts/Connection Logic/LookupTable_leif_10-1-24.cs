@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine; // for debug logging only
 
 /// <summary>
 /// A generic 2d lookup table class
@@ -28,10 +29,15 @@ public class LookupTable<T>
         {
             this.y_size = 0; 
             this.x_size = 0;
-            // TODO report the failure to use the given x and y sizes to the console!
+            Debug.LogError(
+                "LookupTable() constructor defaulted for a(n) " +
+                x_size.ToString() + "x" + y_size.ToString() + " grid.\r" +
+                "Malformed array is 0x0."
+            );
         }
-
+        // create the grid
         this.grid = new T[x_size, y_size];
+        // TODO do we need to fill the grid? This seems excessive!
         for (int i_x = 0; i_x < x_size; i_x++)
         {
             for (int i_y = 0; i_y < y_size; i_y++)
@@ -67,7 +73,11 @@ public class LookupTable<T>
         }
         else
         {
-            // TODO alert the console that LookupTable.put() was out of bounds!
+            Debug.LogError(
+                "LookupTable.Put("+x.ToString()+", "+y.ToString()+") defaulted for a(n) " +
+                x_size.ToString() + "x" + y_size.ToString() + " grid.\r" +
+                "Operation failed."
+            );
         }
     }
 
@@ -79,7 +89,11 @@ public class LookupTable<T>
         }
         else
         {
-            // TODO alert the console that LookupTable.erase() was out of bounds!
+            Debug.LogError(
+                "LookupTable.Erase(" + x.ToString() + ", " + y.ToString() + ") defaulted for a(n) " +
+                x_size.ToString() + "x" + y_size.ToString() + " grid.\r" +
+                "Operation failed."
+            );
         }
     }
 
@@ -97,7 +111,11 @@ public class LookupTable<T>
         }
         else
         {
-            // TODO alert the console that a lookup was out of bounds!
+            Debug.LogError(
+                "LookupTable.Get(" + x.ToString() + ", " + y.ToString() + ") defaulted for a(n) " +
+                x_size.ToString() + "x" + y_size.ToString() + " grid.\r" +
+                "Returned default = "+default(T).ToString()+"."
+            );
             return default;
         }
     }
@@ -167,12 +185,12 @@ public static class TableReader
         // print the table proper
         for (int i_y = 0; i_y < lt.y_size; i_y++)
         {
-            // print the row labels
-            string accum = PadSpace(i_y.ToString(), row_label_width) + VERTICAL_DIVIDER;
+            // print the row label
+            readout += PadSpace(i_y.ToString(), row_label_width) + VERTICAL_DIVIDER;
             // print the data in each cell
             for (int i_x = 0; i_x < lt.x_size; i_x++)
             {
-                accum += lt.grid[i_x, i_y].ToString() + VERTICAL_SPACER;
+                readout += lt.grid[i_x, i_y].ToString() + VERTICAL_SPACER;
             }
             readout += LINE_BREAK;
         }
