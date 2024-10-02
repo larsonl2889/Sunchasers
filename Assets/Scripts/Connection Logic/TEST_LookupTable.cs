@@ -13,6 +13,39 @@ public class TEST_LookupTable : MonoBehaviour
         TestIntIntConstructor(); // labeled as IIC
     }
 
+    void SubjectToBattery(string name, LookupTable<int> table)
+    {
+        // TESTING THE ERASER
+        for (int i_x = 0; i_x < table.x_size; i_x++)
+        {
+            for (int i_y = 0; i_y < table.y_size; i_y++)
+            {
+                if (i_x == 3 || i_y == 5)
+                {
+                    table.Erase(i_x, i_y);
+                }
+            }
+        }
+        Debug.Log(name + ": Erase() test\n" + table.ReadTable());
+
+        // TESTING READ-WRITE FUNCTIONALITY
+        for (int i_x = 0; i_x < table.x_size; i_x++)
+        {
+            for (int i_y = 0; i_y < table.y_size; i_y++)
+            {
+                if (table.Get(i_x, i_y) == 0)
+                {
+                    table.Put(i_x, i_y, 42);
+                }
+                else if (table.Get(i_x, i_y) == 12)
+                {
+                    table.Put(i_x, i_y, 21);
+                }
+            }
+        }
+        Debug.Log(name + ": read-write test\n" + table.ReadTable());
+    }
+
     void TestIntIntConstructor()
     {
         int X_SIZE = 12;
@@ -20,6 +53,9 @@ public class TEST_LookupTable : MonoBehaviour
 
         // TESTING for the (int, int) CONSTRUCTOR
         LookupTable<int> table = new(X_SIZE, Y_SIZE);
+
+        // TESTING DEFAULT
+        Debug.Log("IIC" + ": Default value == " + table.default_value + " should be " + 0);
 
         // make a multiplication table
         for (int i_x = 0; i_x < table.x_size; i_x++)
@@ -49,35 +85,7 @@ public class TEST_LookupTable : MonoBehaviour
         accum += ("case 10: " + table.Get(9, 4) + " = 36") + "\n";
         Debug.Log(accum);
 
-        // TESTING THE ERASER
-        for (int i_x = 0; i_x < table.x_size; i_x++)
-        {
-            for (int i_y = 0; i_y < table.y_size; i_y++)
-            {
-                if (i_x + i_y % 3 == 0)
-                {
-                    table.Erase(i_x, i_y);
-                }
-            }
-        }
-        Debug.Log("IIC: Erase() test\n" + table.ReadTable());
-
-        // TESTING FOR FUN :)
-        for (int i_x = 0; i_x < table.x_size; i_x++)
-        {
-            for (int i_y = 0; i_y < table.y_size; i_y++)
-            {
-                if (table.Get(i_x, i_y) == 0)
-                {
-                    table.Put(i_x, i_y, 42);
-                }
-                if (table.Get(i_x, i_y) == 12)
-                {
-                    table.Put(i_x, i_y, 21);
-                }
-            }
-        }
-        Debug.Log("IIC: Get() test\n" + table.ReadTable());
+        SubjectToBattery("ICC", table);
     }
 
     void TestSpecifiedDefaultConstructor()
@@ -88,15 +96,17 @@ public class TEST_LookupTable : MonoBehaviour
         // TESTING for the (int, int) CONSTRUCTOR
         LookupTable<int> table = new(X_SIZE, Y_SIZE, -1);
 
+        // TESTING DEFAULT
+        Debug.Log("SDC" + ": Default value == " + table.default_value + " should be " + -1);
+
         // make a multiplication table
         for (int i_x = 0; i_x < table.x_size; i_x++)
         {
             for (int i_y = 0; i_y < table.y_size; i_y++)
             {
-                int value = i_x * i_y;
+                table.Put(i_x, i_y, i_x * i_y); // the default is already -1, so I don't have to mess with the data to get a good test out.
             }
         }
-
         // read out the table to the log
         Debug.Log("SDC: Put() test\n" + table.ReadTable());
 
@@ -115,35 +125,7 @@ public class TEST_LookupTable : MonoBehaviour
         accum += ("case 10: " + table.Get(9, 4) + " = 36") + "\n";
         Debug.Log(accum);
 
-        // TESTING THE ERASER
-        for (int i_x = 0; i_x < table.x_size; i_x++)
-        {
-            for (int i_y = 0; i_y < table.y_size; i_y++)
-            {
-                if (i_x + i_y % 3 == 0)
-                {
-                    table.Erase(i_x, i_y);
-                }
-            }
-        }
-        Debug.Log("SDC: Erase() test\n" + table.ReadTable());
-
-        // TESTING FOR FUN :)
-        for (int i_x = 0; i_x < table.x_size; i_x++)
-        {
-            for (int i_y = 0; i_y < table.y_size; i_y++)
-            {
-                if (table.Get(i_x, i_y) == 0)
-                {
-                    table.Put(i_x, i_y, 42);
-                }
-                if (table.Get(i_x, i_y) == 12)
-                {
-                    table.Put(i_x, i_y, 21);
-                }
-            }
-        }
-        Debug.Log("SDC: Get() test\n" + table.ReadTable());
+        SubjectToBattery("SDC", table);
     }
 
 }
