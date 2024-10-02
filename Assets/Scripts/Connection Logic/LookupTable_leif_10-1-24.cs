@@ -172,8 +172,7 @@ public static class TableReader
     /// <returns>a string of at least the desired length</returns>
     private static string PadSpace(string s, int desired_length)
     {
-        const string SPACE = " ";
-        while (s.Length < desired_length) { s += SPACE; }
+        while (s.Length < desired_length) { s += " "; }
         return s;
     }
 

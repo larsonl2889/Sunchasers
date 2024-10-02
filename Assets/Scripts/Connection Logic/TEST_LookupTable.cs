@@ -4,6 +4,11 @@ using System.Collections.Generic;
 using System.Drawing;
 using UnityEngine;
 
+// THIS IS A TEST FILE
+
+/// <summary>
+/// This class performs a battery of tests on the LookupTable class.
+/// </summary>
 public class TEST_LookupTable : MonoBehaviour
 {
     // Start is called before the first frame update
