@@ -3,7 +3,7 @@ using UnityEngine; // for debug logging only
 
 /// <summary>
 /// A generic 2d lookup table class
-/// <br></br>- Note: The array starts out full of whatever default(<typeparamref name="T"/>) returns. This is usually either null or 0, depending on what <typeparamref name="T"/> is.
+/// <br></br>- Note: The array starts out full of a default_value. If unspecified, it's whatever default(<typeparamref name="T"/>) returns. This is usually either null or 0, depending on what <typeparamref name="T"/> is.
 /// </summary>
 /// <typeparam name="T">The type stored in the table.</typeparam>
 public class LookupTable<T>
@@ -11,6 +11,7 @@ public class LookupTable<T>
     internal int y_size;
     internal int x_size;
     internal T[,] grid;
+    internal T default_value;
 
     /// <summary>
     /// Constructs an empty LookupTable.
@@ -19,6 +20,23 @@ public class LookupTable<T>
     /// <param name="y_size">The number of rows. This is the y-axis maximum.</param>
     public LookupTable(int x_size, int y_size)
     {
+        // TODO this is scuffed: is there a better way to overload this constructor without duplicating code?
+        LookupTable<T> tmp = new(x_size, y_size, default(T));
+        this.x_size = tmp.x_size;
+        this.y_size = tmp.y_size;
+        this.grid = tmp.grid;
+        this.default_value = tmp.default_value;
+    }
+
+    /// <summary>
+    /// Constructs an empty LookupTable.
+    /// </summary>
+    /// <param name="x_size">The number of columns. This is the x-axis maximum.</param>
+    /// <param name="y_size">The number of rows. This is the y-axis maximum.</param>
+    /// <param name="default_value">The value of an "empty" cell in the table.</param>
+    public LookupTable(int x_size, int y_size, T default_value)
+    {
+        
         // determine if the given column and row counts are valid
         if (0 <= x_size && 0 <= y_size)
         {
@@ -42,7 +60,7 @@ public class LookupTable<T>
         {
             for (int i_y = 0; i_y < y_size; i_y++)
             {
-                grid[i_x, i_y] = default;
+                grid[i_x, i_y] = default_value;
             }
         }
 
@@ -53,7 +71,7 @@ public class LookupTable<T>
     /// </summary>
     /// <param name="x">the x index</param>
     /// <param name="y">the y index</param>
-    /// <returns>true iff (x,y) is in the LookupTable.</returns>
+    /// <returns>true if and only if (x,y) is in the LookupTable.</returns>
     private bool IsIndexInBounds(int x, int y)
     {
         return (x >= 0 && y >= 0 && x < x_size && y < y_size);
@@ -74,23 +92,7 @@ public class LookupTable<T>
         else
         {
             Debug.LogError(
-                "LookupTable.Put("+x.ToString()+", "+y.ToString()+") defaulted for a(n) " +
-                x_size.ToString() + "x" + y_size.ToString() + " grid.\r" +
-                "Operation failed."
-            );
-        }
-    }
-
-    public void Erase(int x, int y)
-    {
-        if (IsIndexInBounds(x, y))
-        {
-            grid[x, y] = default;
-        }
-        else
-        {
-            Debug.LogError(
-                "LookupTable.Erase(" + x.ToString() + ", " + y.ToString() + ") defaulted for a(n) " +
+                "LookupTable.Put("+x.ToString()+", "+y.ToString()+ ") is out of bounds for a(n) " +
                 x_size.ToString() + "x" + y_size.ToString() + " grid.\r" +
                 "Operation failed."
             );
@@ -98,7 +100,28 @@ public class LookupTable<T>
     }
 
     /// <summary>
-    /// Looks up the object at (x,y) in the LookupTable.
+    /// Sets the given slot (x,y) in the LookupTable to default_value
+    /// </summary>
+    /// <param name="x">target x index</param>
+    /// <param name="y">target y index</param>
+    public void Erase(int x, int y)
+    {
+        if (IsIndexInBounds(x, y))
+        {
+            grid[x, y] = default_value;
+        }
+        else
+        {
+            Debug.LogError(
+                "LookupTable.Erase(" + x.ToString() + ", " + y.ToString() + ") is out of bounds for a(n) " +
+                x_size.ToString() + "x" + y_size.ToString() + " grid.\r" +
+                "Operation failed."
+            );
+        }
+    }
+
+    /// <summary>
+    /// Gets the object at (x,y) in the LookupTable.
     /// </summary>
     /// <param name="x">target x index</param>
     /// <param name="y">target y index</param>
@@ -112,16 +135,20 @@ public class LookupTable<T>
         else
         {
             Debug.LogError(
-                "LookupTable.Get(" + x.ToString() + ", " + y.ToString() + ") defaulted for a(n) " +
+                "LookupTable.Get(" + x.ToString() + ", " + y.ToString() + ") is out of bounds for a(n) " +
                 x_size.ToString() + "x" + y_size.ToString() + " grid.\r" +
-                "Returned default = "+default(T).ToString()+"."
+                "Returned default = "+default_value.ToString()+"."
             );
-            return default;
+            return default_value;
         }
     }
 
 }
 
+/// <summary>
+/// A utility class used for testing code using the LookupTable.
+/// <br></br>You will use the <see cref="ReadTable{T}(LookupTable{T})"/> method.
+/// </summary>
 public static class TableReader
 {
     /// <summary>
@@ -149,7 +176,7 @@ public static class TableReader
     }
 
     /// <summary>
-    /// Provided that <typeparamref name="T"/> has a ToString() method, returns a string representation of the lookup table.
+    /// Returns a string representation of the lookup table (provided that <typeparamref name="T"/> has a ToString() method!)
     /// <br>-</br> Note: large ToString() output, and large tables generally look bad here.
     /// </summary>
     /// <typeparam name="T">The type param in the LookupTable lt</typeparam>
@@ -170,7 +197,7 @@ public static class TableReader
         {
             for (int i_x = 0; i_x < lt.x_size; i_x++)
             {
-                Math.Max(col_width, lt.grid[i_x, i_y].ToString().Length);
+                Math.Max(col_width, lt.Get(i_x, i_y).ToString().Length);
             }
         }
 
@@ -179,7 +206,7 @@ public static class TableReader
         string readout = PadSpace(String.Empty, DigitCount(lt.x_size - 1)) + VERTICAL_DIVIDER;
         for (int i_y = 0; i_y < lt.y_size; i_y++)
         {
-            readout = PadSpace(i_y.ToString(), col_width) + VERTICAL_SPACER;
+            readout += PadSpace(i_y.ToString(), col_width) + VERTICAL_SPACER;
         }
         readout += LINE_BREAK;
         // print the table proper
@@ -190,7 +217,7 @@ public static class TableReader
             // print the data in each cell
             for (int i_x = 0; i_x < lt.x_size; i_x++)
             {
-                readout += lt.grid[i_x, i_y].ToString() + VERTICAL_SPACER;
+                readout += lt.Get(i_x, i_y).ToString() + VERTICAL_SPACER;
             }
             readout += LINE_BREAK;
         }
