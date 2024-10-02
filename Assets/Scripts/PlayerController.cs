@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
         playerInput.Disable();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         
         rb.velocity = new Vector2(direction.x * speed, rb.velocity.y);
