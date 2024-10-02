@@ -53,7 +53,7 @@ public class LookupTable<T>
                 "Malformed array is 0x0."
             );
         }
-        // create the grid
+        // create the grids
         this.grid = new T[x_size, y_size];
         // fill the grid with default value
         for (int i_x = 0; i_x < x_size; i_x++)
@@ -148,6 +148,7 @@ public class LookupTable<T>
 /// <summary>
 /// A utility class used for testing code using the LookupTable.
 /// <br></br>You will use the <see cref="ReadTable{T}(LookupTable{T})"/> method.
+/// <br></br>It is recommended that you view the text in a monospace font (like the default in Notepad)
 /// </summary>
 public static class TableReader
 {
@@ -162,6 +163,7 @@ public static class TableReader
         return (int)Math.Floor(Math.Log10(Math.Abs(n) + 1));
     }
 
+    // TODO this method is not functional!
     /// <summary>
     /// Returns a string with spaces added to the end to reach the desired length.
     /// </summary>
@@ -177,7 +179,7 @@ public static class TableReader
 
     /// <summary>
     /// Returns a string representation of the lookup table (provided that <typeparamref name="T"/> has a ToString() method!)
-    /// <br>-</br> Note: large ToString() output, and large tables generally look bad here.
+    /// <br></br>- Note: It is recommended that you view the text in a monospace font (like the default in Notepad)
     /// </summary>
     /// <typeparam name="T">The type param in the LookupTable lt</typeparam>
     /// <param name="lt">The targeted LookupTable</param>
@@ -217,7 +219,7 @@ public static class TableReader
             // print the data in each cell
             for (int i_x = 0; i_x < lt.x_size; i_x++)
             {
-                readout += lt.Get(i_x, i_y).ToString() + VERTICAL_SPACER;
+                readout += PadSpace(lt.Get(i_x, i_y).ToString(), col_width) + VERTICAL_SPACER;
             }
             readout += LINE_BREAK;
         }
