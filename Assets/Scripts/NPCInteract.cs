@@ -11,7 +11,7 @@ public class NPCInteract : MonoBehaviour
 
     void Update()
     {
-        // If the player is close enough to the NPC, a prompt will pop-up to interact
+        // If the player is close enough to the NPC, a prompt will pop-up to interact with the NPC to talk to it
             // If 'E' is clicked, start the dialogue
         // Else do nothing
     }
