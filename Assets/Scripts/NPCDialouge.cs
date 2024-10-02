@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class NPCDialouge : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
     {
-        
+        // Start the dialogue when the interact key is clicked
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        // If nothing is pressed, then automatically go through the dialogue
+        // Else if 'E' is clicked, finish the current dialogue and skip to the next line
     }
 }
