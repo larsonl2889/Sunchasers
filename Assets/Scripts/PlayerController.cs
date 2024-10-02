@@ -15,10 +15,13 @@ public class PlayerController : MonoBehaviour
     private Vector2 direction;
     private PlayerInput playerInput;
     
+
+    
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         playerInput = new PlayerInput();
+
         
     }
     private void OnEnable()
@@ -32,23 +35,25 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        getInput();
+        
         rb.velocity = new Vector2(direction.x * speed, rb.velocity.y);
+        
     }
-    public void getInput()
+    
+    public void OnMove(InputAction.CallbackContext context)
     {
-        if (playerInput.Player.Jump.triggered)
+        direction = context.ReadValue<Vector2>();
+    }
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if (IsGrounded() == true)
         {
-            Jump();
-        }
-        direction = playerInput.Player.Move.ReadValue<Vector2>();
-    }
-    public void Jump()
-    {
-        if (IsGrounded() == true) {
             rb.AddForce(new Vector2(rb.velocity.x, jumpForce), ForceMode2D.Impulse);
+            
         }
     }
+    
+    
     public bool IsGrounded()
     {
         return rb.velocity.y == 0;
