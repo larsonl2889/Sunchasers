@@ -36,7 +36,7 @@ public class LookupTable<T>
     /// <param name="default_value">The value of an "empty" cell in the table.</param>
     public LookupTable(int x_size, int y_size, T default_value)
     {
-        
+        this.default_value = default_value;
         // determine if the given column and row counts are valid
         if (0 <= x_size && 0 <= y_size)
         {
@@ -55,7 +55,7 @@ public class LookupTable<T>
         }
         // create the grid
         this.grid = new T[x_size, y_size];
-        // TODO do we need to fill the grid? This seems excessive!
+        // fill the grid with default value
         for (int i_x = 0; i_x < x_size; i_x++)
         {
             for (int i_y = 0; i_y < y_size; i_y++)
