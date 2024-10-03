@@ -13,25 +13,31 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float jumpForce;
     private Rigidbody2D rb;
     private Vector2 direction;
-    private PlayerInput playerInput;
+    private Controls playerControls;
+
     
 
     
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        playerInput = new PlayerInput();
-
+        playerControls = new Controls();
         
     }
     private void OnEnable()
     {
-        playerInput.Enable();
+        playerControls.Enable();
     }
     private void OnDisable()
     {
-        playerInput.Disable();
+        playerControls.Disable();
     }
+    private void Start()
+    {
+        playerControls.Player.BuildMode.performed += toggleBuildMode;
+        playerControls.Player.Interact.performed += interact;
+    }
+
 
     private void FixedUpdate()
     {
@@ -40,11 +46,11 @@ public class PlayerController : MonoBehaviour
         
     }
     
-    public void OnMove(InputAction.CallbackContext context)
+    public void onMove(InputAction.CallbackContext context)
     {
         direction = context.ReadValue<Vector2>();
     }
-    public void OnJump(InputAction.CallbackContext context)
+    public void onJump(InputAction.CallbackContext context)
     {
         if (IsGrounded() == true)
         {
@@ -52,6 +58,16 @@ public class PlayerController : MonoBehaviour
             
         }
     }
+    public void toggleBuildMode(InputAction.CallbackContext context)
+    {
+        Debug.Log("Build Mode");
+ 
+    }
+    public void interact(InputAction.CallbackContext context)
+    {
+        Debug.Log("interact");
+    }
+
     
     
     public bool IsGrounded()

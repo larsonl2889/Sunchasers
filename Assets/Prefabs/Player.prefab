@@ -158,7 +158,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3517592384382409853}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: OnMove
+        m_MethodName: onMove
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -170,14 +170,6 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: fd584f43-0e4a-469b-9acb-641d10c33747
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 2e99f839-5413-467a-bac7-06f9cdf7f5ac
-    m_ActionName: Player/Look[/Mouse/delta]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 776adef1-8d4e-4cb6-a11f-f79c2b227716
-    m_ActionName: Player/Fire[/Mouse/leftButton]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 19c4e8d7-ef45-4296-8407-e51b9c9a1146
@@ -222,7 +214,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3517592384382409853}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: OnJump
+        m_MethodName: onJump
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -234,6 +226,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 0d88fde9-4992-462f-a586-b632e683648c
     m_ActionName: Player/Jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 99e51ea8-b2f6-4ff1-8527-17599671d443
+    m_ActionName: Player/BuildMode[/Keyboard/q]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
