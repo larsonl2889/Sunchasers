@@ -1,18 +1,23 @@
 ﻿using System;
-//using UnityEngine;
+using UnityEngine;
 
-/// <summary>
-/// An enum for handling the 4 cardinal directions efficiently.
-/// <br></br>Is usefuil for interfacing between the floats used by Unity's GameObjects for angles, and the coordinate system used by the LookupTable. 
-/// <br></br>Use the DirectionOps utility class to access the operations.
-/// </summary>
-public enum Direction : byte
-{
-    UP = 0, LEFT = 1, DOWN = 2, RIGHT = 3
-}
+// created by Leif Larson
+// Last updated 3 Oct 2024
 
+
+// Contains Direction and DirectionOps
 namespace DirectionOps
 {
+    /// <summary>
+    /// An enum for handling the 4 cardinal directions efficiently.
+    /// <br></br>Is usefuil for interfacing between the floats used by Unity's GameObjects for angles, and the coordinate system used by the LookupTable. 
+    /// <br></br>Use the DirectionOps utility class to access the operations.
+    /// </summary>
+    public enum Direction : int
+    {
+        UP = 0, LEFT = 1, DOWN = 2, RIGHT = 3
+    }
+
     // TODO check each angle to make sure it's appropriate!
     // TODO test!
     /// <summary>
@@ -40,6 +45,7 @@ namespace DirectionOps
         /// <returns>the Direction</returns>
         public static Direction ToDirection(this int id)
         {
+            id %= 4;
             return id switch
             {
                 0 => Direction.UP,
@@ -50,30 +56,11 @@ namespace DirectionOps
         }
 
         /// <summary>
-        /// Given an angle, returns the appropriate Direction.
+        /// Converts the direction to its int id
         /// </summary>
-        /// <param name="angle">angle in degrees</param>
-        /// <returns>the appropriate Direction</returns>
-        public static Direction ToDirection(this float angle)
-        {
-            // normalize the angle to the interval [0.0f, 360.0f).
-            angle %= 360.0f;
-            // bifurcated into two paths for performance. See included diagram.
-            if (angle > 225.0f)
-            {
-                if (angle <= 315.0f) { return Direction.LEFT; }
-            }
-            else
-            {
-                if (angle > 135.0f) { return Direction.DOWN; }
-                else if (angle > 45.0f) { return Direction.RIGHT; }
-            }
-            // Else is UP
-            return Direction.UP;
-
-        }
-
-        public static float GetId(this Direction dir)
+        /// <param name="dir">this direction</param>
+        /// <returns>the relevant id</returns>
+        public static int ToId(this Direction dir)
         {
             return dir switch
             {
@@ -90,7 +77,7 @@ namespace DirectionOps
         /// </summary>
         /// <param name="dir">the Direction enum</param>
         /// <returns>angle in degrees.</returns>
-        public static float GetAngle(this Direction dir)
+        public static float ToAngle(this Direction dir)
         {
             return dir switch
             {
@@ -110,11 +97,15 @@ namespace DirectionOps
         /// <returns>the resultant Direction</returns>
         public static Direction Add(this Direction dir1, Direction dir2)
         {
-            return ToDirection(( (int)dir1 + (int)dir2 ) % 4);
+            return ToDirection(( dir1.ToId() + dir2.ToId() ) % 4);
         }
-/*
-        // TODO make the design orbit around this as reference vectors.
-        public static Vector2 getVector(this Direction dir)
+
+        /// <summary>
+        /// Converts the direction to a vector
+        /// </summary>
+        /// <param name="dir">the direction</param>
+        /// <returns></returns>
+        public static Vector2 ToVector(this Direction dir)
         {
             return dir switch
             {
@@ -126,17 +117,23 @@ namespace DirectionOps
             };
         }
 
-        public static Vector2 applyRotation(this Direction dir, Vector2 vec)
+        /// <summary>
+        /// Applies the direction as a rotation upon a given vector.
+        /// </summary>
+        /// <param name="dir">this direction</param>
+        /// <param name="vec">the subject vector</param>
+        /// <returns>the rotated vector</returns>
+        public static Vector2 ApplyRotation(this Direction dir, Vector2 vec)
         {
             return dir switch
             {
                 Direction.UP => vec,
-                Direction.LEFT => new Vector2(vec.y, -vec.x), // TODO test!
+                Direction.LEFT => new Vector2(-vec.y, vec.x),
                 Direction.DOWN => -vec,
                 // RIGHT
-                _ => new Vector2(-vec.y, vec.x), // TODO test!
+                _ => new Vector2(vec.y, -vec.x),
             };
-        }*/
+        }
     }
 
 
