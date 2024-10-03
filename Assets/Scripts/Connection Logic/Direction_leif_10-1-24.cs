@@ -4,7 +4,6 @@ using UnityEngine;
 // created by Leif Larson
 // Last updated 3 Oct 2024
 
-
 // Contains Direction and DirectionOps
 namespace DirectionOps
 {

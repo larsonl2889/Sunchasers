@@ -1,6 +1,9 @@
 ﻿using System;
 using UnityEngine; // for debug logging only
 
+// Created by Leif Larson
+// Last updated 2 Oct 2024
+
 /// <summary>
 /// A generic 2d lookup table class
 /// <br></br>- Note: The array starts out full of a default_value. If unspecified, it's whatever default(<typeparamref name="T"/>) returns. This is usually either null or 0, depending on what <typeparamref name="T"/> is.
