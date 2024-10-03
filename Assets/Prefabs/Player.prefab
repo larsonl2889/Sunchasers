@@ -104,7 +104,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: ddeccfe981ab63546abb4fe9bf4e2e71, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -230,6 +230,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 99e51ea8-b2f6-4ff1-8527-17599671d443
     m_ActionName: Player/BuildMode[/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 502d147d-9d1b-4be6-a40a-4df7551e78e9
+    m_ActionName: Player/Interact[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

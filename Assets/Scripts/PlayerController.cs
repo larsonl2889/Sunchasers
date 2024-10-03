@@ -14,13 +14,14 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 direction;
     private Controls playerControls;
-
+    private SpriteRenderer SpriteRenderer;
     
 
     
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        SpriteRenderer = rb.GetComponent<SpriteRenderer>();
         playerControls = new Controls();
         
     }
@@ -49,6 +50,14 @@ public class PlayerController : MonoBehaviour
     public void onMove(InputAction.CallbackContext context)
     {
         direction = context.ReadValue<Vector2>();
+        if (direction.x > 0)
+        {
+            SpriteRenderer.flipX = true;
+        }
+        else if(direction.x < 0) {
+        
+            SpriteRenderer.flipX = false;
+        }
     }
     public void onJump(InputAction.CallbackContext context)
     {
