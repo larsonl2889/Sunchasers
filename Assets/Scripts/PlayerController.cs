@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
     {
         playerControls.Disable();
     }
+
     private void Start()
     {
         playerControls.Player.BuildMode.performed += toggleBuildMode;
