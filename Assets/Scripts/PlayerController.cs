@@ -8,7 +8,7 @@ using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class PlayerController : MonoBehaviour
 {
-
+   
     [SerializeField] float speed;
     [SerializeField] float jumpForce;
     private Rigidbody2D rb;
@@ -43,15 +43,16 @@ public class PlayerController : MonoBehaviour
         }
         direction = playerInput.Player.Move.ReadValue<Vector2>();
     }
+
     public void Jump()
     {
         if (IsGrounded() == true)
         {
-            rb.AddForce(new Vector2(rb.velocity.x, jumpForce), ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(rb.velocity.y, jumpForce), ForceMode2D.Impulse);
         }
     }
     public bool IsGrounded()
     {
-        return rb.velocity.y == 0;
+        return rb.velocity.y == -0.54;
     }
 }

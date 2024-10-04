@@ -1163,3 +1163,4 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
     }
 }
+
