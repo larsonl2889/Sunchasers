@@ -8,51 +8,82 @@ using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class PlayerController : MonoBehaviour
 {
-   
+    
     [SerializeField] float speed;
     [SerializeField] float jumpForce;
     private Rigidbody2D rb;
     private Vector2 direction;
-    private PlayerInput playerInput;
+    private Controls playerControls;
+    private SpriteRenderer SpriteRenderer;
+    
 
+    
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        playerInput = new PlayerInput();
-
+        SpriteRenderer = rb.GetComponent<SpriteRenderer>();
+        playerControls = new Controls();
+        
     }
     private void OnEnable()
     {
-        playerInput.Enable();
+        playerControls.Enable();
     }
     private void OnDisable()
     {
-        playerInput.Disable();
+        playerControls.Disable();
     }
 
-    private void Update()
+    private void Start()
     {
-        getInput();
+        playerControls.Player.BuildMode.performed += toggleBuildMode;
+        playerControls.Player.Interact.performed += interact;
+    }
+
+
+    private void FixedUpdate()
+    {
+        
         rb.velocity = new Vector2(direction.x * speed, rb.velocity.y);
+        
     }
-    public void getInput()
+    
+    public void onMove(InputAction.CallbackContext context)
     {
-        if (playerInput.Player.Jump.triggered)
+        direction = context.ReadValue<Vector2>();
+        if (direction.x > 0)
         {
-            Jump();
+            SpriteRenderer.flipX = true;
         }
-        direction = playerInput.Player.Move.ReadValue<Vector2>();
+        else if(direction.x < 0) {
+        
+            SpriteRenderer.flipX = false;
+        }
     }
-
-    public void Jump()
+    public void onJump(InputAction.CallbackContext context)
     {
         if (IsGrounded() == true)
         {
-            rb.AddForce(new Vector2(rb.velocity.y, jumpForce), ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(rb.velocity.x, jumpForce), ForceMode2D.Impulse);
+            
         }
     }
+    public void toggleBuildMode(InputAction.CallbackContext context)
+    {
+        Debug.Log("Build Mode");
+ 
+    }
+    public void interact(InputAction.CallbackContext context)
+    {
+        Debug.Log("interact");
+    }
+
+    
+    
     public bool IsGrounded()
     {
-        return rb.velocity.y == -0.54;
+        return rb.velocity.y == 0;
     }
 }
+    
+
