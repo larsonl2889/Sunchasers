@@ -1,4 +1,7 @@
 ﻿using System;
+using Unity.VisualScripting;
+
+#nullable enable
 
 namespace Testing
 {
@@ -18,8 +21,10 @@ namespace Testing
     class TestBattery
     {
         private int identicals, passes, fails;
-        private string name, abbr, record;
+        private string abbr;
+        private string record;
         private Verbosity verbose;
+
 
         /// <summary>
         /// Creates a test battery object.
@@ -29,23 +34,22 @@ namespace Testing
         /// <param name="verbose">Whether to store details of each tested value, or just the test result in the full report.</param>
         public TestBattery(string name, string? abbr, Verbosity? verbose)
         {
-            this.name = name;
             if (abbr == null)
             {
-                this.abbr = name.Substring(0, min(name.Length, 3))
+                this.abbr = name.Substring(0, Math.Min(name.Length, 3));
             }
             else
             {
                 this.abbr = abbr;
             }
-            this.record = "====[" + name + "]====\n";
+            this.record = "====[ " + name + " ]====\n";
             if (verbose == null)
             {
                 this.verbose = Verbosity.FAILS_ONLY;
             }
             else
             {
-                this.verbose = verbose;
+                this.verbose = (Verbosity) verbose;
             }
             identicals = 0;
             passes = 0;
@@ -56,7 +60,7 @@ namespace Testing
         /// Set when extra data should be displayed in the tests.
         /// </summary>
         /// <param name="newVerbose">the new verbose value.</param>
-        public void SetVerbose(bool newVerbose) 
+        public void SetVerbose(Verbosity newVerbose) 
         { 
             verbose = newVerbose; 
         }
@@ -81,17 +85,17 @@ namespace Testing
             if (experimental + delta >= expected && experimental - delta <= expected)
             {
                 passes++;
-                result = "[PASS] " + GetLabel() + "\n";
-                if (verbose == Verbosity.ALL) { result += GetComparisonText(); }
+                result = "[PASS] " + GetLabel(label) + "\n";
+                if (verbose == Verbosity.ALL) { result += GetComparisonText(expected, experimental); }
             }
             // test failure
             else
             {
                 fails++;
-                result = "[FAIL] " + GetLabel() + "\n";
-                if (verbose == Verbosity.FAILS_ONLY) { result += GetComparisonText(); }
+                result = "[FAIL] " + GetLabel(label) + "\n";
+                if (verbose == Verbosity.FAILS_ONLY) { result += GetComparisonText(expected, experimental); }
             }
-            report += result;
+            record += result;
             return result;
         }
 
@@ -115,24 +119,24 @@ namespace Testing
             if (object.ReferenceEquals(expected, experimental))
             {
                 identicals++;
-                result = "[IDEN] " + GetLabel() + "\n";
-                if (verbose == Verbosity.ALL) { result += GetComparisonText(); }
+                result = "[IDEN] " + GetLabel(label) + "\n";
+                if (verbose == Verbosity.ALL) { result += GetComparisonText(expected, experimental); }
             }
             // value equality
             else if (object.Equals(expected, experimental)) 
             {
                 passes++;
-                result = "[PASS] " + GetLabel() + "\n";
-                if (verbose == Verbosity.ALL) { result += GetComparisonText(); }
+                result = "[PASS] " + GetLabel(label) + "\n";
+                if (verbose == Verbosity.ALL) { result += GetComparisonText(expected, experimental); }
             }
             // test failure
             else
             {
                 fails++;
-                result = "[FAIL] " + GetLabel() + "\n";
-                if (verbose == Verbosity.FAILS_ONLY) { result += GetComparisonText(); }
+                result = "[FAIL] " + GetLabel(label) + "\n";
+                if (verbose == Verbosity.FAILS_ONLY) { result += GetComparisonText(expected, experimental); }
             }
-            report += result;
+            record += result;
             return result;
         }
 
@@ -165,15 +169,15 @@ namespace Testing
         }
 
 
-        private string GetLabel()
+        private string GetLabel(string label)
         {
-            return "(" + abbr + ") " + label
+            return "(" + abbr + ") " + label;
         }
 
-        private string GetComparisonText()
+        private string GetComparisonText(object? expected, object? experimental)
         {
-            string s = "-> " + object.GetType(expected) + " = " + expected.ToString() + "\n";
-            s += "-> " + object.GetType(experimental) + " = " + experimental.ToString() + "\n";
+            string s = "-> " + (expected!=null ? expected.GetType() : "null") + " = " + (expected!=null ? expected.ToString() : "null") + "\n";
+            s += "-> " + (experimental!=null ? experimental.GetType() : "null") + " = " + (experimental!=null ? experimental.ToString() : "null") + "\n";
             return s;
         }
     }

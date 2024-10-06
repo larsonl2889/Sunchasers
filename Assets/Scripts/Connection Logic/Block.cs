@@ -33,7 +33,7 @@ namespace Blocks
         /// Gets the cell I occupy in my parent part.
         /// </summary>
         /// <returns>My cell in my parent part.</returns>
-        public Cell GetPartCell() { return partCell(); }
+        public Cell GetPartCell() { return partCell; }
 
         /// <summary>
         /// Sets the cell I occupy in my parent part.
