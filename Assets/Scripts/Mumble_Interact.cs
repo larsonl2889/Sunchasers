@@ -18,6 +18,11 @@ public class NPC : MonoBehaviour
     void Start()
     {
         dialogueText.text = "";
+        if (dialoguePanel.activeInHierarchy)
+        {
+            RemoveText();
+        }
+
     }
 
     void Update()
@@ -33,11 +38,6 @@ public class NPC : MonoBehaviour
             {
                 NextLine();
             }
-        }
-
-        if (Input.GetKeyDown(KeyCode.Q) && dialoguePanel.activeInHierarchy)
-        {
-            RemoveText();
         }
     }
 
