@@ -146,6 +146,10 @@ public class LookupTable<T>
         }
     }
 
+    public void Put(Vector2 vec, T obj) { Put((int)vec.x, (int)vec.y, obj); }
+    public void Erase(Vector2 vec) { Erase((int)vec.x, (int)vec.y); }
+    public T Get(Vector2 vec) { return Get((int)vec.x, (int)vec.y); }
+
 }
 
 /// <summary>
