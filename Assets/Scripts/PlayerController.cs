@@ -16,8 +16,6 @@ public class PlayerController : MonoBehaviour
     private Controls playerControls;
     private SpriteRenderer SpriteRenderer;
     
-
-    
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -42,10 +40,8 @@ public class PlayerController : MonoBehaviour
 
 
     private void FixedUpdate()
-    {
-        
-        rb.velocity = new Vector2(direction.x * speed, rb.velocity.y);
-        
+    { 
+        rb.velocity = new Vector2(direction.x * speed, rb.velocity.y); 
     }
     
     public void onMove(InputAction.CallbackContext context)
@@ -65,21 +61,17 @@ public class PlayerController : MonoBehaviour
         if (IsGrounded() == true)
         {
             rb.AddForce(new Vector2(rb.velocity.x, jumpForce), ForceMode2D.Impulse);
-            
         }
     }
     public void toggleBuildMode(InputAction.CallbackContext context)
     {
         Debug.Log("Build Mode");
- 
     }
     public void interact(InputAction.CallbackContext context)
     {
         Debug.Log("interact");
     }
-
     
-
     public bool IsGrounded()
     {
         return rb.velocity.y == 0;
