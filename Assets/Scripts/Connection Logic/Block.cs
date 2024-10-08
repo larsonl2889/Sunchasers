@@ -46,16 +46,25 @@ namespace Blocks
         }
 
         /// <summary>
-        /// Gets the cell I occupy in my parent part.
+        /// Gets the cell I occupy in the world.
         /// </summary>
-        /// <returns>My cell in my parent part.</returns>
+        /// <returns>My cell in the world.</returns>
         public Cell GetCell() { return worldCell; }
 
+        /// <summary>
+        /// Sets the cell I occupy in the world.
+        /// <br></br>(This doesn't update the Cell.)
+        /// </summary>
+        /// <param name="newCell">The cell I will now occupy in the world.</param>
         public void SetCell(Cell newCell)
         {
             worldCell = newCell;
         }
 
+        /// <summary>
+        /// Whether the block believes itself to be in the world somewhere.
+        /// </summary>
+        /// <returns>Whether the block thinks its in a cell somewhere in the world.</returns>
         public bool IsInPlay()
         {
             return worldCell != null;
