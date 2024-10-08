@@ -4,8 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-
-
 public class NPC : MonoBehaviour
 {
     public GameObject dialoguePanel;
@@ -18,13 +16,14 @@ public class NPC : MonoBehaviour
     void Start()
     {
         dialogueText.text = "";
+        RemoveText(); // Removes the text from the dialogue box, just incase there is any
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && playerIsClose)
+        if (Input.GetKeyDown(KeyCode.E) && playerIsClose) // Only allows the dialogue to be activated if the player is close enough to the npc
         {
-            if (!dialoguePanel.activeInHierarchy)
+            if (!dialoguePanel.activeInHierarchy) // Enables the dialogue to appear on screen if it isn't already
             {
                 dialoguePanel.SetActive(true);
                 StartCoroutine(Typing());
@@ -34,20 +33,17 @@ public class NPC : MonoBehaviour
                 NextLine();
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.Q) && dialoguePanel.activeInHierarchy)
-        {
-            RemoveText();
-        }
+        
     }
 
-    public void RemoveText()
+    public void RemoveText() // Resets the text back to a default/empty state
     {
         dialogueText.text = "";
         index = 0;
         dialoguePanel.SetActive(false);
     }
-    IEnumerator Typing()
+
+    IEnumerator Typing() // Prints the the dialogue character by character from an array at the rate that 'wordSpeed' is set to
     {
         foreach (char letter in dialogue[index].ToCharArray())
         {
