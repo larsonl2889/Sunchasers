@@ -22,17 +22,17 @@ public class BuildAreaTest : MonoBehaviour
     {
         
     }
-
+    //Gives you manual control to place cells. (Good for setting up tests)
     public void placeCellManual(Cell cell, Vector2 pos)
     {
         table.Put(pos, cell);
     }
-
+    //Constructor override, size dictates the size of the lookup table
     public BuildAreaTest(int sizeX, int sizeY)
     {
         table = new LookupTable<Cell>(sizeX, sizeY, new Cell(new Vector2(0, 0)));
     }
-
+    //retrieves the cell at a specific location in the build area
     public Cell getCell(Vector2 pos)
     {
 
@@ -46,7 +46,7 @@ public class BuildAreaTest : MonoBehaviour
             return testCell;
         }
     }
-
+    //Merges the table passed as a parameter into the one calling the function. (You would pass the part as parameter)
     public void mergeTables(BuildAreaTest block, Vector2 startPosition)
     {
         int cellCount = 0;
