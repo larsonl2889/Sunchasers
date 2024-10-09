@@ -7,12 +7,10 @@ using Cells;
 using Blocks;
 
 // This test class written by Leif Larson
-// Last modified 10/8/2024.
+// Last modified 10/9/2024.
 // Previous result: Not run. Log result here.
 
-// Tests are not exhaustive. TODO finish writing tests! Completely cover BOTH:
-//  - blocks in parts (just the needed functionality)
-//  - blocks in the world (all functionality)
+// Tests are not exhaustive. TODO finish writing tests! Cover ALL functionality!
 
 public class TEST_Cell : MonoBehaviour
 {
@@ -59,22 +57,12 @@ public class TEST_Cell : MonoBehaviour
         part.Get(b1_ppos).SetBlock(b1);
 
         cpf.Test("Making a block, block matches", b1, part.Get(b1_ppos).GetBlock());
-        cpf.Test("Making a block, cell matches", b1.GetPartCell(), part.Get(b1_ppos));
-        cpf.Test("Block is not in play", false, b1.IsInPlay());
+        cpf.Test("Checking if cell is full: ", false, part.Get(b1_ppos).IsEmpty());
 
         // TODO test the blocks in parts exhaustively!
 
         Debug.Log(cpf.GetRecord());
         Debug.Log(cpf.GetSummary());
-
-        TestBattery cwf = new(
-            "Cell: world functionality",
-            "C:WF",
-            Verbosity.ALL
-            );
-
-        Debug.Log(cwf.GetRecord());
-        Debug.Log(cwf.GetSummary());
 
     }
 }

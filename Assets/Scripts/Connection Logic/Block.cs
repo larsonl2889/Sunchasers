@@ -11,64 +11,45 @@ namespace Blocks
     public class Block
     {
         /// <summary>
-        /// Which cell I occupy in my parent part.
+        /// Which cell I occupy in my parent part (if I'm in play) or in the world.
         /// </summary>
-        private Cell partCell;
-        /// <summary>
-        /// Which cell I occupy in a build area, if any.
-        /// <br></br>(Doesn't start with this value.)
-        /// </summary>
-        private Cell worldCell;
+        private Cell cell;
+
+        //private Part part;
         
         /// <summary>
         /// Block constructor. Requires the cell it will occupy in its parent part.
         /// </summary>
         /// <param name="partCell">My cell in my parent part.</param>
-        public Block(Cell partCell)
+        public Block(Cell cell)
         {
-            this.partCell = partCell;
+            this.cell = cell;
         }
 
         /// <summary>
-        /// Gets the cell I occupy in my parent part.
+        /// Gets the cell I occupy right now.
         /// </summary>
-        /// <returns>My cell in my parent part.</returns>
-        public Cell GetPartCell() { return partCell; }
+        /// <returns>My cell I occupy.</returns>
+        public Cell GetCell() { return cell; }
 
         /// <summary>
-        /// Sets the cell I occupy in my parent part.
+        /// Sets the cell I occupy.
         /// <br></br>(This doesn't update the Cell.)
         /// </summary>
-        /// <param name="newCell">The cell I will now occupy in my parent part.</param>
-        public void SetPartCell(Cell newCell) 
+        /// <param name="newCell">The cell I will now occupy.</param>
+        public void SetCell(Cell newCell) 
         { 
-            partCell = newCell; 
+            cell = newCell; 
         }
 
-        /// <summary>
-        /// Gets the cell I occupy in the world.
-        /// </summary>
-        /// <returns>My cell in the world.</returns>
-        public Cell GetCell() { return worldCell; }
-
-        /// <summary>
-        /// Sets the cell I occupy in the world.
-        /// <br></br>(This doesn't update the Cell.)
-        /// </summary>
-        /// <param name="newCell">The cell I will now occupy in the world.</param>
-        public void SetCell(Cell newCell)
-        {
-            worldCell = newCell;
-        }
-
-        /// <summary>
-        /// Whether the block believes itself to be in the world somewhere.
-        /// </summary>
-        /// <returns>Whether the block thinks its in a cell somewhere in the world.</returns>
-        public bool IsInPlay()
-        {
-            return worldCell != null;
-        }
+        ///// <summary>
+        ///// Whether the part believes itself to be in the world somewhere.
+        ///// </summary>
+        ///// <returns>Whether the block thinks its in a cell somewhere in the world.</returns>
+        //public bool IsInPlay()
+        //{
+        //    return part.IsInPlay();
+        //}
 
     }
 }

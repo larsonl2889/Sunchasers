@@ -32,7 +32,6 @@ namespace Cells
         public void SetBlock(Block block)
         {
             this.block = block;
-            block.SetCell(this);
         }
 
 
@@ -40,12 +39,6 @@ namespace Cells
             Block tmp = block;
             block = null;
             return tmp;
-        }
-
-        public Block GiveBlock(Cell reciever)
-        {
-            reciever.SetBlock(block);
-            return EvictBlock();
         }
 
     }

@@ -46,12 +46,13 @@ public class BuildAreaTest : MonoBehaviour
             return testCell;
         }
     }
+
     //Merges the table passed as a parameter into the one calling the function. (You would pass the part as parameter)
-    public void mergeTables(BuildAreaTest block, Vector2 startPosition)
+    public void mergeTables(BuildAreaTest part, Vector2 startPosition)
     {
         int cellCount = 0;
-        int boundsY = block.table.y_size;
-        int boundsX = block.table.x_size;
+        int boundsY = part.table.y_size;
+        int boundsX = part.table.x_size;
         int startX = (int)startPosition.x;
         int startY = (int)startPosition.y;
         Vector2[] positions = new Vector2[boundsX * boundsY];
@@ -61,7 +62,7 @@ public class BuildAreaTest : MonoBehaviour
         {
             for(int j = 0; j < boundsY; j++)
             {
-                Cell cellOne = block.table.Get(i, j);
+                Cell cellOne = part.table.Get(i, j);
                 if(cellOne != null)
                 {
                     Cell cellTwo = table.Get(i + startX, j + startY);
