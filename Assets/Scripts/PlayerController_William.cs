@@ -15,11 +15,12 @@ public class PlayerController_Willliam : MonoBehaviour
     private Vector2 direction;
     private Controls playerControls;
     private SpriteRenderer SpriteRenderer;
-    
+    private Animator animator;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         SpriteRenderer = rb.GetComponent<SpriteRenderer>();
+        animator = rb.GetComponent<Animator>();
         playerControls = new Controls();
         
     }
@@ -54,6 +55,14 @@ public class PlayerController_Willliam : MonoBehaviour
         else if(direction.x < 0) {
         
             SpriteRenderer.flipX = false;
+        }
+        if (direction.x != 0)
+        {
+            animator.SetBool("IsMoving", true);
+        }
+        else
+        {
+            animator.SetBool("IsMoving", false);
         }
     }
     public void onJump(InputAction.CallbackContext context)
