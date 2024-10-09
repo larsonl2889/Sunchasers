@@ -8,7 +8,7 @@ using Testing; // custom test battery
 
 // This test class written by Leif Larson
 // Last modified 10/9/2024.
-// Previous result: Block SUCCEEDED its tests on 10/8/2024.
+// Previous result: Block SUCCEEDED its tests on 10/9/2024.
 
 public class TEST_Block : MonoBehaviour
 {

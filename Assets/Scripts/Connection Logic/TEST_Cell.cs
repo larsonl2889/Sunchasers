@@ -8,7 +8,7 @@ using Blocks;
 
 // This test class written by Leif Larson
 // Last modified 10/9/2024.
-// Previous result: Not run. Log result here.
+// Previous result: All tests succeeded on 10/9/2024.
 
 // Tests are not exhaustive. TODO finish writing tests! Cover ALL functionality!
 
