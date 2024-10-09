@@ -19,6 +19,12 @@ namespace Cells
             this.pos = pos;
         }
 
+        public Cell(Block block, Vector2 pos)
+        {
+            this.block = block;
+            this.pos = pos;
+        }
+
         public bool IsEmpty()
         {
             return block == null;
