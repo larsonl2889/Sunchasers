@@ -1826,6 +1826,14 @@ PrefabInstance:
       propertyPath: m_ContactCaptureLayers.m_Bits
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5290972168275617312, guid: ed60e30f7eb2c974095aec65c67989ad, type: 3}
+      propertyPath: dialogueText
+      value: 
+      objectReference: {fileID: 189190705}
+    - target: {fileID: 5290972168275617312, guid: ed60e30f7eb2c974095aec65c67989ad, type: 3}
+      propertyPath: dialoguePanel
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6621712640447001526, guid: ed60e30f7eb2c974095aec65c67989ad, type: 3}
       propertyPath: m_Name
       value: Mumble
