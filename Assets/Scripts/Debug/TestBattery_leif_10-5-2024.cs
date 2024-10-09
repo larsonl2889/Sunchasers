@@ -1,10 +1,16 @@
 ﻿using System;
 using Unity.VisualScripting;
 
+// Testing system for making sure data-based stuff has good functionality.
+
+// Created by Leif Larson
+// Last updated 8 Oct 2024
+
 #nullable enable
 
 namespace Testing
 {
+
     enum Verbosity
     {
         NONE=0, FAILS_ONLY=1, ALL=2
@@ -24,7 +30,6 @@ namespace Testing
         private string abbr;
         private string record;
         private Verbosity verbose;
-
 
         /// <summary>
         /// Creates a test battery object.
@@ -114,9 +119,35 @@ namespace Testing
         /// <returns>returns a string representation of the test.</returns>
         public string Test(string label, object? expected, object? experimental)
         {
+            return Test(label, expected, experimental, true);
+        }
+
+        /// <summary>
+        /// Saves a test that compares an <paramref name="expected"/> and <paramref name="experimental"/> value. The test result is tallied and saved.
+        /// <br></br>Notice: For floats, use TestFloat() instead.
+        /// 
+        /// <br></br><b>Result Types:</b>
+        /// <br></br><b>Identicals:</b> The expected/experimental parameters share the same reference. (This only works for reference types.)
+        /// <br></br><b>Passes:</b> The expected/experimental parameters match.
+        /// <br></br><b>Fails:</b> The expected/experimental parameters do *not* match.
+        /// </summary>
+        /// <param name="label">The label for the test.</param>
+        /// <param name="expected">The expected value.</param>
+        /// <param name="experimental">The value being tested.</param>
+        /// <param name="allowedToBeIdentical">Whether the expected and experimental are allowed to point to the same reference.</param>
+        /// <returns>returns a string representation of the test.</returns>
+        public string Test(string label, object? expected, object? experimental, bool allowedToBeIdentical)
+        {
             string result;
+            // disallowed identical reference
+            if (object.ReferenceEquals(expected, experimental) && !allowedToBeIdentical)
+            {
+                fails++;
+                result = "[IDEN = FAIL] " + GetLabel(label) + "\n";
+                if (verbose == Verbosity.FAILS_ONLY) { result += GetComparisonText(expected, experimental); }
+            }
             // identical reference
-            if (object.ReferenceEquals(expected, experimental))
+            if (object.ReferenceEquals(expected, experimental) && allowedToBeIdentical)
             {
                 identicals++;
                 result = "[IDEN] " + GetLabel(label) + "\n";
