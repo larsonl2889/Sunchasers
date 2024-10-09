@@ -18,17 +18,15 @@ public class Collectible : MonoBehaviour
     {
         transform.Rotate(1, rotationSpeed, 0);
         transform.Rotate(-1, rotationSpeed, 0);
+
+        
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
-        if (other.CompareTag("Player"))
+        if (other.gameObject.name == "Pellet")
         {
-            //Destroy the collectable
-            Destroy(gameObject);
-
-            // Instantiate the particle effect
-            Instantiate(onCollectionEffect, transform.position, transform.rotation);
+            Destroy(other.gameObject);
         }
 
     }
