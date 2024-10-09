@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
-
-
 public class NPC : MonoBehaviour
 {
     public GameObject dialoguePanel;
@@ -73,7 +70,6 @@ public class NPC : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
-
         {
             playerIsClose = true;
         }
