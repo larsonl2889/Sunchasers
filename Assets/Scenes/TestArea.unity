@@ -2410,6 +2410,30 @@ PrefabInstance:
       propertyPath: dialoguePanel
       value: 
       objectReference: {fileID: 582560590}
+    - target: {fileID: 923866875921320346, guid: ed60e30f7eb2c974095aec65c67989ad, type: 3}
+      propertyPath: dialogue.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 923866875921320346, guid: ed60e30f7eb2c974095aec65c67989ad, type: 3}
+      propertyPath: dialogue.Array.data[0]
+      value: According to all known laws of aviation,
+      objectReference: {fileID: 0}
+    - target: {fileID: 923866875921320346, guid: ed60e30f7eb2c974095aec65c67989ad, type: 3}
+      propertyPath: dialogue.Array.data[1]
+      value: there is no way a bee should be able to fly.
+      objectReference: {fileID: 0}
+    - target: {fileID: 923866875921320346, guid: ed60e30f7eb2c974095aec65c67989ad, type: 3}
+      propertyPath: dialogue.Array.data[2]
+      value: Its wings are too small to get its fat little body off the ground.
+      objectReference: {fileID: 0}
+    - target: {fileID: 923866875921320346, guid: ed60e30f7eb2c974095aec65c67989ad, type: 3}
+      propertyPath: dialogue.Array.data[3]
+      value: The bee, of course, flies anyway,
+      objectReference: {fileID: 0}
+    - target: {fileID: 923866875921320346, guid: ed60e30f7eb2c974095aec65c67989ad, type: 3}
+      propertyPath: dialogue.Array.data[4]
+      value: because bees don't care what humans think is impossible.
+      objectReference: {fileID: 0}
     - target: {fileID: 2407868011373599562, guid: ed60e30f7eb2c974095aec65c67989ad, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.514
