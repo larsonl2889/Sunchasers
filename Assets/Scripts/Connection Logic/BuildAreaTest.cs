@@ -4,24 +4,14 @@ using Cells;
 using Blocks;
 using UnityEngine;
 using System.Data;
+using UnityEditor.U2D.Aseprite;
 
-public class BuildAreaTest : MonoBehaviour
+public class BuildAreaTest
 {
-    private LookupTable<Cell> table;
+    public LookupTable<Cell> table;
     public float scale = 1.0f;
     private bool isLegal = true;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     //Gives you manual control to place cells. (Good for setting up tests)
     public void placeCellManual(Cell cell, Vector2 pos)
     {
@@ -33,57 +23,72 @@ public class BuildAreaTest : MonoBehaviour
         table = new LookupTable<Cell>(sizeX, sizeY, new Cell(new Vector2(0, 0)));
     }
     //retrieves the cell at a specific location in the build area
-    public Cell getCell(Vector2 pos)
+    public Cell GetCell(Vector2 pos)
     {
 
         Cell testCell = table.Get(pos);
         if (testCell == null)
         {
-            Debug.Log("Coordinatesd not in table");
+            Debug.Log("Coordinates not in table");
             return null;
         }else
         {
             return testCell;
         }
     }
+<<<<<<< Updated upstream
 
     //Merges the table passed as a parameter into the one calling the function. (You would pass the part as parameter)
     public void mergeTables(BuildAreaTest part, Vector2 startPosition)
     {
         int cellCount = 0;
+=======
+    //Checks if the part is able to be placed in that location
+    public bool CanMerge(BuildAreaTest part, Vector2 startPosition)
+    {
+>>>>>>> Stashed changes
         int boundsY = part.table.y_size;
         int boundsX = part.table.x_size;
         int startX = (int)startPosition.x;
         int startY = (int)startPosition.y;
-        Vector2[] positions = new Vector2[boundsX * boundsY];
-        Cell[] cells = new Cell[boundsX * boundsY];
 
-        for(int i = 0; i < boundsX; i++)
+        for (int i = 0; i < boundsX; i++)
         {
-            for(int j = 0; j < boundsY; j++)
+            for (int j = 0; j < boundsY; j++)
             {
                 Cell cellOne = part.table.Get(i, j);
+<<<<<<< Updated upstream
                 if(cellOne != null)
+=======
+                if (!cellOne.IsEmpty())
+>>>>>>> Stashed changes
                 {
                     Cell cellTwo = table.Get(i + startX, j + startY);
-                    if(cellTwo != null && cellTwo.IsEmpty())
+                    if (cellTwo != null && !cellTwo.IsEmpty())
                     {
-                        cells[cellCount] = cellOne;
-                        cellCount++;
-
-                        positions[cellCount] = new Vector2(i + startX, j + startY);
-                    }else
-                    {
-                        isLegal = false;
-                        Debug.Log("Can't Put that There. X = " + (i + startX) + " Y = " + (j + startY));
-                        return;
+                        return false;
                     }
                 }
             }
         }
-        for(int i = 0; i < cellCount; i++)
+        return true;
+    }
+
+    //Merges the table passed as a parameter into the one calling the function. (You would pass the part as parameter)
+    public void MergeTables(BuildAreaTest part, Vector2 startPosition)
+    {
+        if(CanMerge(part, startPosition))
         {
-            table.Put(positions[i], cells[i]);
+            for(int i = 0; i < part.table.x_size; i++)
+            {
+                for(int j = 0; j < part.table.y_size; j++)
+                {
+                    if(!part.table.Get(i, j).IsEmpty())
+                    {
+                        table.Put((int)startPosition.x + i, (int)startPosition.y + j, part.table.Get(i, j));
+                    }
+                }
+            }
         }
     }
 }
