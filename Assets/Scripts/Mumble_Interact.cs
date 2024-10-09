@@ -10,16 +10,12 @@ public class NPC : MonoBehaviour
     public string[] dialogue;
     private int index = 0;
     public float wordSpeed;
-    public bool playerIsClose;
+    private bool playerIsClose;
 
     void Start()
     {
         dialogueText.text = "";
-        if (dialoguePanel.activeInHierarchy)
-        {
-            RemoveText();
-        }
-
+        RemoveText();
     }
 
     void Update()
