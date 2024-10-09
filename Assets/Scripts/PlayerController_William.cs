@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEditor.Timeline.TimelinePlaybackControls;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController_Willliam : MonoBehaviour
 {
     
     [SerializeField] float speed;
@@ -69,8 +69,11 @@ public class PlayerController : MonoBehaviour
     }
     public void interact(InputAction.CallbackContext context)
     {
-        Debug.Log("interact");
+        // TODO Invoke interactable events from player
+        
+        
     }
+    
     
     public bool IsGrounded()
     {

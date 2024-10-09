@@ -14,17 +14,24 @@ public class NPC : MonoBehaviour
     private int index = 0;
     public float wordSpeed;
     public bool playerIsClose;
-
-    void Start()
+    public GameObject player;
+    private void Awake()
     {
         dialogueText.text = "";
+        RemoveText();
+        
+    }
+    void Start()
+    {
+     
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && playerIsClose)
+        /*
+        if (Input.GetKeyDown(KeyCode.E) && playerIsClose) // Only allows the dialogue to be activated if the player is close enough to the npc
         {
-            if (!dialoguePanel.activeInHierarchy)
+            if (!dialoguePanel.activeInHierarchy) // Enables the dialogue to appear on screen if it isn't already
             {
                 dialoguePanel.SetActive(true);
                 StartCoroutine(Typing());
@@ -34,11 +41,22 @@ public class NPC : MonoBehaviour
                 NextLine();
             }
         }
+        */
 
-        if (Input.GetKeyDown(KeyCode.Q) && dialoguePanel.activeInHierarchy)
-        {
-            RemoveText();
-        }
+    }
+    public void Talk()
+    {
+        
+            if (!dialoguePanel.activeInHierarchy) // Enables the dialogue to appear on screen if it isn't already
+            {
+                dialoguePanel.SetActive(true);
+                StartCoroutine(Typing());
+            }
+            else if (dialogueText.text == dialogue[index])
+            {
+                NextLine();
+            }
+        
     }
 
     public void RemoveText()
