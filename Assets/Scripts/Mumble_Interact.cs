@@ -7,7 +7,6 @@ public class NPC : MonoBehaviour
 // Known Issues:
 // When first interacting with an NPC, all the dialogues for every NPC appears on screen
 // When the player walks in and out of the NPC interaction area and spams E, some text from the previous interaction carries over
-//
 {
     public GameObject dialoguePanel; // This is used to set the "Dialogue Box"
     public TextMeshProUGUI dialogueText; // This is used to set the "Dialogue Text"
