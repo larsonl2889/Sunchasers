@@ -8,7 +8,7 @@ using UnityEditor.U2D.Aseprite;
 
 public class BuildAreaTest
 {
-    public LookupTable<Cell> table;
+    internal LookupTable<Cell> table;
     public float scale = 1.0f;
     private bool isLegal = true;
 
@@ -36,17 +36,9 @@ public class BuildAreaTest
             return testCell;
         }
     }
-<<<<<<< Updated upstream
-
-    //Merges the table passed as a parameter into the one calling the function. (You would pass the part as parameter)
-    public void mergeTables(BuildAreaTest part, Vector2 startPosition)
-    {
-        int cellCount = 0;
-=======
     //Checks if the part is able to be placed in that location
     public bool CanMerge(BuildAreaTest part, Vector2 startPosition)
     {
->>>>>>> Stashed changes
         int boundsY = part.table.y_size;
         int boundsX = part.table.x_size;
         int startX = (int)startPosition.x;
@@ -57,11 +49,7 @@ public class BuildAreaTest
             for (int j = 0; j < boundsY; j++)
             {
                 Cell cellOne = part.table.Get(i, j);
-<<<<<<< Updated upstream
-                if(cellOne != null)
-=======
                 if (!cellOne.IsEmpty())
->>>>>>> Stashed changes
                 {
                     Cell cellTwo = table.Get(i + startX, j + startY);
                     if (cellTwo != null && !cellTwo.IsEmpty())
