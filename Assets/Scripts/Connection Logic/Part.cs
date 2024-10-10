@@ -3,7 +3,7 @@ using Blocks;
 using Cells;
 using UnityEngine;
 
-namespace Part
+namespace Parts
 {
     public class Part
     {
