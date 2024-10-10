@@ -151,6 +151,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
+
                 {
                     ""name"": """",
                     ""id"": ""4cacf0a0-92bd-42ef-83c0-65bf1db1e6b8"",
