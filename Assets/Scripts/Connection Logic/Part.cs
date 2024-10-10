@@ -64,15 +64,21 @@ namespace Parts
         /// </summary>
         public void Extract()
         {
+            if (!IsInPlay())
+            {
+                // Do nothing if the part is already out-of-play.
+                return;
+            }
             for (int i_x = 0; i_x < table.x_size; i_x++)
             {
                 for (int i_y = 0; i_y < table.y_size; i_y++)
                 {
                     if (!table.Get(i_x, i_y).IsEmpty()) {
+                        // get each block
                         Block tmp = table.Get(i_x, i_y).GetBlock();
-                        // remove from the build area
+                        // remove it from the build area
                         tmp.GetCell().EvictBlock();
-                        // return to the part
+                        // and hook it back up to the part
                         tmp.SetCell(table.Get(i_x, i_y));
                     }
                 }
