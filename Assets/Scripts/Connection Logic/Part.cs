@@ -55,12 +55,29 @@ namespace Parts
             // TODO set each of the subject world cells to reference my blocks.
         }
 
+        // So long as the cells in the part keep the references to the block,
+        // we don't really have to consult the build area to extract the part.
+        // Pretty fancy. You know, if it works.
+        // TODO TEST!
+        /// <summary>
+        /// Pulls the part out of play.
+        /// </summary>
         public void Extract()
         {
-            posInWorld = null; // pulls the part out of play
-            // TODO not implemented!
-            // TODO set each of the subject world cells to empty themselves.
-            // TODO set each of my Blocks to reference my own cells.
+            for (int i_x = 0; i_x < table.x_size; i_x++)
+            {
+                for (int i_y = 0; i_y < table.y_size; i_y++)
+                {
+                    if (!table.Get(i_x, i_y).IsEmpty()) {
+                        Block tmp = table.Get(i_x, i_y).GetBlock();
+                        // remove from the build area
+                        tmp.GetCell().EvictBlock();
+                        // return to the part
+                        tmp.SetCell(table.Get(i_x, i_y));
+                    }
+                }
+            }
+            posInWorld = null;
         }
 
     }
