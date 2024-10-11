@@ -17,7 +17,7 @@ public class PlayerController_Willliam : MonoBehaviour
     private SpriteRenderer SpriteRenderer;
     private Animator animator;
     private PlayerPlatformHandler playerPlatformHandler;
-    public bool isNearObject;
+    
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
