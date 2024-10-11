@@ -26,8 +26,8 @@ namespace Testing
     /// </summary>
     class TestBattery
     {
-        private int identicals, passes, fails;
-        private string abbr;
+        internal int identicals, passes, fails;
+        private string name, abbr;
         private string record;
         private Verbosity verbose;
 
@@ -39,6 +39,7 @@ namespace Testing
         /// <param name="verbose">Whether to store details of each tested value, or just the test result in the full report.</param>
         public TestBattery(string name, string? abbr, Verbosity? verbose)
         {
+            this.name = name;
             if (abbr == null)
             {
                 this.abbr = name.Substring(0, Math.Min(name.Length, 3));
@@ -60,6 +61,8 @@ namespace Testing
             passes = 0;
             fails = 0;
         }
+
+        public string GetName() { return name; }
 
         /// <summary>
         /// Set when extra data should be displayed in the tests.
