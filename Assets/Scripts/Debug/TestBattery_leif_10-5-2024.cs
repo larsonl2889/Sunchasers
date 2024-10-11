@@ -37,7 +37,7 @@ namespace Testing
         /// <param name="name">The title of the test battery given at the top of <see cref="GetRecord"/>.</param>
         /// <param name="abbr">The abbreviation of the name. Keep it very short.</param>
         /// <param name="verbose">Whether to store details of each tested value, or just the test result in the full report.</param>
-        public TestBattery(string name, string? abbr, Verbosity? verbose)
+        public TestBattery(string name, string? abbr, Verbosity? verbose=Verbosity.FAILS_ONLY)
         {
             this.name = name;
             if (abbr == null)
@@ -147,7 +147,7 @@ namespace Testing
             {
                 fails++;
                 result = "[IDEN = FAIL] " + GetLabel(label) + "\n";
-                if (verbose == Verbosity.FAILS_ONLY) { result += GetComparisonText(expected, experimental); }
+                if (verbose == Verbosity.FAILS_ONLY || verbose == Verbosity.ALL) { result += GetComparisonText(expected, experimental); }
             }
             // identical reference
             if (object.ReferenceEquals(expected, experimental) && allowedToBeIdentical)
@@ -168,7 +168,7 @@ namespace Testing
             {
                 fails++;
                 result = "[FAIL] " + GetLabel(label) + "\n";
-                if (verbose == Verbosity.FAILS_ONLY) { result += GetComparisonText(expected, experimental); }
+                if (verbose == Verbosity.FAILS_ONLY || verbose == Verbosity.ALL) { result += GetComparisonText(expected, experimental); }
             }
             record += result;
             return result;
@@ -201,7 +201,6 @@ namespace Testing
             summary += "Fails: " + fails + "\n";
             return summary;
         }
-
 
         private string GetLabel(string label)
         {
