@@ -9,7 +9,7 @@ using Connectors;
 namespace Pipes
 {
 
-    public class Pipe : Block
+/*    public class Pipe : Block
     {
         private SteamState steamState;
         private Connector pipeConnector;
@@ -19,6 +19,6 @@ namespace Pipes
         {
             // TODO implement!
         }
-    }
+    }*/
 }
 
