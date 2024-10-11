@@ -4,6 +4,8 @@ using UnityEngine; // for debug logging only
 // Created by Leif Larson
 // Last updated 2 Oct 2024
 
+// TODO the default_value is the SAME REFERENCE FOR ALL CELLS THIS IS BAAAAD!!
+
 /// <summary>
 /// A generic 2d lookup table class
 /// <br></br>- Note: The array starts out full of a default_value. If unspecified, it's whatever default(<typeparamref name="T"/>) returns. This is usually either null or 0, depending on what <typeparamref name="T"/> is.
@@ -11,6 +13,8 @@ using UnityEngine; // for debug logging only
 /// <typeparam name="T">The type stored in the table.</typeparam>
 public class LookupTable<T>
 {
+    // TODO the default_value is the SAME REFERENCE FOR ALL CELLS THIS IS BAAAAD!!
+
     internal int y_size;
     internal int x_size;
     internal T[,] grid;
