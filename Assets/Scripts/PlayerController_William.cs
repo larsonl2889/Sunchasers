@@ -38,7 +38,7 @@ public class PlayerController_Willliam : MonoBehaviour
 
     private void Start()
     {
-        playerControls.Player.BuildMode.performed += toggleBuildMode;
+        
         playerControls.Player.Interact.performed += interact;
         playerControls.Player.Down.performed += GoDownPlatform;
     }
@@ -81,10 +81,7 @@ public class PlayerController_Willliam : MonoBehaviour
             rb.AddForce(new Vector2(rb.velocity.x, jumpForce), ForceMode2D.Impulse);
         }
     }
-    public void toggleBuildMode(InputAction.CallbackContext context)
-    {
-        Debug.Log("Build Mode");
-    }
+   
     public void interact(InputAction.CallbackContext context)
     {
         // TODO Invoke interactable events from player
