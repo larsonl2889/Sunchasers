@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEditor.Timeline.TimelinePlaybackControls;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController_Willliam : MonoBehaviour
 {
     
     [SerializeField] float speed;
@@ -15,12 +15,16 @@ public class PlayerController : MonoBehaviour
     private Vector2 direction;
     private Controls playerControls;
     private SpriteRenderer SpriteRenderer;
+    private Animator animator;
+    private PlayerPlatformHandler playerPlatformHandler;
     
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         SpriteRenderer = rb.GetComponent<SpriteRenderer>();
+        animator = rb.GetComponent<Animator>();
         playerControls = new Controls();
+        playerPlatformHandler = GetComponent<PlayerPlatformHandler>();
         
     }
     private void OnEnable()
@@ -36,12 +40,14 @@ public class PlayerController : MonoBehaviour
     {
         playerControls.Player.BuildMode.performed += toggleBuildMode;
         playerControls.Player.Interact.performed += interact;
+        playerControls.Player.Down.performed += GoDownPlatform;
     }
 
 
     private void FixedUpdate()
     { 
-        rb.velocity = new Vector2(direction.x * speed, rb.velocity.y); 
+        rb.velocity = new Vector2(direction.x * speed, rb.velocity.y);
+        animate();
     }
     
     public void onMove(InputAction.CallbackContext context)
@@ -54,6 +60,18 @@ public class PlayerController : MonoBehaviour
         else if(direction.x < 0) {
         
             SpriteRenderer.flipX = false;
+        }
+        
+    }
+    public void animate()
+    {
+        if (direction.x != 0)
+        {
+            animator.SetBool("IsMoving", true);
+        }
+        else
+        {
+            animator.SetBool("IsMoving", false);
         }
     }
     public void onJump(InputAction.CallbackContext context)
@@ -69,12 +87,24 @@ public class PlayerController : MonoBehaviour
     }
     public void interact(InputAction.CallbackContext context)
     {
-        Debug.Log("interact");
+        // TODO Invoke interactable events from player
+        
+        
     }
+    
     
     public bool IsGrounded()
     {
         return rb.velocity.y == 0;
+    }
+
+    public void GoDownPlatform(InputAction.CallbackContext context)
+    {
+        if(IsGrounded() == true)
+        {
+            playerPlatformHandler.GoDownPlatform();
+        }
+        
     }
 }
     
