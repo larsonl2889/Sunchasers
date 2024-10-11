@@ -94,7 +94,7 @@ namespace Testing
             {
                 passes++;
                 result = "[PASS] " + GetLabel(label) + "\n";
-                if (verbose == Verbosity.ALL) { result += GetComparisonText(expected, experimental); }
+                if (verbose == Verbosity.ALL) { result += GetComparisonText(expected, experimental, "  | "); }
             }
             // test failure
             else
@@ -154,14 +154,14 @@ namespace Testing
             {
                 identicals++;
                 result = "[IDEN] " + GetLabel(label) + "\n";
-                if (verbose == Verbosity.ALL) { result += GetComparisonText(expected, experimental, "i| "); }
+                if (verbose == Verbosity.ALL) { result += GetComparisonText(expected, experimental, " i| "); }
             }
             // value equality
             else if (object.Equals(expected, experimental)) 
             {
                 passes++;
                 result = "[PASS] " + GetLabel(label) + "\n";
-                if (verbose == Verbosity.ALL) { result += GetComparisonText(expected, experimental, " | "); }
+                if (verbose == Verbosity.ALL) { result += GetComparisonText(expected, experimental, "  | "); }
             }
             // test failure
             else
@@ -207,7 +207,7 @@ namespace Testing
             return "(" + abbr + ") " + label;
         }
 
-        private string GetComparisonText(object? expected, object? experimental, string indenter="-> ")
+        private string GetComparisonText(object? expected, object? experimental, string indenter=" -> ")
         {
             string s = indenter + (expected!=null ? expected.GetType() : "null") + " = " + (expected!=null ? expected.ToString() : "null") + "\n";
             s += indenter + (experimental!=null ? experimental.GetType() : "null") + " = " + (experimental!=null ? experimental.ToString() : "null") + "\n";
