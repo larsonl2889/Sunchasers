@@ -1,8 +1,8 @@
 ﻿using System;
 using UnityEngine;
 
-// created by Leif Larson
-// Last updated 3 Oct 2024
+// Contributors: Leif Larson
+// Last updated 10 Oct 2024
 
 // Contains Direction and DirectionOps
 namespace DirectionOps
@@ -44,6 +44,9 @@ namespace DirectionOps
         /// <returns>the Direction</returns>
         public static Direction ToDirection(this int id)
         {
+            // because the modulo operator does not work as expected for negative
+            // numbers, this loop adds 4's until the number is non-negative.
+            while (id < 0) { id += 4; }
             id %= 4;
             return id switch
             {

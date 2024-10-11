@@ -4,6 +4,12 @@ using TMPro;
 using UnityEngine;
 using DirectionOps;
 using Testing;
+using Unity.VisualScripting;
+
+// Contributors: Leif Larson
+// Last updated 10/10/2024
+// Previous result: Passed all tests on 10/10/2024
+
 
 public class TEST_Direction : MonoBehaviour
 {
@@ -33,7 +39,7 @@ public class TEST_Direction : MonoBehaviour
 
         // DO THE TESTS
 
-        // STABLE CONVERSIONS
+        // SIMPLE CONVERSIONS
         FrIntTs.Test("up", Direction.UP, (-8).ToDirection());
         FrIntTs.Test("left", Direction.LEFT, (-7).ToDirection());
         FrIntTs.Test("down", Direction.DOWN, (-6).ToDirection());
@@ -64,9 +70,9 @@ public class TEST_Direction : MonoBehaviour
 
         float DELTA = 0.0000001f;
         ToAngTs.TestDelta("up", 0.0f, Direction.UP.ToAngle(), DELTA);
-        ToAngTs.TestDelta("left", 270.0f, Direction.LEFT.ToAngle(), DELTA);
+        ToAngTs.TestDelta("left", 90.0f, Direction.LEFT.ToAngle(), DELTA);
         ToAngTs.TestDelta("down", 180.0f, Direction.DOWN.ToAngle(), DELTA);
-        ToAngTs.TestDelta("right", 90.0f, Direction.RIGHT.ToAngle(), DELTA);
+        ToAngTs.TestDelta("right", 270.0f, Direction.RIGHT.ToAngle(), DELTA);
 
         ToVecTs.Test("up", Vector2.up, Direction.UP.ToVector());
         ToVecTs.Test("left", Vector2.left, Direction.LEFT.ToVector());
@@ -103,9 +109,12 @@ public class TEST_Direction : MonoBehaviour
         foreach (TestBattery tb in allBatteries)
         {
             fullSummary += tb.GetSummary();
+            if (tb.fails > 0)
+            {
+                Debug.LogError(tb.GetRecord());
+            }
         }
         Debug.Log(fullSummary);
-    
     }
 
     
