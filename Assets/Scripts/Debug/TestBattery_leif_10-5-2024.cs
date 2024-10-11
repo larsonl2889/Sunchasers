@@ -193,12 +193,14 @@ namespace Testing
         /// <returns>the test summary.</returns>
         public string GetSummary()
         {
-            string summary = string.Empty;
+            string summary = GetName() + "\n";
             if (identicals > 0) {
-                summary += "Identicals: " + identicals + "\n";
+                summary += "  Identicals: " + identicals + "\n";
             }
-            summary += "Passes: " + passes + "\n";
-            summary += "Fails: " + fails + "\n";
+            summary += "      Passes: " + passes + "\n";
+            summary += "       Fails: " + fails + 
+                // emphasize any failed tests
+                (fails > 0 ? " <-" : "") + "\n";
             return summary;
         }
 
