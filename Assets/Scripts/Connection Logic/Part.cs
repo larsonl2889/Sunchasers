@@ -83,6 +83,7 @@ namespace Parts
                     }
                 }
             }
+            // pull the part out of play
             posInWorld = null;
         }
 
