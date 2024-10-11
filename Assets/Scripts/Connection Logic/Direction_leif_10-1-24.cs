@@ -81,10 +81,10 @@ namespace DirectionOps
             return dir switch
             {
                 Direction.UP => 0.0f,
-                Direction.LEFT => 270.0f,
+                Direction.LEFT => 90.0f,
                 Direction.DOWN => 180.0f,
                 // RIGHT
-                _ => 90.0f,
+                _ => 270.0f,
             };
         }
 
