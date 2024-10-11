@@ -46,7 +46,8 @@ public class PlayerController_Willliam : MonoBehaviour
 
     private void FixedUpdate()
     { 
-        rb.velocity = new Vector2(direction.x * speed, rb.velocity.y); 
+        rb.velocity = new Vector2(direction.x * speed, rb.velocity.y);
+        animate();
     }
     
     public void onMove(InputAction.CallbackContext context)
@@ -60,6 +61,10 @@ public class PlayerController_Willliam : MonoBehaviour
         
             SpriteRenderer.flipX = false;
         }
+        
+    }
+    public void animate()
+    {
         if (direction.x != 0)
         {
             animator.SetBool("IsMoving", true);
