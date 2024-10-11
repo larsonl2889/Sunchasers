@@ -16,12 +16,15 @@ public class PlayerController_Willliam : MonoBehaviour
     private Controls playerControls;
     private SpriteRenderer SpriteRenderer;
     private Animator animator;
+    private PlayerPlatformHandler playerPlatformHandler;
+    public bool isNearObject;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         SpriteRenderer = rb.GetComponent<SpriteRenderer>();
         animator = rb.GetComponent<Animator>();
         playerControls = new Controls();
+        playerPlatformHandler = GetComponent<PlayerPlatformHandler>();
         
     }
     private void OnEnable()
@@ -37,6 +40,7 @@ public class PlayerController_Willliam : MonoBehaviour
     {
         playerControls.Player.BuildMode.performed += toggleBuildMode;
         playerControls.Player.Interact.performed += interact;
+        playerControls.Player.Down.performed += GoDownPlatform;
     }
 
 
@@ -87,6 +91,15 @@ public class PlayerController_Willliam : MonoBehaviour
     public bool IsGrounded()
     {
         return rb.velocity.y == 0;
+    }
+
+    public void GoDownPlatform(InputAction.CallbackContext context)
+    {
+        if(IsGrounded() == true)
+        {
+            playerPlatformHandler.GoDownPlatform();
+        }
+        
     }
 }
     

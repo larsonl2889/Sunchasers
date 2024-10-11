@@ -7,6 +7,7 @@ TagManager:
   - Object
   - NPC
   - World
+  - OneWayPlatform
   layers:
   - Default
   - TransparentFX

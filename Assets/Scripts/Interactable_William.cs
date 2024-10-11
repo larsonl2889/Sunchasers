@@ -22,8 +22,9 @@ public class Interactable_William : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
+            
             isInRange = true;
             OnEnter.Invoke();
             
@@ -31,7 +32,7 @@ public class Interactable_William : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
             isInRange = false;
             OnExit.Invoke();
