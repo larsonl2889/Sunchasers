@@ -1,6 +1,7 @@
 ﻿using System;
 using Blocks;
 using Cells;
+using DirectionOps;
 using UnityEngine;
 
 namespace Parts
@@ -86,6 +87,8 @@ namespace Parts
             // pull the part out of play
             posInWorld = null;
         }
+
+        
 
     }
 }
