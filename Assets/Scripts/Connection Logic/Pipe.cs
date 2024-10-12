@@ -30,6 +30,12 @@ namespace Pipes
         /// <returns>the pipe connector</returns>
         public Connector GetPipeConnector() { return pipeConnector; }
 
+        /// <summary>
+        /// Returns a string representation of the pipe. e.g.,
+        /// <br></br>"Pipe{uld}, @(1,3)"
+        /// <br></br>Would represent a pipe with connectors for UP, LEFT, DOWN, but not RIGHT, and is located in a cell at position (1,3) in its lookup table.
+        /// </summary>
+        /// <returns>Returns a string representation of the pipe.</returns>
         public override string ToString()
         {
             string s = "Pipe" + pipeConnector.ToString();

@@ -49,9 +49,15 @@ namespace Cells
             return tmp;
         }
 
+        /// <summary>
+        /// Returns a string representation of the cell.
+        /// <br></br>"Cell @(0, 0) w/ Block @(1, 3)"
+        /// <br></br>Represents a Cell at position (0, 0) in its own lookup table, storing a block that is connected to some other cell at position (1, 3) in its lookup table.
+        /// </summary>
+        /// <returns>a string representation of the cell</returns>
         public override string ToString()
         {
-            string s = "Cell @ (" + pos.x + ", " + pos.y + ")";
+            string s = "Cell @(" + pos.x + ", " + pos.y + ")";
             if (block != null)
             {
                 s += " w/ " + block.ToString();

@@ -42,6 +42,12 @@ namespace Blocks
             cell = newCell; 
         }
 
+        /// <summary>
+        /// Returns a string representation of the block. e.g.,
+        /// <br></br>"Block @(1,3)"
+        /// <br></br>Represents a block in a Cell located at (1,3)
+        /// </summary>
+        /// <returns>Returns a string representation of the block.</returns>
         public override string ToString()
         {
             if (cell == null)
