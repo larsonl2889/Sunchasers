@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using UnityEngine;
 
 // Contributors: Leif Larson
 // Last updated 10/9/2024
@@ -34,5 +36,30 @@ namespace Pipes
         {
             return state != 0;
         }
+
+        /// <summary>
+        /// Returns a string representation of the given SteamState
+        /// </summary>
+        /// <param name="state">the given SteamState</param>
+        /// <returns>Returns a string representation of the given SteamState</returns>
+        public static string ToString(this SteamState state)
+        {
+            string s;
+            switch (state)
+            {
+                case SteamState.SOURCE:
+                    return "SOURCE";
+                case SteamState.FULL:
+                    return "FULL";
+                case SteamState.EMPTY:
+                    return "EMPTY";
+                case SteamState.LEAKING:
+                    return "LEAKING";
+                default:
+                    UnityEngine.Debug.LogWarning("SteamStateOps.ToString() Defaulted!");
+                    return "DEFAULTED!";
+            }
+        }
+
     }
 }
