@@ -23,6 +23,28 @@ namespace Pipes
                 false => SteamState.EMPTY,
             };
         }
+
+        /// <summary>
+        /// Returns the pipe connector
+        /// </summary>
+        /// <returns>the pipe connector</returns>
+        public Connector GetPipeConnector() { return pipeConnector; }
+
+        public override string ToString()
+        {
+            string s = "Pipe" + pipeConnector.ToString();
+
+            if (cell == null)
+            {
+                s += ", orphaned";
+            }
+            else
+            {
+                // ... in cell @... (coordinates)
+                s += ", @(" + cell.pos.x + ", " + cell.pos.y + ")";
+            }
+            return s;
+        }
     }
 }
 
