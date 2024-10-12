@@ -7,8 +7,8 @@ using Cells;
 using Blocks;
 
 // Contributors: Leif Larson
-// Last updated 10-11-2024
-// Previous test result: This test file is not complete.
+// Last updated 10-12-2024
+// Previous test result: Tests FAILED immediately and did not complete running.
 
 public class TEST_Part : MonoBehaviour
 {
