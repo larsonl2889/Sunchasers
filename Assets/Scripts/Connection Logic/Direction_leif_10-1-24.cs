@@ -17,8 +17,6 @@ namespace DirectionOps
         UP = 0, LEFT = 1, DOWN = 2, RIGHT = 3
     }
 
-    // TODO check each angle to make sure it's appropriate!
-    // TODO test!
     /// <summary>
     /// A utility class for performing operations on and with Direction objects.
     /// </summary>
