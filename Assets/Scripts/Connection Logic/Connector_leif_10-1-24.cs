@@ -30,6 +30,24 @@ namespace Connectors
             }
         }
 
+        public override string ToString()
+        {
+            string units = String.Empty;
+            string unusuals = String.Empty;
+            for (int i = 0; i < allLinks.Length; i++)
+            {
+                // if the vector is an orthogonal unit vector, abbreviate it
+                if (allLinks[i] == Vector2.up) { units += "u"; }
+                else if (allLinks[i] == Vector2.left) { units += "l"; }
+                else if (allLinks[i] == Vector2.down) { units += "d"; }
+                else if (allLinks[i] == Vector2.right) { units += "r"; }
+                // otherwise, just write it out.
+                else { unusuals += "(" + allLinks[i].x + ", " + allLinks[i].y + ")"; }
+            }
+            string s = "{" + units + unusuals + "}";
+            return s;
+        }
+
     }
 }
 

@@ -13,7 +13,7 @@ namespace Blocks
         /// <summary>
         /// Which cell I occupy in my parent part (if I'm in play) or in the world.
         /// </summary>
-        private Cell cell;
+        protected Cell cell;
 
         //private Part part;
         
@@ -40,6 +40,20 @@ namespace Blocks
         public void SetCell(Cell newCell) 
         { 
             cell = newCell; 
+        }
+
+        public override string ToString()
+        {
+            if (cell == null)
+            {
+                return "Block, orphaned";
+            }
+            else
+            {
+                // Block in cell @... (coordinates)
+                return "Block @(" + cell.pos.x + ", " + cell.pos.y + ")";
+            }
+            
         }
 
         ///// <summary>

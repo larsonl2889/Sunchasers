@@ -49,6 +49,20 @@ namespace Cells
             return tmp;
         }
 
+        public override string ToString()
+        {
+            string s = "Cell @ (" + pos.x + ", " + pos.y + ")";
+            if (block != null)
+            {
+                s += " w/ " + block.ToString();
+            }
+            else
+            {
+                s += ", empty";
+            }
+            return s;
+        }
+
     }
 }
 
