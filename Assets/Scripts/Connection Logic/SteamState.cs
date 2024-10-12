@@ -44,7 +44,6 @@ namespace Pipes
         /// <returns>Returns a string representation of the given SteamState</returns>
         public static string ToString(this SteamState state)
         {
-            string s;
             switch (state)
             {
                 case SteamState.SOURCE:
