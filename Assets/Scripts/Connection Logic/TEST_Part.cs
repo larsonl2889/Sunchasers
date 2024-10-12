@@ -17,6 +17,7 @@ public class TEST_Part : MonoBehaviour
     {
         //TestBattery cmTs = new("CanMerge()", "Can");
         //TestBattery mTs = new("Merge()", "Mer");
+        TestBattery ltTs = new("LookupTable() construction testing", "LTbl");
         TestBattery cfgTs = new("Initial config testing", "Icfg");
         TestBattery gpfTs = new("General part functionality test", "PART");
         TestBattery brefTs = new("Block reference tests", "B_Ref");
@@ -24,32 +25,45 @@ public class TEST_Part : MonoBehaviour
         //TestBattery exTs = new("Extract()", "Extr");
         //TestBattery ba_cmTs = new("BuildArea.CanMerge()", "BA_Can");
         //TestBattery ba_mTs = new("BuildArea.Merge()", "BA_Mer");
-        //TestBattery[] allBatteries =
-        //{
-        //    iipTs, exTs, ba_cmTs, ba_mTs
-        //};
+        TestBattery[] allBatteries =
+        {
+            iipTs, brefTs, gpfTs, cfgTs, ltTs
+        };
 
+        // Putting together the build area
+        LookupTable<Cell> worldTable = new(5, 5);
+        // TODO finish building the build area!
+
+
+        // Putting together the part
         LookupTable<Cell> partTable = new(3, 3);
         // Check to see if the cells in the table are identical
-        cfgTs.Test("Cursory Reference Test 1", false, ReferenceEquals(partTable.Get(1, 0), partTable.Get(0, 2)));
-        cfgTs.Test("Cursory Reference Test 2", false, ReferenceEquals(partTable.Get(0, 0), partTable.Get(2, 1)));
+        ltTs.Test("Cursory Reference Test 1", false, ReferenceEquals(partTable.Get(1, 0), partTable.Get(0, 2)));
+        ltTs.Test("Cursory Reference Test 2", false, ReferenceEquals(partTable.Get(0, 0), partTable.Get(2, 1)));
         //// because I'm paranoid I guess.
-        //cfgTs.Test("Is empty at (0,0)", true, partTable.Get(0, 0).IsEmpty());
-        //cfgTs.Test("Is empty at (1,0)", true, partTable.Get(1, 0).IsEmpty());
-        //cfgTs.Test("Is empty at (2,0)", true, partTable.Get(2, 0).IsEmpty());
-        //cfgTs.Test("Is empty at (0,1)", true, partTable.Get(0, 1).IsEmpty());
-        //cfgTs.Test("Is empty at (1,1)", true, partTable.Get(1, 1).IsEmpty());
-        //cfgTs.Test("Is empty at (2,1)", true, partTable.Get(2, 1).IsEmpty());
-        //cfgTs.Test("Is empty at (0,2)", true, partTable.Get(0, 2).IsEmpty());
-        //cfgTs.Test("Is empty at (1,2)", true, partTable.Get(1, 2).IsEmpty());
-        //cfgTs.Test("Is empty at (2,2)", true, partTable.Get(2, 2).IsEmpty());
+        ltTs.Test("Is empty at (0,0)", true, partTable.Get(0, 0).IsEmpty());
+        ltTs.Test("Is empty at (1,0)", true, partTable.Get(1, 0).IsEmpty());
+        ltTs.Test("Is empty at (2,0)", true, partTable.Get(2, 0).IsEmpty());
+        ltTs.Test("Is empty at (0,1)", true, partTable.Get(0, 1).IsEmpty());
+        ltTs.Test("Is empty at (1,1)", true, partTable.Get(1, 1).IsEmpty());
+        ltTs.Test("Is empty at (2,1)", true, partTable.Get(2, 1).IsEmpty());
+        ltTs.Test("Is empty at (0,2)", true, partTable.Get(0, 2).IsEmpty());
+        ltTs.Test("Is empty at (1,2)", true, partTable.Get(1, 2).IsEmpty());
+        ltTs.Test("Is empty at (2,2)", true, partTable.Get(2, 2).IsEmpty());
 
 
         // set up the part TODO we need a better way to do this oh my goodness
-        partTable.Get(1, 0).SetBlock(new Block(partTable.Get(1, 0)));
-        partTable.Get(0, 1).SetBlock(new Block(partTable.Get(0, 1)));
-        partTable.Get(2, 1).SetBlock(new Block(partTable.Get(2, 1)));
-        partTable.Get(2, 2).SetBlock(new Block(partTable.Get(2, 2)));
+        Block[] allBlocks =
+        {
+            new Block(partTable.Get(1, 0)),
+            new Block(partTable.Get(0, 1)),
+            new Block(partTable.Get(2, 1)),
+            new Block(partTable.Get(2, 2))
+        };
+        partTable.Get(1, 0).SetBlock(allBlocks[0]);
+        partTable.Get(0, 1).SetBlock(allBlocks[1]);
+        partTable.Get(2, 1).SetBlock(allBlocks[2]);
+        partTable.Get(2, 2).SetBlock(allBlocks[3]);
         // the part looks like this:
         //     []
         // []  []
@@ -80,9 +94,25 @@ public class TEST_Part : MonoBehaviour
         gpfTs.Test("Initial, GetPivot()", new Vector2(1, 1), part.GetPivot());
         gpfTs.Test("Initial, GetPos()", null, part.GetPos());
         iipTs.Test("Initial, IsInPlay()", false, part.IsInPlay());
-        
-        
 
+        // Read the contents of the blocks
+        cfgTs.Test("Contents (1, 0) ", allBlocks[0], part.GetTable().Get(1, 0));
+        cfgTs.Test("Contents (0, 1) ", allBlocks[1], part.GetTable().Get(0, 1));
+        cfgTs.Test("Contents (2, 1) ", allBlocks[2], part.GetTable().Get(2, 1));
+        cfgTs.Test("Contents (2, 2) ", allBlocks[3], part.GetTable().Get(2, 2));
+
+
+        //print the summaries and any failing records
+        string allSummaries = "";
+        for (int i = 0; i < allBatteries.Length; i++)
+        {
+            allSummaries += allBatteries[i].GetSummary() + "\n";
+            if (allBatteries[i].fails > 0)
+            {
+                Debug.LogError(allBatteries[i].GetRecord());
+            }
+        }
+        Debug.Log(allSummaries);
 
     }
 
