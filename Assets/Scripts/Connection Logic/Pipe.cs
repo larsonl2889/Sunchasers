@@ -9,16 +9,20 @@ using Connectors;
 namespace Pipes
 {
 
-/*    public class Pipe : Block
+    public class Pipe : Block
     {
         private SteamState steamState;
         private Connector pipeConnector;
 
-        public Pipe(Connector pipeConnector, bool isSource=false)
-            : base() // TODO put the parameters for Block in here!
+        public Pipe(Connector pipeConnector, Cell cell, bool isSource = false) : base(cell)
         {
-            // TODO implement!
+            this.pipeConnector = pipeConnector;
+            this.steamState = isSource switch
+            {
+                true => SteamState.SOURCE,
+                false => SteamState.EMPTY,
+            };
         }
-    }*/
+    }
 }
 
