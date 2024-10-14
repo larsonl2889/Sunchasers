@@ -87,8 +87,6 @@ public class PlayerController_Willliam : MonoBehaviour
     public void interact(InputAction.CallbackContext context)
     {
         // TODO Invoke interactable events from player
-        
-        
     }
     public void OnClick(InputAction.CallbackContext context)
     {
