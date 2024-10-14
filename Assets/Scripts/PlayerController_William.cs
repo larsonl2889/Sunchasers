@@ -17,6 +17,7 @@ public class PlayerController_Willliam : MonoBehaviour
     private SpriteRenderer SpriteRenderer;
     private Animator animator;
     private PlayerPlatformHandler playerPlatformHandler;
+    Vector2 position;
     
     private void Awake()
     {
@@ -41,6 +42,7 @@ public class PlayerController_Willliam : MonoBehaviour
         
         playerControls.Player.Interact.performed += interact;
         playerControls.Player.Down.performed += GoDownPlatform;
+        playerControls.Player.Click.performed += OnClick;
     }
 
 
@@ -86,6 +88,14 @@ public class PlayerController_Willliam : MonoBehaviour
     {
         // TODO Invoke interactable events from player
         
+        
+    }
+    public void OnClick(InputAction.CallbackContext context)
+    {
+        
+        position = Mouse.current.position.ReadValue();
+        
+        Debug.Log(position);
         
     }
     

@@ -10,7 +10,7 @@ public class Interactable_William : MonoBehaviour
     public UnityEvent OnEnter;
     public UnityEvent OnExit;   
     
-    // Eventually might change to accoun for new input system
+    // Eventually might change to account for new input system
     void Update()
     {
         if (isInRange)
