@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Cells;
+using Parts;
 using Blocks;
 using UnityEngine;
 using System.Data;
@@ -21,6 +22,13 @@ public class BuildAreaTest
     public BuildAreaTest(int sizeX, int sizeY)
     {
         table = new LookupTable<Cell>(sizeX, sizeY, new Cell(new Vector2(0, 0)));
+        for (int i = 0; i < sizeX; i++)
+        {
+            for (int j = 0; j < sizeY; j++)
+            {
+                table.Put(i, j, new Cell(new Vector2(i, j)));
+            }
+        }
     }
     //retrieves the cell at a specific location in the build area
     public Cell GetCell(Vector2 pos)
@@ -37,7 +45,7 @@ public class BuildAreaTest
         }
     }
     //Checks if the part is able to be placed in that location
-    public bool CanMerge(BuildAreaTest part, Vector2 startPosition)
+    public bool CanMerge(Part part, Vector2 startPosition)
     {
         int boundsY = part.table.y_size;
         int boundsX = part.table.x_size;
@@ -63,7 +71,7 @@ public class BuildAreaTest
     }
 
     //Merges the table passed as a parameter into the one calling the function. (You would pass the part as parameter)
-    public void MergeTables(BuildAreaTest part, Vector2 startPosition)
+    public void MergeTables(Part part, Vector2 startPosition)
     {
         if(CanMerge(part, startPosition))
         {
@@ -73,10 +81,13 @@ public class BuildAreaTest
                 {
                     if(!part.table.Get(i, j).IsEmpty())
                     {
-                        table.Put((int)startPosition.x + i, (int)startPosition.y + j, part.table.Get(i, j));
+                        Debug.Log("Method Ran");
+                        part.table.Get(i, j).GetBlock().SetCell(table.Get((int)startPosition.x + i, (int)startPosition.y + j));
+                        table.Get((int)startPosition.x + i, (int)startPosition.y + j).SetBlock(part.table.Get(i, j).GetBlock());
                     }
                 }
             }
+            part.SetPosInWorld(startPosition);
         }
     }
 }

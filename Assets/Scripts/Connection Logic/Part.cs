@@ -8,7 +8,7 @@ namespace Parts
 {
     public class Part
     {
-        private LookupTable<Cell> table;
+        internal LookupTable<Cell> table;
         private Vector2 pivot; // location within its own table that'll be our "center". We place and rotate with respect to the pivot.
         private Vector2? posInWorld; // the position in world, if I'm in play.
         private LookupTable<Cell> buildArea;
@@ -17,6 +17,11 @@ namespace Parts
         {
             this.table = table;
             this.pivot = pivot;
+        }
+
+        public void placeCellManual(Cell cell, Vector2 position)
+        {
+            table.Put(position, cell);
         }
 
         public LookupTable<Cell> GetTable()
@@ -54,6 +59,11 @@ namespace Parts
             // TODO not implemented!
             // TODO set each of my blocks to reference the world's cells.
             // TODO set each of the subject world cells to reference my blocks.
+        }
+
+        public void SetPosInWorld(Vector2 pos)
+        {
+            this.posInWorld = pos;
         }
 
         // So long as the cells in the part keep the references to the block,
