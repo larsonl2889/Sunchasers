@@ -25,6 +25,8 @@ public class BuildAreaTest_TestingFile : MonoBehaviour
         Part part = new Part(testTableOne, new Vector2(1, 1));
         Part partTwo = new Part(testTableTwo, new Vector2(1, 1));
 
+
+
         for (int i = 0; i < 3; i++)
         {
             partTwo.placeCellManual(new Cell(block, new Vector2(i, 0)), new Vector2(i, 0));

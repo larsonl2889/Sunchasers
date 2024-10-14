@@ -18,6 +18,7 @@ namespace Testing
 
     /// <summary>
     /// <b>Instructions for use:</b>
+    /// <br></br>0.) Create a TestBattery with a name and abbreviation.
     /// <br></br>1.) Use Test() (or TestDelta() for float values) to verify the values of tests.
     /// <br></br>- Set the expected value to the result the functionality should produce.
     /// <br></br>- Set the experimental value to the result the functionality actually produces.
