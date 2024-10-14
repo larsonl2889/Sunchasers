@@ -1,19 +1,19 @@
-﻿using System;
+﻿using Cells;
+using System;
+using System.Drawing;
 using UnityEngine; // for debug logging only
 
 // Created by Leif Larson
-// Last updated 2 Oct 2024
-
-// TODO the default_value is the SAME REFERENCE FOR ALL CELLS THIS IS BAAAAD!!
+// Last updated 13 Oct 2024
 
 /// <summary>
 /// A generic 2d lookup table class
 /// <br></br>- Note: The array starts out full of a default_value. If unspecified, it's whatever default(<typeparamref name="T"/>) returns. This is usually either null or 0, depending on what <typeparamref name="T"/> is.
+/// <br></br>- IMPORTANT: If making this with cells, call <b>FillWithEmptyCells()</b> immediately afterwards!
 /// </summary>
 /// <typeparam name="T">The type stored in the table.</typeparam>
 public class LookupTable<T>
 {
-    // TODO the default_value is the SAME REFERENCE FOR ALL CELLS THIS IS BAAAAD!!
 
     internal int y_size;
     internal int x_size;
@@ -234,5 +234,27 @@ public static class TableReader
             readout += LINE_BREAK;
         }
         return readout;
+    }
+}
+
+/// <summary>
+/// Because the default value is trash for LookupTables filled with cells, use FillWithEmptyCells().
+/// </summary>
+public static class LookupTableExtension
+{
+    /// <summary>
+    /// Fills a lookup table with distinct cells.
+    /// <br></br>Use this method if you want a lookup table of cells to NOT BE BROKEN!
+    /// </summary>
+    /// <param name="lt"></param>
+    public static void FillWithEmptyCells(this LookupTable<Cell> lt)
+    {
+        for (int i_x = 0; i_x < lt.x_size; i_x++)
+        {
+            for (int i_y = 0; i_y < lt.y_size; i_y++)
+            {
+                lt.Put(i_x, i_y, new Cell(new Vector2(i_x, i_y)));
+            }
+        }
     }
 }
