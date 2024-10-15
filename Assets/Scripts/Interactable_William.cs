@@ -11,21 +11,17 @@ public class Interactable_William : MonoBehaviour
     public UnityEvent OnExit;   
     
     // Eventually might change to account for new input system
-    void Update()
+    
+    public void InvokeAction()
     {
-        if (isInRange)
-        {
-            if (Input.GetKeyDown(KeyCode.E)) {
-                interactAction.Invoke();
-            }
-        }
+        interactAction.Invoke();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             
-            isInRange = true;
+         
             OnEnter.Invoke();
             
         }
@@ -34,7 +30,7 @@ public class Interactable_William : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            isInRange = false;
+            
             OnExit.Invoke();
             
         }

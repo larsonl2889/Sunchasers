@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c0747e957cf736a4da70456b8fcfc6d8
+guid: e8d9ca72f218b974390d0df493d67974
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: floor_0
+      name: Mechanic_Falling_Oct14_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2593b2c4ef494eb4796c60dae814663a
-      internalID: -1450055879
+      spriteID: ba19c8e3482b20f44964a9861791957d
+      internalID: -908646002
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: floor_1
+      name: Mechanic_Falling_Oct14_1
       rect:
         serializedVersion: 2
         x: 128
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75ec8f063175cc949ba3d9a6ad0228ce
-      internalID: -1068931849
+      spriteID: 5b6a8ef142365d54ebce81964285cc49
+      internalID: 1196030791
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: floor_2
+      name: Mechanic_Falling_Oct14_2
       rect:
         serializedVersion: 2
         x: 256
@@ -166,98 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4419aa072137b3344b3a38bd9fac6aaf
-      internalID: 1637589035
+      spriteID: b1149dd67e89fbd44bd3a9b3946947fc
+      internalID: -1344646603
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: floor_3
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 256
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f108047ae95d5b947aebe21ff4377829
-      internalID: 939845113
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: floor_4
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 256
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bea6cb9ae0e1f3c45a75cf33b9c9242b
-      internalID: -1640763469
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: floor_5
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 256
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b62d484e855af274d8d419c6d3746c02
-      internalID: 924588979
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: floor_6
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 256
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a7dd8696c9f5f584bb5e406d8c5978a9
-      internalID: -1893379647
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: floor_7
+      name: Mechanic_Falling_Oct14_3
       rect:
         serializedVersion: 2
         x: 0
@@ -271,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6bb8904ad4962334aa985743d54e47a7
-      internalID: 1748640516
+      spriteID: c1e0293f03df2e44ba40e9cc8eb9141c
+      internalID: 440036147
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: floor_8
+      name: Mechanic_Falling_Oct14_4
       rect:
         serializedVersion: 2
         x: 128
@@ -292,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91bbae76669eeab44b7679b4b9a1b0ac
-      internalID: -1191084084
+      spriteID: b08934321ed6b1541a21f2484e626108
+      internalID: 2008784943
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: floor_9
+      name: Mechanic_Falling_Oct14_5
       rect:
         serializedVersion: 2
         x: 256
@@ -313,101 +229,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17483f042e1389342b5bdeb0bb3f074f
-      internalID: 1051830230
+      spriteID: 249bed6ec70c86246a9e5764fd6f1549
+      internalID: 1374878071
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: floor_10
+      name: Mechanic_Falling_Oct14_6
       rect:
         serializedVersion: 2
-        x: 384
-        y: 128
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f97c9a20345737c4687ad8077d6e679a
-      internalID: -200820279
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: floor_11
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 128
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3a89cf603d34c7040aea94999ecb6358
-      internalID: 2089356989
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: floor_12
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 128
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 186a26199b58b1540b413ac75fbcb11c
-      internalID: 1718656113
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: floor_13
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 128
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f14f33bba7cdb434b83a921d2d82b8d3
-      internalID: -2146185708
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: floor_14
-      rect:
-        serializedVersion: 2
-        x: 512
+        x: 0
         y: 0
         width: 128
         height: 128
@@ -418,17 +250,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8a8385e1495e734c9afe1bed9c79f22
-      internalID: -702549124
+      spriteID: 710242654cffbe844817f4e6fac5a543
+      internalID: -685839532
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: floor_15
+      name: Mechanic_Falling_Oct14_7
       rect:
         serializedVersion: 2
-        x: 640
+        x: 128
         y: 0
         width: 128
         height: 128
@@ -439,29 +271,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f532b862313a5d499c1b82239f9192d
-      internalID: -103395170
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: floor_16
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 85395ca9f2d6ae24c9aac7193c2fd850
-      internalID: -1248577464
+      spriteID: b749019da9383c545bd6dcce5f788afa
+      internalID: -878563279
       vertices: []
       indices: 
       edges: []
@@ -477,23 +288,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      floor_0: -1450055879
-      floor_1: -1068931849
-      floor_10: -200820279
-      floor_11: 2089356989
-      floor_12: 1718656113
-      floor_13: -2146185708
-      floor_14: -702549124
-      floor_15: -103395170
-      floor_16: -1248577464
-      floor_2: 1637589035
-      floor_3: 939845113
-      floor_4: -1640763469
-      floor_5: 924588979
-      floor_6: -1893379647
-      floor_7: 1748640516
-      floor_8: -1191084084
-      floor_9: 1051830230
+      Mechanic_Falling_Oct14_0: -908646002
+      Mechanic_Falling_Oct14_1: 1196030791
+      Mechanic_Falling_Oct14_2: -1344646603
+      Mechanic_Falling_Oct14_3: 440036147
+      Mechanic_Falling_Oct14_4: 2008784943
+      Mechanic_Falling_Oct14_5: 1374878071
+      Mechanic_Falling_Oct14_6: -685839532
+      Mechanic_Falling_Oct14_7: -878563279
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
