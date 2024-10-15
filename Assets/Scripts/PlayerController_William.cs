@@ -20,7 +20,7 @@ public class PlayerController_Willliam : MonoBehaviour
     private PlayerPlatformHandler playerPlatformHandler;
     Vector2 position;
     Stack<GameObject> objectsNear;
-    GameObject currObject;
+    
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();

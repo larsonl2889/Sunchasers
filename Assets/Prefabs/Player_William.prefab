@@ -78,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 5d0ed32d71f834f4aadee9a2715e9a71, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -131,6 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   jumpForce: 6.9
+  isBuilding: 0
 --- !u!114 &3203166835970753945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,10 +231,6 @@ MonoBehaviour:
     m_ActionName: Player/Jump[/Keyboard/space]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 99e51ea8-b2f6-4ff1-8527-17599671d443
-    m_ActionName: Player/BuildMode[/Keyboard/q]
-  - m_PersistentCalls:
-      m_Calls: []
     m_ActionId: 502d147d-9d1b-4be6-a40a-4df7551e78e9
     m_ActionName: Player/Interact[/Keyboard/e]
   - m_PersistentCalls:
@@ -244,6 +241,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 08a9409f-c206-4501-be42-0366536965a8
     m_ActionName: Player/Down[/Keyboard/s]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 41dc11e7-f0a5-41c2-bea7-905a3cb95873
+    m_ActionName: Player/Click[/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -281,18 +282,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.064157546}
+  m_Offset: {x: -0.032327056, y: -0.05448997}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 1.28}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8, y: 1.15}
+  m_Size: {x: 0.54446244, y: 0.90283585}
   m_EdgeRadius: 0
 --- !u!114 &3125312214202833633
 MonoBehaviour:
