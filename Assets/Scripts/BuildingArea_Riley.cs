@@ -1,16 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class BuildingArea_Riley : MonoBehaviour
 {
     public GameObject Slot;
     private bool isInRange;
+    private Vector2 position;
+    private Vector2 WorldPos;
+    Stack<GameObject> SlotHolder;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        SlotHolder = new Stack<GameObject>();
     }
 
     // Update is called once per frame
@@ -21,13 +26,27 @@ public class BuildingArea_Riley : MonoBehaviour
 
     public void Slots()
     {
-        //set the area that can be built in by having a random x and y range.
-        Vector2 Spawnplace = new Vector2(Random.Range(7,15), Random.Range(2, 5));
-            Instantiate(Slot, Spawnplace, Slot.transform.rotation);
+        //set the area that can be built in by reading the mouse position.
+        position = Mouse.current.position.ReadValue();
+        WorldPos = Camera.main.ScreenToWorldPoint(position);
+        Debug.Log("BUILD!!");
+            Vector2 Spawnplace = new Vector2(WorldPos.x, WorldPos.y);
+            SlotHolder.Push(Instantiate(Slot, Spawnplace, Slot.transform.rotation));
         //Instantiate(AnimalPrefabs[AnimalIndex], spawnPos, AnimalPrefabs[AnimalIndex].transform.rotation);
         //Instantiate(SlotPrefab,transform.position,Quaternion.identity);
         //Renderer.enabled = false;
+        
 
 
+    }
+    //Deletes all the slots from the scene 
+    public void DeleteAll()
+    {
+        for (int i = 0; i < SlotHolder.Count; i++) {
+            GameObject CurrentSlot = SlotHolder.Peek();
+            Debug.Log(SlotHolder.Pop());
+            Destroy(CurrentSlot);
+
+        }
     }
 }

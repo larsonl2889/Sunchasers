@@ -20,7 +20,9 @@ public class PlayerController_Willliam : MonoBehaviour
     private PlayerPlatformHandler playerPlatformHandler;
     Vector2 position;
     Stack<GameObject> objectsNear;
-    
+    public GameObject Slot;
+    private Vector2 WorldPos;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -115,8 +117,11 @@ public class PlayerController_Willliam : MonoBehaviour
     public void OnClick(InputAction.CallbackContext context)
     {
         position = Mouse.current.position.ReadValue();
+        WorldPos = Camera.main.ScreenToWorldPoint(position);
         if (isBuilding) {
             Debug.Log("BUILD!!");
+            Vector2 Spawnplace = new Vector2(WorldPos.x,WorldPos.y);
+            Instantiate(Slot, Spawnplace, Slot.transform.rotation);
         }
 
     }
