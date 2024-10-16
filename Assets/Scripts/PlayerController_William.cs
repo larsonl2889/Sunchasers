@@ -11,6 +11,7 @@ public class PlayerController_Willliam : MonoBehaviour
     
     [SerializeField] float speed;
     [SerializeField] float jumpForce;
+    [SerializeField] bool isBuilding = false;
     private Rigidbody2D rb;
     private Vector2 direction;
     private Controls playerControls;
@@ -18,6 +19,7 @@ public class PlayerController_Willliam : MonoBehaviour
     private Animator animator;
     private PlayerPlatformHandler playerPlatformHandler;
     Vector2 position;
+    Stack<GameObject> objectsNear;
     
     private void Awake()
     {
@@ -26,6 +28,7 @@ public class PlayerController_Willliam : MonoBehaviour
         animator = rb.GetComponent<Animator>();
         playerControls = new Controls();
         playerPlatformHandler = GetComponent<PlayerPlatformHandler>();
+        objectsNear = new Stack<GameObject>();
         
     }
     private void OnEnable()
@@ -50,11 +53,13 @@ public class PlayerController_Willliam : MonoBehaviour
     { 
         rb.velocity = new Vector2(direction.x * speed, rb.velocity.y);
         animate();
+        
     }
     
     public void onMove(InputAction.CallbackContext context)
     {
         direction = context.ReadValue<Vector2>();
+
         if (direction.x > 0)
         {
             SpriteRenderer.flipX = true;
@@ -67,14 +72,23 @@ public class PlayerController_Willliam : MonoBehaviour
     }
     public void animate()
     {
-        if (direction.x != 0)
+        if (IsGrounded())
         {
-            animator.SetBool("IsMoving", true);
+            animator.SetBool("IsFalling", false);
+            if (direction.x != 0)
+            {
+                animator.SetBool("IsMoving", true);
+            }
+            else
+            {
+                animator.SetBool("IsMoving", false);
+            }
         }
         else
         {
-            animator.SetBool("IsMoving", false);
+            animator.SetBool("IsFalling", true );
         }
+        
     }
     public void onJump(InputAction.CallbackContext context)
     {
@@ -86,15 +100,25 @@ public class PlayerController_Willliam : MonoBehaviour
    
     public void interact(InputAction.CallbackContext context)
     {
-        // TODO Invoke interactable events from player
+        if (objectsNear.Count > 0)
+        {
+            if (objectsNear.Peek().gameObject.CompareTag("buildWorkshop"))
+            {
+                isBuilding = true;
+            }
+            
+            objectsNear.Peek().GetComponent<Interactable_William>().InvokeAction();
+            
+        }
+
     }
     public void OnClick(InputAction.CallbackContext context)
     {
-        
         position = Mouse.current.position.ReadValue();
-        
-        Debug.Log(position);
-        
+        if (isBuilding) {
+            Debug.Log("BUILD!!");
+        }
+
     }
     
     
@@ -110,6 +134,22 @@ public class PlayerController_Willliam : MonoBehaviour
             playerPlatformHandler.GoDownPlatform();
         }
         
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        
+        if (other.gameObject.CompareTag("Interactable") || other.gameObject.CompareTag("buildWorkshop"))
+        {
+            objectsNear.Push(other.gameObject);
+        }
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Interactable") || other.gameObject.CompareTag("buildWorkshop"))
+        {
+            objectsNear.Pop();
+            isBuilding = false;
+        }
     }
 }
     

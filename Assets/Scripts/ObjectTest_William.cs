@@ -16,6 +16,7 @@ public class ObjectTest_William : MonoBehaviour
         
     }
     public void TestMessage() {
+        
         Debug.Log("event yes");
     }
     
