@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
@@ -18,8 +19,9 @@ public class PlayerController_Willliam : MonoBehaviour
     private SpriteRenderer SpriteRenderer;
     private Animator animator;
     private PlayerPlatformHandler playerPlatformHandler;
-    Vector2 position;
+    Vector2 mouseScreenPos;
     Stack<GameObject> objectsNear;
+    Vector2 mouseWorldPos;
     
     private void Awake()
     {
@@ -45,7 +47,8 @@ public class PlayerController_Willliam : MonoBehaviour
         
         playerControls.Player.Interact.performed += interact;
         playerControls.Player.Down.performed += GoDownPlatform;
-        playerControls.Player.Click.performed += OnClick;
+        playerControls.Player.Build.performed += OnClick;
+        playerControls.Player.Delete.performed += delete;
     }
 
 
@@ -53,6 +56,7 @@ public class PlayerController_Willliam : MonoBehaviour
     { 
         rb.velocity = new Vector2(direction.x * speed, rb.velocity.y);
         animate();
+        
         
     }
     
@@ -114,13 +118,20 @@ public class PlayerController_Willliam : MonoBehaviour
     }
     public void OnClick(InputAction.CallbackContext context)
     {
-        position = Mouse.current.position.ReadValue();
+        mouseScreenPos = Mouse.current.position.ReadValue();
+        mouseWorldPos = Camera.main.ScreenToWorldPoint(mouseScreenPos);
         if (isBuilding) {
             Debug.Log("BUILD!!");
         }
-
+        Debug.Log(mouseWorldPos);
     }
-    
+    public void delete(InputAction.CallbackContext context)
+    {
+        if (!isBuilding)
+        {
+
+        }
+    }
     
     public bool IsGrounded()
     {
@@ -151,6 +162,7 @@ public class PlayerController_Willliam : MonoBehaviour
             isBuilding = false;
         }
     }
+    
 }
     
 
