@@ -4,7 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Ground
+  - NPC
+  - World
+  - OneWayPlatform
+  - Interactable
+  - buildWorkshop
   layers:
   - Default
   - TransparentFX
@@ -12,8 +16,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - World
+  - NPC
   - 
   - 
   - 
