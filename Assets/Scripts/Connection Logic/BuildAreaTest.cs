@@ -195,9 +195,7 @@ public class BuildAreaTest
         if (hasSteamSource)
         {
             // TODO determine whether it's LEAKING or FULL
-            // TODO propagate steam
         }
-        else { /*nothing*/ }
         
         // Apply the state to the whole system
         for (int i = 0; i < system.Length; i++)
