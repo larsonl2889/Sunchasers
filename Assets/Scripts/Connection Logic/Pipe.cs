@@ -25,6 +25,20 @@ namespace Pipes
         }
 
         /// <summary>
+        /// Doesn't allow modifying SOURCEs.
+        /// </summary>
+        /// <param name="steamState"></param>
+        public void SetSteamState(SteamState steamState)
+        {
+            if (this.steamState != SteamState.SOURCE)
+            {
+                this.steamState = steamState;
+            }
+        }
+
+        public SteamState GetSteamState() { return this.steamState; }
+
+        /// <summary>
         /// Returns the pipe connector
         /// </summary>
         /// <returns>the pipe connector</returns>

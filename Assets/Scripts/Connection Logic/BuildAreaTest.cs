@@ -94,6 +94,7 @@ public class BuildAreaTest
         return fullSystem;
     }
 
+
     /// <summary>
     /// Implements Step (1) thru (2b_ii) from GetFullPipeSystem(). 
     /// <br></br>(see <see cref="GetFullPipeSystem(Vector2)"/>.)
@@ -144,7 +145,84 @@ public class BuildAreaTest
         }
     }
 
+    /// <summary>
+    /// Returns all "systems". A system is made up of mutually connected pipes. Every pipe in a system is connected to every other pipe, directly or indirectly.
+    /// </summary>
+    /// <returns>An array of all "systems". Each "system" is an array of connected pipes.</returns>
+    public Vector2[][] GetAllPipeSystems()
+    {
+        SetAllPipeLocations();
+        List<Vector2> uncategorizedPipeLocations = new();
+        for (int i = 0; i < allPipeLocations.Length; i++)
+        {
+            uncategorizedPipeLocations.Append(allPipeLocations[i]);
+        }
+        // we now have a list of all uncategorized pipes.
+        // Let's categorize them into their distinct "systems".
+        Vector2[][] allPipeSystems = new Vector2[0][];
+        // keep adding systems until we run out of pipes.
+        while (uncategorizedPipeLocations.Count > 0)
+        {
+            Vector2[] thisSystem = GetFullPipeSystem(uncategorizedPipeLocations[0]);
+            // remove all pipes in the system from "uncategorizedPipeLocations"
+            for (int i = 0; i < thisSystem.Length; i++)
+            {
+                uncategorizedPipeLocations.Remove(thisSystem[i]);
+            }
+            allPipeSystems.Append(thisSystem);
+        }
+
+        return allPipeSystems;
+    }
     
+    public void PropagateSteam(Vector2[] system)
+    {
+        bool hasSteamSource = false;
+        for (int i = 0; i < system.Length; i++)
+        {
+            Block b = table.Get(system[i]).GetBlock();
+            if (b is Pipe)
+            {
+                Pipe p = (Pipe)b;
+                if (p.GetSteamState() == SteamState.SOURCE)
+                {
+                    hasSteamSource = true;
+                    break;
+                }
+            }
+        }
+        SteamState propagateMe = SteamState.EMPTY;
+        if (hasSteamSource)
+        {
+            // TODO determine whether it's LEAKING or FULL
+            // TODO propagate steam
+        }
+        else { /*nothing*/ }
+        
+        // Apply the state to the whole system
+        for (int i = 0; i < system.Length; i++)
+        {
+            Block b = table.Get(system[i]).GetBlock();
+            if (b is Pipe)
+            {
+                Pipe p = (Pipe)b;
+                // Don't overwrite steam sources!
+                if (p.GetSteamState() != SteamState.SOURCE)
+                {
+                    p.SetSteamState(propagateMe);
+                }
+            }
+        }
+    }
+
+    public void PropagateAllSteam()
+    {
+        Vector2[][] allPipeSystems = GetAllPipeSystems();
+        for (int system_index = 0; system_index < allPipeSystems.Length; system_index++)
+        {
+            PropagateSteam(allPipeSystems[system_index]);
+        }
+    }
 
     //Gives you manual control to place cells. (Good for setting up tests)
     public void placeCellManual(Cell cell, Vector2 pos)
