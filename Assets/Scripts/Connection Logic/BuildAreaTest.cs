@@ -175,6 +175,7 @@ public class BuildAreaTest
         return allPipeSystems;
     }
     
+    // TODO document!
     public void PropagateSteam(Vector2[] system)
     {
         bool hasSteamSource = false;
@@ -194,7 +195,35 @@ public class BuildAreaTest
         SteamState propagateMe = SteamState.EMPTY;
         if (hasSteamSource)
         {
-            // TODO determine whether it's LEAKING or FULL
+            // Checking for leaks...
+            // check if there are any stray connections that lead outside of the system
+            propagateMe = SteamState.FULL;
+            bool hasALeak = false;
+            for (int i = 0; i < system.Length; i++)
+            {
+                // Get all connections
+                Vector2[] checkLocations = GetAllConnections(system[i]);
+                for (int i2=0; i2<checkLocations.Length; i2++)
+                {
+                    bool isInTheSystem = false;
+                    // Check if they're all in the system
+                    for (int i3=0; i3<system.Length; i3++)
+                    {
+                        if (system[i3] == checkLocations[i2])
+                        {
+                            isInTheSystem = true;
+                            break;
+                        }
+                    }
+                    if (!isInTheSystem)
+                    {
+                        hasALeak = true;
+                        break;
+                    }
+                }
+                if (hasALeak) { break; }
+            }
+            if (hasALeak) { propagateMe = SteamState.LEAKING; }
         }
         
         // Apply the state to the whole system
