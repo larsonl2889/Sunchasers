@@ -43,6 +43,7 @@ public class NPC : MonoBehaviour
         index = 0;
         dialoguePanel.SetActive(false);
     }
+
     IEnumerator Typing() // Prints the the dialogue character by character from an array at the rate that 'wordSpeed' is set to
     {
         foreach (char letter in dialogue[index].ToCharArray())
