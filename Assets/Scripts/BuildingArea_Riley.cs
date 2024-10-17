@@ -24,7 +24,7 @@ public class BuildingArea_Riley : MonoBehaviour
      
     }
 
-    public void Slots()
+    public void Build()
     {
         //set the area that can be built in by reading the mouse position.
         position = Mouse.current.position.ReadValue();
