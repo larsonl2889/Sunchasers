@@ -4,7 +4,7 @@ using System.Drawing;
 using UnityEngine; // for debug logging only
 
 // Created by Leif Larson
-// Last updated 13 Oct 2024
+// Last updated 17 Oct 2024
 
 /// <summary>
 /// A generic 2d lookup table class
@@ -79,7 +79,7 @@ public class LookupTable<T>
     /// <param name="x">the x index</param>
     /// <param name="y">the y index</param>
     /// <returns>true if and only if (x,y) is in the LookupTable.</returns>
-    private bool IsIndexInBounds(int x, int y)
+    internal bool IsIndexInBounds(int x, int y)
     {
         return (x >= 0 && y >= 0 && x < x_size && y < y_size);
     }

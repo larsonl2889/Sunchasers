@@ -4,7 +4,7 @@ using Cells;
 using Connectors;
 
 // Contributors: Leif Larson
-// Last updated 10/9/2024
+// Last updated 10/16/2024
 
 namespace Pipes
 {
@@ -23,6 +23,17 @@ namespace Pipes
                 false => SteamState.EMPTY,
             };
         }
+
+        /// <summary>
+        /// Sets the SteamState to the given SteamState.
+        /// </summary>
+        /// <param name="steamState">the new steam state</param>
+        public void SetSteamState(SteamState steamState)
+        {
+            this.steamState = steamState;
+        }
+
+        public SteamState GetSteamState() { return this.steamState; }
 
         /// <summary>
         /// Returns the pipe connector
