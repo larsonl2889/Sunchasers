@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using DirectionOps;
+using System.Collections.Generic;
 
 // Created by Leif Larson
 // last updated 10/9/2024
@@ -14,6 +15,17 @@ namespace Connectors
         public Connector(Vector2[] allLinks)
         {
             this.allLinks = allLinks;
+        }
+
+        public List<Vector2> GetAllLinksList()
+        {
+            Vector2[] links = GetAllLinks();
+            List<Vector2> accum = new();
+            foreach (Vector2 link in links)
+            {
+                accum.Add(link);
+            }
+            return accum;
         }
 
         public Vector2[] GetAllLinks() { return allLinks; }

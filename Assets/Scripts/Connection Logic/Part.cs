@@ -2,6 +2,7 @@
 using Blocks;
 using Cells;
 using DirectionOps;
+using Testing;
 using UnityEngine;
 
 namespace Parts
@@ -117,6 +118,8 @@ namespace Parts
                 // Do nothing if the part is already out-of-play.
                 return;
             }
+
+
             for (int i_x = 0; i_x < table.x_size; i_x++)
             {
                 for (int i_y = 0; i_y < table.y_size; i_y++)
