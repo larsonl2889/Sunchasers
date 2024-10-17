@@ -9,17 +9,14 @@ public class Interactable_William : MonoBehaviour
     public UnityEvent interactAction;
     public UnityEvent onEnter;
     public UnityEvent onExit;
-    public UnityEvent onClick;
+    
     // Eventually might change to account for new input system
     
     public void InvokeAction()
     {
         interactAction.Invoke();
     }
-    public void onMouseClick()
-    {
-        onClick.Invoke();
-    }
+   
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))

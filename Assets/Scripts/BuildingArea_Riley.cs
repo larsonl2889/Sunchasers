@@ -43,14 +43,12 @@ public class BuildingArea_Riley : MonoBehaviour
     //Deletes all the slots from the scene 
     public void DeleteAll()
     {
-        
         int count = SlotHolder.Count;
         if (SlotHolder.Count > 0)
         {
             for (int i = 0; i < count; i++)
             {
                 Destroy(SlotHolder.Pop());
-                
             }
         }
         

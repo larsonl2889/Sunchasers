@@ -22,7 +22,7 @@ public class PlayerController_Willliam : MonoBehaviour
     Stack<GameObject> objectsNear;
     public GameObject Slot;
     private Vector2 WorldPos;
-
+    
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -119,7 +119,11 @@ public class PlayerController_Willliam : MonoBehaviour
         position = Mouse.current.position.ReadValue();
         WorldPos = Camera.main.ScreenToWorldPoint(position);
         if (isBuilding) {
-            objectsNear.Peek().GetComponent<Interactable_William>().onMouseClick();
+            if (objectsNear.Peek().gameObject.CompareTag("buildWorkshop"))
+            {
+                objectsNear.Peek().GetComponent<BuildingArea_Riley>().Slots();
+            }
+            
         }
 
     }
