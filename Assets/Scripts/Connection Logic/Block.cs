@@ -28,6 +28,11 @@ namespace Blocks
             this.cell = cell;
         }
 
+        public Block()
+        {
+            this.cell = gameObject.GetComponentInParent<Cell>();
+        }
+
         /// <summary>
         /// Gets the cell I occupy right now.
         /// </summary>
