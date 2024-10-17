@@ -27,8 +27,8 @@ public class CreditsScreenController : MonoBehaviour
     // Called when Back is clicked
     public void ShowTitle()
     {
-        titlePanel.SetActive(!titlePanel.activeSelf);
-        titlePanel.SetActive(!titlePanel.activeSelf);
+        titlePanel.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     // Scrolls text through the credits
