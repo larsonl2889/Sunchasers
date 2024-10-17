@@ -10,6 +10,10 @@ using System.Security.Cryptography;
 using System;
 using UnityEngine.Windows;
 
+// Contributors: Leif Larson
+// Last updated 10/16/2024
+// Previous result: 10/16/2024 all tests PASSED!
+
 public class TEST_SteamPropagation : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -229,19 +233,19 @@ public class TEST_SteamPropagation : MonoBehaviour
         SSSTest.Test("@ (1, 2)", null, world.GetSteamState(new Vector2(1, 2)));
         SSSTest.Test("@ (2, 2)", null, world.GetSteamState(new Vector2(2, 2)));
 
-        // PropagateAllSteam() test
-        TestBattery PASTest = new("PropagateAllSteam() test", "PAS");
-        allBatteries.Add(PASTest);
-        world.PropagateAllSteam();
-        PASTest.Test("@ (0, 0)", SteamState.EMPTY, world.GetSteamState(new Vector2(0, 0)));
-        PASTest.Test("@ (1, 0)", SteamState.LEAKING, world.GetSteamState(new Vector2(1, 0)));
-        PASTest.Test("@ (2, 0)", null, world.GetSteamState(new Vector2(2, 0)));
-        PASTest.Test("@ (0, 1)", SteamState.FULL, world.GetSteamState(new Vector2(0, 1)));
-        PASTest.Test("@ (1, 1)", SteamState.LEAKING, world.GetSteamState(new Vector2(1, 1)));
-        PASTest.Test("@ (2, 1)", SteamState.SOURCE, world.GetSteamState(new Vector2(2, 1)));
-        PASTest.Test("@ (0, 2)", SteamState.SOURCE, world.GetSteamState(new Vector2(0, 2)));
-        PASTest.Test("@ (1, 2)", null, world.GetSteamState(new Vector2(1, 2)));
-        PASTest.Test("@ (2, 2)", null, world.GetSteamState(new Vector2(2, 2)));
+        // UpdateSteam() test
+        TestBattery USTest = new("UpdateSteam() test", "US");
+        allBatteries.Add(USTest);
+        world.UpdateSteam();
+        USTest.Test("@ (0, 0)", SteamState.EMPTY, world.GetSteamState(new Vector2(0, 0)));
+        USTest.Test("@ (1, 0)", SteamState.LEAKING, world.GetSteamState(new Vector2(1, 0)));
+        USTest.Test("@ (2, 0)", null, world.GetSteamState(new Vector2(2, 0)));
+        USTest.Test("@ (0, 1)", SteamState.FULL, world.GetSteamState(new Vector2(0, 1)));
+        USTest.Test("@ (1, 1)", SteamState.LEAKING, world.GetSteamState(new Vector2(1, 1)));
+        USTest.Test("@ (2, 1)", SteamState.SOURCE, world.GetSteamState(new Vector2(2, 1)));
+        USTest.Test("@ (0, 2)", SteamState.SOURCE, world.GetSteamState(new Vector2(0, 2)));
+        USTest.Test("@ (1, 2)", null, world.GetSteamState(new Vector2(1, 2)));
+        USTest.Test("@ (2, 2)", null, world.GetSteamState(new Vector2(2, 2)));
 
         // objective completion: IsOn() test
         TestBattery IOTest = new("IsOn() test (for activating things!)", "IO");
@@ -276,16 +280,19 @@ public class TEST_SteamPropagation : MonoBehaviour
         WTSFTest.Test("count @ (1, 0)", 0, world.WhereToSteamFrom(new Vector2(1, 0)).Count);
         WTSFTest.Test("count @ (2, 0)", 0, world.WhereToSteamFrom(new Vector2(2, 0)).Count);
         WTSFTest.Test("count @ (0, 1)", 0, world.WhereToSteamFrom(new Vector2(0, 1)).Count);
-        WTSFTest.Test("count @ (1, 1)", 2, world.WhereToSteamFrom(new Vector2(1, 1)).Count);
+        WTSFTest.Test("count @ (1, 1)", 2, world.WhereToSteamFrom(new Vector2(1, 1)).Count); 
         WTSFTest.Test("count @ (2, 1)", 0, world.WhereToSteamFrom(new Vector2(2, 1)).Count);
         WTSFTest.Test("count @ (0, 2)", 0, world.WhereToSteamFrom(new Vector2(0, 2)).Count);
         WTSFTest.Test("count @ (1, 2)", 0, world.WhereToSteamFrom(new Vector2(1, 2)).Count);
         WTSFTest.Test("count @ (2, 2)", 0, world.WhereToSteamFrom(new Vector2(2, 2)).Count);
 
+        // (1, 1) is unfortunately the only location where steam would be visibly leaking from.
         WTSFTest.Test("specifics @ (1,1), UP",    true,  world.WhereToSteamFrom(new Vector2(1, 1)).Contains(Vector2.up));
         WTSFTest.Test("specifics @ (1,1), LEFT",  true,  world.WhereToSteamFrom(new Vector2(1, 1)).Contains(Vector2.left));
         WTSFTest.Test("specifics @ (1,1), DOWN",  false, world.WhereToSteamFrom(new Vector2(1, 1)).Contains(Vector2.down));
         WTSFTest.Test("specifics @ (1,1), RIGHT", false, world.WhereToSteamFrom(new Vector2(1, 1)).Contains(Vector2.right));
+
+        // TODO: should make another build area with more leaks to get more testing!
 
         // PRINT ALL TESTS TO CONSOLE
         string allSummariesAccum = string.Empty;

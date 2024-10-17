@@ -11,7 +11,8 @@ using System.Linq;
 using Unity.VisualScripting;
 using Unity.Collections.LowLevel.Unsafe;
 
-
+// Contributors: Kilian W., Leif Larson
+// Last updated 10/16/2024
 
 public class BuildAreaTest
 {
@@ -330,7 +331,7 @@ public class BuildAreaTest
         }
     }
 
-    public void PropagateAllSteam()
+    public void UpdateSteam()
     {
         List<List<Vector2>> allPipeSystems = GetAllPipeSystems();
         for (int system_index = 0; system_index < allPipeSystems.Count; system_index++)
