@@ -83,6 +83,10 @@ public class BuildAreaTest
                     {
                         Debug.Log("Method Ran");
                         part.table.Get(i, j).GetBlock().SetCell(table.Get((int)startPosition.x + i, (int)startPosition.y + j));
+                        Vector2 testVector = part.table.Get(i, j).GetBlock().GetCell().pos;
+                        int testX = (int)testVector.x;
+                        int testY = (int)testVector.y;
+                        Debug.Log("Block at X = " + i + " Y = " + j + " Assigned Cell X = " + testX + " Y = " + testY);
                         table.Get((int)startPosition.x + i, (int)startPosition.y + j).SetBlock(part.table.Get(i, j).GetBlock());
                     }
                 }

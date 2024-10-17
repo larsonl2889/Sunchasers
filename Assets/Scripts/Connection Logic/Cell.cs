@@ -11,10 +11,13 @@ namespace Cells
     /// <summary>
     /// Handles moving and storing blocks.
     /// </summary>
-    public class Cell
+    public class Cell : MonoBehaviour
     {
         internal Vector2 pos;
-        internal Block block;
+        public int xPos;
+        public int yPos;
+        public Block block;
+        public bool isEmpty = true;
 
         public Cell(Vector2 pos)
         {
@@ -25,11 +28,12 @@ namespace Cells
         {
             this.block = block;
             this.pos = pos;
+            isEmpty = false;
         }
 
         public bool IsEmpty()
         {
-            return block == null;
+            return isEmpty;
         }
 
         public Block GetBlock()
@@ -40,13 +44,24 @@ namespace Cells
         public void SetBlock(Block block)
         {
             this.block = block;
+            isEmpty = false;
         }
 
 
-        public Block EvictBlock() { 
-            Block tmp = block;
+        public void EvictBlock() { 
             block = null;
-            return tmp;
+            isEmpty = true;
+        }
+
+        public void Start()
+        {
+            pos.x = xPos;
+            pos.y = yPos;
+        }
+
+        public void Update()
+        {
+            
         }
 
         /// <summary>

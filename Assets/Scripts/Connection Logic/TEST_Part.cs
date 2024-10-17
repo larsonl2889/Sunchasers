@@ -69,7 +69,7 @@ public class TEST_Part : MonoBehaviour
         // []  []
         //   []
         // It is chiral and has only 4 blocks.
-        Part part = new(partTable, new Vector2(1, 1));
+        Part part = new(new Vector2(1, 1));
         // the pivot is in the middle of the part.
 
         // Conduct structure tests
