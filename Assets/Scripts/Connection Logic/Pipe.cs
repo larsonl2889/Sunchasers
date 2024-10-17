@@ -25,15 +25,12 @@ namespace Pipes
         }
 
         /// <summary>
-        /// Doesn't allow modifying SOURCEs.
+        /// Sets the SteamState to the given SteamState.
         /// </summary>
-        /// <param name="steamState"></param>
+        /// <param name="steamState">the new steam state</param>
         public void SetSteamState(SteamState steamState)
         {
-            if (this.steamState != SteamState.SOURCE)
-            {
-                this.steamState = steamState;
-            }
+            this.steamState = steamState;
         }
 
         public SteamState GetSteamState() { return this.steamState; }
