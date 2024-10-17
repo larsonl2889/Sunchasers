@@ -25,17 +25,6 @@ namespace Pipes
         }
 
         /// <summary>
-        /// Sets the SteamState to the given SteamState.
-        /// </summary>
-        /// <param name="steamState">the new steam state</param>
-        public void SetSteamState(SteamState steamState)
-        {
-            this.steamState = steamState;
-        }
-
-        public SteamState GetSteamState() { return this.steamState; }
-
-        /// <summary>
         /// Returns the pipe connector
         /// </summary>
         /// <returns>the pipe connector</returns>

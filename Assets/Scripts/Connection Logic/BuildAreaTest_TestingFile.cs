@@ -24,8 +24,6 @@ public class BuildAreaTest_TestingFile : MonoBehaviour
         Part part = new Part(new Vector2(1, 1));
         Part partTwo = new Part(new Vector2(1, 1));
 
-
-
         for (int i = 0; i < 3; i++)
         {
             Cell cell = new Cell(new Vector2(i, 0));

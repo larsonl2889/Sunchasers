@@ -7,8 +7,8 @@ using Cells;
 using Blocks;
 
 // Contributors: Leif Larson
-// Last updated 10-14-2024
-// Previous test result: 10-14-2024 passed all tests.
+// Last updated 10-12-2024
+// Previous test result: Tests FAILED immediately and did not complete running.
 
 public class TEST_Part : MonoBehaviour
 {
@@ -37,14 +37,6 @@ public class TEST_Part : MonoBehaviour
 
         // Putting together the part
         LookupTable<Cell> partTable = new(3, 3);
-        for (int i_x = 0; i_x < partTable.x_size; i_x++)
-        {
-            for (int i_y = 0; i_y < partTable.y_size; i_y++)
-            {
-                partTable.Put(i_x, i_y, new Cell(new Vector2(i_x, i_y)));
-            }
-        }
-
         // Check to see if the cells in the table are identical
         ltTs.Test("Cursory Reference Test 1", false, ReferenceEquals(partTable.Get(1, 0), partTable.Get(0, 2)));
         ltTs.Test("Cursory Reference Test 2", false, ReferenceEquals(partTable.Get(0, 0), partTable.Get(2, 1)));
@@ -104,10 +96,10 @@ public class TEST_Part : MonoBehaviour
         iipTs.Test("Initial, IsInPlay()", false, part.IsInPlay());
 
         // Read the contents of the blocks
-        cfgTs.Test("Contents (1, 0) ", allBlocks[0], part.GetTable().Get(1, 0).GetBlock());
-        cfgTs.Test("Contents (0, 1) ", allBlocks[1], part.GetTable().Get(0, 1).GetBlock());
-        cfgTs.Test("Contents (2, 1) ", allBlocks[2], part.GetTable().Get(2, 1).GetBlock());
-        cfgTs.Test("Contents (2, 2) ", allBlocks[3], part.GetTable().Get(2, 2).GetBlock());
+        cfgTs.Test("Contents (1, 0) ", allBlocks[0], part.GetTable().Get(1, 0));
+        cfgTs.Test("Contents (0, 1) ", allBlocks[1], part.GetTable().Get(0, 1));
+        cfgTs.Test("Contents (2, 1) ", allBlocks[2], part.GetTable().Get(2, 1));
+        cfgTs.Test("Contents (2, 2) ", allBlocks[3], part.GetTable().Get(2, 2));
 
 
         //print the summaries and any failing records
