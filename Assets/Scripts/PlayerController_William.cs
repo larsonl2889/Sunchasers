@@ -48,6 +48,7 @@ public class PlayerController_Willliam : MonoBehaviour
         playerControls.Player.Interact.performed += interact;
         playerControls.Player.Down.performed += GoDownPlatform;
         playerControls.Player.Click.performed += OnClick;
+        playerControls.Player.RightClick.performed += OnRightClick; 
     }
 
 
@@ -116,8 +117,7 @@ public class PlayerController_Willliam : MonoBehaviour
     }
     public void OnClick(InputAction.CallbackContext context)
     {
-        position = Mouse.current.position.ReadValue();
-        WorldPos = Camera.main.ScreenToWorldPoint(position);
+        
         if (isBuilding) {
             if (objectsNear.Peek().gameObject.CompareTag("buildWorkshop"))
             {
@@ -127,8 +127,21 @@ public class PlayerController_Willliam : MonoBehaviour
         }
 
     }
-    
-    
+    public void OnRightClick(InputAction.CallbackContext context)
+    {
+
+        if (isBuilding)
+        {
+            if (objectsNear.Peek().gameObject.CompareTag("buildWorkshop"))
+            {
+                objectsNear.Peek().GetComponent<BuildingArea_Riley>().Delete();
+            }
+
+        }
+
+    }
+
+
     public bool IsGrounded()
     {
         return rb.velocity.y == 0;
