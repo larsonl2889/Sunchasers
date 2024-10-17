@@ -119,9 +119,7 @@ public class PlayerController_Willliam : MonoBehaviour
         position = Mouse.current.position.ReadValue();
         WorldPos = Camera.main.ScreenToWorldPoint(position);
         if (isBuilding) {
-            Debug.Log("BUILD!!");
-            Vector2 Spawnplace = new Vector2(WorldPos.x,WorldPos.y);
-            Instantiate(Slot, Spawnplace, Slot.transform.rotation);
+            objectsNear.Peek().GetComponent<Interactable_William>().onMouseClick();
         }
 
     }
@@ -156,6 +154,7 @@ public class PlayerController_Willliam : MonoBehaviour
             isBuilding = false;
         }
     }
+   
 }
     
 

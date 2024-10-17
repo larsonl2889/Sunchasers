@@ -7,14 +7,18 @@ public class Interactable_William : MonoBehaviour
 {
     private bool isInRange;
     public UnityEvent interactAction;
-    public UnityEvent OnEnter;
-    public UnityEvent OnExit;   
-    
+    public UnityEvent onEnter;
+    public UnityEvent onExit;
+    public UnityEvent onClick;
     // Eventually might change to account for new input system
     
     public void InvokeAction()
     {
         interactAction.Invoke();
+    }
+    public void onMouseClick()
+    {
+        onClick.Invoke();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -22,7 +26,7 @@ public class Interactable_William : MonoBehaviour
         {
             
          
-            OnEnter.Invoke();
+            onEnter.Invoke();
             
         }
     }
@@ -31,7 +35,7 @@ public class Interactable_William : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             
-            OnExit.Invoke();
+            onExit.Invoke();
             
         }
     }

@@ -11,7 +11,7 @@ public class BuildingArea_Riley : MonoBehaviour
     private Vector2 position;
     private Vector2 WorldPos;
     Stack<GameObject> SlotHolder;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -29,9 +29,10 @@ public class BuildingArea_Riley : MonoBehaviour
         //set the area that can be built in by reading the mouse position.
         position = Mouse.current.position.ReadValue();
         WorldPos = Camera.main.ScreenToWorldPoint(position);
-        Debug.Log("BUILD!!");
-            Vector2 Spawnplace = new Vector2(WorldPos.x, WorldPos.y);
-            SlotHolder.Push(Instantiate(Slot, Spawnplace, Slot.transform.rotation));
+        Vector2 Spawnplace = new Vector2(WorldPos.x, WorldPos.y);
+        SlotHolder.Push(Instantiate(Slot, Spawnplace, Slot.transform.rotation));
+        
+        
         //Instantiate(AnimalPrefabs[AnimalIndex], spawnPos, AnimalPrefabs[AnimalIndex].transform.rotation);
         //Instantiate(SlotPrefab,transform.position,Quaternion.identity);
         //Renderer.enabled = false;
@@ -42,11 +43,16 @@ public class BuildingArea_Riley : MonoBehaviour
     //Deletes all the slots from the scene 
     public void DeleteAll()
     {
-        for (int i = 0; i < SlotHolder.Count; i++) {
-            GameObject CurrentSlot = SlotHolder.Peek();
-            Debug.Log(SlotHolder.Pop());
-            Destroy(CurrentSlot);
-
+        
+        int count = SlotHolder.Count;
+        if (SlotHolder.Count > 0)
+        {
+            for (int i = 0; i < count; i++)
+            {
+                Destroy(SlotHolder.Pop());
+                
+            }
         }
+        
     }
 }

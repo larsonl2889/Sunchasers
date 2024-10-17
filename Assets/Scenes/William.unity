@@ -132,8 +132,8 @@ GameObject:
   m_Component:
   - component: {fileID: 31601626}
   - component: {fileID: 31601625}
-  - component: {fileID: 31601628}
   - component: {fileID: 31601630}
+  - component: {fileID: 31601631}
   - component: {fileID: 31601629}
   m_Layer: 0
   m_Name: Circle
@@ -209,18 +209,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &31601628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 31601624}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51e05a7fcf4106f4b9917e2960c3879b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!58 &31601629
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -270,10 +258,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactAction:
     m_PersistentCalls:
+      m_Calls: []
+  onEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  onExit:
+    m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 31601628}
-        m_TargetAssemblyTypeName: ObjectTest_William, Assembly-CSharp
-        m_MethodName: TestMessage
+      - m_Target: {fileID: 31601631}
+        m_TargetAssemblyTypeName: BuildingArea_Riley, Assembly-CSharp
+        m_MethodName: DeleteAll
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -283,12 +277,34 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  OnEnter:
+  onClick:
     m_PersistentCalls:
-      m_Calls: []
-  OnExit:
-    m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 31601631}
+        m_TargetAssemblyTypeName: BuildingArea_Riley, Assembly-CSharp
+        m_MethodName: Slots
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &31601631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31601624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1615b3176c634024c954eb275a021691, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Slot: {fileID: 3116988592714292705, guid: 253bd44c7b4edf74fb1155bf36f498cc, type: 3}
 --- !u!1001 &93951441
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4117,6 +4133,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3517592384382409853, guid: 4c2433ff525ec0b448d0fbc890bdd58d, type: 3}
+      propertyPath: Slot
+      value: 
+      objectReference: {fileID: 3116988592714292705, guid: 253bd44c7b4edf74fb1155bf36f498cc, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
