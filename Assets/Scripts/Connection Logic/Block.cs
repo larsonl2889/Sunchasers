@@ -1,5 +1,7 @@
 ﻿using System;
 using Cells;
+using UnityEditor;
+using UnityEngine;
 
 // implements https://app.diagrams.net/#G1jlsRcd-Jo9MzWTEkTyTaZTvIuyx-oHzH#%7B%22pageId%22%3A%22C5RBs43oDa-KdzZeNtuy%22%7D
 
@@ -8,7 +10,7 @@ namespace Blocks
     /// <summary>
     /// Handles data that is logically shared by all blocks in the game.
     /// </summary>
-    public class Block
+    public class Block : MonoBehaviour
     {
         /// <summary>
         /// Which cell I occupy in my parent part (if I'm in play) or in the world.
@@ -24,6 +26,11 @@ namespace Blocks
         public Block(Cell cell)
         {
             this.cell = cell;
+        }
+
+        public Block()
+        {
+            this.cell = gameObject.GetComponentInParent<Cell>();
         }
 
         /// <summary>

@@ -20,38 +20,64 @@ public class BuildAreaTest_TestingFile : MonoBehaviour
                 testTableTwo.Put(i, j, new Cell(new Vector2(i, j)));
             }
         }
-        Block block = new Block(new Cell(new Vector2(0, 0)));
         BuildAreaTest grid = new BuildAreaTest(6, 6);
-        Part part = new Part(testTableOne, new Vector2(1, 1));
-        Part partTwo = new Part(testTableTwo, new Vector2(1, 1));
-
-
+        Part part = new Part(new Vector2(1, 1));
+        Part partTwo = new Part(new Vector2(1, 1));
 
         for (int i = 0; i < 3; i++)
         {
-            partTwo.placeCellManual(new Cell(block, new Vector2(i, 0)), new Vector2(i, 0));
+            Cell cell = new Cell(new Vector2(i, 0));
+            Block block = new Block(cell);
+            cell.SetBlock(block);
+            partTwo.placeCellManual(cell, new Vector2(i, 0));
         }
 
         for (int i = 0; i < 3; i++)
         {
+            Cell cell = new Cell(new Vector2(i, 0));
+            Block block = new Block(cell);
+            cell.SetBlock(block);
+            part.placeCellManual(cell, new Vector2(i, 0));
+        }
+        for (int i = 0; i < 3; i++)
+        {
             for (int j = 0; j < 3; j++)
             {
-                if (!partTwo.table.Get(i, j).IsEmpty())
+                if (!part.table.Get(i, j).IsEmpty())
                 {
                     Debug.Log("Part Contains X = " + i + " Y = " + j);
                 }
             }
         }
+        for(int i = 0; i < 3; i++)
+        {
+            for(int j = 0; j < 3; j++)
+            {
+                if (!part.table.Get(i, j).IsEmpty())
+                {
+                    Vector2 testVector = part.table.Get(i, j).GetBlock().GetCell().pos;
+                    int testX = (int)testVector.x;
+                    int testY = (int)testVector.y;
+                    Debug.Log("Pre-Merge: Block at X = " + i + " Y = " + j + " Has Cell X = " + testX + " Y + " + testY);
+                }
+            }
+        }
+        grid.MergeTables(part, new Vector2(0, 1));
+        //grid.MergeTables(partTwo, new Vector2(0, 0));
         for (int i = 0; i < 3; i++)
         {
-            part.placeCellManual(new Cell(block, new Vector2(1, i)), new Vector2(1, i));
+            for (int j = 0; j < 3; j++)
+            {
+                if (!part.table.Get(i, j).IsEmpty())
+                {
+                    Vector2 testVector = part.table.Get(i, j).GetBlock().GetCell().pos;
+                    int testX = (int)testVector.x;
+                    int testY = (int)testVector.y;
+                    Debug.Log("Post-Merge: Block at X = " + i + " Y = " + j + " Has Cell X = " + testX + " Y + " + testY);
+                }
+            }
         }
-        part.placeCellManual(new Cell(block, new Vector2(0, 0)), new Vector2(0, 0));
-
-        //grid.MergeTables(part, new Vector2(0, 0));
-        grid.MergeTables(partTwo, new Vector2(0, 0));
-
-        for(int i = 0; i < 6; i++)
+        for (int i = 0; i < 6; i++)
         {
             for(int j = 0; j < 6; j++)
             {
@@ -66,22 +92,22 @@ public class BuildAreaTest_TestingFile : MonoBehaviour
         {
             for (int j = 0; j < 3; j++)
             {
-                if (!partTwo.table.Get(i, j).IsEmpty())
+                if (!part.table.Get(i, j).IsEmpty())
                 {
                     Debug.Log("Part Contains X = " + i + " Y = " + j);
                 }
             }
         }
 
-        partTwo.Extract();
+        part.Extract();
 
         for (int i = 0; i < 3; i++)
         {
             for (int j = 0; j < 3; j++)
             {
-                if (!partTwo.table.Get(i, j).IsEmpty())
+                if (!part.table.Get(i, j).IsEmpty())
                 {
-                    Debug.Log("Part Contains X = " + i + " Y = " + j);
+                    Debug.Log("Part Contains (After Extract) X = " + i + " Y = " + j);
                 }
             }
         }

@@ -2,22 +2,58 @@
 using Blocks;
 using Cells;
 using DirectionOps;
-using Testing;
 using UnityEngine;
 
 namespace Parts
 {
-    public class Part
+    public class Part : MonoBehaviour
     {
         internal LookupTable<Cell> table;
+        public int tableSize;
         private Vector2 pivot; // location within its own table that'll be our "center". We place and rotate with respect to the pivot.
         private Vector2? posInWorld; // the position in world, if I'm in play.
         private LookupTable<Cell> buildArea;
+        private GameObject[] childCells;
 
-        public Part(LookupTable<Cell> table, Vector2 pivot)
+        public Part(Vector2 pivot)
         {
-            this.table = table;
+            Cell badCell = new Cell(new Vector2(0, 0));
+            LookupTable<Cell> goodTable = new LookupTable<Cell>(tableSize, tableSize, badCell);
+            table = goodTable;
             this.pivot = pivot;
+        }
+
+        public void Start()
+        {
+            Cell badCell = new Cell(new Vector2(0, 0));
+            LookupTable<Cell> goodTable = new LookupTable<Cell>(tableSize, tableSize, badCell);
+            table = goodTable;
+            Cell[] cells = gameObject.GetComponentsInChildren<Cell>();
+            for(int i = 0; i < cells.Length; i++)
+            {
+                Debug.Log("Cell Location X = " + cells[i].xPos + " Y = " + cells[i].yPos);
+            }
+            for(int i = 0; i < cells.Length; i++)
+            {
+                placeCellManual(cells[i], new Vector2(cells[i].xPos, cells[i].yPos));
+            }
+            for(int i = 0; i < tableSize; i++)
+            {
+                for(int j = 0; j < tableSize; j++)
+                {
+                   if(!table.Get(i, j).IsEmpty())
+                   {
+                        Debug.Log("There is a Cell at X = " + table.Get(i, j).xPos + " Y = " + table.Get(i, j).yPos);
+                   }
+                }
+            }
+
+            
+        }
+
+        public void Update()
+        {
+            
         }
 
         public void placeCellManual(Cell cell, Vector2 position)
@@ -81,19 +117,25 @@ namespace Parts
                 // Do nothing if the part is already out-of-play.
                 return;
             }
-
-
             for (int i_x = 0; i_x < table.x_size; i_x++)
             {
                 for (int i_y = 0; i_y < table.y_size; i_y++)
                 {
                     if (!table.Get(i_x, i_y).IsEmpty()) {
                         // get each block
-                        Block tmp = table.Get(i_x, i_y).GetBlock();
+                        //Block tmp = table.Get(i_x, i_y).GetBlock();
                         // remove it from the build area
-                        tmp.GetCell().EvictBlock();
+                        //tmp.GetCell().EvictBlock();
                         // and hook it back up to the part
-                        tmp.SetCell(table.Get(i_x, i_y));
+                        //tmp.SetCell(table.Get(i_x, i_y));
+                        Debug.Log("Extract Ran");
+                        Vector2 testVector = table.Get(i_x, i_y).GetBlock().GetCell().pos;
+                        int testX = (int)testVector.x;
+                        int testY = (int)testVector.y;
+                        Debug.Log("Cell Position X = " + testX + " Y = " + testY);
+                        table.Get(i_x, i_y).GetBlock().GetCell().EvictBlock();
+                        table.Get(i_x, i_y).GetBlock().SetCell(table.Get(i_x, i_y));
+
                     }
                 }
             }
