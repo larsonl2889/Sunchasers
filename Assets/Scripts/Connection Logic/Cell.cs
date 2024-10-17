@@ -55,6 +55,15 @@ namespace Cells
 
         public void Start()
         {
+        }
+
+        public void CellStart()
+        {
+            if (gameObject.GetComponentInChildren<Block>() != null)
+            {
+                Debug.Log("Method Cell Ran");
+                block = gameObject.GetComponentInChildren<Block>();
+            }
             pos.x = xPos;
             pos.y = yPos;
         }

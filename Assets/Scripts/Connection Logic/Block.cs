@@ -28,9 +28,15 @@ namespace Blocks
             this.cell = cell;
         }
 
-        public Block()
+        public void Start()
+        {
+
+        }
+
+        public void BlockStart()
         {
             this.cell = gameObject.GetComponentInParent<Cell>();
+            Debug.Log("Method Ran Block");
         }
 
         /// <summary>
