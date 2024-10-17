@@ -48,7 +48,8 @@ public class PlayerController_Willliam : MonoBehaviour
         playerControls.Player.Interact.performed += interact;
         playerControls.Player.Down.performed += GoDownPlatform;
         playerControls.Player.Click.performed += OnClick;
-        playerControls.Player.RightClick.performed += OnRightClick; 
+        playerControls.Player.RightClick.performed += OnRightClick;
+        //playerControls.Player.BuildMode.performed += ToggleBuildMode;
     }
 
 
@@ -93,6 +94,7 @@ public class PlayerController_Willliam : MonoBehaviour
         }
         
     }
+
     public void onJump(InputAction.CallbackContext context)
     {
         if (IsGrounded() == true)
@@ -121,7 +123,7 @@ public class PlayerController_Willliam : MonoBehaviour
         if (isBuilding) {
             if (objectsNear.Peek().gameObject.CompareTag("buildWorkshop"))
             {
-                objectsNear.Peek().GetComponent<BuildingArea_Riley>().Slots();
+                objectsNear.Peek().GetComponent<BuildingArea_Riley>().Build();
             }
             
         }
@@ -140,7 +142,17 @@ public class PlayerController_Willliam : MonoBehaviour
         }
 
     }
-
+    /*
+     * call when in build zone/grid
+    public void ToggleBuildMode(InputAction.CallbackContext context)
+    {
+        if (objectsNear.Peek().gameObject.CompareTag("buildWorkshop"))
+        {
+            isBuilding = true;
+            
+        }
+    }
+    */
 
     public bool IsGrounded()
     {
@@ -161,6 +173,7 @@ public class PlayerController_Willliam : MonoBehaviour
         if (other.gameObject.CompareTag("Interactable") || other.gameObject.CompareTag("buildWorkshop"))
         {
             objectsNear.Push(other.gameObject);
+            
         }
     }
     private void OnTriggerExit2D(Collider2D other)
