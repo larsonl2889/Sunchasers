@@ -132,6 +132,9 @@ MonoBehaviour:
   speed: 5
   jumpForce: 6.9
   isBuilding: 0
+  camera: {fileID: 0}
+  Slot: {fileID: 3116988592714292705, guid: 253bd44c7b4edf74fb1155bf36f498cc, type: 3}
+  currentBuildZone: {fileID: 0}
 --- !u!114 &3203166835970753945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,6 +248,14 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 41dc11e7-f0a5-41c2-bea7-905a3cb95873
     m_ActionName: Player/Click[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: aeae0b17-9377-4390-b6e0-2676a048c139
+    m_ActionName: Player/RightClick[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 167e4d9f-e02f-4afe-a4f4-cf55f352b496
+    m_ActionName: Player/BuildMode[/Keyboard/q]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

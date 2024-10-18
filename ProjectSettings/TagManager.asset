@@ -19,8 +19,8 @@ TagManager:
   - UI
   - World
   - NPC
-  - 
-  - 
+  - interactable
+  - buildZone
   - 
   - 
   - 
