@@ -5,14 +5,18 @@ using Parts;
 using Blocks;
 using Pipes;
 using UnityEngine;
+using System.Data;
+using UnityEditor.U2D.Aseprite;
 
 // Contributors: Kilian W., Leif Larson
-// Last updated 10/16/2024
+// Last updated 10/17/2024
 
-public class BuildAreaTest
+public class BuildAreaTest : MonoBehaviour
 {
     internal LookupTable<Cell> table;
     public float scale = 1.0f;
+    public int xPos = 0;
+    public int yPos = 0;
     private bool isLegal = true;
     internal List<Vector2> allPipeLocations;
 
