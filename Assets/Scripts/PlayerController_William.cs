@@ -11,12 +11,17 @@ public class PlayerController_Willliam : MonoBehaviour
     
     [SerializeField] float speed;
     [SerializeField] float jumpForce;
+    [SerializeField] bool isBuilding = false;
     private Rigidbody2D rb;
     private Vector2 direction;
     private Controls playerControls;
     private SpriteRenderer SpriteRenderer;
     private Animator animator;
     private PlayerPlatformHandler playerPlatformHandler;
+    Vector2 position;
+    Stack<GameObject> objectsNear;
+    public GameObject Slot;
+    private Vector2 WorldPos;
     
     private void Awake()
     {
@@ -25,6 +30,7 @@ public class PlayerController_Willliam : MonoBehaviour
         animator = rb.GetComponent<Animator>();
         playerControls = new Controls();
         playerPlatformHandler = GetComponent<PlayerPlatformHandler>();
+        objectsNear = new Stack<GameObject>();
         
     }
     private void OnEnable()
@@ -38,9 +44,12 @@ public class PlayerController_Willliam : MonoBehaviour
 
     private void Start()
     {
-        playerControls.Player.BuildMode.performed += toggleBuildMode;
+        
         playerControls.Player.Interact.performed += interact;
         playerControls.Player.Down.performed += GoDownPlatform;
+        playerControls.Player.Click.performed += OnClick;
+        playerControls.Player.RightClick.performed += OnRightClick;
+        //playerControls.Player.BuildMode.performed += ToggleBuildMode;
     }
 
 
@@ -48,11 +57,13 @@ public class PlayerController_Willliam : MonoBehaviour
     { 
         rb.velocity = new Vector2(direction.x * speed, rb.velocity.y);
         animate();
+        
     }
     
     public void onMove(InputAction.CallbackContext context)
     {
         direction = context.ReadValue<Vector2>();
+
         if (direction.x > 0)
         {
             SpriteRenderer.flipX = true;
@@ -65,15 +76,25 @@ public class PlayerController_Willliam : MonoBehaviour
     }
     public void animate()
     {
-        if (direction.x != 0)
+        if (IsGrounded())
         {
-            animator.SetBool("IsMoving", true);
+            animator.SetBool("IsFalling", false);
+            if (direction.x != 0)
+            {
+                animator.SetBool("IsMoving", true);
+            }
+            else
+            {
+                animator.SetBool("IsMoving", false);
+            }
         }
         else
         {
-            animator.SetBool("IsMoving", false);
+            animator.SetBool("IsFalling", true );
         }
+        
     }
+
     public void onJump(InputAction.CallbackContext context)
     {
         if (IsGrounded() == true)
@@ -81,18 +102,57 @@ public class PlayerController_Willliam : MonoBehaviour
             rb.AddForce(new Vector2(rb.velocity.x, jumpForce), ForceMode2D.Impulse);
         }
     }
-    public void toggleBuildMode(InputAction.CallbackContext context)
-    {
-        Debug.Log("Build Mode");
-    }
+   
     public void interact(InputAction.CallbackContext context)
     {
-        // TODO Invoke interactable events from player
-        
-        
+        if (objectsNear.Count > 0)
+        {
+            if (objectsNear.Peek().gameObject.CompareTag("buildWorkshop"))
+            {
+                isBuilding = true;
+            }
+            
+            objectsNear.Peek().GetComponent<Interactable_William>().InvokeAction();
+            
+        }
+
     }
-    
-    
+    public void OnClick(InputAction.CallbackContext context)
+    {
+        if (isBuilding) {
+            if (objectsNear.Peek().gameObject.CompareTag("buildWorkshop"))
+            {
+                objectsNear.Peek().GetComponent<BuildingArea_Riley>().Build();
+            }
+            
+        }
+
+    }
+    public void OnRightClick(InputAction.CallbackContext context)
+    {
+
+        if (isBuilding)
+        {
+            if (objectsNear.Peek().gameObject.CompareTag("buildWorkshop"))
+            {
+                objectsNear.Peek().GetComponent<BuildingArea_Riley>().Delete();
+            }
+
+        }
+
+    }
+    /*
+     * call when in build zone/grid
+    public void ToggleBuildMode(InputAction.CallbackContext context)
+    {
+        if (objectsNear.Peek().gameObject.CompareTag("buildWorkshop"))
+        {
+            isBuilding = true;
+            
+        }
+    }
+    */
+
     public bool IsGrounded()
     {
         return rb.velocity.y == 0;
@@ -106,6 +166,24 @@ public class PlayerController_Willliam : MonoBehaviour
         }
         
     }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        
+        if (other.gameObject.CompareTag("Interactable") || other.gameObject.CompareTag("buildWorkshop"))
+        {
+            objectsNear.Push(other.gameObject);
+            
+        }
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Interactable") || other.gameObject.CompareTag("buildWorkshop"))
+        {
+            objectsNear.Pop();
+            isBuilding = false;
+        }
+    }
+   
 }
     
 
