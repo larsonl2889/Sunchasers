@@ -119,7 +119,6 @@ public class PlayerController_Willliam : MonoBehaviour
     }
     public void OnClick(InputAction.CallbackContext context)
     {
-        
         if (isBuilding) {
             if (objectsNear.Peek().gameObject.CompareTag("buildWorkshop"))
             {

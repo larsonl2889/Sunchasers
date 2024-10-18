@@ -77,8 +77,8 @@ namespace Parts
             Cell[] cells = gameObject.GetComponentsInChildren<Cell>();
             for (int i = 0; i < cells.Length; i++)
             {
-                cells[i].GetBlock().BlockStart();
                 cells[i].CellStart();
+                cells[i].GetBlock().GetComponent<Block>().BlockStart();
             }
             for (int i = 0; i < cells.Length; i++)
             {
@@ -102,10 +102,14 @@ namespace Parts
             {
                 for (int j = 0; j < tableSize; j++)
                 {
-                    if (table.Get(i, j).GetBlock().GetCell() != null)
+                    if(!table.Get(i, j).isEmpty)
                     {
-                        Debug.Log("Cell Initialized Properly");
+                        if (table.Get(i, j).GetBlock().GetComponent<Block>().GetCell() != null)
+                        {
+                            Debug.Log("Cell Initialized Properly");
+                        }
                     }
+                    
                 }
             }
             for (int i = 0; i < tableSize; i++)
@@ -114,7 +118,7 @@ namespace Parts
                 {
                     if (!table.Get(i, j).IsEmpty())
                     {
-                        Debug.Log("Block has Cell X = " + table.Get(i, j).GetBlock().GetCell().xPos + " Y = " + table.Get(i, j).GetBlock().GetCell().yPos);
+                        Debug.Log("Block has Cell X = " + table.Get(i, j).GetBlock().GetComponent<Block>().GetCell().xPos + " Y = " + table.Get(i, j).GetBlock().GetComponent<Block>().GetCell().yPos);
                     }
                 }
             }
@@ -193,19 +197,13 @@ namespace Parts
                 for (int i_y = 0; i_y < table.y_size; i_y++)
                 {
                     if (!table.Get(i_x, i_y).IsEmpty()) {
-                        // get each block
-                        //Block tmp = table.Get(i_x, i_y).GetBlock();
-                        // remove it from the build area
-                        //tmp.GetCell().EvictBlock();
-                        // and hook it back up to the part
-                        //tmp.SetCell(table.Get(i_x, i_y));
                         Debug.Log("Extract Ran");
-                        Vector2 testVector = table.Get(i_x, i_y).GetBlock().GetCell().pos;
+                        Vector2 testVector = table.Get(i_x, i_y).GetBlock().GetComponent<Block>().GetCell().pos;
                         int testX = (int)testVector.x;
                         int testY = (int)testVector.y;
                         Debug.Log("Cell Position X = " + testX + " Y = " + testY);
-                        table.Get(i_x, i_y).GetBlock().GetCell().EvictBlock();
-                        table.Get(i_x, i_y).GetBlock().SetCell(table.Get(i_x, i_y));
+                        table.Get(i_x, i_y).GetBlock().GetComponent<Block>().GetCell().EvictBlock();
+                        table.Get(i_x, i_y).GetBlock().GetComponent<Block>().SetCell(table.Get(i_x, i_y));
 
                     }
                 }

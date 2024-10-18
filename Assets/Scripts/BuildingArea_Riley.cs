@@ -54,6 +54,7 @@ public class BuildingArea_Riley : MonoBehaviour
             {
                 Vector2 Spawnplace = new Vector2(xPos + 0.5f, yPos + 0.5f);
                 SlotHolder.Push(Instantiate(Slot, Spawnplace, Slot.transform.rotation));
+                buildArea.MergeTables(part, Spawnplace);
             }
             
         }

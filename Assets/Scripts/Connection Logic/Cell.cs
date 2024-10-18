@@ -14,34 +14,35 @@ namespace Cells
     public class Cell : MonoBehaviour
     {
         internal Vector2 pos;
+        internal Cell cell;
         public int xPos;
         public int yPos;
-        public Block block;
+        public GameObject block;
         public bool isEmpty = true;
 
         public Cell(Vector2 pos)
         {
             this.pos = pos;
         }
-
+        /*
         public Cell(Block block, Vector2 pos)
         {
             this.block = block;
             this.pos = pos;
             isEmpty = false;
         }
-
+        */
         public bool IsEmpty()
         {
             return isEmpty;
         }
 
-        public Block GetBlock()
+        public GameObject GetBlock()
         {
             return block;
         }
 
-        public void SetBlock(Block block)
+        public void SetBlock(GameObject block)
         {
             this.block = block;
             isEmpty = false;
@@ -59,11 +60,6 @@ namespace Cells
 
         public void CellStart()
         {
-            if (gameObject.GetComponentInChildren<Block>() != null)
-            {
-                Debug.Log("Method Cell Ran");
-                block = gameObject.GetComponentInChildren<Block>();
-            }
             pos.x = xPos;
             pos.y = yPos;
         }
@@ -79,6 +75,7 @@ namespace Cells
         /// <br></br>Represents a Cell at position (0, 0) in its own lookup table, storing a block that is connected to some other cell at position (1, 3) in its lookup table.
         /// </summary>
         /// <returns>a string representation of the cell</returns>
+        /*
         public override string ToString()
         {
             string s = "Cell @(" + pos.x + ", " + pos.y + ")";
@@ -92,6 +89,7 @@ namespace Cells
             }
             return s;
         }
+        */
 
     }
 }

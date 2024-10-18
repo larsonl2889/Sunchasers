@@ -21,12 +21,12 @@ public class BuildAreaTest : MonoBehaviour
         table.Put(pos, cell);
     }
     //Constructor override, size dictates the size of the lookup table
-    public BuildAreaTest(int sizeX, int sizeY)
+    public void Start()
     {
-        table = new LookupTable<Cell>(sizeX, sizeY, new Cell(new Vector2(0, 0)));
-        for (int i = 0; i < sizeX; i++)
+        table = new LookupTable<Cell>(scale, scale, new Cell(new Vector2(0, 0)));
+        for (int i = 0; i < scale; i++)
         {
-            for (int j = 0; j < sizeY; j++)
+            for (int j = 0; j < scale; j++)
             {
                 table.Put(i, j, new Cell(new Vector2(i, j)));
             }
@@ -61,11 +61,16 @@ public class BuildAreaTest : MonoBehaviour
                 Cell cellOne = part.table.Get(i, j);
                 if (!cellOne.IsEmpty())
                 {
-                    Cell cellTwo = table.Get(i + startX, j + startY);
-                    if (cellTwo != null && !cellTwo.IsEmpty())
+                    if (i + startX > scale - 1 || j + startY > scale - 1)
                     {
                         return false;
                     }
+                    Cell cellTwo = table.Get(i + startX, j + startY);
+                    if (!cellTwo.IsEmpty())
+                    {
+                        return false;
+                    }
+                    
                 }
             }
         }
@@ -84,12 +89,14 @@ public class BuildAreaTest : MonoBehaviour
                     if(!part.table.Get(i, j).IsEmpty())
                     {
                         Debug.Log("Method Ran");
-                        part.table.Get(i, j).GetBlock().SetCell(table.Get((int)startPosition.x + i, (int)startPosition.y + j));
-                        Vector2 testVector = part.table.Get(i, j).GetBlock().GetCell().pos;
+                        part.table.Get(i, j).GetBlock().GetComponent<Block>().SetCell(table.Get((int)startPosition.x + i, (int)startPosition.y + j));
+                        Vector2 testVector = part.table.Get(i, j).GetBlock().GetComponent<Block>().GetCell().pos;
                         int testX = (int)testVector.x;
                         int testY = (int)testVector.y;
                         Debug.Log("Block at X = " + i + " Y = " + j + " Assigned Cell X = " + testX + " Y = " + testY);
                         table.Get((int)startPosition.x + i, (int)startPosition.y + j).SetBlock(part.table.Get(i, j).GetBlock());
+                        table.Get((int)startPosition.x + i, (int)startPosition.y + j).isEmpty = false;
+                        Debug.Log("Tables Should Be Merged");
                     }
                 }
             }
