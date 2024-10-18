@@ -6,6 +6,7 @@ using TMPro;
 
 public class TitleScreenController : MonoBehaviour
 {
+    public string gameScene; // The scene to switch to when playing the game
     public Button playButton;
     public Button creditsButton;
     public TextMeshProUGUI splashText; // Text UI element for the splash text
@@ -35,7 +36,7 @@ public class TitleScreenController : MonoBehaviour
     // Called when Play is clicked
     public void PlayGame()
     {
-        SceneManager.LoadScene("TestArea"); // Can be changed later to load the real level of the game
+        SceneManager.LoadScene(gameScene);
     }
 
     // Called when Credits is clicked
