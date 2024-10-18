@@ -22,7 +22,11 @@ public class BuildingArea_Riley : MonoBehaviour
         SlotHolder = new Stack<GameObject>();
         buildArea = gameObject.GetComponentInParent<BuildAreaTest>();
         buildMat = gameObject.GetComponent<BuildMat>();
-        part = Slot.GetComponent<Part>();
+        GameObject testObject = Slot;
+        if(Slot != null)
+        {
+            Debug.Log("Slot Exists");
+        }
     }
 
     // Update is called once per frame
