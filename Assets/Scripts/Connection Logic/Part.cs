@@ -22,7 +22,7 @@ namespace Parts
             table = goodTable;
             this.pivot = pivot;
         }
-
+        /*
         public void Start()
         {
             Debug.Log("Method Ran Part");
@@ -65,6 +65,61 @@ namespace Parts
             }
 
             
+        }
+        */
+
+        public void FormTable()
+        {
+            Debug.Log("Method Ran FormTable");
+            Cell badCell = new Cell(new Vector2(0, 0));
+            LookupTable<Cell> goodTable = new LookupTable<Cell>(tableSize, tableSize, badCell);
+            table = goodTable;
+            Cell[] cells = gameObject.GetComponentsInChildren<Cell>();
+            for (int i = 0; i < cells.Length; i++)
+            {
+                cells[i].GetBlock().BlockStart();
+                cells[i].CellStart();
+            }
+            for (int i = 0; i < cells.Length; i++)
+            {
+                Debug.Log("Cell Location X = " + cells[i].xPos + " Y = " + cells[i].yPos);
+            }
+            for (int i = 0; i < cells.Length; i++)
+            {
+                placeCellManual(cells[i], new Vector2(cells[i].xPos, cells[i].yPos));
+            }
+            for (int i = 0; i < tableSize; i++)
+            {
+                for (int j = 0; j < tableSize; j++)
+                {
+                    if (!table.Get(i, j).IsEmpty())
+                    {
+                        Debug.Log("There is a Cell at X = " + table.Get(i, j).xPos + " Y = " + table.Get(i, j).yPos);
+                    }
+                }
+            }
+            for (int i = 0; i < tableSize; i++)
+            {
+                for (int j = 0; j < tableSize; j++)
+                {
+                    if (table.Get(i, j).GetBlock().GetCell() != null)
+                    {
+                        Debug.Log("Cell Initialized Properly");
+                    }
+                }
+            }
+            for (int i = 0; i < tableSize; i++)
+            {
+                for (int j = 0; j < tableSize; j++)
+                {
+                    if (!table.Get(i, j).IsEmpty())
+                    {
+                        Debug.Log("Block has Cell X = " + table.Get(i, j).GetBlock().GetCell().xPos + " Y = " + table.Get(i, j).GetBlock().GetCell().yPos);
+                    }
+                }
+            }
+
+
         }
 
         public void Update()

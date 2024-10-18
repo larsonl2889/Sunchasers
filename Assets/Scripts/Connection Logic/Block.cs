@@ -36,6 +36,10 @@ namespace Blocks
         public void BlockStart()
         {
             this.cell = gameObject.GetComponentInParent<Cell>();
+            if(cell != null)
+            {
+                Debug.Log("There is a Cell");
+            }
             Debug.Log("Method Ran Block");
         }
 

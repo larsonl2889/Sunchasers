@@ -23,9 +23,11 @@ public class BuildingArea_Riley : MonoBehaviour
         buildArea = gameObject.GetComponentInParent<BuildAreaTest>();
         buildMat = gameObject.GetComponent<BuildMat>();
         GameObject testObject = Slot;
-        if(Slot != null)
+        part = testObject.GetComponent<Part>();
+        if(part != null)
         {
-            Debug.Log("Slot Exists");
+            Debug.Log("Part Exists");
+            part.FormTable();
         }
     }
 
