@@ -10,6 +10,7 @@ TagManager:
   - Interactable
   - buildWorkshop
   - Part
+  - EmptyCell
   layers:
   - Default
   - TransparentFX

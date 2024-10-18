@@ -126,7 +126,18 @@ public class PlayerController_Willliam : MonoBehaviour
         if (isBuilding) {
             if (objectsNear.Peek().gameObject.CompareTag("buildWorkshop"))
             {
-                objectsNear.Peek().GetComponent<BuildingArea_Riley>().Build();
+                var rayHit = Physics2D.GetRayIntersection(camera.ScreenPointToRay(pos: (Vector3)Mouse.current.position.ReadValue()));
+                if (!rayHit.collider) return;
+                if (rayHit.collider.gameObject.CompareTag("EmptyCell"))
+                {
+                    int xPos = rayHit.collider.gameObject.GetComponent<Cell>().xPos;
+                    int yPos = rayHit.collider.gameObject.GetComponent<Cell>().yPos;
+                    BuildAreaTest buildArea = rayHit.collider.gameObject.GetComponentInParent<BuildAreaTest>();
+                    if (buildArea != null) { }
+                    {
+                        rayHit.collider.gameObject.GetComponentInParent<BuildingArea_Riley>().Build(buildArea, new Vector2(xPos, yPos));
+                    }
+                }
             }
             
         }

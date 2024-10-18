@@ -9,13 +9,13 @@ namespace Parts
 {
     public class Part : MonoBehaviour
     {
-        public LookupTable<Cell> table;
+        public LookupTable<GameObject> table;
         public int tableSize;
         private Vector2 pivot; // location within its own table that'll be our "center". We place and rotate with respect to the pivot.
         private bool posInWorld; // the position in world, if I'm in play.
         private LookupTable<Cell> buildArea;
         private GameObject[] childCells;
-
+        /*
         public Part(Vector2 pivot)
         {
             Cell badCell = new Cell(new Vector2(0, 0));
@@ -23,7 +23,7 @@ namespace Parts
             table = goodTable;
             this.pivot = pivot;
         }
-        /*
+        
         public void Start()
         {
             Debug.Log("Method Ran Part");
@@ -69,12 +69,31 @@ namespace Parts
         }
         */
        
-        public void Start()
+        public void FormTable()
         {
-            //FormTable();
+            Cell[] cells = GetComponentsInChildren<Cell>();
+            GameObject[] cellsTwo = new GameObject[cells.Length];
+            table = new LookupTable<GameObject>(tableSize, tableSize, cellsTwo[0]);
+            for(int i = 0; i < cells.Length; i++)
+            {
+                cellsTwo[i] = cells[i].gameObject;
+            }
+            int full = 0;
+            for(int i = 0; i < tableSize; i++)
+            {
+                for(int j = 0; j < tableSize; j++)
+                {
+                    if (cellsTwo[full].GetComponent<Cell>() != null)
+                    {
+                        Debug.Log("Works Fine");
+                    }
+                    Debug.Log("Table Put The Thing " + full + " times");
+                    table.Put(new Vector2(cellsTwo[full].GetComponent<Cell>().xPos, cellsTwo[full].GetComponent<Cell>().yPos), cellsTwo[full]);
+                    full++;
+                }
+            }
         }
-        
-
+        /*
         public void FormTable()
         {
             Debug.Log("Method Ran FormTable");
@@ -119,7 +138,6 @@ namespace Parts
                     
                 }
             }
-            /*
             for (int i = 0; i < tableSize; i++)
             {
                 for (int j = 0; j < tableSize; j++)
@@ -130,22 +148,21 @@ namespace Parts
                     }
                 }
             }
-            */
 
 
         }
-
+        */
         public void Update()
         {
             
         }
 
-        public void placeCellManual(Cell cell, Vector2 position)
+        public void placeCellManual(GameObject cell, Vector2 position)
         {
             table.Put(position, cell);
         }
 
-        public LookupTable<Cell> GetTable()
+        public LookupTable<GameObject> GetTable()
         {
             return table;
         }
@@ -190,14 +207,14 @@ namespace Parts
             {
                 for (int i_y = 0; i_y < table.y_size; i_y++)
                 {
-                    if (!table.Get(i_x, i_y).IsEmpty()) {
+                    if (!table.Get(i_x, i_y).GetComponent<Cell>().IsEmpty()) {
                         Debug.Log("Extract Ran");
-                        Vector2 testVector = table.Get(i_x, i_y).GetBlock().GetComponent<Block>().GetCell().pos;
+                        Vector2 testVector = table.Get(i_x, i_y).GetComponent<Cell>().GetBlock().GetComponent<Block>().GetCell().pos;
                         int testX = (int)testVector.x;
                         int testY = (int)testVector.y;
                         Debug.Log("Cell Position X = " + testX + " Y = " + testY);
-                        table.Get(i_x, i_y).GetBlock().GetComponent<Block>().SetCell(table.Get(i_x, i_y));
-                        table.Get(i_x, i_y).GetBlock().GetComponent<Block>().GetCell().EvictBlock();
+                        table.Get(i_x, i_y).GetComponent<Cell>().GetBlock().GetComponent<Block>().SetCell(table.Get(i_x, i_y).GetComponent<Cell>());
+                        table.Get(i_x, i_y).GetComponent<Cell>().GetBlock().GetComponent<Block>().GetCell().EvictBlock();
 
                     }
                 }
