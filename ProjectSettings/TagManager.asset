@@ -4,10 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Object
   - NPC
   - World
   - OneWayPlatform
+  - Interactable
+  - buildWorkshop
+  - Part
   layers:
   - Default
   - TransparentFX
