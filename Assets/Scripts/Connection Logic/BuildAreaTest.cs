@@ -7,10 +7,12 @@ using UnityEngine;
 using System.Data;
 using UnityEditor.U2D.Aseprite;
 
-public class BuildAreaTest
+public class BuildAreaTest : MonoBehaviour
 {
     internal LookupTable<Cell> table;
-    public float scale = 1.0f;
+    public int scale = 1;
+    public int xPos;
+    public int yPos;
     private bool isLegal = true;
 
     //Gives you manual control to place cells. (Good for setting up tests)
