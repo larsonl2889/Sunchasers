@@ -78,29 +78,31 @@ public class BuildAreaTest : MonoBehaviour
     }
 
     //Merges the table passed as a parameter into the one calling the function. (You would pass the part as parameter)
-    public void MergeTables(Part part, Vector2 startPosition)
+    public void MergeTables(GameObject part, Vector2 startPosition)
     {
-        if(CanMerge(part, startPosition))
+        if(CanMerge(part.GetComponent<Part>(), startPosition))
         {
-            for(int i = 0; i < part.table.x_size; i++)
+            for(int i = 0; i < part.GetComponent<Part>().table.x_size; i++)
             {
-                for(int j = 0; j < part.table.y_size; j++)
+                for(int j = 0; j < part.GetComponent<Part>().table.y_size; j++)
                 {
-                    if(!part.table.Get(i, j).IsEmpty())
+                    if(!part.GetComponent<Part>().table.Get(i, j).IsEmpty())
                     {
                         Debug.Log("Method Ran");
-                        part.table.Get(i, j).GetBlock().GetComponent<Block>().SetCell(table.Get((int)startPosition.x + i, (int)startPosition.y + j));
-                        Vector2 testVector = part.table.Get(i, j).GetBlock().GetComponent<Block>().GetCell().pos;
+                        Block niceBlock = part.GetComponent<Part>().table.Get(i, j).GetBlock().GetComponent<Block>();
+                        niceBlock.SetCell(table.Get(i + (int)startPosition.x, j + (int)startPosition.y));
+                        part.GetComponent<Part>().table.Get(i, j).SetBlock(niceBlock.gameObject);
+                        Vector2 testVector = part.GetComponent<Part>().table.Get(i, j).GetBlock().GetComponent<Block>().GetCell().pos;
                         int testX = (int)testVector.x;
                         int testY = (int)testVector.y;
                         Debug.Log("Block at X = " + i + " Y = " + j + " Assigned Cell X = " + testX + " Y = " + testY);
-                        table.Get((int)startPosition.x + i, (int)startPosition.y + j).SetBlock(part.table.Get(i, j).GetBlock());
+                        table.Get((int)startPosition.x + i, (int)startPosition.y + j).SetBlock(part.GetComponent<Part>().table.Get(i, j).GetBlock());
                         table.Get((int)startPosition.x + i, (int)startPosition.y + j).isEmpty = false;
                         Debug.Log("Tables Should Be Merged");
                     }
                 }
             }
-            part.SetPosInWorld(startPosition);
+            part.GetComponent<Part>().SetPosInWorld();
         }
     }
 }

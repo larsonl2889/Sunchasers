@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Parts;
+using Cells;
+using Blocks;
 using UnityEngine.UIElements;
 
 public class BuildingArea_Riley : MonoBehaviour
@@ -11,6 +13,7 @@ public class BuildingArea_Riley : MonoBehaviour
     internal BuildAreaTest buildArea;
     internal BuildMat buildMat;
     internal Part part;
+    internal GameObject realPart;
     private bool isInRange;
     private Vector2 position;
     private Vector2 WorldPos;
@@ -27,7 +30,8 @@ public class BuildingArea_Riley : MonoBehaviour
         if(part != null)
         {
             Debug.Log("Part Exists");
-            part.FormTable();
+            Slot.GetComponent<Part>().FormTable();
+            realPart = part.gameObject;
         }
     }
 
@@ -50,13 +54,35 @@ public class BuildingArea_Riley : MonoBehaviour
         float maxY = buildMat.yPos + ((float)buildArea.scale / 2);
         if (xPos >= minX && xPos < maxX && yPos >= minY && yPos < maxY)
         {
-            if(buildArea.CanMerge(part, new Vector2(xPos, yPos)))
+            if (buildArea.CanMerge(part, new Vector2(xPos, yPos)))
             {
                 Vector2 Spawnplace = new Vector2(xPos + 0.5f, yPos + 0.5f);
-                SlotHolder.Push(Instantiate(Slot, Spawnplace, Slot.transform.rotation));
-                buildArea.MergeTables(part, Spawnplace);
+                SlotHolder.Push(Instantiate(realPart, Spawnplace, Slot.transform.rotation));
+                //realPart.GetComponent<Part>().FormTable();
+                buildArea.MergeTables(realPart, Spawnplace);
+                Part test = realPart.GetComponent<Part>();
+                for(int i = 0; i < test.tableSize; i++)
+                {
+                    for(int j = 0; j < test.tableSize; j++)
+                    {
+                        if(!test.table.Get(i, j).isEmpty)
+                        {
+                            Cell testCell = test.table.Get(i, j);
+                            Debug.Log("Cell At X = " + testCell.xPos + " Y = " + testCell.yPos);
+                            Block testBlock = testCell.GetBlock().GetComponent<Block>();
+                            if(testBlock != null)
+                            {
+                                Debug.Log("Cell Has A Block");
+                                Cell cellTwo = testBlock.GetCell();
+                                if(cellTwo != null)
+                                {
+                                    Debug.Log("Block Contains Cell At X = " + cellTwo.xPos + " Y = " + cellTwo.yPos);
+                                }
+                            }
+                        }
+                    }
+                }
             }
-            
         }
         
         
@@ -73,7 +99,8 @@ public class BuildingArea_Riley : MonoBehaviour
         
         if (SlotHolder.Count > 0)
         {
-            Destroy(SlotHolder.Pop());
+            SlotHolder.Pop();
+            
             
         }
         

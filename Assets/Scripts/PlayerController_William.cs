@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using Parts;
+using Blocks;
+using Cells;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -12,6 +15,7 @@ public class PlayerController_Willliam : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] float jumpForce;
     [SerializeField] bool isBuilding = false;
+    public Camera camera;
     private Rigidbody2D rb;
     private Vector2 direction;
     private Controls playerControls;
@@ -130,16 +134,48 @@ public class PlayerController_Willliam : MonoBehaviour
     }
     public void OnRightClick(InputAction.CallbackContext context)
     {
-
+        /*
         if (isBuilding)
         {
-            if (objectsNear.Peek().gameObject.CompareTag("buildWorkshop"))
+            if (objectsNear.Peek().gameObject.CompareTag("Part"))
             {
                 objectsNear.Peek().GetComponent<BuildingArea_Riley>().Delete();
             }
 
         }
+        */
 
+        var rayHit = Physics2D.GetRayIntersection(camera.ScreenPointToRay(pos: (Vector3)Mouse.current.position.ReadValue()));
+        if (!rayHit.collider) return;
+        Debug.Log("Hit");
+        if(objectsNear.Peek().gameObject.CompareTag("buildWorkshop"))
+        {
+            if(rayHit.collider.gameObject.CompareTag("Part"))
+            {
+                Debug.Log("Method Ran");
+                Part testPart = rayHit.collider.gameObject.GetComponentInParent<Part>();
+                if(testPart != null)
+                {
+                    Debug.Log("There's a part");
+                    Block testBlock = rayHit.collider.gameObject.GetComponentInChildren<Block>();
+                    if(testBlock != null)
+                    {
+                        Debug.Log("Block Exists");
+                        Cell testCell = testBlock.GetCell();
+                        if(testCell != null)
+                        {
+                            Debug.Log("Cell Exists X = " + testCell.xPos + " Y = " + testCell.yPos);
+                        }
+                    }
+                    if(testPart.GetTable() != null)
+                    {
+                        Debug.Log("This Shit Wack");
+                    }
+                }
+                rayHit.collider.gameObject.GetComponentInParent<Part>().Extract();
+            }
+        }
+        
     }
     /*
      * call when in build zone/grid

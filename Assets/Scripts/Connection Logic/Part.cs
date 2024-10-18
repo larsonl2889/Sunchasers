@@ -2,16 +2,17 @@
 using Blocks;
 using Cells;
 using DirectionOps;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Parts
 {
     public class Part : MonoBehaviour
     {
-        internal LookupTable<Cell> table;
+        public LookupTable<Cell> table;
         public int tableSize;
         private Vector2 pivot; // location within its own table that'll be our "center". We place and rotate with respect to the pivot.
-        private Vector2? posInWorld; // the position in world, if I'm in play.
+        private bool posInWorld; // the position in world, if I'm in play.
         private LookupTable<Cell> buildArea;
         private GameObject[] childCells;
 
@@ -67,6 +68,12 @@ namespace Parts
             
         }
         */
+       
+        public void Start()
+        {
+            //FormTable();
+        }
+        
 
         public void FormTable()
         {
@@ -112,6 +119,7 @@ namespace Parts
                     
                 }
             }
+            /*
             for (int i = 0; i < tableSize; i++)
             {
                 for (int j = 0; j < tableSize; j++)
@@ -122,6 +130,7 @@ namespace Parts
                     }
                 }
             }
+            */
 
 
         }
@@ -150,14 +159,9 @@ namespace Parts
         /// Returns the position in the world. May return null if the part is not in play.
         /// </summary>
         /// <returns>Returns the position in world, if it exists.</returns>
-        public Vector2? GetPos()
+        public bool GetPos()
         {
             return posInWorld;
-        }
-
-        public bool IsInPlay()
-        {
-            return posInWorld != null;
         }
 
         public bool CanMerge(Vector2 pos)
@@ -165,17 +169,9 @@ namespace Parts
             return false; // TODO not implemented!
         }
 
-        public void Merge(Vector2 pos)
+        public void SetPosInWorld()
         {
-            posInWorld = pos; // puts the part in play
-            // TODO not implemented!
-            // TODO set each of my blocks to reference the world's cells.
-            // TODO set each of the subject world cells to reference my blocks.
-        }
-
-        public void SetPosInWorld(Vector2 pos)
-        {
-            this.posInWorld = pos;
+            this.posInWorld = true;
         }
 
         // So long as the cells in the part keep the references to the block,
@@ -186,12 +182,10 @@ namespace Parts
         /// Pulls the part out of play.
         /// </summary>
         public void Extract()
-        {
-            if (!IsInPlay())
-            {
-                // Do nothing if the part is already out-of-play.
-                return;
-            }
+        { 
+            //FormTable();
+            Debug.Log("Extract Ran");
+            Debug.Log("In Play");
             for (int i_x = 0; i_x < table.x_size; i_x++)
             {
                 for (int i_y = 0; i_y < table.y_size; i_y++)
@@ -202,14 +196,16 @@ namespace Parts
                         int testX = (int)testVector.x;
                         int testY = (int)testVector.y;
                         Debug.Log("Cell Position X = " + testX + " Y = " + testY);
-                        table.Get(i_x, i_y).GetBlock().GetComponent<Block>().GetCell().EvictBlock();
                         table.Get(i_x, i_y).GetBlock().GetComponent<Block>().SetCell(table.Get(i_x, i_y));
+                        table.Get(i_x, i_y).GetBlock().GetComponent<Block>().GetCell().EvictBlock();
 
                     }
                 }
             }
             // pull the part out of play
-            posInWorld = null;
+            posInWorld = false;
+            Debug.Log("Extract Ran");
+            Destroy(this.gameObject);
         }
 
         

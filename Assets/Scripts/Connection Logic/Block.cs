@@ -16,6 +16,7 @@ namespace Blocks
         /// Which cell I occupy in my parent part (if I'm in play) or in the world.
         /// </summary>
         protected Cell cell;
+        public GameObject worldCell;
         public GameObject partCell;
 
         //private Part part;
@@ -37,7 +38,6 @@ namespace Blocks
         public void BlockStart()
         {
             cell = partCell.GetComponent<Cell>();
-            
         }
 
         /// <summary>
