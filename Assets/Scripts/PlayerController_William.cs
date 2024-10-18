@@ -20,7 +20,7 @@ public class PlayerController_Willliam : MonoBehaviour
     private PlayerPlatformHandler playerPlatformHandler;
     Vector2 position;
     Stack<GameObject> objectsNear;
-    public GameObject Slot;
+    //public GameObject Slot;
     private Vector2 WorldPos;
     
     private void Awake()
