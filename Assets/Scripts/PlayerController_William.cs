@@ -145,7 +145,7 @@ public class PlayerController_Willliam : MonoBehaviour
         var rayHit = Physics2D.GetRayIntersection(camera.ScreenPointToRay(pos: (Vector3)Mouse.current.position.ReadValue()));
         if (!rayHit.collider) return;
         Debug.Log("Hit");
-        if(objectsNear.Peek().gameObject.CompareTag("buildWorkshop"))
+        if(currentBuildZone != null)
         {
             if(rayHit.collider.gameObject.CompareTag("Part"))
             {
