@@ -439,6 +439,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: buildWorkshop
       objectReference: {fileID: 0}
+    - target: {fileID: 3614276931606973988, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3614276931606973988, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3945482055475026010, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

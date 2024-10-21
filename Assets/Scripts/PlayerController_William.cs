@@ -37,6 +37,7 @@ public class PlayerController_Willliam : MonoBehaviour
         playerPlatformHandler = GetComponent<PlayerPlatformHandler>();
         objectsNear = new Stack<GameObject>();
         
+        
     }
     private void OnEnable()
     {
