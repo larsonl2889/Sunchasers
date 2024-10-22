@@ -48,10 +48,12 @@ public class BuildingArea_Riley : MonoBehaviour
         WorldPos = Camera.main.ScreenToWorldPoint(position);
         int xPos = (int)WorldPos.x;
         int yPos = (int)WorldPos.y;
-        float minX = buildMat.xPos - ((float)buildArea.scale / 2);
-        float minY = buildMat.yPos - ((float)buildArea.scale / 2);
-        float maxX = buildMat.xPos + ((float)buildArea.scale / 2);
-        float maxY = buildMat.yPos + ((float)buildArea.scale / 2);
+        float scalarFloat = ((float)buildArea.scale / 2);
+        int scalarInt = (int)scalarFloat;
+        int minX = (int)buildMat.xPos - scalarInt;
+        int minY = (int)buildMat.yPos - scalarInt;
+        int maxX = (int)buildMat.xPos + scalarInt;
+        int maxY = (int)buildMat.yPos + scalarInt;
         if (xPos >= minX && xPos < maxX && yPos >= minY && yPos < maxY)
         {
             if (buildArea.CanMerge(part, new Vector2(xPos, yPos)))
