@@ -5,8 +5,6 @@ using Parts;
 using Blocks;
 using UnityEngine;
 using System.Data;
-using UnityEditor.U2D.Aseprite;
-
 public class BuildAreaTest : MonoBehaviour
 {
     internal LookupTable<Cell> table;
