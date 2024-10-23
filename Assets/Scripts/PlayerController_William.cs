@@ -15,7 +15,7 @@ public class PlayerController_Willliam : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] float jumpForce;
     [SerializeField] bool isBuilding = false;
-    public Camera camera;
+    private Camera camera;
     private Rigidbody2D rb;
     private Vector2 direction;
     private Controls playerControls;
@@ -50,12 +50,16 @@ public class PlayerController_Willliam : MonoBehaviour
 
     private void Start()
     {
-        
+
+        camera = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
+
         playerControls.Player.Interact.performed += interact;
         playerControls.Player.Down.performed += GoDownPlatform;
         playerControls.Player.Click.performed += OnClick;
         playerControls.Player.RightClick.performed += OnRightClick;
         
+
+
     }
 
 
