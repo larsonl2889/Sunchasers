@@ -13,7 +13,7 @@ public class NPC : MonoBehaviour
     public string[] dialogue; // Sets an string array for the programmer to set the dialogue
     private int index = 0; // Sets index to 0, and is used to print out each character one by one from the string
     public float wordSpeed; // Sets the word speed for how fast the text appears on screen (the lower, the faster).
-    private bool playerIsClose; // Determines if the player is close enough to the NPC or not
+    public bool playerIsClose; // Determines if the player is close enough to the NPC or not
 
     void Start()
     {
@@ -21,24 +21,26 @@ public class NPC : MonoBehaviour
         RemoveText();
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E) && playerIsClose) // Only allows the dialogue to be activated if the player is close enough to the npc
+    public void StartDialogue() {
+        // Enables the dialogue to appear on screen if it isn't already
+        if (!dialoguePanel.activeInHierarchy) 
         {
-            if (!dialoguePanel.activeInHierarchy) // Enables the dialogue to appear on screen if it isn't already
-            {
-                dialoguePanel.SetActive(true);
-                StartCoroutine(Typing());
-            }
-            else if (dialogueText.text == dialogue[index])
-            {
-                NextLine();
-            }
+            dialoguePanel.SetActive(true);
+            StartCoroutine(Typing());
+        }
+        else if (dialogueText.text == dialogue[index])
+        {
+            NextLine();
         }
     }
 
-    public void RemoveText() // Resets the text back to a default/empty state
+    /*public void ForceActive()
     {
+        if ()
+    }
+    */
+    // Resets the text back to a default/empty state
+    public void RemoveText() {
         dialogueText.text = "";
         index = 0;
         dialoguePanel.SetActive(false);
@@ -46,8 +48,7 @@ public class NPC : MonoBehaviour
 
     IEnumerator Typing() // Prints the the dialogue character by character from an array at the rate that 'wordSpeed' is set to
     {
-        foreach (char letter in dialogue[index].ToCharArray())
-        {
+        foreach (char letter in dialogue[index].ToCharArray()) {
             dialogueText.text += letter;
             yield return new WaitForSeconds(wordSpeed);
         }
@@ -55,8 +56,7 @@ public class NPC : MonoBehaviour
 
     public void NextLine()
     {
-        if (index < dialogue.Length - 1)
-        {
+        if (index < dialogue.Length - 1) {
             index++;
             dialogueText.text = "";
             StartCoroutine(Typing());
@@ -66,6 +66,9 @@ public class NPC : MonoBehaviour
             RemoveText();
         }
     }
+
+    /*
+    Old code to check if the player could interact with the NPC
 
     // If the player is close enough to the NPC, playerIsClose is set to true allowing for the player to interact with the NPC
     private void OnTriggerEnter2D(Collider2D other)
@@ -85,4 +88,5 @@ public class NPC : MonoBehaviour
             RemoveText();
         }
     }
+    */
 }
