@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f43a3c6ea9fd58e43a6a869ed4790ce9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  worldCell: {fileID: 0}
+  partCell: {fileID: 0}
 --- !u!1001 &774876360648236421
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55,10 +57,14 @@ PrefabInstance:
     - target: {fileID: 1573734107046297687, guid: c6478db385722cf42bdbc99bc514ae73, type: 3}
       propertyPath: block
       value: 
-      objectReference: {fileID: 7584639096428094590}
+      objectReference: {fileID: 0}
     - target: {fileID: 1836136597682426660, guid: c6478db385722cf42bdbc99bc514ae73, type: 3}
       propertyPath: m_Name
       value: 4way ContainsBlock
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836136597682426660, guid: c6478db385722cf42bdbc99bc514ae73, type: 3}
+      propertyPath: m_TagString
+      value: Part
       objectReference: {fileID: 0}
     - target: {fileID: 8768138729302965308, guid: c6478db385722cf42bdbc99bc514ae73, type: 3}
       propertyPath: m_LocalPosition.x
