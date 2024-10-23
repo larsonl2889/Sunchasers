@@ -60,19 +60,14 @@ public class MovePlatform : MonoBehaviour
                 }
             }
         }
-    
-    private void OnTriggerEnter(Collider other)
+
+    void OnCollisionEnter2D(Collision2D col)
     {
-        if (other.CompareTag("Player"))
-        {
-            other.transform.parent = this.transform;
-        }
+        col.gameObject.transform.SetParent(gameObject.transform, true);
     }
-    private void OnTriggerExit(Collider other)
+    void OnCollisionExit2D(Collision2D col)
     {
-        if (other.CompareTag("Player"))
-        {
-            other.transform.parent = null;
-        }
+        col.gameObject.transform.parent = null;
     }
 }
+
