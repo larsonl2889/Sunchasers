@@ -89,6 +89,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""HotBar"",
+                    ""type"": ""Button"",
+                    ""id"": ""a681d1cd-2b1f-4f66-bbaf-65490ceb9d39"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -232,6 +241,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""RightClick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3e90e201-1c62-4ab8-bc8f-d08351e67df7"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HotBar"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -826,6 +846,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_Down = m_Player.FindAction("Down", throwIfNotFound: true);
         m_Player_Click = m_Player.FindAction("Click", throwIfNotFound: true);
         m_Player_RightClick = m_Player.FindAction("RightClick", throwIfNotFound: true);
+        m_Player_HotBar = m_Player.FindAction("HotBar", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -906,6 +927,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Down;
     private readonly InputAction m_Player_Click;
     private readonly InputAction m_Player_RightClick;
+    private readonly InputAction m_Player_HotBar;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -917,6 +939,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @Down => m_Wrapper.m_Player_Down;
         public InputAction @Click => m_Wrapper.m_Player_Click;
         public InputAction @RightClick => m_Wrapper.m_Player_RightClick;
+        public InputAction @HotBar => m_Wrapper.m_Player_HotBar;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -947,6 +970,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @RightClick.started += instance.OnRightClick;
             @RightClick.performed += instance.OnRightClick;
             @RightClick.canceled += instance.OnRightClick;
+            @HotBar.started += instance.OnHotBar;
+            @HotBar.performed += instance.OnHotBar;
+            @HotBar.canceled += instance.OnHotBar;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -972,6 +998,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @RightClick.started -= instance.OnRightClick;
             @RightClick.performed -= instance.OnRightClick;
             @RightClick.canceled -= instance.OnRightClick;
+            @HotBar.started -= instance.OnHotBar;
+            @HotBar.performed -= instance.OnHotBar;
+            @HotBar.canceled -= instance.OnHotBar;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1161,6 +1190,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnDown(InputAction.CallbackContext context);
         void OnClick(InputAction.CallbackContext context);
         void OnRightClick(InputAction.CallbackContext context);
+        void OnHotBar(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

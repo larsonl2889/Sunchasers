@@ -32,6 +32,7 @@ public class BuildingArea_Riley : MonoBehaviour
     {
 
     }
+    
 
     public void Build()
     {
