@@ -28,6 +28,9 @@ public class BuildAreaTest : MonoBehaviour
             for(int j = 0; j < scale; j++)
             {
                 GameObject instantiated = Instantiate(emptyCell);
+                float xCoord = xPos - ((float)scale / 2);
+                float yCoord = yPos - ((float)scale / 2);
+                instantiated.transform.localPosition = new Vector3(i + xPos + 0.5f, j + yPos + 0.5f, 0);
                 instantiated.GetComponent<Cell>().xPos = i;
                 instantiated.GetComponent<Cell>().yPos = j;
                 instantiated.GetComponent<Cell>().CellStart();
