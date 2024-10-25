@@ -184,8 +184,10 @@ public class PlayerController_Willliam : MonoBehaviour
         
         if (other.gameObject.CompareTag("Interactable"))
         {
-            Debug.Log("test");
+            
+            other.gameObject.GetComponent<Interactable_William>().showPrompt(other.transform.position);
             objectsNear.Push(other.gameObject);
+            
             
         }
         if (other.gameObject.CompareTag("buildWorkshop"))
@@ -199,6 +201,7 @@ public class PlayerController_Willliam : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Interactable"))
         {
+            other.gameObject.GetComponent<Interactable_William>().hidePrompt();
             objectsNear.Pop();
             
         }
