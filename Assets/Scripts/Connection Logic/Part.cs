@@ -170,8 +170,9 @@ namespace Parts
                         int testX = (int)testVector.x;
                         int testY = (int)testVector.y;
                         Debug.Log("Cell Position X = " + testX + " Y = " + testY);
-                        table.Get(i_x, i_y).GetComponent<Cell>().GetBlock().GetComponent<Block>().SetCell(table.Get(i_x, i_y));
                         table.Get(i_x, i_y).GetComponent<Cell>().GetBlock().GetComponent<Block>().GetCell().GetComponent<Cell>().EvictBlock();
+                        table.Get(i_x, i_y).GetComponent<Cell>().GetBlock().GetComponent<Block>().SetCell(table.Get(i_x, i_y));
+                        //table.Get(i_x, i_y).GetComponent<Cell>().GetBlock().GetComponent<Block>().GetCell().GetComponent<Cell>().EvictBlock();
 
                     }
                 }

@@ -30,6 +30,7 @@ public class BuildAreaTest : MonoBehaviour
                 GameObject instantiated = Instantiate(emptyCell);
                 instantiated.GetComponent<Cell>().xPos = i;
                 instantiated.GetComponent<Cell>().yPos = j;
+                instantiated.GetComponent<Cell>().CellStart();
                 table.Put(i, j, instantiated);
             }
         }

@@ -41,9 +41,9 @@ namespace Cells
         }
 
 
-        public void EvictBlock() { 
-            block = null;
+        public void EvictBlock() {
             isEmpty = true;
+            Debug.Log("Should Be Empty");
         }
 
         public void Start()
