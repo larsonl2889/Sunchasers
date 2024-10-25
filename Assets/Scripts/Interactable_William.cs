@@ -25,10 +25,7 @@ public class Interactable_William : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
 
-            if (promptPrefab != null)
-            {
-                showPrompt();
-            }
+            
             onEnter.Invoke();
             
         }
@@ -45,18 +42,23 @@ public class Interactable_William : MonoBehaviour
             
         }
     }
-    public void setPromptPos(Vector2 objectPos)
+    
+    public void showPrompt(Vector2 objectPos)
     {
         promptPos = new Vector2(objectPos.x, objectPos.y + promptPosOffset);
-    }
-    public void showPrompt()
-    {
-
-        currentPrompt = Instantiate(promptPrefab, promptPos, Quaternion.identity);
+        if (promptPrefab != null)
+        {
+            currentPrompt = Instantiate(promptPrefab, promptPos, Quaternion.identity);
+        }
+        
     }
     public void hidePrompt()
     {
-        Destroy(currentPrompt);
+        if (promptPrefab != null)
+        {
+            Destroy(currentPrompt);
+        }
+       
         
     }
 }
