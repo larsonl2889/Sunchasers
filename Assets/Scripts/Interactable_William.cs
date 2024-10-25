@@ -25,7 +25,6 @@ public class Interactable_William : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
 
-            
             onEnter.Invoke();
             
         }
