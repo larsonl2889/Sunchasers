@@ -15,7 +15,6 @@ public class PlayerController_Willliam : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] float jumpForce;
     [SerializeField] bool isBuilding = false;
-    public Camera camera;
     private Rigidbody2D rb;
     private Vector2 direction;
     private Controls playerControls;
@@ -51,13 +50,13 @@ public class PlayerController_Willliam : MonoBehaviour
     private void Start()
     {
 
-        camera = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
+        
 
         playerControls.Player.Interact.performed += interact;
         playerControls.Player.Down.performed += GoDownPlatform;
         playerControls.Player.Click.performed += OnClick;
         playerControls.Player.RightClick.performed += OnRightClick;
-        
+        playerControls.Player.HotBar.performed += selectSlot;
 
 
     }
@@ -137,17 +136,8 @@ public class PlayerController_Willliam : MonoBehaviour
     }
     public void OnRightClick(InputAction.CallbackContext context)
     {
-        /*
-        if (isBuilding) {
-            if (currentBuildZone != null)
-            {
-                currentBuildZone.GetComponent<BuildingArea_Riley>().Delete();
-            }
-            
-        }
-        */
-
-        var rayHit = Physics2D.GetRayIntersection(camera.ScreenPointToRay(pos: (Vector3)Mouse.current.position.ReadValue()));
+        
+        var rayHit = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(pos: (Vector3)Mouse.current.position.ReadValue()));
         if (!rayHit.collider) return;
         Debug.Log("Hit");
         if(currentBuildZone != null)
@@ -161,7 +151,12 @@ public class PlayerController_Willliam : MonoBehaviour
         }
         
     }
-    
+    public void selectSlot(InputAction.CallbackContext context)
+    {
+        int currSlotSelected = (int)context.ReadValue<float>();
+        Debug.Log(currSlotSelected);
+        
+    }
      
     
     
