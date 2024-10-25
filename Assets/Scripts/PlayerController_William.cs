@@ -15,7 +15,7 @@ public class PlayerController_Willliam : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] float jumpForce;
     [SerializeField] bool isBuilding = false;
-    private Camera camera;
+    public Camera camera;
     private Rigidbody2D rb;
     private Vector2 direction;
     private Controls playerControls;
@@ -156,24 +156,6 @@ public class PlayerController_Willliam : MonoBehaviour
             {
                 Debug.Log("Method Ran");
                 Part testPart = rayHit.collider.gameObject.GetComponentInParent<Part>();
-                if(testPart != null)
-                {
-                    Debug.Log("There's a part");
-                    Block testBlock = rayHit.collider.gameObject.GetComponentInChildren<Block>();
-                    if(testBlock != null)
-                    {
-                        Debug.Log("Block Exists");
-                        Cell testCell = testBlock.GetCell();
-                        if(testCell != null)
-                        {
-                            Debug.Log("Cell Exists X = " + testCell.xPos + " Y = " + testCell.yPos);
-                        }
-                    }
-                    if(testPart.GetTable() != null)
-                    {
-                        Debug.Log("This Shit Wack");
-                    }
-                }
                 rayHit.collider.gameObject.GetComponentInParent<Part>().Extract();
             }
         }
