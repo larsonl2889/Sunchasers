@@ -14,7 +14,6 @@ public class BuildAreaTest : MonoBehaviour
     public int scale = 1;
     public int xPos;
     public int yPos;
-    private bool isLegal = true;
 
     //Gives you manual control to place cells. (Good for setting up tests)
     public void placeCellManual(GameObject cell, Vector2 pos)
