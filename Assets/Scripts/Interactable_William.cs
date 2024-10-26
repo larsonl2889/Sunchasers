@@ -21,19 +21,14 @@ public class Interactable_William : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            
-         
             onEnter.Invoke();
-            
         }
     }
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            
             onExit.Invoke();
-            
         }
     }
 }
