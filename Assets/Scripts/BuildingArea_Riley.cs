@@ -9,7 +9,7 @@ using UnityEngine.UIElements;
 
 public class BuildingArea_Riley : MonoBehaviour
 {
-    private GameObject Slot;
+    public GameObject Slot;
     internal BuildAreaTest buildArea;
     internal BuildMat buildMat;
     internal Part part;
@@ -43,6 +43,10 @@ public class BuildingArea_Riley : MonoBehaviour
     public void setSlot(GameObject Slot)
     {
         this.Slot = Slot;
+    }
+    public GameObject getSlot()
+    {
+        return Slot;
     }
 
     public void Build()
