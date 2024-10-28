@@ -2,6 +2,10 @@
 using Cells;
 using UnityEditor;
 using UnityEngine;
+using Connectors;
+using Pipes;
+using System.Collections.Generic;
+using DirectionOps;
 
 // implements https://app.diagrams.net/#G1jlsRcd-Jo9MzWTEkTyTaZTvIuyx-oHzH#%7B%22pageId%22%3A%22C5RBs43oDa-KdzZeNtuy%22%7D
 
@@ -16,17 +20,58 @@ namespace Blocks
         /// Which cell I occupy in my parent part (if I'm in play) or in the world.
         /// </summary>
         public GameObject cell;
-
-        //private Part part;
-        
-        /// <summary>
-        /// Block constructor. Requires the cell it will occupy in its parent part.
-        /// </summary>
-        /// <param name="partCell">My cell in my parent part.</param>
+        public Direction[] directions;
+        private List<Vector2> links;
+        public bool isSource;
+        private SteamState steamState;
 
         public void Start()
         {
+            // Set the steam state
+            if (isSource) { steamState = SteamState.SOURCE; }
+            else { steamState = SteamState.EMPTY; }
+            // create the links
+            links = new List<Vector2>();
+            for (int i = 0; i < directions.Length; i++)
+            {
+                links.Add(directions[i].ToVector());
+            }
+        }
 
+        /// <summary>
+        /// Returns a list of all links as Vectors.
+        /// </summary>
+        /// <returns></returns>
+        public List<Vector2> GetAllLinksList()
+        {
+            List<Vector2> list = new();
+            foreach (Vector2 link in links)
+            {
+                list.Add(link);
+            }
+            return list;
+        }
+        public void ApplyRotation(Direction rotation)
+        {
+            for (int i = 0; i < links.Count; i++)
+            {
+                links[i] = rotation.ApplyRotation(links[i]);
+            }
+        }
+
+        public SteamState GetSteamState() { return steamState; }
+
+        public void SetSteamState(SteamState steamState) { this.steamState = steamState; }
+
+
+        public bool IsOn()
+        {
+            return steamState == SteamState.FULL || steamState == SteamState.SOURCE;
+        }
+
+        public bool IsSteaming()
+        {
+            return steamState != SteamState.EMPTY;
         }
 
         /// <summary>
@@ -40,41 +85,12 @@ namespace Blocks
         /// <br></br>(This doesn't update the Cell.)
         /// </summary>
         /// <param name="newCell">The cell I will now occupy.</param>
-        public void SetCell(GameObject newCell) 
-        { 
-            cell = newCell; 
-        }
-
-        /// <summary>
-        /// Returns a string representation of the block. e.g.,
-        /// <br></br>"Block @(1,3)"
-        /// <br></br>Represents a block in a Cell located at (1,3)
-        /// </summary>
-        /// <returns>Returns a string representation of the block.</returns>
-        /*
-        public override string ToString()
+        public void SetCell(GameObject newCell)
         {
-            if (cell == null)
-            {
-                return "Block, orphaned";
-            }
-            else
-            {
-                // Block in cell @... (coordinates)
-                return "Block @(" + cell.pos.x + ", " + cell.pos.y + ")";
-            }
-            
+            cell = newCell;
         }
-        */
 
-        ///// <summary>
-        ///// Whether the part believes itself to be in the world somewhere.
-        ///// </summary>
-        ///// <returns>Whether the block thinks its in a cell somewhere in the world.</returns>
-        //public bool IsInPlay()
-        //{
-        //    return part.IsInPlay();
-        //}
+        
 
     }
 }
