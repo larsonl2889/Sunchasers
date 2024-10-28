@@ -25,7 +25,9 @@ public class PlayerController_Willliam : MonoBehaviour
     public GameObject Slot;
     private Vector2 WorldPos;
     public GameObject currentBuildZone;
-    
+    public int currSlotSelected = 1;
+
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -152,7 +154,7 @@ public class PlayerController_Willliam : MonoBehaviour
     }
     public void selectSlot(InputAction.CallbackContext context)
     {
-        int currSlotSelected = (int)context.ReadValue<float>();
+        currSlotSelected = (int)context.ReadValue<float>();
         Debug.Log(currSlotSelected);
         
     }
