@@ -3,11 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-public class NPC : MonoBehaviour
-// Known Issues:
-// When first interacting with an NPC, all the dialogues for every NPC appears on screen
-// When the player walks in and out of the NPC interaction area and spams E, some text from the previous interaction carries over
-{
+public class NPC : MonoBehaviour {
     public GameObject dialoguePanel; // This is used to set the "Dialogue Box"
     public TextMeshProUGUI dialogueText; // This is used to set the "Dialogue Text"
     public string[] dialogue; // Sets an string array for the programmer to set the dialogue
@@ -17,42 +13,51 @@ public class NPC : MonoBehaviour
 
     void Start()
     {
-        dialogueText.text = "";
+        dialoguePanel.SetActive(false);
         RemoveText();
     }
-
-    void Update()
+    public void Interact()
     {
-        if (Input.GetKeyDown(KeyCode.E) && playerIsClose) // Only allows the dialogue to be activated if the player is close enough to the npc
+        Debug.Log("NPC INTERACT");
+        if (!dialoguePanel.activeInHierarchy)
         {
-            if (!dialoguePanel.activeInHierarchy) // Enables the dialogue to appear on screen if it isn't already
-            {
-                dialoguePanel.SetActive(true);
-                StartCoroutine(Typing());
-            }
-            else if (dialogueText.text == dialogue[index])
-            {
-                NextLine();
-            }
+            dialoguePanel.SetActive(true);
+            StartCoroutine(Typing());
+        }
+        else if (dialogueText.text == dialogue[index])
+        {
+            NextLine();
+        }   
+    }
+    
+    public void Enter()
+    {
+        Debug.Log("PLAYER ENTERED NPC");
+        playerIsClose = true;
+    }
+
+    public void Exit()
+    {
+        Debug.Log("PLAYER LEFT NPC");
+        playerIsClose = false;
+        StopCoroutine(Typing());
+        RemoveText();
+        if (dialoguePanel.activeInHierarchy)
+        {
+            dialoguePanel.SetActive(false);
         }
     }
 
-    public void RemoveText() // Resets the text back to a default/empty state
+    // Resets the text back to a default/empty state
+    private void RemoveText()
     {
         dialogueText.text = "";
         index = 0;
         dialoguePanel.SetActive(false);
     }
-    IEnumerator Typing() // Prints the the dialogue character by character from an array at the rate that 'wordSpeed' is set to
-    {
-        foreach (char letter in dialogue[index].ToCharArray())
-        {
-            dialogueText.text += letter;
-            yield return new WaitForSeconds(wordSpeed);
-        }
-    }
 
-    public void NextLine()
+    // Sets the dialouge to the next line in the array
+    private void NextLine()
     {
         if (index < dialogue.Length - 1)
         {
@@ -62,26 +67,53 @@ public class NPC : MonoBehaviour
         }
         else
         {
-            RemoveText();
+            RemoveText(); 
         }
     }
 
-    // If the player is close enough to the NPC, playerIsClose is set to true allowing for the player to interact with the NPC
-    private void OnTriggerEnter2D(Collider2D other)
+    // Prints the the dialogue character by character from an array at the rate that 'wordSpeed' is set to
+    IEnumerator Typing() 
     {
-        if (other.CompareTag("Player"))
+        foreach (char letter in dialogue[index].ToCharArray())
         {
-            playerIsClose = true;
+            dialogueText.text += letter;
+            yield return new WaitForSeconds(wordSpeed);
         }
     }
 
-    // If the player is too far from the NPC, playerIsClose is set to false, which turns off the dialogue box
-    private void OnTriggerExit2D(Collider2D other) 
+
+    /*
+Old code to check if the player could interact with the NPC
+public void StartDialogue() {
+    // Enables the dialogue to appear on screen if it isn't already
+    if (!dialoguePanel.activeInHierarchy) 
     {
-        if (other.CompareTag("Player"))
-        {
-            playerIsClose = false;
-            RemoveText();
-        }
+        dialoguePanel.SetActive(true);
+        StartCoroutine(Typing());
     }
+    else if (dialogueText.text == dialogue[index])
+    {
+        NextLine();
+    }
+}
+
+// If the player is close enough to the NPC, playerIsClose is set to true allowing for the player to interact with the NPC
+private void OnTriggerEnter2D(Collider2D other)
+{
+    if (other.CompareTag("Player"))
+    {
+        playerIsClose = true;
+    }
+}
+
+// If the player is too far from the NPC, playerIsClose is set to false, which turns off the dialogue box
+private void OnTriggerExit2D(Collider2D other) 
+{
+    if (other.CompareTag("Player"))
+    {
+        playerIsClose = false;
+        RemoveText();
+    }
+}
+*/
 }
