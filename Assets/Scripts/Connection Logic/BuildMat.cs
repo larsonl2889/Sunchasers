@@ -14,10 +14,19 @@ public class BuildMat : MonoBehaviour
     {
         buildAreaTest = gameObject.GetComponentInParent<BuildAreaTest>();
         gameObject.transform.localScale = new Vector3(buildAreaTest.scale, buildAreaTest.scale, 1);
-        float pos = (float)buildAreaTest.scale / 2;
-        xPos = pos + buildAreaTest.xPos;
-        yPos = pos + buildAreaTest.yPos;
-        gameObject.transform.localPosition = new Vector3(pos + buildAreaTest.xPos, pos + buildAreaTest.yPos, 0);
+        if(buildAreaTest.scale % 2 != 0)
+        {
+            float pos = ((float)buildAreaTest.scale / 2);
+            xPos = pos + buildAreaTest.xPos;
+            yPos = pos + buildAreaTest.yPos;
+        }else
+        {
+            float pos = ((float)(buildAreaTest.scale / 2));
+            xPos = pos + buildAreaTest.xPos - 0.5f;
+            yPos = pos + buildAreaTest.yPos - 0.5f;
+        }
+        
+        gameObject.transform.localPosition = new Vector3(xPos, yPos, 0);
     }
 
     // Update is called once per frame

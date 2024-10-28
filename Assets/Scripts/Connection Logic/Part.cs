@@ -9,20 +9,14 @@ namespace Parts
 {
     public class Part : MonoBehaviour
     {
-        public LookupTable<Cell> table;
+        public LookupTable<GameObject> table;
+        public GameObject emptyCell;
         public int tableSize;
         private Vector2 pivot; // location within its own table that'll be our "center". We place and rotate with respect to the pivot.
         private bool posInWorld; // the position in world, if I'm in play.
-        private LookupTable<Cell> buildArea;
+        private LookupTable<GameObject> buildArea;
         private GameObject[] childCells;
 
-        public Part(Vector2 pivot)
-        {
-            Cell badCell = new Cell(new Vector2(0, 0));
-            LookupTable<Cell> goodTable = new LookupTable<Cell>(tableSize, tableSize, badCell);
-            table = goodTable;
-            this.pivot = pivot;
-        }
         /*
         public void Start()
         {
@@ -77,48 +71,31 @@ namespace Parts
 
         public void FormTable()
         {
-            Debug.Log("Method Ran FormTable");
-            Cell badCell = new Cell(new Vector2(0, 0));
-            LookupTable<Cell> goodTable = new LookupTable<Cell>(tableSize, tableSize, badCell);
-            table = goodTable;
-            Cell[] cells = gameObject.GetComponentsInChildren<Cell>();
-            for (int i = 0; i < cells.Length; i++)
+            table = new LookupTable<GameObject>(tableSize, tableSize, emptyCell);
+            for(int i = 0; i < tableSize; i++)
             {
-                cells[i].CellStart();
-                cells[i].GetBlock().GetComponent<Block>().BlockStart();
-            }
-            for (int i = 0; i < cells.Length; i++)
-            {
-                Debug.Log("Cell Location X = " + cells[i].xPos + " Y = " + cells[i].yPos);
-            }
-            for (int i = 0; i < cells.Length; i++)
-            {
-                placeCellManual(cells[i], new Vector2(cells[i].xPos, cells[i].yPos));
-            }
-            for (int i = 0; i < tableSize; i++)
-            {
-                for (int j = 0; j < tableSize; j++)
+                for(int j = 0; j < tableSize; j++)
                 {
-                    if (!table.Get(i, j).IsEmpty())
-                    {
-                        Debug.Log("There is a Cell at X = " + table.Get(i, j).xPos + " Y = " + table.Get(i, j).yPos);
-                    }
+                    emptyCell.GetComponent<Cell>().xPos = i;
+                    emptyCell.GetComponent<Cell>().yPos = j;
+                    GameObject instantiated = Instantiate(emptyCell);
+                    instantiated.transform.localPosition = new Vector3(100, 100, 0);
+                    table.Put(i, j, instantiated);
+                    Debug.Log("Added to part table (Empty)");
                 }
             }
-            for (int i = 0; i < tableSize; i++)
+            Cell[] cellsOne = gameObject.GetComponentsInChildren<Cell>();
+            GameObject[] cells = new GameObject[cellsOne.Length];
+            for(int i = 0; i < cellsOne.Length; i++)
             {
-                for (int j = 0; j < tableSize; j++)
-                {
-                    if(!table.Get(i, j).isEmpty)
-                    {
-                        if (table.Get(i, j).GetBlock().GetComponent<Block>().GetCell() != null)
-                        {
-                            Debug.Log("Cell Initialized Properly");
-                        }
-                    }
-                    
-                }
+                cells[i] = cellsOne[i].gameObject;
             }
+            for(int i = 0; i < cells.Length; i++)
+            {
+                placeCellManual(cells[i], new Vector2(cells[i].GetComponent<Cell>().xPos, cells[i].GetComponent<Cell>().yPos));
+                Debug.Log("Added to part table (With Block)");
+            }
+        }
             /*
             for (int i = 0; i < tableSize; i++)
             {
@@ -133,19 +110,17 @@ namespace Parts
             */
 
 
-        }
-
         public void Update()
         {
             
         }
 
-        public void placeCellManual(Cell cell, Vector2 position)
+        public void placeCellManual(GameObject cell, Vector2 position)
         {
             table.Put(position, cell);
         }
 
-        public LookupTable<Cell> GetTable()
+        public LookupTable<GameObject> GetTable()
         {
             return table;
         }
@@ -190,14 +165,15 @@ namespace Parts
             {
                 for (int i_y = 0; i_y < table.y_size; i_y++)
                 {
-                    if (!table.Get(i_x, i_y).IsEmpty()) {
+                    if (!table.Get(i_x, i_y).GetComponent<Cell>().isEmpty) {
                         Debug.Log("Extract Ran");
-                        Vector2 testVector = table.Get(i_x, i_y).GetBlock().GetComponent<Block>().GetCell().pos;
+                        Vector2 testVector = table.Get(i_x, i_y).GetComponent<Cell>().GetBlock().GetComponent<Block>().GetCell().GetComponent<Cell>().pos;
                         int testX = (int)testVector.x;
                         int testY = (int)testVector.y;
                         Debug.Log("Cell Position X = " + testX + " Y = " + testY);
-                        table.Get(i_x, i_y).GetBlock().GetComponent<Block>().SetCell(table.Get(i_x, i_y));
-                        table.Get(i_x, i_y).GetBlock().GetComponent<Block>().GetCell().EvictBlock();
+                        table.Get(i_x, i_y).GetComponent<Cell>().GetBlock().GetComponent<Block>().GetCell().GetComponent<Cell>().EvictBlock();
+                        table.Get(i_x, i_y).GetComponent<Cell>().GetBlock().GetComponent<Block>().SetCell(table.Get(i_x, i_y));
+                        //table.Get(i_x, i_y).GetComponent<Cell>().GetBlock().GetComponent<Block>().GetCell().GetComponent<Cell>().EvictBlock();
 
                     }
                 }

@@ -7,7 +7,6 @@ using Cells;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class PlayerController_Willliam : MonoBehaviour
 {
@@ -15,7 +14,6 @@ public class PlayerController_Willliam : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] float jumpForce;
     [SerializeField] bool isBuilding = false;
-    private Camera camera;
     private Rigidbody2D rb;
     private Vector2 direction;
     private Controls playerControls;
@@ -51,13 +49,13 @@ public class PlayerController_Willliam : MonoBehaviour
     private void Start()
     {
 
-        camera = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
+        
 
         playerControls.Player.Interact.performed += interact;
         playerControls.Player.Down.performed += GoDownPlatform;
         playerControls.Player.Click.performed += OnClick;
         playerControls.Player.RightClick.performed += OnRightClick;
-        
+        playerControls.Player.HotBar.performed += selectSlot;
 
 
     }
@@ -137,17 +135,8 @@ public class PlayerController_Willliam : MonoBehaviour
     }
     public void OnRightClick(InputAction.CallbackContext context)
     {
-        /*
-        if (isBuilding) {
-            if (currentBuildZone != null)
-            {
-                currentBuildZone.GetComponent<BuildingArea_Riley>().Delete();
-            }
-            
-        }
-        */
-
-        var rayHit = Physics2D.GetRayIntersection(camera.ScreenPointToRay(pos: (Vector3)Mouse.current.position.ReadValue()));
+        
+        var rayHit = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(pos: (Vector3)Mouse.current.position.ReadValue()));
         if (!rayHit.collider) return;
         Debug.Log("Hit");
         if(currentBuildZone != null)
@@ -156,30 +145,17 @@ public class PlayerController_Willliam : MonoBehaviour
             {
                 Debug.Log("Method Ran");
                 Part testPart = rayHit.collider.gameObject.GetComponentInParent<Part>();
-                if(testPart != null)
-                {
-                    Debug.Log("There's a part");
-                    Block testBlock = rayHit.collider.gameObject.GetComponentInChildren<Block>();
-                    if(testBlock != null)
-                    {
-                        Debug.Log("Block Exists");
-                        Cell testCell = testBlock.GetCell();
-                        if(testCell != null)
-                        {
-                            Debug.Log("Cell Exists X = " + testCell.xPos + " Y = " + testCell.yPos);
-                        }
-                    }
-                    if(testPart.GetTable() != null)
-                    {
-                        Debug.Log("This Shit Wack");
-                    }
-                }
                 rayHit.collider.gameObject.GetComponentInParent<Part>().Extract();
             }
         }
         
     }
-    
+    public void selectSlot(InputAction.CallbackContext context)
+    {
+        int currSlotSelected = (int)context.ReadValue<float>();
+        Debug.Log(currSlotSelected);
+        
+    }
      
     
     
@@ -202,8 +178,10 @@ public class PlayerController_Willliam : MonoBehaviour
         
         if (other.gameObject.CompareTag("Interactable"))
         {
-            Debug.Log("test");
+            
+            other.gameObject.GetComponent<Interactable_William>().showPrompt(other.transform.position);
             objectsNear.Push(other.gameObject);
+            
             
         }
         if (other.gameObject.CompareTag("buildWorkshop"))
@@ -217,6 +195,7 @@ public class PlayerController_Willliam : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Interactable"))
         {
+            other.gameObject.GetComponent<Interactable_William>().hidePrompt();
             objectsNear.Pop();
             
         }

@@ -5,7 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/Riley.unity
+  - enabled: 0
+    path: Assets/Scenes/LeifTest.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Title.unity
+    guid: f76be656b0dd1564990d1e6c4503ebad
+  - enabled: 0
+    path: Assets/Scenes/TestArea.unity
+    guid: 368983f3e88591743bcec8e03030ac1c
+  - enabled: 1
+    path: Assets/Scenes/William 2.unity
+    guid: 1d22c6bceaa17cc43ab615419975f095
   m_configObjects: {}

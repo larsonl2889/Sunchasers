@@ -5,7 +5,7 @@ using Connectors;
 
 // Contributors: Leif Larson
 // Last updated 10/9/2024
-
+/*
 namespace Pipes
 {
 
@@ -36,6 +36,7 @@ namespace Pipes
         /// <br></br>Would represent a pipe with connectors for UP, LEFT, DOWN, but not RIGHT, and is located in a cell at position (1,3) in its lookup table.
         /// </summary>
         /// <returns>Returns a string representation of the pipe.</returns>
+        /*
         public override string ToString()
         {
             string s = "Pipe" + pipeConnector.ToString();
@@ -53,4 +54,5 @@ namespace Pipes
         }
     }
 }
+*/
 

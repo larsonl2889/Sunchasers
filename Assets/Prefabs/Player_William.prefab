@@ -132,8 +132,7 @@ MonoBehaviour:
   speed: 5
   jumpForce: 6.9
   isBuilding: 0
-  camera: {fileID: 0}
-  Slot: {fileID: 3116988592714292705, guid: 253bd44c7b4edf74fb1155bf36f498cc, type: 3}
+  Slot: {fileID: 1796572086390300456, guid: 3d5be90560e1b534dbc47c5af26b92a3, type: 3}
   currentBuildZone: {fileID: 0}
 --- !u!114 &3203166835970753945
 MonoBehaviour:
@@ -254,8 +253,8 @@ MonoBehaviour:
     m_ActionName: Player/RightClick[/Mouse/rightButton]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 167e4d9f-e02f-4afe-a4f4-cf55f352b496
-    m_ActionName: Player/BuildMode[/Keyboard/q]
+    m_ActionId: a681d1cd-2b1f-4f66-bbaf-65490ceb9d39
+    m_ActionName: Player/HotBar[/Keyboard/1,/Keyboard/2,/Keyboard/3,/Keyboard/4,/Keyboard/5,/Keyboard/6,/Keyboard/7,/Keyboard/8,/Keyboard/9]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -293,7 +292,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.032327056, y: -0.05448997}
+  m_Offset: {x: -0.032327056, y: -0.049489424}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -304,7 +303,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.54446244, y: 0.90283585}
+  m_Size: {x: 0.54446244, y: 0.8928348}
   m_EdgeRadius: 0
 --- !u!114 &3125312214202833633
 MonoBehaviour:
