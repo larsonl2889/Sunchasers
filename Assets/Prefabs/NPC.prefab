@@ -268,3 +268,5 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  promptPrefab: {fileID: 3211661853732084645, guid: 424de07725274b740ad4468731ec2573, type: 3}
+  promptPosOffset: 1
