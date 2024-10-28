@@ -332,7 +332,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: d7ab0f1bb98cfc64d88762a3eb0b9265, type: 2}
     - target: {fileID: 2407868011373599562, guid: ed60e30f7eb2c974095aec65c67989ad, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.03
+      value: 3.436
       objectReference: {fileID: 0}
     - target: {fileID: 2407868011373599562, guid: ed60e30f7eb2c974095aec65c67989ad, type: 3}
       propertyPath: m_LocalPosition.y
@@ -694,18 +694,18 @@ RectTransform:
   m_GameObject: {fileID: 303274590}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.2, z: 0}
+  m_LocalScale: {x: 0.5, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 377874567}
-  - {fileID: 1601948070}
   - {fileID: 855677129}
+  - {fileID: 1601948070}
+  - {fileID: 377874567}
   m_Father: {fileID: 745880953}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: -0, y: 0.69641924}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 135}
-  m_SizeDelta: {x: 0, y: 136.8409}
+  m_AnchoredPosition: {x: 0, y: 0.000015258789}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &303274592
 MonoBehaviour:
@@ -772,14 +772,14 @@ RectTransform:
   m_GameObject: {fileID: 333611215}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 5, z: 0}
+  m_LocalScale: {x: 2, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 562116024}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 86.13672, y: 368.6587}
+  m_AnchoredPosition: {x: 86.13669, y: 100.857544}
   m_SizeDelta: {x: 76.13672, y: 68.13672}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &333611217
@@ -847,15 +847,15 @@ RectTransform:
   m_GameObject: {fileID: 377874566}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 5, z: 0}
+  m_LocalScale: {x: 2, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 303274591}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 86.13672, y: 368.6587}
-  m_SizeDelta: {x: 76.13672, y: 68.13672}
+  m_AnchorMin: {x: 0, y: 0.16}
+  m_AnchorMax: {x: 0.155, y: 1}
+  m_AnchoredPosition: {x: 6.1367188, y: -4.6294556}
+  m_SizeDelta: {x: -92.86328, y: -89.86328}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &377874568
 MonoBehaviour:
@@ -961,14 +961,14 @@ RectTransform:
   m_GameObject: {fileID: 489502814}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 5, z: 0}
+  m_LocalScale: {x: 2, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 562116024}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -48, y: 26}
+  m_AnchoredPosition: {x: -48.00006, y: 32.325806}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &489502816
@@ -1024,8 +1024,8 @@ MonoBehaviour:
   m_fontSizeBase: 12.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMin: 15
+  m_fontSizeMax: 22
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
@@ -1097,18 +1097,18 @@ RectTransform:
   m_GameObject: {fileID: 562116023}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.2, z: 0}
+  m_LocalScale: {x: 0.5, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 333611216}
-  - {fileID: 489502815}
   - {fileID: 609559949}
+  - {fileID: 489502815}
+  - {fileID: 333611216}
   m_Father: {fileID: 1483607905}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.69720006}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 135}
-  m_SizeDelta: {x: 0, y: 136.8409}
+  m_AnchoredPosition: {x: -0.000061035156, y: 0}
+  m_SizeDelta: {x: 0.00012207031, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &562116025
 MonoBehaviour:
@@ -1160,7 +1160,7 @@ GameObject:
   - component: {fileID: 609559948}
   - component: {fileID: 609559947}
   m_Layer: 5
-  m_Name: Crunch_UI_Text
+  m_Name: Crunch_UI_Dialogue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1213,12 +1213,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
+  m_fontSize: 25
   m_fontSizeBase: 30
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 25
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
@@ -1272,15 +1272,15 @@ RectTransform:
   m_GameObject: {fileID: 609559946}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 5, z: 0}
+  m_LocalScale: {x: 2, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 562116024}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 614.93286, y: 287.87048}
-  m_SizeDelta: {x: 438.1328, y: 100.45178}
+  m_AnchorMin: {x: 0.17, y: 0}
+  m_AnchorMax: {x: 0.95, y: 0}
+  m_AnchoredPosition: {x: -7.0672607, y: 84.7}
+  m_SizeDelta: {x: -427.8672, y: 100.45178}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &635627122 stripped
 GameObject:
@@ -1641,7 +1641,7 @@ GameObject:
   - component: {fileID: 855677128}
   - component: {fileID: 855677127}
   m_Layer: 5
-  m_Name: Mumble_UI_Text
+  m_Name: Mumble_UI_Dialogue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1699,7 +1699,7 @@ MonoBehaviour:
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 25
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
@@ -1730,7 +1730,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 5.0451965, z: 0, w: 0}
+  m_margin: {x: 0, y: 0.04385376, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1753,15 +1753,15 @@ RectTransform:
   m_GameObject: {fileID: 855677126}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 5, z: 0}
+  m_LocalScale: {x: 2, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 303274591}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 614.93286, y: 287.87048}
-  m_SizeDelta: {x: 438.1328, y: 100.4518}
+  m_AnchorMin: {x: 0.155, y: 0.1853191}
+  m_AnchorMax: {x: 0.9616748, y: 0.712}
+  m_AnchoredPosition: {x: 0.0021362305, y: 0}
+  m_SizeDelta: {x: -410.4, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &859303260 stripped
 Transform:
@@ -3231,6 +3231,26 @@ PrefabInstance:
       propertyPath: dialoguePanel
       value: 
       objectReference: {fileID: 303274590}
+    - target: {fileID: 923866875921320346, guid: ed60e30f7eb2c974095aec65c67989ad, type: 3}
+      propertyPath: dialogue.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 923866875921320346, guid: ed60e30f7eb2c974095aec65c67989ad, type: 3}
+      propertyPath: dialogue.Array.data[0]
+      value: '*yawns*'
+      objectReference: {fileID: 0}
+    - target: {fileID: 923866875921320346, guid: ed60e30f7eb2c974095aec65c67989ad, type: 3}
+      propertyPath: dialogue.Array.data[1]
+      value: Mechanic, thank goodness you're here!
+      objectReference: {fileID: 0}
+    - target: {fileID: 923866875921320346, guid: ed60e30f7eb2c974095aec65c67989ad, type: 3}
+      propertyPath: dialogue.Array.data[2]
+      value: I need help with a leaky pipe.
+      objectReference: {fileID: 0}
+    - target: {fileID: 923866875921320346, guid: ed60e30f7eb2c974095aec65c67989ad, type: 3}
+      propertyPath: dialogue.Array.data[3]
+      value: Can you head over to my house and fix the leak?
+      objectReference: {fileID: 0}
     - target: {fileID: 2407868011373599562, guid: ed60e30f7eb2c974095aec65c67989ad, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.7
@@ -3413,15 +3433,15 @@ RectTransform:
   m_GameObject: {fileID: 1601948069}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 5, z: 0}
+  m_LocalScale: {x: 2, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 303274591}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -48, y: 26}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchorMax: {x: 0.155, y: 0.33564302}
+  m_AnchoredPosition: {x: -127, y: 6}
+  m_SizeDelta: {x: 30, y: -13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1601948071
 MonoBehaviour:
@@ -3474,8 +3494,8 @@ MonoBehaviour:
   m_fontSizeBase: 12.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMin: 15
+  m_fontSizeMax: 22
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256

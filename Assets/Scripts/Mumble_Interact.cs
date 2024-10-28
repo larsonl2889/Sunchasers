@@ -9,7 +9,6 @@ public class NPC : MonoBehaviour {
     public string[] dialogue; // Sets an string array for the programmer to set the dialogue
     private int index = 0; // Sets index to 0, and is used to print out each character one by one from the string
     public float wordSpeed; // Sets the word speed for how fast the text appears on screen (the lower, the faster).
-    private bool playerIsClose; // Determines if the player is close enough to the NPC or not
 
     void Start()
     {
@@ -18,7 +17,6 @@ public class NPC : MonoBehaviour {
     }
     public void Interact()
     {
-        Debug.Log("NPC INTERACT");
         if (!dialoguePanel.activeInHierarchy)
         {
             dialoguePanel.SetActive(true);
@@ -32,15 +30,11 @@ public class NPC : MonoBehaviour {
     
     public void Enter()
     {
-        Debug.Log("PLAYER ENTERED NPC");
-        playerIsClose = true;
+        RemoveText();
     }
 
     public void Exit()
     {
-        Debug.Log("PLAYER LEFT NPC");
-        playerIsClose = false;
-        StopCoroutine(Typing());
         RemoveText();
         if (dialoguePanel.activeInHierarchy)
         {
@@ -51,6 +45,7 @@ public class NPC : MonoBehaviour {
     // Resets the text back to a default/empty state
     private void RemoveText()
     {
+        StopCoroutine(Typing());
         dialogueText.text = "";
         index = 0;
         dialoguePanel.SetActive(false);
