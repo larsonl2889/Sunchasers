@@ -16,7 +16,7 @@ namespace Parts
         private bool posInWorld; // the position in world, if I'm in play.
         private LookupTable<GameObject> buildArea;
         private GameObject[] childCells;
-
+        
         /*
         public void Start()
         {
@@ -62,10 +62,14 @@ namespace Parts
             
         }
         */
-       
+        private void Awake()
+        {
+            
+        }
         public void Start()
         {
             //FormTable();
+            
         }
         
 

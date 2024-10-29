@@ -16,6 +16,7 @@ public class BuildingArea_Riley : MonoBehaviour
     private Vector2 position;
     private Vector2 WorldPos;
     Stack<GameObject> SlotHolder;
+    [SerializeField] private AudioClip placeSound;
 
     // Start is called before the first frame update
     void Start()
@@ -48,9 +49,11 @@ public class BuildingArea_Riley : MonoBehaviour
         if (xPos > minX && xPos < maxX && yPos > minY && yPos < maxY)
         {
             GameObject instantiated = Instantiate(Slot);
+            
             instantiated.GetComponent<Part>().FormTable();
             if (buildArea.GetComponent<BuildAreaTest>().CanMerge(instantiated, new Vector2(xPos - minX, yPos - minY)))
             {
+                SFXManager.instance.playSound(placeSound, instantiated.transform, 1f);
                 Vector2 Spawnplace = new Vector2((int)xPos + 0.5f, (int)yPos + 0.5f);
                 buildArea.GetComponent<BuildAreaTest>().MergeTables(instantiated, new Vector2(xPos - minX, yPos - minY));
                 instantiated.transform.position = Spawnplace;
