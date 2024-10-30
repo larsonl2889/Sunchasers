@@ -28,16 +28,6 @@ public class BuildAreaTest : MonoBehaviour
     }
 
     /// <summary>
-    /// Return's the block's class data.
-    /// </summary>
-    /// <param name="where">Where to look</param>
-    /// <returns>Block data</returns>
-    internal Block GetBlockData(Vector2 where)
-    {
-        return table.Get(where).GetComponent<Cell>().GetBlock().GetComponent<Block>();
-    }
-
-    /// <summary>
     /// Returns the SteamState of the pipe here. Returns null if there is no pipe here.
     /// </summary>
     /// <param name="where">Where to look</param>
@@ -109,6 +99,21 @@ public class BuildAreaTest : MonoBehaviour
         return leakVectors;
     }
 
+    /// <summary>
+    /// Return's the block's class data.
+    /// </summary>
+    /// <param name="where">Where to look</param>
+    /// <returns>Block data</returns>
+    internal Block GetBlockData(Vector2 where)
+    {
+        return table.Get(where).GetComponent<Cell>().GetBlock().GetComponent<Block>();
+    }
+
+    /// <summary>
+    /// Gets the absolute locations the pipe here connects to within the build area.
+    /// </summary>
+    /// <param name="where">the location of the pipe we're looking at.</param>
+    /// <returns>the list of locations this pipe tries to connect to.</returns>
     internal List<Vector2> GetConnectionLocations(Vector2 where)
     {
         int x = (int)where.x;
