@@ -14,6 +14,7 @@ public class NPC : MonoBehaviour {
     {
         dialoguePanel.SetActive(false);
         RemoveText();
+        StopAllCoroutines();
     }
     public void Interact()
     {
@@ -25,12 +26,15 @@ public class NPC : MonoBehaviour {
         else if (dialogueText.text == dialogue[index])
         {
             NextLine();
-        }   
+            wordSpeed = 0.05f;
+        }
+        wordSpeed = wordSpeed / 2;
     }
     
     public void Enter()
     {
         RemoveText();
+        StopAllCoroutines();
     }
 
     public void Exit()
@@ -40,6 +44,8 @@ public class NPC : MonoBehaviour {
         {
             dialoguePanel.SetActive(false);
         }
+        StopAllCoroutines();
+        wordSpeed = 0.05f;
     }
 
     // Resets the text back to a default/empty state
