@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   emptyCell: {fileID: 4436004687172942411, guid: a659f59ff8a797e4db971d9eff3ef8b4, type: 3}
   tableSize: 3
+  placeSound: {fileID: 8300000, guid: 17140b36f8183ab4a914805113a4b5b0, type: 3}
 --- !u!1001 &8265956845880257723
 PrefabInstance:
   m_ObjectHideFlags: 0

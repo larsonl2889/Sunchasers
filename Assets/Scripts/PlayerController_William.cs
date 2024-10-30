@@ -26,7 +26,7 @@ public class PlayerController_Willliam : MonoBehaviour
     private Vector2 WorldPos;
     public GameObject currentBuildZone;
     public int currSlotSelected = 1;
-
+    
 
     private void Awake()
     {
@@ -129,7 +129,7 @@ public class PlayerController_Willliam : MonoBehaviour
         if (isBuilding) {
             if (currentBuildZone != null)
             {
-                currentBuildZone.GetComponent<BuildingArea_Riley>().Build();
+                currentBuildZone.GetComponent<BuildingArea_Riley>().build();
             }
             
         }
@@ -146,8 +146,7 @@ public class PlayerController_Willliam : MonoBehaviour
             if(rayHit.collider.gameObject.CompareTag("Part"))
             {
                 Debug.Log("Method Ran");
-                Part testPart = rayHit.collider.gameObject.GetComponentInParent<Part>();
-                rayHit.collider.gameObject.GetComponentInParent<Part>().Extract();
+                currentBuildZone.GetComponent<BuildingArea_Riley>().delete(rayHit.collider.gameObject);
             }
         }
         
