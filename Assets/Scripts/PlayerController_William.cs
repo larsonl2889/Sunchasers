@@ -127,7 +127,10 @@ public class PlayerController_Willliam : MonoBehaviour
         if (isBuilding) {
             if (currentBuildZone != null)
             {
+                currentBuildZone.GetComponent<HotBar>().setBar();
                 currentBuildZone.GetComponent<BuildingArea_Riley>().Build();
+                currentBuildZone.GetComponent<BuildingArea_Riley>().slot = null;
+                currentBuildZone.GetComponent<HotBar>().DeleteIndex();
             }
             
         }
@@ -153,6 +156,8 @@ public class PlayerController_Willliam : MonoBehaviour
     public void selectSlot(InputAction.CallbackContext context)
     {
         int currSlotSelected = (int)context.ReadValue<float>();
+        currentBuildZone.GetComponent<HotBar>().SetIndex(currSlotSelected-1);
+        //currentBuildZone.GetComponent<HotBar>().DeleteIndex(currSlotSelected - 1);
         Debug.Log(currSlotSelected);
         
     }

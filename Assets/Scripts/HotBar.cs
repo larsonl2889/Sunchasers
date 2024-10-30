@@ -1,37 +1,42 @@
-//using Parts;
-//using System.Collections;
-//using System.Collections.Generic;
-//using UnityEngine;
+using Parts;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-//public class HotBar : MonoBehaviour
-//{
-//    internal BuildingArea_Riley builder;
-//    internal BuildMat buildMat;
-//    public GameObject[] bar = new GameObject[9];
-//    public int index = new int();
+public class HotBar : MonoBehaviour
+{
+    internal GameObject anything;
+    public GameObject[] bar = new GameObject[9];
+    public int index = new int();
+    public GameObject thing;
 
-//    // Start is called before the first frame update
-//    void Start()
-//    {
-        
-//    }
+    // Start is called before the first frame update
+    void Start()
+    {
+        anything = gameObject;
+    }
 
-//    // Update is called once per frame
-//    void Update()
-//    {
-//        BarIndex(index);
+    // Update is called once per frame
 
-//    }
-//    void BarIndex(int index)
-//    {
+    void Update()
+    {
        
-        
-//        builder.setSlot(bar[index]);
-//    }
-//    void PlaceBar()
-//    {
-//        builder.Build();
-//        //if(interact)
-//        //build index
-//    }
-//}
+        //BarIndex(index);
+
+    }
+    public void SetIndex(int index)
+    {
+       this.index = index;
+    }
+    public void setBar()
+    {
+        if (bar[index] != null)
+        {
+            anything.GetComponent<BuildingArea_Riley>().SetSlot(bar[index]);
+        }
+    }
+    public void DeleteIndex()
+    {
+        bar[index] = null;
+    }
+}

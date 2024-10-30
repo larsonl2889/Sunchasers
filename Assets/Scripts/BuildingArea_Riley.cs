@@ -9,7 +9,7 @@ using UnityEngine.UIElements;
 
 public class BuildingArea_Riley : MonoBehaviour
 {
-    public GameObject Slot;
+    public GameObject slot;
     internal GameObject buildArea;
     internal BuildMat buildMat;
     private bool isInRange;
@@ -32,7 +32,14 @@ public class BuildingArea_Riley : MonoBehaviour
     {
 
     }
-    
+    public void SetSlot(GameObject slot)
+    {
+        this.slot = slot;
+    }
+    public GameObject getSlot()
+    {
+        return slot;
+    }
 
     public void Build()
     {
@@ -47,7 +54,7 @@ public class BuildingArea_Riley : MonoBehaviour
         int maxY = (int)buildMat.yPos + (int)((float)buildArea.GetComponent<BuildAreaTest>().scale / 2);
         if (xPos > minX && xPos < maxX && yPos > minY && yPos < maxY)
         {
-            GameObject instantiated = Instantiate(Slot);
+            GameObject instantiated = Instantiate(getSlot());
             instantiated.GetComponent<Part>().FormTable();
             if (buildArea.GetComponent<BuildAreaTest>().CanMerge(instantiated, new Vector2(xPos - minX, yPos - minY)))
             {
