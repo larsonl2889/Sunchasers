@@ -23,7 +23,7 @@ namespace Blocks
         public Direction[] directions;
         private List<Vector2> links;
         public bool isSource;
-        private SteamState steamState;
+        [SerializeField] private SteamState steamState;
 
         public void Start()
         {

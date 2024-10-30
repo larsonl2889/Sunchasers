@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4988724870829157296}
   - component: {fileID: 7779811428497453959}
   m_Layer: 0
-  m_Name: HorizStraightCell
+  m_Name: 2WayLEFT
   m_TagString: Part
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -160,7 +160,7 @@ GameObject:
   - component: {fileID: 2394350095098055785}
   - component: {fileID: 50390537450837299}
   m_Layer: 0
-  m_Name: Pipe_Sprite_Sheet_MicahSwerman_Oct_17_1
+  m_Name: 2WayLEFT Block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -222,7 +222,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1129866891, guid: e27c58e124c2b1848805b73219f41723, type: 3}
+  m_Sprite: {fileID: -695826310, guid: e27c58e124c2b1848805b73219f41723, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -245,5 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f43a3c6ea9fd58e43a6a869ed4790ce9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  directions: 00000000010000000200000003000000
+  cell: {fileID: 0}
+  directions: 0000000001000000
   isSource: 0
+  steamState: 0
