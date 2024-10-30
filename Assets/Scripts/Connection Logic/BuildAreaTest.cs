@@ -9,10 +9,23 @@ using Pipes;
 public class BuildAreaTest : MonoBehaviour
 {
     internal LookupTable<GameObject> table;
+    internal List<Vector2> allPipeLocations;
     public GameObject emptyCell;
     public int scale = 1;
     public int xPos;
     public int yPos;
+
+    /// <summary>
+    /// Updates the steam states of all of the pipes in this build area.
+    /// </summary>
+    public void UpdateSteam()
+    {
+        List<List<Vector2>> allPipeSystems = GetAllPipeSystems();
+        for (int system_index = 0; system_index < allPipeSystems.Count; system_index++)
+        {
+            PropagateSteam(allPipeSystems[system_index]);
+        }
+    }
 
     /// <summary>
     /// Return's the block's class data.
@@ -64,6 +77,38 @@ public class BuildAreaTest : MonoBehaviour
         return GetSteamState(where).IsSteaming();
     }
 
+    /// <summary>
+    /// Returns a list of unit vectors indicating the directions this part should be leaking steam. 
+    /// <br></br>This list may be empty.
+    /// </summary>
+    /// <param name="where">Where we're looking in the table.</param>
+    /// <returns>A list of vectors indicating the directions this part is leaking steam.</returns>
+    public List<Vector2> GetLeakDirections(Vector2 where)
+    {
+        List<Vector2> leakVectors = new();
+        if (GetSteamState(where) == SteamState.LEAKING ||
+            GetSteamState(where) == SteamState.SOURCE)
+        {
+            List<Vector2> leakCandidates = GetBlockData(where).GetAllLinksList();
+            foreach (Vector2 link in leakCandidates)
+            {
+                if (!table.IsIndexInBounds((int)(where + link).x, (int)(where + link).y))
+                {
+                    leakVectors.Add(link);
+                }
+                else
+                {
+                    // check if the direction is returned
+                    if (!GetConnectionLocations(link).Contains(where))
+                    {
+                        leakVectors.Add(link);
+                    }
+                }
+            }
+        }
+        return leakVectors;
+    }
+
     internal List<Vector2> GetConnectionLocations(Vector2 where)
     {
         int x = (int)where.x;
@@ -81,37 +126,178 @@ public class BuildAreaTest : MonoBehaviour
         }
         return augmentedLinks;
     }
-    
+
     /// <summary>
-    /// Returns a list of unit vectors indicating the directions this part should be leaking steam. 
-    /// <br></br>This list may be empty.
+    /// Gets the list of all locations this pipe is connected to.
+    /// <br></br><b>Algorithm Description</b>
+    /// <br></br>Basically, we're getting each pipe recursively.
+    /// <br></br>(0) Create an empty list of locations called fullSystem.
+    /// <br></br>(1) Add my own location to fullSystem.
+    /// <br></br>(2) Then, get the list of locations I'm connected to.
+    /// <br></br> | For each location:
+    /// <br></br> | (2a) If I am already in fullSystem, do NOT proceed to (2b) for me.
+    /// <br></br> | (2b) Check to see if I connect back to the location added in step (1).
+    /// <br></br> |  |  (2b_i) YES: Add me to the fullSystem. Plug me into Step (1).
+    /// <br></br> |  |  (2b_ii) NO: Don't add me to fullSystem.
+    /// <br></br>(3) Repeat until the algorithm does not give further instructions. Return the fullSystem.
+    /// 
     /// </summary>
-    /// <param name="where">Where we're looking in the table.</param>
-    /// <returns>A list of vectors indicating the directions this part is leaking steam.</returns>
-    public List<Vector2> GetLeakDirections(Vector2 where)
+    /// <param name="where">the location of a pipe</param>
+    /// <returns>list of connected locations</returns>
+    internal List<Vector2> GetFullPipeSystem(Vector2 where)
     {
-        List<Vector2> leakVectors = new();
-        if (GetSteamState(where) == SteamState.LEAKING || 
-            GetSteamState(where) == SteamState.SOURCE)
+        // (0): Create fullSystem as an empty list of locations (Vector2).
+        List<Vector2> fullSystem = new();
+        // Steps (1) to (2b_ii) are handled recursively.
+        GetPartOfFullSystem(where, fullSystem);
+        // (3): return the fullSystem.
+        return fullSystem;
+    }
+
+
+    /// <summary>
+    /// Implements Step (1) thru (2b_ii) from GetFullPipeSystem(). 
+    /// <br></br>(see <see cref="GetFullPipeSystem(Vector2)"/>.)
+    /// </summary>
+    /// <param name="where">Location given to Step (1)</param>
+    /// <returns></returns>
+    internal void GetPartOfFullSystem(Vector2 where, List<Vector2> fullSystem)
+    {
+        // (1): Add self to fullSystem
+        fullSystem.Add(where);
+        // (2): Get the list of locations I'm connected to
+        List<Vector2> allConnectedLocations = GetConnectionLocations(where);
+        for (int i = 0; i < allConnectedLocations.Count; i++)
         {
-            List<Vector2> leakCandidates = GetBlockData(where).GetAllLinksList();
-            foreach ( Vector2 link in leakCandidates)
+            // (2a): Check if I'm already accounted for in fullSystem. If so, do NOT proceed to (2b) with me.
+            bool isAlreadyInSystem = false;
+            for (int i_sysCheck = 0; i_sysCheck < fullSystem.Count; i_sysCheck++)
             {
-                if (!table.IsIndexInBounds((int)(where + link).x, (int)(where + link).y)) {
-                    leakVectors.Add(link);
-                }
-                else
+                if (fullSystem[i_sysCheck] == allConnectedLocations[i])
                 {
-                    // check if the direction is returned
-                    if (!GetConnectionLocations(link).Contains(where))
-                    {
-                        leakVectors.Add(link);
-                    }
+                    // do NOT proceed to step (2b)
+                    isAlreadyInSystem = true;
+                    break;
                 }
             }
+            // if allowed to proceed to step (2b)...
+            if (!isAlreadyInSystem)
+            {
+                // (2b): Check to see if I connect back to the location in "where"
+                List<Vector2> subConnectedLocations = GetConnectionLocations(allConnectedLocations[i]);
+                bool connectsBack = false;
+                for (int j = 0; j < subConnectedLocations.Count; j++)
+                {
+                    if (subConnectedLocations[j] == where)
+                    {
+                        connectsBack = true;
+                        break;
+                    }
+                }
+                // (2b_i): If YES, do recursion on me.
+                if (connectsBack)
+                {
+                    GetPartOfFullSystem(allConnectedLocations[i], fullSystem);
+                }
+                // (2b_ii): If NO, ignore me.
+                else { /*do nothing */ }
+            }
         }
-        return leakVectors;
     }
+
+    /// <summary>
+    /// Returns all "systems". A system is made up of mutually connected pipes. Every pipe in a system is connected to every other pipe, directly or indirectly.
+    /// </summary>
+    /// <returns>An array of all "systems". Each "system" is an array of connected pipes.</returns>
+    internal List<List<Vector2>> GetAllPipeSystems()
+    {
+        UpdateAllPipeLocations();
+        List<Vector2> uncategorizedPipeLocations = new();
+        for (int i = 0; i < allPipeLocations.Count; i++)
+        {
+            uncategorizedPipeLocations.Add(allPipeLocations[i]);
+        }
+        // we now have a list of all uncategorized pipes.
+        // Let's categorize them into their distinct "systems".
+        List<List<Vector2>> allPipeSystems = new();
+        // keep adding systems until we run out of pipes.
+        while (uncategorizedPipeLocations.Count > 0)
+        {
+            List<Vector2> thisSystem = GetFullPipeSystem(uncategorizedPipeLocations[0]);
+            // remove all pipes in the system from "uncategorizedPipeLocations"
+            for (int i = 0; i < thisSystem.Count; i++)
+            {
+                uncategorizedPipeLocations.Remove(thisSystem[i]);
+            }
+            allPipeSystems.Add(thisSystem);
+        }
+        return allPipeSystems;
+    }
+
+    /// <summary>
+    /// Does part of the UpdateSteam algorithm.
+    /// </summary>
+    /// <param name="system">A list of connected pipes.</param>
+    internal void PropagateSteam(List<Vector2> system)
+    {
+        bool hasSteamSource = false;
+        for (int i = 0; i < system.Count; i++)
+        {
+            Block b = table.Get(system[i]).GetComponent<Block>();
+            if (b.GetSteamState() == SteamState.SOURCE)
+            {
+                hasSteamSource = true;
+                break;
+            }
+        }
+        SteamState propagateMe = SteamState.EMPTY;
+        if (hasSteamSource)
+        {
+            // Checking for leaks...
+            // check if there are any stray connections that lead outside of the system
+            propagateMe = SteamState.FULL;
+            bool hasALeak = false;
+            for (int i = 0; i < system.Count; i++)
+            {
+                // Get all connections
+                List<Vector2> checkLocations = GetConnectionLocations(system[i]);
+                for (int i2 = 0; i2 < checkLocations.Count; i2++)
+                {
+                    bool isInTheSystem = false;
+                    // Check if they're all in the system
+                    for (int i3 = 0; i3 < system.Count; i3++)
+                    {
+                        if (system[i3] == checkLocations[i2])
+                        {
+                            isInTheSystem = true;
+                            break;
+                        }
+                    }
+                    if (!isInTheSystem)
+                    {
+                        hasALeak = true;
+                        break;
+                    }
+                }
+                if (hasALeak) { break; }
+            }
+            if (hasALeak) { propagateMe = SteamState.LEAKING; }
+        }
+
+        // Apply the state to the whole system
+        for (int i = 0; i < system.Count; i++)
+        {
+            Block b = table.Get(system[i]).GetComponent<Block>();
+            // Don't overwrite steam sources!
+            if (b.GetSteamState() != SteamState.SOURCE)
+            {
+                b.SetSteamState(propagateMe);
+            }
+        }
+    }
+
+    
+
 
     //Gives you manual control to place cells. (Good for setting up tests)
     public void placeCellManual(GameObject cell, Vector2 pos)
@@ -212,4 +398,24 @@ public class BuildAreaTest : MonoBehaviour
             part.GetComponent<Part>().SetPosInWorld();
         }
     }
+
+    public void UpdateAllPipeLocations()
+    {
+        allPipeLocations = new();
+        for (int i_x = 0; i_x < table.x_size; i_x++)
+        {
+            for (int i_y = 0; i_y < table.y_size; i_y++)
+            {
+                Vector2 vec = new(i_x, i_y);
+                Block blockHere = GetBlockData(vec);
+                if (blockHere.GetAllLinksList().Count > 0)
+                {
+                    allPipeLocations.Add(vec);
+                }
+            }
+        }
+    }
+
+
+
 }
