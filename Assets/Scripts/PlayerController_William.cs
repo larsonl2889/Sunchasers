@@ -26,7 +26,7 @@ public class PlayerController_Willliam : MonoBehaviour
     private Vector2 WorldPos;
     public GameObject currentBuildZone;
     public int currSlotSelected = 1;
-    public AudioClip deletePartSound;
+    
 
     private void Awake()
     {
@@ -147,8 +147,6 @@ public class PlayerController_Willliam : MonoBehaviour
             {
                 Debug.Log("Method Ran");
                 currentBuildZone.GetComponent<BuildingArea_Riley>().delete(rayHit.collider.gameObject);
-                
-                SFXManager.instance.playSound(deletePartSound, rayHit.collider.gameObject.transform, 1f);
             }
         }
         
