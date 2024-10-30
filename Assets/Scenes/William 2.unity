@@ -281,6 +281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Slot: {fileID: 3116988592714292705, guid: 253bd44c7b4edf74fb1155bf36f498cc, type: 3}
   placeSound: {fileID: 0}
+  deletePartSound: {fileID: 0}
 --- !u!1001 &93951441
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -921,6 +922,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Slot: {fileID: 1796572086390300456, guid: 3d5be90560e1b534dbc47c5af26b92a3, type: 3}
   placeSound: {fileID: 8300000, guid: 17140b36f8183ab4a914805113a4b5b0, type: 3}
+  deletePartSound: {fileID: 8300000, guid: c22a6f837059477459926910414afc1b, type: 3}
 --- !u!114 &407347148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10922,6 +10924,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3517592384382409853, guid: 4c2433ff525ec0b448d0fbc890bdd58d, type: 3}
+      propertyPath: deletePartSound
+      value: 
+      objectReference: {fileID: 8300000, guid: c22a6f837059477459926910414afc1b, type: 3}
     - target: {fileID: 3517592384382409853, guid: 4c2433ff525ec0b448d0fbc890bdd58d, type: 3}
       propertyPath: currSlotSelected
       value: 1
