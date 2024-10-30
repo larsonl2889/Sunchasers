@@ -5,6 +5,7 @@ using Parts;
 using Blocks;
 using UnityEngine;
 using System.Data;
+using Pipes;
 public class BuildAreaTest : MonoBehaviour
 {
     internal LookupTable<GameObject> table;
@@ -12,6 +13,105 @@ public class BuildAreaTest : MonoBehaviour
     public int scale = 1;
     public int xPos;
     public int yPos;
+
+    /// <summary>
+    /// Return's the block's class data.
+    /// </summary>
+    /// <param name="where">Where to look</param>
+    /// <returns>Block data</returns>
+    internal Block GetBlockData(Vector2 where)
+    {
+        return table.Get(where).GetComponent<Cell>().GetBlock().GetComponent<Block>();
+    }
+
+    /// <summary>
+    /// Returns the SteamState of the pipe here. Returns null if there is no pipe here.
+    /// </summary>
+    /// <param name="where">Where to look</param>
+    /// <returns>Either a SteamState, or null.</returns>
+    public SteamState GetSteamState(Vector2 where)
+    {
+        return GetBlockData(where).GetSteamState();
+    }
+
+    /// <summary>
+    /// Sets the SteamState of the Pipe here, if there is one.
+    /// </summary>
+    /// <param name="where">Where to look</param>
+    /// <param name="state">The new steam state</param>
+    public void SetSteamState(Vector2 where, SteamState state)
+    {
+        GetBlockData(where).SetSteamState(state);
+    }
+
+    /// <summary>
+    /// Returns whether a pipe here can activate objectives.
+    /// </summary>
+    /// <param name="where">where we're looking in the table.</param>
+    /// <returns>Whether a pipe here can activate objectives.</returns>
+    public bool IsOn(Vector2 where)
+    {
+        return GetSteamState(where).IsOn();
+    }
+
+    /// <summary>
+    /// Returns whether a pipe here should be animated as though it had steam flowing through it.
+    /// </summary>
+    /// <param name="where">Where we're looking in the table.</param>
+    /// <returns></returns>
+    public bool IsSteaming(Vector2 where)
+    {
+        return GetSteamState(where).IsSteaming();
+    }
+
+    internal List<Vector2> GetConnectionLocations(Vector2 where)
+    {
+        int x = (int)where.x;
+        int y = (int)where.y;
+        List<Vector2> augmentedLinks = new();
+        if (table.IsIndexInBounds(x, y))
+        {
+            // get the block data here
+            List<Vector2> links = GetBlockData(where).GetAllLinksList();
+            for (int i = 0; i < links.Count; i++)
+            {
+                // Assemble the location the connection leads to
+                augmentedLinks.Add(new Vector2(x, y) + links[i]);
+            }
+        }
+        return augmentedLinks;
+    }
+    
+    /// <summary>
+    /// Returns a list of unit vectors indicating the directions this part should be leaking steam. 
+    /// <br></br>This list may be empty.
+    /// </summary>
+    /// <param name="where">Where we're looking in the table.</param>
+    /// <returns>A list of vectors indicating the directions this part is leaking steam.</returns>
+    public List<Vector2> GetLeakDirections(Vector2 where)
+    {
+        List<Vector2> leakVectors = new();
+        if (GetSteamState(where) == SteamState.LEAKING || 
+            GetSteamState(where) == SteamState.SOURCE)
+        {
+            List<Vector2> leakCandidates = GetBlockData(where).GetAllLinksList();
+            foreach ( Vector2 link in leakCandidates)
+            {
+                if (!table.IsIndexInBounds((int)(where + link).x, (int)(where + link).y)) {
+                    leakVectors.Add(link);
+                }
+                else
+                {
+                    // check if the direction is returned
+                    if (!GetConnectionLocations(link).Contains(where))
+                    {
+                        leakVectors.Add(link);
+                    }
+                }
+            }
+        }
+        return leakVectors;
+    }
 
     //Gives you manual control to place cells. (Good for setting up tests)
     public void placeCellManual(GameObject cell, Vector2 pos)
