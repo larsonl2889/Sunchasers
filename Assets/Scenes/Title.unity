@@ -1728,11 +1728,17 @@ MonoBehaviour:
   splashText: {fileID: 1565274328}
   splashTexts:
   - Chase the Sun!
-  - Also try Minecraft
-  - Also try Terraria
+  - Also try Minecraft!
+  - Also try Terraria!
   - Pengiuns are pretty cool!
   - It's mechanic time!
-  - Don't look directly at the sun
+  - Don't look directly at the sun.
+  - Now in Beta!
+  - Crunchy
+  - Press Start Game to Play!
+  - Special thanks to some people!
+  - Also known as Slunchmacers!
+  - 
   creditsPanel: {fileID: 1596152181}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
