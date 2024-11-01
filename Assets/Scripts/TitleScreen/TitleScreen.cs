@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 
 public class TitleScreenController : MonoBehaviour
 {
@@ -37,6 +38,7 @@ public class TitleScreenController : MonoBehaviour
     public void PlayGame()
     {
         SceneManager.LoadScene(gameScene);
+       
     }
 
     // Called when Credits is clicked
