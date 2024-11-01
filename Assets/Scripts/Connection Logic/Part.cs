@@ -16,7 +16,7 @@ namespace Parts
         private bool posInWorld; // the position in world, if I'm in play.
         private LookupTable<GameObject> buildArea;
         private GameObject[] childCells;
-
+        
         /*
         public void Start()
         {
@@ -62,10 +62,14 @@ namespace Parts
             
         }
         */
-       
+        private void Awake()
+        {
+            
+        }
         public void Start()
         {
             //FormTable();
+            
         }
         
 
@@ -78,7 +82,7 @@ namespace Parts
                 {
                     emptyCell.GetComponent<Cell>().xPos = i;
                     emptyCell.GetComponent<Cell>().yPos = j;
-                    GameObject instantiated = Instantiate(emptyCell);
+                    GameObject instantiated = Instantiate(emptyCell, gameObject.transform);
                     instantiated.transform.localPosition = new Vector3(100, 100, 0);
                     table.Put(i, j, instantiated);
                     Debug.Log("Added to part table (Empty)");
@@ -92,8 +96,11 @@ namespace Parts
             }
             for(int i = 0; i < cells.Length; i++)
             {
-                placeCellManual(cells[i], new Vector2(cells[i].GetComponent<Cell>().xPos, cells[i].GetComponent<Cell>().yPos));
-                Debug.Log("Added to part table (With Block)");
+                if (!cells[i].GetComponent<Cell>().isEmpty)
+                {
+                    placeCellManual(cells[i], new Vector2(cells[i].GetComponent<Cell>().xPos, cells[i].GetComponent<Cell>().yPos));
+                    Debug.Log("Added to part table (With Block)");
+                }
             }
         }
             /*

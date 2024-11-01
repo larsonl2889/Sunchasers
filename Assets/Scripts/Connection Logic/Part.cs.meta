@@ -3,7 +3,9 @@ guid: c300572c0f14f284fa5a055b57e472fa
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - emptyCell: {instanceID: 0}
+  - clip: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

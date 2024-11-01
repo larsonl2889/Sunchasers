@@ -113,8 +113,8 @@ TextureImporter:
       name: SCtilesets_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 640
+        x: 128
+        y: 896
         width: 128
         height: 128
       alignment: 0
@@ -134,8 +134,8 @@ TextureImporter:
       name: SCtilesets_1
       rect:
         serializedVersion: 2
-        x: 128
-        y: 640
+        x: 256
+        y: 896
         width: 128
         height: 128
       alignment: 0
@@ -155,8 +155,8 @@ TextureImporter:
       name: SCtilesets_2
       rect:
         serializedVersion: 2
-        x: 256
-        y: 640
+        x: 384
+        y: 896
         width: 128
         height: 128
       alignment: 0
@@ -176,8 +176,8 @@ TextureImporter:
       name: SCtilesets_3
       rect:
         serializedVersion: 2
-        x: 384
-        y: 640
+        x: 512
+        y: 896
         width: 128
         height: 128
       alignment: 0
@@ -197,8 +197,8 @@ TextureImporter:
       name: SCtilesets_4
       rect:
         serializedVersion: 2
-        x: 512
-        y: 640
+        x: 640
+        y: 896
         width: 128
         height: 128
       alignment: 0
@@ -218,8 +218,8 @@ TextureImporter:
       name: SCtilesets_5
       rect:
         serializedVersion: 2
-        x: 640
-        y: 640
+        x: 768
+        y: 896
         width: 128
         height: 128
       alignment: 0
@@ -239,8 +239,8 @@ TextureImporter:
       name: SCtilesets_6
       rect:
         serializedVersion: 2
-        x: 768
-        y: 640
+        x: 896
+        y: 896
         width: 128
         height: 128
       alignment: 0
@@ -261,7 +261,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 512
+        y: 768
         width: 128
         height: 128
       alignment: 0
@@ -282,7 +282,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 512
+        y: 768
         width: 128
         height: 128
       alignment: 0
@@ -303,7 +303,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 256
-        y: 512
+        y: 768
         width: 128
         height: 128
       alignment: 0
@@ -324,7 +324,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 384
-        y: 512
+        y: 768
         width: 128
         height: 128
       alignment: 0
@@ -345,7 +345,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 512
-        y: 512
+        y: 768
         width: 128
         height: 128
       alignment: 0
@@ -366,7 +366,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 640
-        y: 512
+        y: 768
         width: 128
         height: 128
       alignment: 0
@@ -387,7 +387,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 768
-        y: 512
+        y: 768
         width: 128
         height: 128
       alignment: 0
@@ -407,8 +407,8 @@ TextureImporter:
       name: SCtilesets_14
       rect:
         serializedVersion: 2
-        x: 0
-        y: 384
+        x: 896
+        y: 768
         width: 128
         height: 128
       alignment: 0
@@ -428,8 +428,8 @@ TextureImporter:
       name: SCtilesets_15
       rect:
         serializedVersion: 2
-        x: 128
-        y: 384
+        x: 1024
+        y: 768
         width: 128
         height: 128
       alignment: 0
@@ -449,8 +449,8 @@ TextureImporter:
       name: SCtilesets_16
       rect:
         serializedVersion: 2
-        x: 256
-        y: 384
+        x: 0
+        y: 640
         width: 128
         height: 128
       alignment: 0
@@ -470,8 +470,8 @@ TextureImporter:
       name: SCtilesets_17
       rect:
         serializedVersion: 2
-        x: 384
-        y: 384
+        x: 128
+        y: 640
         width: 128
         height: 128
       alignment: 0
@@ -491,8 +491,8 @@ TextureImporter:
       name: SCtilesets_18
       rect:
         serializedVersion: 2
-        x: 512
-        y: 384
+        x: 256
+        y: 640
         width: 128
         height: 128
       alignment: 0
@@ -512,8 +512,8 @@ TextureImporter:
       name: SCtilesets_19
       rect:
         serializedVersion: 2
-        x: 640
-        y: 384
+        x: 384
+        y: 640
         width: 128
         height: 128
       alignment: 0
@@ -533,8 +533,8 @@ TextureImporter:
       name: SCtilesets_20
       rect:
         serializedVersion: 2
-        x: 768
-        y: 384
+        x: 512
+        y: 640
         width: 128
         height: 128
       alignment: 0
@@ -554,8 +554,8 @@ TextureImporter:
       name: SCtilesets_21
       rect:
         serializedVersion: 2
-        x: 0
-        y: 256
+        x: 640
+        y: 640
         width: 128
         height: 128
       alignment: 0
@@ -575,8 +575,8 @@ TextureImporter:
       name: SCtilesets_22
       rect:
         serializedVersion: 2
-        x: 128
-        y: 256
+        x: 768
+        y: 640
         width: 128
         height: 128
       alignment: 0
@@ -596,8 +596,8 @@ TextureImporter:
       name: SCtilesets_23
       rect:
         serializedVersion: 2
-        x: 256
-        y: 256
+        x: 896
+        y: 640
         width: 128
         height: 128
       alignment: 0
@@ -617,8 +617,8 @@ TextureImporter:
       name: SCtilesets_24
       rect:
         serializedVersion: 2
-        x: 384
-        y: 256
+        x: 1024
+        y: 640
         width: 128
         height: 128
       alignment: 0
@@ -638,8 +638,8 @@ TextureImporter:
       name: SCtilesets_25
       rect:
         serializedVersion: 2
-        x: 512
-        y: 256
+        x: 0
+        y: 512
         width: 128
         height: 128
       alignment: 0
@@ -659,8 +659,8 @@ TextureImporter:
       name: SCtilesets_26
       rect:
         serializedVersion: 2
-        x: 640
-        y: 256
+        x: 128
+        y: 512
         width: 128
         height: 128
       alignment: 0
@@ -680,8 +680,8 @@ TextureImporter:
       name: SCtilesets_27
       rect:
         serializedVersion: 2
-        x: 768
-        y: 256
+        x: 256
+        y: 512
         width: 128
         height: 128
       alignment: 0
@@ -701,8 +701,8 @@ TextureImporter:
       name: SCtilesets_28
       rect:
         serializedVersion: 2
-        x: 0
-        y: 128
+        x: 384
+        y: 512
         width: 128
         height: 128
       alignment: 0
@@ -722,8 +722,8 @@ TextureImporter:
       name: SCtilesets_29
       rect:
         serializedVersion: 2
-        x: 128
-        y: 128
+        x: 512
+        y: 512
         width: 128
         height: 128
       alignment: 0
@@ -743,8 +743,8 @@ TextureImporter:
       name: SCtilesets_30
       rect:
         serializedVersion: 2
-        x: 256
-        y: 128
+        x: 640
+        y: 512
         width: 128
         height: 128
       alignment: 0
@@ -764,8 +764,8 @@ TextureImporter:
       name: SCtilesets_31
       rect:
         serializedVersion: 2
-        x: 384
-        y: 128
+        x: 768
+        y: 512
         width: 128
         height: 128
       alignment: 0
@@ -785,8 +785,8 @@ TextureImporter:
       name: SCtilesets_32
       rect:
         serializedVersion: 2
-        x: 512
-        y: 128
+        x: 896
+        y: 512
         width: 128
         height: 128
       alignment: 0
@@ -806,8 +806,8 @@ TextureImporter:
       name: SCtilesets_33
       rect:
         serializedVersion: 2
-        x: 640
-        y: 128
+        x: 1024
+        y: 512
         width: 128
         height: 128
       alignment: 0
@@ -827,8 +827,8 @@ TextureImporter:
       name: SCtilesets_34
       rect:
         serializedVersion: 2
-        x: 768
-        y: 128
+        x: 0
+        y: 384
         width: 128
         height: 128
       alignment: 0
@@ -848,8 +848,8 @@ TextureImporter:
       name: SCtilesets_35
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 128
+        y: 384
         width: 128
         height: 128
       alignment: 0
@@ -869,8 +869,8 @@ TextureImporter:
       name: SCtilesets_36
       rect:
         serializedVersion: 2
-        x: 128
-        y: 0
+        x: 256
+        y: 384
         width: 128
         height: 128
       alignment: 0
@@ -890,8 +890,8 @@ TextureImporter:
       name: SCtilesets_37
       rect:
         serializedVersion: 2
-        x: 256
-        y: 0
+        x: 384
+        y: 384
         width: 128
         height: 128
       alignment: 0
@@ -911,8 +911,8 @@ TextureImporter:
       name: SCtilesets_38
       rect:
         serializedVersion: 2
-        x: 384
-        y: 0
+        x: 512
+        y: 384
         width: 128
         height: 128
       alignment: 0
@@ -932,8 +932,8 @@ TextureImporter:
       name: SCtilesets_39
       rect:
         serializedVersion: 2
-        x: 512
-        y: 0
+        x: 640
+        y: 384
         width: 128
         height: 128
       alignment: 0
@@ -953,8 +953,8 @@ TextureImporter:
       name: SCtilesets_40
       rect:
         serializedVersion: 2
-        x: 640
-        y: 0
+        x: 768
+        y: 384
         width: 128
         height: 128
       alignment: 0
@@ -974,8 +974,8 @@ TextureImporter:
       name: SCtilesets_41
       rect:
         serializedVersion: 2
-        x: 768
-        y: 0
+        x: 896
+        y: 384
         width: 128
         height: 128
       alignment: 0
@@ -987,6 +987,552 @@ TextureImporter:
       bones: []
       spriteID: b8df545a62f28a248b87d2a66cdf4228
       internalID: -1367243633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SCtilesets_42
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31f088260f9771e40b20325341ac3cec
+      internalID: 796998267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SCtilesets_43
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a141d755061fb8743ae759d258eb5b57
+      internalID: -2071140080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SCtilesets_44
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30353143699eae64b80fba866a336a05
+      internalID: -123485096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SCtilesets_45
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b751d701b706e44e9c629949b70a83b
+      internalID: 226683008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SCtilesets_46
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad97ebd2c9fe93443a2b0b028058f817
+      internalID: 679268377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SCtilesets_47
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bc485f55961c0f438cb0b9542e80354
+      internalID: 1449927119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SCtilesets_48
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db8204419e39a0a44acc3d6889454067
+      internalID: -284518628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SCtilesets_49
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16b2d55ba75bae14eb37f669cd0d6963
+      internalID: 949751885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SCtilesets_50
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7ad9cc588ec9fc4aa66446ba66697dd
+      internalID: -1048755423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SCtilesets_51
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0778ea97bead1346a2c007b346006fc
+      internalID: 1905456793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SCtilesets_52
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94f61564d0a894c47b4039fb75da92cb
+      internalID: 625019252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SCtilesets_53
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3271ff101c85e2d45a693fb217a76bf2
+      internalID: -278977122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SCtilesets_54
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1217edf7b446d940beec45704b9139b
+      internalID: -218606173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SCtilesets_55
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 908069919609c9f4da28524098502b59
+      internalID: 1325969732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SCtilesets_56
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a80009eb09df0ac468533801a8f97364
+      internalID: -1676124554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SCtilesets_57
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4925df45cf041d4db5b72320dc4aa70
+      internalID: -1535672462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SCtilesets_58
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cc09cb61864ca0499a8b4e2464f3d8a
+      internalID: -1678026207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SCtilesets_59
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b85c5c69b72caf42ad3e10b90c31c1b
+      internalID: -552392885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SCtilesets_60
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f1a4962d460aa34bb94101e1ecd4afb
+      internalID: -609044682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SCtilesets_61
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc83765af60be4243a1a0ae58a381578
+      internalID: -477048453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SCtilesets_62
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c712540ae6a152846820dcfc6ee95b0e
+      internalID: 1661888746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SCtilesets_63
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 689c1557936d6d240bbbedc93cd18cb9
+      internalID: -1215687108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SCtilesets_64
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2bb5f3f612e84844891f8a9d0970988
+      internalID: 1273593081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SCtilesets_65
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7746f4e9a37a49b4a919359e46a975b5
+      internalID: 449129567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SCtilesets_66
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c34079dbe7e0cc4db84b6933efc37fc
+      internalID: -961191120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SCtilesets_67
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00435fb300cf8da43b1772aa00cb7ac8
+      internalID: -1504266601
       vertices: []
       indices: 
       edges: []
@@ -1039,8 +1585,34 @@ TextureImporter:
       SCtilesets_4: 1357175533
       SCtilesets_40: -14518041
       SCtilesets_41: -1367243633
+      SCtilesets_42: 796998267
+      SCtilesets_43: -2071140080
+      SCtilesets_44: -123485096
+      SCtilesets_45: 226683008
+      SCtilesets_46: 679268377
+      SCtilesets_47: 1449927119
+      SCtilesets_48: -284518628
+      SCtilesets_49: 949751885
       SCtilesets_5: 1944482585
+      SCtilesets_50: -1048755423
+      SCtilesets_51: 1905456793
+      SCtilesets_52: 625019252
+      SCtilesets_53: -278977122
+      SCtilesets_54: -218606173
+      SCtilesets_55: 1325969732
+      SCtilesets_56: -1676124554
+      SCtilesets_57: -1535672462
+      SCtilesets_58: -1678026207
+      SCtilesets_59: -552392885
       SCtilesets_6: 445257944
+      SCtilesets_60: -609044682
+      SCtilesets_61: -477048453
+      SCtilesets_62: 1661888746
+      SCtilesets_63: -1215687108
+      SCtilesets_64: 1273593081
+      SCtilesets_65: 449129567
+      SCtilesets_66: -961191120
+      SCtilesets_67: -1504266601
       SCtilesets_7: 2128054097
       SCtilesets_8: 1794976590
       SCtilesets_9: -339420541

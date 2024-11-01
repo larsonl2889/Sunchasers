@@ -25,7 +25,10 @@ public class PlayerController_Willliam : MonoBehaviour
     public GameObject Slot;
     private Vector2 WorldPos;
     public GameObject currentBuildZone;
+    public int currSlotSelected = 1;
+    public GameObject UI;
     
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -56,6 +59,7 @@ public class PlayerController_Willliam : MonoBehaviour
         playerControls.Player.Click.performed += OnClick;
         playerControls.Player.RightClick.performed += OnRightClick;
         playerControls.Player.HotBar.performed += selectSlot;
+        playerControls.Player.Pause.performed += pause;
 
 
     }
@@ -127,10 +131,7 @@ public class PlayerController_Willliam : MonoBehaviour
         if (isBuilding) {
             if (currentBuildZone != null)
             {
-                currentBuildZone.GetComponent<HotBar>().setBar();
-                currentBuildZone.GetComponent<BuildingArea_Riley>().Build();
-               
-                
+                currentBuildZone.GetComponent<BuildingArea_Riley>().build();
             }
             
         }
@@ -147,20 +148,20 @@ public class PlayerController_Willliam : MonoBehaviour
             if(rayHit.collider.gameObject.CompareTag("Part"))
             {
                 Debug.Log("Method Ran");
-                Part testPart = rayHit.collider.gameObject.GetComponentInParent<Part>();
-                rayHit.collider.gameObject.GetComponentInParent<Part>().Extract();
-
+                currentBuildZone.GetComponent<BuildingArea_Riley>().delete(rayHit.collider.gameObject);
             }
         }
         
     }
     public void selectSlot(InputAction.CallbackContext context)
     {
-        int currSlotSelected = (int)context.ReadValue<float>();
-        currentBuildZone.GetComponent<HotBar>().SetIndex(currSlotSelected-1);
-        //currentBuildZone.GetComponent<HotBar>().DeleteIndex(currSlotSelected - 1);
+        currSlotSelected = (int)context.ReadValue<float>();
         Debug.Log(currSlotSelected);
         
+    }
+    public void pause(InputAction.CallbackContext context)
+    {
+        UI.GetComponent<PauseMenu>().changeMenuState();
     }
      
     
