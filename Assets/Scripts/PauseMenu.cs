@@ -9,12 +9,9 @@ public class PauseMenu : MonoBehaviour
 
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
+    public GameObject player;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
     public void changeMenuState()
     {
         if (GameIsPaused == false)
