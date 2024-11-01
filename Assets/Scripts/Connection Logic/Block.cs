@@ -24,6 +24,8 @@ namespace Blocks
         private List<Vector2> links;
         public bool isSource;
         [SerializeField] private SteamState steamState;
+        private static Sprite[] pipeSheetSprites;
+        public bool isChameleonPipe;
 
         public void Start()
         {
@@ -36,6 +38,80 @@ namespace Blocks
             {
                 links.Add(directions[i].ToVector());
             }
+            // Do chameleon things
+            if (isChameleonPipe)
+            {
+                // Load the pipe sprites
+                if (pipeSheetSprites == null)
+                {
+                    pipeSheetSprites = Resources.LoadAll<Sprite>("Object Art/Pipe_Sprite_Sheet_MicahSwerman_Oct_17");
+                    Debug.Log("Pipe Sprite Count: " +  pipeSheetSprites.Length);
+                }
+                // Use the appropriate pipe sprite
+                UpdateChameleonSprite();
+            }
+        }
+
+        /// <summary>
+        /// Gets the pipe sprite that matches the pipe connectors' directions, if it exists.
+        /// </summary>
+        public Sprite GetProperPipeSprite()
+        {
+            // Automatically select the appropriate pipe sprite
+            // 2-way pipes + straights
+            if (links.Count == 2)
+            {
+                // if the pipe is straight
+                if ((links[0] - links[1]).magnitude < 0.1)
+                {
+                    if (links.Contains(Direction.UP.ToVector()))
+                    {
+                        // return the UP-DOWN pipe sprite!
+                    }
+                    else
+                    {
+                        return pipeSheetSprites[0];
+                    }
+                }
+                // if the pipe is an elbow (L-shaped)
+                else if (links.Contains(Direction.UP.ToVector()))
+                {
+                    if (links.Contains(Direction.LEFT.ToVector()))
+                    {
+                        return pipeSheetSprites[6];
+                    }
+                    else
+                    {
+                        return pipeSheetSprites[7];
+                    }
+                }
+                else
+                {
+                    if (links.Contains(Direction.RIGHT.ToVector()))
+                    {
+                        return pipeSheetSprites[8];
+                    }
+                    else
+                    {
+                        return pipeSheetSprites[9];
+                    }
+                }
+            }
+            // 3-way pipes
+            else if (links.Count == 3)
+            {
+                if (!links.Contains(Direction.DOWN.ToVector())) { return pipeSheetSprites[2]; }
+                if (!links.Contains(Direction.UP.ToVector())) { return pipeSheetSprites[3]; }
+                if (!links.Contains(Direction.LEFT.ToVector())) { return pipeSheetSprites[4]; }
+                if (!links.Contains(Direction.RIGHT.ToVector())) { return pipeSheetSprites[5]; }
+            }
+            // 4-way pipes and others
+            return pipeSheetSprites[1];
+        }
+
+        public void UpdateChameleonSprite()
+        {
+            GetComponent<SpriteRenderer>().sprite = GetProperPipeSprite();
         }
 
         /// <summary>
@@ -56,6 +132,10 @@ namespace Blocks
             for (int i = 0; i < links.Count; i++)
             {
                 links[i] = rotation.ApplyRotation(links[i]);
+            }
+            if (isChameleonPipe)
+            {
+                UpdateChameleonSprite();
             }
         }
 

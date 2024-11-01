@@ -302,8 +302,6 @@ public class BuildAreaTest : MonoBehaviour
         }
     }
 
-    
-
 
     //Gives you manual control to place cells. (Good for setting up tests)
     public void placeCellManual(GameObject cell, Vector2 pos)
@@ -403,6 +401,7 @@ public class BuildAreaTest : MonoBehaviour
             }
             part.GetComponent<Part>().SetPosInWorld();
         }
+        UpdateSteam();
     }
 
     public void UpdateAllPipeLocations()
