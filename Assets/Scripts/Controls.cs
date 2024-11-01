@@ -91,13 +91,13 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""BuildMode"",
+                    ""name"": ""HotBar"",
                     ""type"": ""Button"",
-                    ""id"": ""167e4d9f-e02f-4afe-a4f4-cf55f352b496"",
+                    ""id"": ""a681d1cd-2b1f-4f66-bbaf-65490ceb9d39"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -246,12 +246,100 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""a2cebc85-3c41-42a1-b55e-905554595277"",
-                    ""path"": ""<Keyboard>/q"",
+                    ""id"": ""6621569f-a5db-45a8-baea-797134841f86"",
+                    ""path"": ""<Keyboard>/1"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""Scale"",
                     ""groups"": """",
-                    ""action"": ""BuildMode"",
+                    ""action"": ""HotBar"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ca488acf-8889-45d4-afed-7efdfba72ad7"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": ""Scale(factor=2)"",
+                    ""groups"": """",
+                    ""action"": ""HotBar"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""15090c7d-59e1-4fb8-8356-9dec2984315a"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": ""Scale(factor=3)"",
+                    ""groups"": """",
+                    ""action"": ""HotBar"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c398a888-3763-42aa-b036-4bee357c86fc"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": ""Scale(factor=4)"",
+                    ""groups"": """",
+                    ""action"": ""HotBar"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5b7d79e5-cdda-4e2a-977c-372797c9eb3c"",
+                    ""path"": ""<Keyboard>/5"",
+                    ""interactions"": """",
+                    ""processors"": ""Scale(factor=5)"",
+                    ""groups"": """",
+                    ""action"": ""HotBar"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""db9a354d-9967-46cb-85e1-e395c0ea3285"",
+                    ""path"": ""<Keyboard>/6"",
+                    ""interactions"": """",
+                    ""processors"": ""Scale(factor=6)"",
+                    ""groups"": """",
+                    ""action"": ""HotBar"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5f91c6cd-6d34-4266-abe0-077af0a82e81"",
+                    ""path"": ""<Keyboard>/7"",
+                    ""interactions"": """",
+                    ""processors"": ""Scale(factor=7)"",
+                    ""groups"": """",
+                    ""action"": ""HotBar"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""40fb8ae6-d688-450c-8ebc-e6a4b56c1b32"",
+                    ""path"": ""<Keyboard>/8"",
+                    ""interactions"": """",
+                    ""processors"": ""Scale(factor=8)"",
+                    ""groups"": """",
+                    ""action"": ""HotBar"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4319f45f-d4ad-4140-bcf3-dd7f627eb5fe"",
+                    ""path"": ""<Keyboard>/9"",
+                    ""interactions"": """",
+                    ""processors"": ""Scale(factor=9)"",
+                    ""groups"": """",
+                    ""action"": ""HotBar"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -846,7 +934,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_Down = m_Player.FindAction("Down", throwIfNotFound: true);
         m_Player_Click = m_Player.FindAction("Click", throwIfNotFound: true);
         m_Player_RightClick = m_Player.FindAction("RightClick", throwIfNotFound: true);
-        m_Player_BuildMode = m_Player.FindAction("BuildMode", throwIfNotFound: true);
+        m_Player_HotBar = m_Player.FindAction("HotBar", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -927,7 +1015,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Down;
     private readonly InputAction m_Player_Click;
     private readonly InputAction m_Player_RightClick;
-    private readonly InputAction m_Player_BuildMode;
+    private readonly InputAction m_Player_HotBar;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -939,7 +1027,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @Down => m_Wrapper.m_Player_Down;
         public InputAction @Click => m_Wrapper.m_Player_Click;
         public InputAction @RightClick => m_Wrapper.m_Player_RightClick;
-        public InputAction @BuildMode => m_Wrapper.m_Player_BuildMode;
+        public InputAction @HotBar => m_Wrapper.m_Player_HotBar;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -970,9 +1058,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @RightClick.started += instance.OnRightClick;
             @RightClick.performed += instance.OnRightClick;
             @RightClick.canceled += instance.OnRightClick;
-            @BuildMode.started += instance.OnBuildMode;
-            @BuildMode.performed += instance.OnBuildMode;
-            @BuildMode.canceled += instance.OnBuildMode;
+            @HotBar.started += instance.OnHotBar;
+            @HotBar.performed += instance.OnHotBar;
+            @HotBar.canceled += instance.OnHotBar;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -998,9 +1086,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @RightClick.started -= instance.OnRightClick;
             @RightClick.performed -= instance.OnRightClick;
             @RightClick.canceled -= instance.OnRightClick;
-            @BuildMode.started -= instance.OnBuildMode;
-            @BuildMode.performed -= instance.OnBuildMode;
-            @BuildMode.canceled -= instance.OnBuildMode;
+            @HotBar.started -= instance.OnHotBar;
+            @HotBar.performed -= instance.OnHotBar;
+            @HotBar.canceled -= instance.OnHotBar;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1190,7 +1278,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnDown(InputAction.CallbackContext context);
         void OnClick(InputAction.CallbackContext context);
         void OnRightClick(InputAction.CallbackContext context);
-        void OnBuildMode(InputAction.CallbackContext context);
+        void OnHotBar(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

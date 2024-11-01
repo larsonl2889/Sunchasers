@@ -247,6 +247,7 @@ public static class LookupTableExtension
     /// <br></br>Use this method if you want a lookup table of cells to NOT BE BROKEN!
     /// </summary>
     /// <param name="lt"></param>
+    /*
     public static void FillWithEmptyCells(this LookupTable<Cell> lt)
     {
         for (int i_x = 0; i_x < lt.x_size; i_x++)
@@ -257,4 +258,5 @@ public static class LookupTableExtension
             }
         }
     }
+    */
 }

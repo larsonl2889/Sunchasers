@@ -20,10 +20,6 @@ namespace Cells
         public GameObject block;
         public bool isEmpty = true;
 
-        public Cell(Vector2 pos)
-        {
-            this.pos = pos;
-        }
         /*
         public Cell(Block block, Vector2 pos)
         {
@@ -32,10 +28,6 @@ namespace Cells
             isEmpty = false;
         }
         */
-        public bool IsEmpty()
-        {
-            return isEmpty;
-        }
 
         public GameObject GetBlock()
         {
@@ -49,9 +41,9 @@ namespace Cells
         }
 
 
-        public void EvictBlock() { 
-            block = null;
+        public void EvictBlock() {
             isEmpty = true;
+            Debug.Log("Should Be Empty");
         }
 
         public void Start()

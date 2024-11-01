@@ -9,36 +9,36 @@ using UnityEngine.UIElements;
 
 public class BuildingArea_Riley : MonoBehaviour
 {
-    public GameObject Slot;
-    internal BuildAreaTest buildArea;
+    public GameObject slot;
+    internal GameObject buildArea;
     internal BuildMat buildMat;
-    internal Part part;
-    internal GameObject realPart;
     private bool isInRange;
     private Vector2 position;
     private Vector2 WorldPos;
     Stack<GameObject> SlotHolder;
-    
+
     // Start is called before the first frame update
     void Start()
     {
+        BuildAreaTest buildAreaMeta = gameObject.GetComponentInParent<BuildAreaTest>();
+        buildArea = buildAreaMeta.gameObject;
+
         SlotHolder = new Stack<GameObject>();
-        buildArea = gameObject.GetComponentInParent<BuildAreaTest>();
         buildMat = gameObject.GetComponent<BuildMat>();
-        GameObject testObject = Slot;
-        part = testObject.GetComponent<Part>();
-        if(part != null)
-        {
-            Debug.Log("Part Exists");
-            Slot.GetComponent<Part>().FormTable();
-            realPart = part.gameObject;
-        }
     }
 
     // Update is called once per frame
     void Update()
     {
-     
+
+    }
+    public void SetSlot(GameObject slot)
+    {
+        this.slot = slot;
+    }
+    public GameObject getSlot()
+    {
+        return slot;
     }
 
     public void Build()
@@ -46,63 +46,33 @@ public class BuildingArea_Riley : MonoBehaviour
         //set the area that can be built in by reading the mouse position.
         position = Mouse.current.position.ReadValue();
         WorldPos = Camera.main.ScreenToWorldPoint(position);
-        int xPos = (int)WorldPos.x;
-        int yPos = (int)WorldPos.y;
-        float minX = buildMat.xPos - ((float)buildArea.scale / 2);
-        float minY = buildMat.yPos - ((float)buildArea.scale / 2);
-        float maxX = buildMat.xPos + ((float)buildArea.scale / 2);
-        float maxY = buildMat.yPos + ((float)buildArea.scale / 2);
-        if (xPos >= minX && xPos < maxX && yPos >= minY && yPos < maxY)
+        float xPos = WorldPos.x;
+        float yPos = WorldPos.y;
+        int minX = (int)buildMat.xPos - (int)((float)buildArea.GetComponent<BuildAreaTest>().scale / 2);
+        int minY = (int)buildMat.yPos - (int)((float)buildArea.GetComponent<BuildAreaTest>().scale / 2);
+        int maxX = (int)buildMat.xPos + (int)((float)buildArea.GetComponent<BuildAreaTest>().scale / 2);
+        int maxY = (int)buildMat.yPos + (int)((float)buildArea.GetComponent<BuildAreaTest>().scale / 2);
+        if (xPos > minX && xPos < maxX && yPos > minY && yPos < maxY)
         {
-            if (buildArea.CanMerge(part, new Vector2(xPos, yPos)))
+            GameObject instantiated = Instantiate(getSlot());
+            instantiated.GetComponent<Part>().FormTable();
+            if (buildArea.GetComponent<BuildAreaTest>().CanMerge(instantiated, new Vector2(xPos - minX, yPos - minY)))
             {
-                Vector2 Spawnplace = new Vector2(xPos + 0.5f, yPos + 0.5f);
-                SlotHolder.Push(Instantiate(realPart, Spawnplace, Slot.transform.rotation));
-                //realPart.GetComponent<Part>().FormTable();
-                buildArea.MergeTables(realPart, Spawnplace);
-                Part test = realPart.GetComponent<Part>();
-                for(int i = 0; i < test.tableSize; i++)
-                {
-                    for(int j = 0; j < test.tableSize; j++)
-                    {
-                        if(!test.table.Get(i, j).isEmpty)
-                        {
-                            Cell testCell = test.table.Get(i, j);
-                            Debug.Log("Cell At X = " + testCell.xPos + " Y = " + testCell.yPos);
-                            Block testBlock = testCell.GetBlock().GetComponent<Block>();
-                            if(testBlock != null)
-                            {
-                                Debug.Log("Cell Has A Block");
-                                Cell cellTwo = testBlock.GetCell();
-                                if(cellTwo != null)
-                                {
-                                    Debug.Log("Block Contains Cell At X = " + cellTwo.xPos + " Y = " + cellTwo.yPos);
-                                }
-                            }
-                        }
-                    }
-                }
+                Vector2 Spawnplace = new Vector2((int)xPos + 0.5f, (int)yPos + 0.5f);
+                buildArea.GetComponent<BuildAreaTest>().MergeTables(instantiated, new Vector2(xPos - minX, yPos - minY));
+                instantiated.transform.position = Spawnplace;
+                return;
             }
-        }
-        
-        
-        //Instantiate(AnimalPrefabs[AnimalIndex], spawnPos, AnimalPrefabs[AnimalIndex].transform.rotation);
-        //Instantiate(SlotPrefab,transform.position,Quaternion.identity);
-        //Renderer.enabled = false;
-        
+            Destroy(instantiated);
 
 
-    }
-    //Deletes all the slots from the scene 
-    public void Delete()
-    {
-        
-        if (SlotHolder.Count > 0)
-        {
-            SlotHolder.Pop();
-            
-            
+            //Instantiate(AnimalPrefabs[AnimalIndex], spawnPos, AnimalPrefabs[AnimalIndex].transform.rotation);
+            //Instantiate(SlotPrefab,transform.position,Quaternion.identity);
+            //Renderer.enabled = false;
+
+
+
         }
-        
+        //Deletes all the slots from the scene
     }
 }

@@ -14,7 +14,6 @@ public class PlayerController_Willliam : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] float jumpForce;
     [SerializeField] bool isBuilding = false;
-    public Camera camera;
     private Rigidbody2D rb;
     private Vector2 direction;
     private Controls playerControls;
@@ -25,6 +24,7 @@ public class PlayerController_Willliam : MonoBehaviour
     Stack<GameObject> objectsNear;
     public GameObject Slot;
     private Vector2 WorldPos;
+    public GameObject currentBuildZone;
     
     private void Awake()
     {
@@ -34,6 +34,7 @@ public class PlayerController_Willliam : MonoBehaviour
         playerControls = new Controls();
         playerPlatformHandler = GetComponent<PlayerPlatformHandler>();
         objectsNear = new Stack<GameObject>();
+        
         
     }
     private void OnEnable()
@@ -47,17 +48,22 @@ public class PlayerController_Willliam : MonoBehaviour
 
     private void Start()
     {
+
         
+
         playerControls.Player.Interact.performed += interact;
         playerControls.Player.Down.performed += GoDownPlatform;
         playerControls.Player.Click.performed += OnClick;
         playerControls.Player.RightClick.performed += OnRightClick;
-        //playerControls.Player.BuildMode.performed += ToggleBuildMode;
+        playerControls.Player.HotBar.performed += selectSlot;
+
+
     }
 
 
     private void FixedUpdate()
     { 
+        
         rb.velocity = new Vector2(direction.x * speed, rb.velocity.y);
         animate();
         
@@ -110,10 +116,6 @@ public class PlayerController_Willliam : MonoBehaviour
     {
         if (objectsNear.Count > 0)
         {
-            if (objectsNear.Peek().gameObject.CompareTag("buildWorkshop"))
-            {
-                isBuilding = true;
-            }
             
             objectsNear.Peek().GetComponent<Interactable_William>().InvokeAction();
             
@@ -123,9 +125,12 @@ public class PlayerController_Willliam : MonoBehaviour
     public void OnClick(InputAction.CallbackContext context)
     {
         if (isBuilding) {
-            if (objectsNear.Peek().gameObject.CompareTag("buildWorkshop"))
+            if (currentBuildZone != null)
             {
-                objectsNear.Peek().GetComponent<BuildingArea_Riley>().Build();
+                currentBuildZone.GetComponent<HotBar>().setBar();
+                currentBuildZone.GetComponent<BuildingArea_Riley>().Build();
+                currentBuildZone.GetComponent<BuildingArea_Riley>().slot = null;
+                currentBuildZone.GetComponent<HotBar>().DeleteIndex();
             }
             
         }
@@ -133,60 +138,32 @@ public class PlayerController_Willliam : MonoBehaviour
     }
     public void OnRightClick(InputAction.CallbackContext context)
     {
-        /*
-        if (isBuilding)
-        {
-            if (objectsNear.Peek().gameObject.CompareTag("Part"))
-            {
-                objectsNear.Peek().GetComponent<BuildingArea_Riley>().Delete();
-            }
-
-        }
-        */
-
-        var rayHit = Physics2D.GetRayIntersection(camera.ScreenPointToRay(pos: (Vector3)Mouse.current.position.ReadValue()));
+        
+        var rayHit = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(pos: (Vector3)Mouse.current.position.ReadValue()));
         if (!rayHit.collider) return;
         Debug.Log("Hit");
-        if(objectsNear.Peek().gameObject.CompareTag("buildWorkshop"))
+        if(currentBuildZone != null)
         {
             if(rayHit.collider.gameObject.CompareTag("Part"))
             {
                 Debug.Log("Method Ran");
                 Part testPart = rayHit.collider.gameObject.GetComponentInParent<Part>();
-                if(testPart != null)
-                {
-                    Debug.Log("There's a part");
-                    Block testBlock = rayHit.collider.gameObject.GetComponentInChildren<Block>();
-                    if(testBlock != null)
-                    {
-                        Debug.Log("Block Exists");
-                        Cell testCell = testBlock.GetCell();
-                        if(testCell != null)
-                        {
-                            Debug.Log("Cell Exists X = " + testCell.xPos + " Y = " + testCell.yPos);
-                        }
-                    }
-                    if(testPart.GetTable() != null)
-                    {
-                        Debug.Log("This Shit Wack");
-                    }
-                }
                 rayHit.collider.gameObject.GetComponentInParent<Part>().Extract();
             }
         }
         
     }
-    /*
-     * call when in build zone/grid
-    public void ToggleBuildMode(InputAction.CallbackContext context)
+    public void selectSlot(InputAction.CallbackContext context)
     {
-        if (objectsNear.Peek().gameObject.CompareTag("buildWorkshop"))
-        {
-            isBuilding = true;
-            
-        }
+        int currSlotSelected = (int)context.ReadValue<float>();
+        currentBuildZone.GetComponent<HotBar>().SetIndex(currSlotSelected-1);
+        //currentBuildZone.GetComponent<HotBar>().DeleteIndex(currSlotSelected - 1);
+        Debug.Log(currSlotSelected);
+        
     }
-    */
+     
+    
+    
 
     public bool IsGrounded()
     {
@@ -204,17 +181,33 @@ public class PlayerController_Willliam : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         
-        if (other.gameObject.CompareTag("Interactable") || other.gameObject.CompareTag("buildWorkshop"))
+        if (other.gameObject.CompareTag("Interactable"))
         {
+            
+            other.gameObject.GetComponent<Interactable_William>().showPrompt(other.transform.position);
             objectsNear.Push(other.gameObject);
+            
+            
+        }
+        if (other.gameObject.CompareTag("buildWorkshop"))
+        {
+            currentBuildZone = other.gameObject;
+            isBuilding = true;
             
         }
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Interactable") || other.gameObject.CompareTag("buildWorkshop"))
+        if (other.gameObject.CompareTag("Interactable"))
         {
+            other.gameObject.GetComponent<Interactable_William>().hidePrompt();
             objectsNear.Pop();
+            
+        }
+        if (other.gameObject.CompareTag("buildWorkshop"))
+        {
+
+            currentBuildZone = null;
             isBuilding = false;
         }
     }

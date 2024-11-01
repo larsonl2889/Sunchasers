@@ -15,9 +15,7 @@ namespace Blocks
         /// <summary>
         /// Which cell I occupy in my parent part (if I'm in play) or in the world.
         /// </summary>
-        protected Cell cell;
-        public GameObject worldCell;
-        public GameObject partCell;
+        public GameObject cell;
 
         //private Part part;
         
@@ -25,33 +23,24 @@ namespace Blocks
         /// Block constructor. Requires the cell it will occupy in its parent part.
         /// </summary>
         /// <param name="partCell">My cell in my parent part.</param>
-        public Block(Cell cell)
-        {
-            this.cell = cell;
-        }
 
         public void Start()
         {
 
         }
 
-        public void BlockStart()
-        {
-            cell = partCell.GetComponent<Cell>();
-        }
-
         /// <summary>
         /// Gets the cell I occupy right now.
         /// </summary>
         /// <returns>My cell I occupy.</returns>
-        public Cell GetCell() { return cell; }
+        public GameObject GetCell() { return cell; }
 
         /// <summary>
         /// Sets the cell I occupy.
         /// <br></br>(This doesn't update the Cell.)
         /// </summary>
         /// <param name="newCell">The cell I will now occupy.</param>
-        public void SetCell(Cell newCell) 
+        public void SetCell(GameObject newCell) 
         { 
             cell = newCell; 
         }
@@ -62,6 +51,7 @@ namespace Blocks
         /// <br></br>Represents a block in a Cell located at (1,3)
         /// </summary>
         /// <returns>Returns a string representation of the block.</returns>
+        /*
         public override string ToString()
         {
             if (cell == null)
@@ -75,6 +65,7 @@ namespace Blocks
             }
             
         }
+        */
 
         ///// <summary>
         ///// Whether the part believes itself to be in the world somewhere.
