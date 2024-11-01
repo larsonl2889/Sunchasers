@@ -38,7 +38,7 @@ namespace Blocks
             {
                 links.Add(directions[i].ToVector());
             }
-            // Do chameleon things
+            // Do chameleon things 
             if (isChameleonPipe)
             {
                 // Load the pipe sprites

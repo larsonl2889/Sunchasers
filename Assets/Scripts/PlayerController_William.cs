@@ -128,6 +128,7 @@ public class PlayerController_Willliam : MonoBehaviour
             if (currentBuildZone != null)
             {
                 currentBuildZone.GetComponent<BuildingArea_Riley>().Build();
+                //currentBuildZone.GetComponentInParent<BuildAreaTest>().UpdateSteam();
             }
             
         }
@@ -146,6 +147,7 @@ public class PlayerController_Willliam : MonoBehaviour
                 Debug.Log("Method Ran");
                 Part testPart = rayHit.collider.gameObject.GetComponentInParent<Part>();
                 rayHit.collider.gameObject.GetComponentInParent<Part>().Extract();
+                //currentBuildZone.GetComponentInParent<BuildAreaTest>().UpdateSteam();
             }
         }
         
