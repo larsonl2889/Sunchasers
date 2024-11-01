@@ -129,8 +129,8 @@ public class PlayerController_Willliam : MonoBehaviour
             {
                 currentBuildZone.GetComponent<HotBar>().setBar();
                 currentBuildZone.GetComponent<BuildingArea_Riley>().Build();
-                currentBuildZone.GetComponent<BuildingArea_Riley>().slot = null;
-                currentBuildZone.GetComponent<HotBar>().DeleteIndex();
+               
+                
             }
             
         }
@@ -149,6 +149,7 @@ public class PlayerController_Willliam : MonoBehaviour
                 Debug.Log("Method Ran");
                 Part testPart = rayHit.collider.gameObject.GetComponentInParent<Part>();
                 rayHit.collider.gameObject.GetComponentInParent<Part>().Extract();
+
             }
         }
         

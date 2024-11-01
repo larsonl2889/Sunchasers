@@ -28,6 +28,10 @@ public class HotBar : MonoBehaviour
     {
        this.index = index;
     }
+    public GameObject repairArray(GameObject bar)
+    {
+        return bar;
+    }
     public void setBar()
     {
         if (bar[index] != null)

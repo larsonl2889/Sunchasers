@@ -58,6 +58,9 @@ public class BuildingArea_Riley : MonoBehaviour
             instantiated.GetComponent<Part>().FormTable();
             if (buildArea.GetComponent<BuildAreaTest>().CanMerge(instantiated, new Vector2(xPos - minX, yPos - minY)))
             {
+                slot = null;
+                gameObject.GetComponent<HotBar>().DeleteIndex();
+                
                 Vector2 Spawnplace = new Vector2((int)xPos + 0.5f, (int)yPos + 0.5f);
                 buildArea.GetComponent<BuildAreaTest>().MergeTables(instantiated, new Vector2(xPos - minX, yPos - minY));
                 instantiated.transform.position = Spawnplace;
