@@ -54,6 +54,8 @@ public class BuildingArea_Riley : MonoBehaviour
             instantiated.GetComponent<Part>().FormTable();
             if (buildArea.GetComponent<BuildAreaTest>().CanMerge(instantiated, new Vector2(xPos - minX, yPos - minY)))
             {
+                gameObject.GetComponent<HotBar>().DeleteIndex();
+                Slot = null;
                 SFXManager.instance.playSound(placeSound, instantiated.transform, 1f);
                 Vector2 Spawnplace = new Vector2((int)xPos + 0.5f, (int)yPos + 0.5f);
                 buildArea.GetComponent<BuildAreaTest>().MergeTables(instantiated, new Vector2(xPos - minX, yPos - minY));
@@ -72,8 +74,17 @@ public class BuildingArea_Riley : MonoBehaviour
         }
         //Deletes all the slots from the scene
     }
-    public void delete(GameObject part)
+    public void SetSlot(GameObject Slot)
     {
+        this.Slot = Slot;
+    }
+        public void delete(GameObject part)
+    {
+        Part PlaceHolder = part.GetComponentInParent<Part>();
+        GameObject realPart = PlaceHolder.gameObject;
+        GameObject instantiated = Instantiate(realPart);
+        instantiated.transform.localPosition = new Vector3(100, 100, 0);
+        gameObject.GetComponent<HotBar>().repairArray(instantiated);
         part.GetComponentInParent<Part>().Extract();
         SFXManager.instance.playSound(deletePartSound, part.transform, 1f);
     }
