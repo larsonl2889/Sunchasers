@@ -26,6 +26,7 @@ public class PlayerController_Willliam : MonoBehaviour
     private Vector2 WorldPos;
     public GameObject currentBuildZone;
     public int currSlotSelected = 1;
+    public GameObject UI;
     
 
     private void Awake()
@@ -58,6 +59,7 @@ public class PlayerController_Willliam : MonoBehaviour
         playerControls.Player.Click.performed += OnClick;
         playerControls.Player.RightClick.performed += OnRightClick;
         playerControls.Player.HotBar.performed += selectSlot;
+        playerControls.Player.Pause.performed += pause;
 
 
     }
@@ -156,6 +158,10 @@ public class PlayerController_Willliam : MonoBehaviour
         currSlotSelected = (int)context.ReadValue<float>();
         Debug.Log(currSlotSelected);
         
+    }
+    public void pause(InputAction.CallbackContext context)
+    {
+        UI.GetComponent<PauseMenu>().changeMenuState();
     }
      
     
