@@ -28,10 +28,4 @@ public class BuildMat : MonoBehaviour
         
         gameObject.transform.localPosition = new Vector3(xPos, yPos, 0);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

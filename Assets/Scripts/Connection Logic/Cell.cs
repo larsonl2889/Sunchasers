@@ -58,11 +58,6 @@ namespace Cells
             pos.y = yPos;
         }
 
-        public void Update()
-        {
-            
-        }
-
         /// <summary>
         /// Returns a string representation of the cell.
         /// <br></br>"Cell @(0, 0) w/ Block @(1, 3)"
