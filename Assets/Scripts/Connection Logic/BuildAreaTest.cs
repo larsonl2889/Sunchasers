@@ -6,12 +6,14 @@ using Blocks;
 using UnityEngine;
 using System.Data;
 using Pipes;
+using System;
 
 public class BuildAreaTest : MonoBehaviour
 {
     internal LookupTable<GameObject> table;
     internal List<Vector2> allPipeLocations;
     public GameObject emptyCell;
+    public GameObject badCell;
     public int scale = 1;
     public int xPos;
     public int yPos;
@@ -100,14 +102,26 @@ public class BuildAreaTest : MonoBehaviour
         return leakVectors;
     }
 
+    internal bool IsEmpty(Vector2 where)
+    {
+        return table.Get(where).GetComponent<Cell>().isEmpty;
+    }
+
     /// <summary>
-    /// Return's the block's class data.
+    /// Return's the block's class data. If it doesn't exist, return's the bad block's data.
     /// </summary>
     /// <param name="where">Where to look</param>
     /// <returns>Block data</returns>
     internal Block GetBlockData(Vector2 where)
     {
-        return table.Get(where).GetComponent<Cell>().GetBlock().GetComponent<Block>();
+        if (table.Get(where).GetComponent<Cell>().isEmpty) {
+            //throw new NullReferenceException("This cell @ (" + (int)where.x + ", " + (int)where.y + ") has no block! Cannot get its data!");
+            return badCell.GetComponent<Cell>().GetBlock().GetComponent<Block>();
+        }
+        else
+        {
+            return table.Get(where).GetComponent<Cell>().GetBlock().GetComponent<Block>();
+        }
     }
 
     /// <summary>
@@ -413,10 +427,13 @@ public class BuildAreaTest : MonoBehaviour
             for (int i_y = 0; i_y < table.y_size; i_y++)
             {
                 Vector2 vec = new(i_x, i_y);
-                Block blockHere = GetBlockData(vec);
-                if (blockHere.GetAllLinksList().Count > 0)
+                if (!table.Get(i_x, i_y).GetComponent<Cell>().isEmpty)
                 {
-                    allPipeLocations.Add(vec);
+                    Block blockHere = GetBlockData(vec);
+                    if (blockHere.GetAllLinksList().Count > 0)
+                    {
+                        allPipeLocations.Add(vec);
+                    }
                 }
             }
         }

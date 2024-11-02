@@ -25,8 +25,10 @@ namespace Blocks
         public bool isSource;
         [SerializeField] private SteamState steamState;
 
-        public void Start()
+        public void Awake()
         {
+            // Find your cell.
+            cell = transform.parent.gameObject;
             // Set the steam state
             if (isSource) { steamState = SteamState.SOURCE; }
             else { steamState = SteamState.EMPTY; }
@@ -37,6 +39,7 @@ namespace Blocks
                 links.Add(directions[i].ToVector());
             }
         }
+
 
         /// <summary>
         /// Returns a list of all links as Vectors.

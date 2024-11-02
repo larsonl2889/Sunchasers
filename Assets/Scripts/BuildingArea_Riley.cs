@@ -27,11 +27,6 @@ public class BuildingArea_Riley : MonoBehaviour
         buildMat = gameObject.GetComponent<BuildMat>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     
 
     public void Build()
