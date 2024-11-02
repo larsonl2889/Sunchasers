@@ -263,7 +263,8 @@ public class BuildAreaTest : MonoBehaviour
         bool hasSteamSource = false;
         for (int i = 0; i < system.Count; i++)
         {
-            Block b = table.Get(system[i]).GetComponent<Block>();
+            //Block b = table.Get(system[i]).GetComponent<Block>();
+            Block b = GetBlockData(system[i]);
             if (b.GetSteamState() == SteamState.SOURCE)
             {
                 hasSteamSource = true;
@@ -307,7 +308,8 @@ public class BuildAreaTest : MonoBehaviour
         // Apply the state to the whole system
         for (int i = 0; i < system.Count; i++)
         {
-            Block b = table.Get(system[i]).GetComponent<Block>();
+            //Block b = table.Get(system[i]).GetComponent<Block>();
+            Block b = GetBlockData(system[i]);
             // Don't overwrite steam sources!
             if (b.GetSteamState() != SteamState.SOURCE)
             {
