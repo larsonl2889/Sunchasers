@@ -28,7 +28,13 @@ public class BuildAreaTest : MonoBehaviour
         {
             PropagateSteam(allPipeSystems[system_index]);
         }
+        foreach (Vector2 where in allPipeLocations)
+        {
+            //TryObjectiveUpdate(where);
+        }
     }
+
+
 
     /// <summary>
     /// Returns the SteamState of the pipe here. Returns null if there is no pipe here.
