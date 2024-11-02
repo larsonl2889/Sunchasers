@@ -52,6 +52,8 @@ namespace Cells
 
         public void CellStart()
         {
+            //xPos = (int)transform.position.x;
+            //yPos = (int)transform.position.y;
             pos.x = xPos;
             pos.y = yPos;
         }
