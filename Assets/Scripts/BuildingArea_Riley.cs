@@ -55,7 +55,6 @@ public class BuildingArea_Riley : MonoBehaviour
             if (buildArea.GetComponent<BuildAreaTest>().CanMerge(instantiated, new Vector2(xPos - minX, yPos - minY)))
             {
                 gameObject.GetComponent<HotBar>().DeleteIndex();
-                Destroy(Slot);
                 Slot = null;
                 SFXManager.instance.playSound(placeSound, instantiated.transform, 1f);
                 Vector2 Spawnplace = new Vector2((int)xPos + 0.5f, (int)yPos + 0.5f);

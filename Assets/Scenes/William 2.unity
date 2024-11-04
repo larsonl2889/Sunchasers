@@ -279,7 +279,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1615b3176c634024c954eb275a021691, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slot: {fileID: 0}
+  Slot: {fileID: 0}
+  placeSound: {fileID: 0}
+  deletePartSound: {fileID: 0}
 --- !u!1 &66448251
 GameObject:
   m_ObjectHideFlags: 0
@@ -1073,6 +1075,9 @@ PrefabInstance:
       addedObject: {fileID: 407347147}
     - targetCorrespondingSourceObject: {fileID: 2550025435602192417, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 407347153}
+    - targetCorrespondingSourceObject: {fileID: 2550025435602192417, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 407347148}
   m_SourcePrefab: {fileID: 100100000, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
 --- !u!1 &303274590
@@ -1454,7 +1459,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1615b3176c634024c954eb275a021691, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slot: {fileID: 0}
+  Slot: {fileID: 0}
+  placeSound: {fileID: 8300000, guid: 17140b36f8183ab4a914805113a4b5b0, type: 3}
+  deletePartSound: {fileID: 8300000, guid: c86f7f22ec287b04eb076767a4357741, type: 3}
 --- !u!114 &407347148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1478,6 +1485,30 @@ MonoBehaviour:
       m_Calls: []
   promptPrefab: {fileID: 0}
   promptPosOffset: 1
+--- !u!114 &407347153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407347142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57c619aebd1d9964fa109b442a8d1277, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bar:
+  - {fileID: 1796572086390300456, guid: 3d5be90560e1b534dbc47c5af26b92a3, type: 3}
+  - {fileID: 1796572086390300456, guid: 3d5be90560e1b534dbc47c5af26b92a3, type: 3}
+  - {fileID: 1796572086390300456, guid: 3d5be90560e1b534dbc47c5af26b92a3, type: 3}
+  - {fileID: 1796572086390300456, guid: 3d5be90560e1b534dbc47c5af26b92a3, type: 3}
+  - {fileID: 1796572086390300456, guid: 3d5be90560e1b534dbc47c5af26b92a3, type: 3}
+  - {fileID: 1796572086390300456, guid: 3d5be90560e1b534dbc47c5af26b92a3, type: 3}
+  - {fileID: 1796572086390300456, guid: 3d5be90560e1b534dbc47c5af26b92a3, type: 3}
+  - {fileID: 1796572086390300456, guid: 3d5be90560e1b534dbc47c5af26b92a3, type: 3}
+  - {fileID: 1796572086390300456, guid: 3d5be90560e1b534dbc47c5af26b92a3, type: 3}
+  index: 0
+  thing: {fileID: 0}
 --- !u!1 &428494915
 GameObject:
   m_ObjectHideFlags: 0
