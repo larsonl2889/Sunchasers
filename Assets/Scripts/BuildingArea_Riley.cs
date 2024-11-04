@@ -16,6 +16,8 @@ public class BuildingArea_Riley : MonoBehaviour
     private Vector2 position;
     private Vector2 WorldPos;
     Stack<GameObject> SlotHolder;
+    [SerializeField] private AudioClip placeSound;
+    [SerializeField] private AudioClip deletePartSound;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +31,7 @@ public class BuildingArea_Riley : MonoBehaviour
 
     
 
-    public void Build()
+    public void build()
     {
         //set the area that can be built in by reading the mouse position.
         position = Mouse.current.position.ReadValue();
@@ -43,9 +45,11 @@ public class BuildingArea_Riley : MonoBehaviour
         if (xPos > minX && xPos < maxX && yPos > minY && yPos < maxY)
         {
             GameObject instantiated = Instantiate(Slot);
+            
             instantiated.GetComponent<Part>().FormTable();
             if (buildArea.GetComponent<BuildAreaTest>().CanMerge(instantiated, new Vector2(xPos - minX, yPos - minY)))
             {
+                SFXManager.instance.playSound(placeSound, instantiated.transform, 1f);
                 Vector2 Spawnplace = new Vector2((int)xPos + 0.5f, (int)yPos + 0.5f);
                 buildArea.GetComponent<BuildAreaTest>().MergeTables(instantiated, new Vector2(xPos - minX, yPos - minY));
                 instantiated.transform.position = Spawnplace;
@@ -62,5 +66,10 @@ public class BuildingArea_Riley : MonoBehaviour
 
         }
         //Deletes all the slots from the scene
+    }
+    public void delete(GameObject part)
+    {
+        part.GetComponentInParent<Part>().Extract();
+        SFXManager.instance.playSound(deletePartSound, part.transform, 1f);
     }
 }

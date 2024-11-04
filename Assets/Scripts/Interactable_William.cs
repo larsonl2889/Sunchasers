@@ -13,7 +13,7 @@ public class Interactable_William : MonoBehaviour
     public float promptPosOffset = 1;
     private Vector2 promptPos;
     private GameObject currentPrompt;
-    // Eventually might change to account for new input system
+    
     
     public void InvokeAction()
     {
