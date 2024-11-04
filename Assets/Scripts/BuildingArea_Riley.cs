@@ -27,6 +27,7 @@ public class BuildingArea_Riley : MonoBehaviour
 
         SlotHolder = new Stack<GameObject>();
         buildMat = gameObject.GetComponent<BuildMat>();
+        
     }
 
     // Update is called once per frame
@@ -75,6 +76,14 @@ public class BuildingArea_Riley : MonoBehaviour
     public void delete(GameObject part)
     {
         part.GetComponentInParent<Part>().Extract();
-        SFXManager.instance.playSound(deletePartSound, part.transform, 1f);
+        if (deletePartSound.name != "funnyPoof")
+        {
+            SFXManager.instance.playSound(deletePartSound, part.transform, 1f);
+        }
+        else
+        {
+            Debug.Log("please add real sound");
+        }
+        
     }
 }
