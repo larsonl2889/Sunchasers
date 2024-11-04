@@ -87,7 +87,7 @@ public class BuildingArea_Riley : MonoBehaviour
             }
             else
             {
-                Debug.Log("please add real sound");
+                Debug.LogError("please add real sound");
             }
         }
         
