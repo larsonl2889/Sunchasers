@@ -55,7 +55,10 @@ public class BuildingArea_Riley : MonoBehaviour
             instantiated.GetComponent<Part>().FormTable();
             if (buildArea.GetComponent<BuildAreaTest>().CanMerge(instantiated, new Vector2(xPos - minX, yPos - minY)))
             {
-                SFXManager.instance.playSound(placeSound, instantiated.transform, 1f);
+                if (placeSound != null)
+                {
+                    SFXManager.instance.playSound(placeSound, instantiated.transform, 1f);
+                }
                 Vector2 Spawnplace = new Vector2((int)xPos + 0.5f, (int)yPos + 0.5f);
                 buildArea.GetComponent<BuildAreaTest>().MergeTables(instantiated, new Vector2(xPos - minX, yPos - minY));
                 instantiated.transform.position = Spawnplace;
@@ -76,14 +79,18 @@ public class BuildingArea_Riley : MonoBehaviour
     public void delete(GameObject part)
     {
         part.GetComponentInParent<Part>().Extract();
-        if (deletePartSound.name != "funnyPoof")
+        if (deletePartSound != null)
         {
-            SFXManager.instance.playSound(deletePartSound, part.transform, 1f);
+            if (deletePartSound.name != "funnyPoof")
+            {
+                SFXManager.instance.playSound(deletePartSound, part.transform, 1f);
+            }
+            else
+            {
+                Debug.Log("please add real sound");
+            }
         }
-        else
-        {
-            Debug.Log("please add real sound");
-        }
+        
         
     }
 }
