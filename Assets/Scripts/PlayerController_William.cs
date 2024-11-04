@@ -157,7 +157,7 @@ public class PlayerController_Willliam : MonoBehaviour
     public void selectSlot(InputAction.CallbackContext context)
     {
         currSlotSelected = (int)context.ReadValue<float>();
-        currentBuildZone.GetComponent<HotBar>().SetIndex(currSlotSelected);
+        currentBuildZone.GetComponent<HotBar>().SetIndex(currSlotSelected-1);
         Debug.Log(currSlotSelected);
         
     }

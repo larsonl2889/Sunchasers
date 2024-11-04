@@ -8,7 +8,6 @@ public class HotBar : MonoBehaviour
     internal GameObject anything;
     public GameObject[] bar = new GameObject[9];
     public int index = new int();
-    public GameObject thing;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +34,7 @@ public class HotBar : MonoBehaviour
             if (bar[i] == null)
             {
                 bar[i] = passedBar;
+                return;
             }
         }
     }
