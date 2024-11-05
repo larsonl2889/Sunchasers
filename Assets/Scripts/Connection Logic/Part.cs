@@ -17,6 +17,7 @@ namespace Parts
         private LookupTable<GameObject> buildArea;
         private GameObject[] childCells;
         
+
         /*
         public void Start()
         {
