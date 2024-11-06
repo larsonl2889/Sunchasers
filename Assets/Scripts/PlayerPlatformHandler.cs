@@ -8,7 +8,7 @@ public class PlayerPlatformHandler : MonoBehaviour
     private GameObject currentOneWayPlatform;
 
     private BoxCollider2D playerCollider;
-
+    
 
     // Update is called once per frame
     private void Awake()
@@ -30,6 +30,7 @@ public class PlayerPlatformHandler : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("OneWayPlatform")){
             currentOneWayPlatform = collision.gameObject;
+            
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
