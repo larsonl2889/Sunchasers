@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Title.unity
     guid: f76be656b0dd1564990d1e6c4503ebad
   - enabled: 0
-    path: Assets/Scenes/TestArea.unity
+    path: Assets/Scenes/Inactive/TestArea.unity
     guid: 368983f3e88591743bcec8e03030ac1c
   - enabled: 1
     path: Assets/Scenes/William 2.unity
