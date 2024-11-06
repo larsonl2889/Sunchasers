@@ -7,12 +7,17 @@ public class HotBar : MonoBehaviour
 {
     internal GameObject anything;
     public GameObject[] bar = new GameObject[9];
+    public GameObject[] bar2 = new GameObject[9];
     public int index = new int();
 
     // Start is called before the first frame update
     void Start()
     {
         anything = gameObject;
+        for (int i = 0; i < 9; i++)
+        {
+            bar[i] = Instantiate(bar2[i], transform.position, transform.rotation);
+        }
     }
 
     // Update is called once per frame
