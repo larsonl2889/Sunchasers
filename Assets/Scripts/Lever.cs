@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cells;
+using Blocks;
+using Pipes;
 
 public class Lever : MonoBehaviour
 {
@@ -9,6 +12,7 @@ public class Lever : MonoBehaviour
     [SerializeField] Sprite offSprite;
     private bool isOn = false;
     private SpriteRenderer spriteRenderer;
+    public GameObject source;
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -25,10 +29,12 @@ public class Lever : MonoBehaviour
         if (isOn)
         {
             spriteRenderer.sprite = onSprite;
+            source.GetComponent<Cell>().GetBlock().GetComponent<Block>().SetSteamState(SteamState.SOURCE);
         }
         else
         {
             spriteRenderer.sprite = offSprite;
+            source.GetComponent<Cell>().GetBlock().GetComponent<Block>().SetSteamState(SteamState.EMPTY);
         }
 
     }
