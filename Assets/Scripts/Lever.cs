@@ -9,6 +9,7 @@ public class Lever : MonoBehaviour
     [SerializeField] Sprite offSprite;
     private bool isOn = false;
     private SpriteRenderer spriteRenderer;
+    
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
