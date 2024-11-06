@@ -18,6 +18,25 @@ public class BuildAreaTest : MonoBehaviour
     public int xPos;
     public int yPos;
 
+    public Vector2Int SourceLocation;
+    public Vector2Int ObjectiveLocation;
+
+    public void ActivateSource()
+    {
+        SetSteamState((Vector2)SourceLocation, SteamState.SOURCE);
+    }
+
+    public void DeactivateSource()
+    {
+        SetSteamState((Vector2)SourceLocation, SteamState.EMPTY);
+    }
+
+    public bool IsObjectiveOn()
+    {
+        return IsOn((Vector2)ObjectiveLocation);
+    }
+
+
     /// <summary>
     /// Updates the steam states of all of the pipes in this build area.
     /// </summary>
