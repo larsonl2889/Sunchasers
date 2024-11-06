@@ -14,6 +14,7 @@ public class BuildAreaTest : MonoBehaviour
     internal List<Vector2> allPipeLocations;
     public GameObject emptyCell;
     public GameObject badCell;
+    public GameObject startingPart;
     public int scale = 1;
     public int xPos;
     public int yPos;
@@ -335,13 +336,13 @@ public class BuildAreaTest : MonoBehaviour
     public void Start()
     {
         table = new LookupTable<GameObject>(scale, scale);
-        for(int i = 0; i < scale; i++)
+        float xCoord = xPos - ((float)scale / 2);
+        float yCoord = yPos - ((float)scale / 2);
+        for (int i = 0; i < scale; i++)
         {
             for(int j = 0; j < scale; j++)
             {
                 GameObject instantiated = Instantiate(emptyCell);
-                float xCoord = xPos - ((float)scale / 2);
-                float yCoord = yPos - ((float)scale / 2);
                 instantiated.transform.localPosition = new Vector3(i + xPos + 0.5f, j + yPos + 0.5f, 0);
                 instantiated.GetComponent<Cell>().xPos = i;
                 instantiated.GetComponent<Cell>().yPos = j;
@@ -349,6 +350,11 @@ public class BuildAreaTest : MonoBehaviour
                 table.Put(i, j, instantiated);
             }
         }
+        GameObject instantiatedPart = Instantiate(startingPart, gameObject.transform);
+        instantiatedPart.GetComponent<Part>().FormTable();
+        instantiatedPart.transform.localPosition = new Vector3(xPos + 0.5f, yPos + 0.5f, 0);
+        Vector2 test = new Vector2(0, 0);
+        MergeTables(instantiatedPart, test);
     }
     //retrieves the cell at a specific location in the build area
     /*
