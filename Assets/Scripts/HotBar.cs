@@ -16,7 +16,15 @@ public class HotBar : MonoBehaviour
         anything = gameObject;
         for (int i = 0; i < 9; i++)
         {
-            bar[i] = Instantiate(bar2[i], transform.position, transform.rotation);
+            if (bar2[i] != null)
+            {
+                bar[i] = Instantiate(bar2[i], transform.position, transform.rotation);
+            }
+            else
+            {
+                bar[i] = null;
+            }
+            
         }
     }
 

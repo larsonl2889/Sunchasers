@@ -27,6 +27,7 @@ public class PlayerController_Willliam : MonoBehaviour
     public GameObject currentBuildZone;
     public int currSlotSelected = 1;
     public GameObject UI;
+    public HotBarUI hotBarUI = null;
     
 
     private void Awake()
@@ -196,6 +197,8 @@ public class PlayerController_Willliam : MonoBehaviour
         if (other.gameObject.CompareTag("buildWorkshop"))
         {
             currentBuildZone = other.gameObject;
+            hotBarUI.hotbar = currentBuildZone.GetComponent<HotBar>();
+            hotBarUI.updateImages();
             isBuilding = true;
             
         }
@@ -212,6 +215,8 @@ public class PlayerController_Willliam : MonoBehaviour
         {
 
             currentBuildZone = null;
+            hotBarUI.hotbar = null;
+            hotBarUI.updateImages();
             isBuilding = false;
         }
     }
