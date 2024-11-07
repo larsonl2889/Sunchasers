@@ -9,6 +9,7 @@ public class HotBar : MonoBehaviour
     public GameObject[] bar = new GameObject[9];
     public GameObject[] bar2 = new GameObject[9];
     public int index = new int();
+    public int Repairindex;
 
     // Start is called before the first frame update
     void Start()
@@ -46,12 +47,14 @@ public class HotBar : MonoBehaviour
     }
     public void repairArray(GameObject passedBar)
     {
+        
         for(int i = 0; i < 9; i++)
         {
             if (bar[i] == null)
             {
                 bar[i] = passedBar;
-                return;
+                Repairindex = i;
+                return ;
             }
         }
     }

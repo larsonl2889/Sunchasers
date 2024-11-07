@@ -71,8 +71,8 @@ public class HotBarUI : MonoBehaviour
     }
     public void RemoveUISlot()
     {
-        sprite = hotbar.bar[hotbar.index].GetComponent<Image>().sprite;
-        HotBarSlots[hotbar.index].gameObject.GetComponent<Image>().sprite = sprite;
+        sprite = hotbar.bar[hotbar.Repairindex].GetComponent<Image>().sprite;
+        HotBarSlots[hotbar.Repairindex].gameObject.GetComponent<Image>().sprite = sprite;
     }
 
 

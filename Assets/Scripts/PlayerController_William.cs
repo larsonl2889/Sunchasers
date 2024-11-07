@@ -134,7 +134,9 @@ public class PlayerController_Willliam : MonoBehaviour
             {
                 currentBuildZone.GetComponent<HotBar>().setBar();
                 currentBuildZone.GetComponent<BuildingArea_Riley>().build();
-                hotBarUI.BuildUISlot();
+                //hotBarUI.BuildUISlot();
+    
+
             }
             
         }
