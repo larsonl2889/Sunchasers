@@ -132,8 +132,12 @@ public class PlayerController_Willliam : MonoBehaviour
         if (isBuilding) {
             if (currentBuildZone != null)//currentBuildZone.GetComponent<HotBar>().GetIndex()!=null
             {
-                currentBuildZone.GetComponent<HotBar>().setBar();
-                currentBuildZone.GetComponent<BuildingArea_Riley>().build();
+                //Checks to see if the index at bar has a object before trying to place the bar at index.
+                if (currentBuildZone.GetComponent<HotBar>().bar[currentBuildZone.GetComponent<HotBar>().index] != null) {
+                    currentBuildZone.GetComponent<HotBar>().setBar();
+                    currentBuildZone.GetComponent<BuildingArea_Riley>().build();
+                }
+                
                 //hotBarUI.BuildUISlot();
     
 

@@ -63,12 +63,14 @@ public class HotBarUI : MonoBehaviour
     {
         
     }
+    //Sets the image of the object at the index to null when it is placed in the build mat.
     public void BuildUISlot()
     {
         HotBarSlots[hotbar.index].gameObject.GetComponent<Image>().sprite = null;
         //UIindex=index;
         //UISlot = hotbar.bar[hotbar.index];
     }
+    //Places the image of the object being put back in the array back on the object.
     public void RemoveUISlot()
     {
         sprite = hotbar.bar[hotbar.Repairindex].GetComponent<Image>().sprite;
