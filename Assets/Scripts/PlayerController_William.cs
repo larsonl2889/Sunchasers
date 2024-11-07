@@ -129,7 +129,7 @@ public class PlayerController_Willliam : MonoBehaviour
     public void OnClick(InputAction.CallbackContext context)
     {
         if (isBuilding) {
-            if (currentBuildZone != null)
+            if (currentBuildZone != null)//currentBuildZone.GetComponent<HotBar>().GetIndex()!=null
             {
                 currentBuildZone.GetComponent<HotBar>().setBar();
                 currentBuildZone.GetComponent<BuildingArea_Riley>().build();

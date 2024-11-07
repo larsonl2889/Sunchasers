@@ -32,6 +32,10 @@ public class HotBar : MonoBehaviour
     {
        this.index = index;
     }
+    public int GetIndex()
+    {
+        return index;
+    }
     public void repairArray(GameObject passedBar)
     {
         for(int i = 0; i < 9; i++)
