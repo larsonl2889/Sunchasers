@@ -134,6 +134,7 @@ public class PlayerController_Willliam : MonoBehaviour
             {
                 currentBuildZone.GetComponent<HotBar>().setBar();
                 currentBuildZone.GetComponent<BuildingArea_Riley>().build();
+                hotBarUI.BuildUISlot();
             }
             
         }
@@ -151,6 +152,7 @@ public class PlayerController_Willliam : MonoBehaviour
             {
                 Debug.Log("Method Ran");
                 currentBuildZone.GetComponent<BuildingArea_Riley>().delete(rayHit.collider.gameObject);
+                hotBarUI.RemoveUISlot();
             }
         }
         

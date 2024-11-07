@@ -8,13 +8,13 @@ using UnityEngine.UI;
 
 public class HotBarUI : MonoBehaviour
 {
-    //private int[] UIindex = new int();
+    //private int[] UIindex = new int();(Bad causes Errors!)
     public HotBar hotbar;
     public Sprite sprite;
     public GameObject slot;
     public GameObject UIParent;
     public GameObject[] HotBarSlots = new GameObject[9];
-    public Sprite NewThing;
+    //public Sprite NewThing;
     // Start is called before the first frame update
     void Start()
     {
@@ -63,14 +63,16 @@ public class HotBarUI : MonoBehaviour
     {
         
     }
-    void SetUISlot(int index)
+    public void BuildUISlot()
     {
+        HotBarSlots[hotbar.index].gameObject.GetComponent<Image>().sprite = null;
         //UIindex=index;
         //UISlot = hotbar.bar[hotbar.index];
     }
-    void SetSlots()
+    public void RemoveUISlot()
     {
-
+        sprite = hotbar.bar[hotbar.index].GetComponent<Image>().sprite;
+        HotBarSlots[hotbar.index].gameObject.GetComponent<Image>().sprite = sprite;
     }
 
 
