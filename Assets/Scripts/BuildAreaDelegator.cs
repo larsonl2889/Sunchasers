@@ -37,22 +37,9 @@ public class BuildAreaDelegator : MonoBehaviour
         deactivator.Invoke();
     }
 
-
-
     protected BuildAreaTest GetData()
     {
         return GetComponent<BuildAreaTest>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
