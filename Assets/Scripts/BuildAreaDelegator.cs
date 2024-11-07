@@ -1,18 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 // MUST BE ON A BUILD AREA!
 
 public class BuildAreaDelegator : MonoBehaviour
 {
-
     public bool objectiveIsOn;
 
-    public delegate void ActivatorDelegate();
-    public delegate void DeactivatorDelegate();
-    public ActivatorDelegate activator;
-    public DeactivatorDelegate deactivator;
+    public UnityEvent activator;
+    public UnityEvent deactivator;
 
     public void UpdateObjective()
     {
