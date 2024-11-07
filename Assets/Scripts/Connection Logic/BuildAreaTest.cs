@@ -50,8 +50,10 @@ public class BuildAreaTest : MonoBehaviour
         }
         foreach (Vector2 where in allPipeLocations)
         {
-            //TryObjectiveUpdate(where);
+            GameObject block = GetComponent<Cell>().GetBlock();
+            // TODO update steam particles here!
         }
+        GetComponent<BuildAreaDelegator>().UpdateObjective();
     }
 
 

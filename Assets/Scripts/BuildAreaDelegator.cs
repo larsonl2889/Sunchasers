@@ -9,6 +9,11 @@ public class BuildAreaDelegator : MonoBehaviour
 
     public bool objectiveIsOn;
 
+    public delegate void ActivatorDelegate();
+    public delegate void DeactivatorDelegate();
+    public ActivatorDelegate activator;
+    public DeactivatorDelegate deactivator;
+
     public void UpdateObjective()
     {
         // If we need to turn off the objective
@@ -24,13 +29,15 @@ public class BuildAreaDelegator : MonoBehaviour
 
     private void ActivateObjective()
     {
-        // TODO
+        activator.Invoke();
     } 
 
     private void DeactivateObjective()
     {
-        // TODO
+        deactivator.Invoke();
     }
+
+
 
     protected BuildAreaTest GetData()
     {
