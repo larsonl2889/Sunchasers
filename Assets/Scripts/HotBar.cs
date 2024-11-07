@@ -7,12 +7,26 @@ public class HotBar : MonoBehaviour
 {
     internal GameObject anything;
     public GameObject[] bar = new GameObject[9];
+    public GameObject[] bar2 = new GameObject[9];
     public int index = new int();
+    public int Repairindex;
 
     // Start is called before the first frame update
     void Start()
     {
         anything = gameObject;
+        for (int i = 0; i < 9; i++)
+        {
+            if (bar2[i] != null)
+            {
+                bar[i] = Instantiate(bar2[i], transform.position, transform.rotation);
+            }
+            else
+            {
+                bar[i] = null;
+            }
+            
+        }
     }
 
     // Update is called once per frame
@@ -27,14 +41,20 @@ public class HotBar : MonoBehaviour
     {
        this.index = index;
     }
+    public int GetIndex()
+    {
+        return index;
+    }
     public void repairArray(GameObject passedBar)
     {
+        
         for(int i = 0; i < 9; i++)
         {
             if (bar[i] == null)
             {
                 bar[i] = passedBar;
-                return;
+                Repairindex = i;
+                return ;
             }
         }
     }

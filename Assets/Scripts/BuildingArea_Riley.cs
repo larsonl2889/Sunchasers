@@ -10,6 +10,7 @@ using UnityEngine.UIElements;
 public class BuildingArea_Riley : MonoBehaviour
 {
     public GameObject Slot;
+    public GameObject UISlotsHolder;
     internal GameObject buildArea;
     internal BuildMat buildMat;
     private bool isInRange;
@@ -55,6 +56,7 @@ public class BuildingArea_Riley : MonoBehaviour
             if (buildArea.GetComponent<BuildAreaTest>().CanMerge(instantiated, new Vector2(xPos - minX, yPos - minY)))
             {
                 gameObject.GetComponent<HotBar>().DeleteIndex();
+                UISlotsHolder.GetComponent<HotBarUI>().BuildUISlot();
                 Destroy(Slot);
                 Slot = null;
                 SFXManager.instance.playSound(placeSound, instantiated.transform, 1f);

@@ -27,6 +27,7 @@ public class PlayerController_Willliam : MonoBehaviour
     public GameObject currentBuildZone;
     public int currSlotSelected = 1;
     public GameObject UI;
+    public HotBarUI hotBarUI = null;
     
 
     private void Awake()
@@ -129,10 +130,17 @@ public class PlayerController_Willliam : MonoBehaviour
     public void OnClick(InputAction.CallbackContext context)
     {
         if (isBuilding) {
-            if (currentBuildZone != null)
+            if (currentBuildZone != null)//currentBuildZone.GetComponent<HotBar>().GetIndex()!=null
             {
-                currentBuildZone.GetComponent<HotBar>().setBar();
-                currentBuildZone.GetComponent<BuildingArea_Riley>().build();
+                //Checks to see if the index at bar has a object before trying to place the bar at index.
+                if (currentBuildZone.GetComponent<HotBar>().bar[currentBuildZone.GetComponent<HotBar>().index] != null) {
+                    currentBuildZone.GetComponent<HotBar>().setBar();
+                    currentBuildZone.GetComponent<BuildingArea_Riley>().build();
+                }
+                
+                //hotBarUI.BuildUISlot();
+    
+
             }
             
         }
@@ -150,15 +158,20 @@ public class PlayerController_Willliam : MonoBehaviour
             {
                 
                 currentBuildZone.GetComponent<BuildingArea_Riley>().delete(rayHit.collider.gameObject);
+                hotBarUI.RemoveUISlot();
             }
         }
         
     }
     public void selectSlot(InputAction.CallbackContext context)
     {
-        currSlotSelected = (int)context.ReadValue<float>();
-        currentBuildZone.GetComponent<HotBar>().SetIndex(currSlotSelected-1);
-        Debug.Log(currSlotSelected);
+        if (currentBuildZone != null)
+        {
+            currSlotSelected = (int)context.ReadValue<float>();
+            currentBuildZone.GetComponent<HotBar>().SetIndex(currSlotSelected - 1);
+            Debug.Log(currSlotSelected);
+        }
+        
         
     }
     public void pause(InputAction.CallbackContext context)
@@ -196,6 +209,8 @@ public class PlayerController_Willliam : MonoBehaviour
         if (other.gameObject.CompareTag("buildWorkshop"))
         {
             currentBuildZone = other.gameObject;
+            hotBarUI.hotbar = currentBuildZone.GetComponent<HotBar>();
+            hotBarUI.updateImages();
             isBuilding = true;
             
         }
@@ -212,6 +227,8 @@ public class PlayerController_Willliam : MonoBehaviour
         {
 
             currentBuildZone = null;
+            hotBarUI.hotbar = null;
+            hotBarUI.updateImages();
             isBuilding = false;
         }
     }
