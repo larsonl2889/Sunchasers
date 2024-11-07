@@ -280,6 +280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Slot: {fileID: 0}
+  UISlotsHolder: {fileID: 0}
   placeSound: {fileID: 0}
   deletePartSound: {fileID: 0}
 --- !u!1 &66448251
@@ -1460,6 +1461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Slot: {fileID: 0}
+  UISlotsHolder: {fileID: 1109857266}
   placeSound: {fileID: 8300000, guid: 17140b36f8183ab4a914805113a4b5b0, type: 3}
   deletePartSound: {fileID: 8300000, guid: c86f7f22ec287b04eb076767a4357741, type: 3}
 --- !u!114 &407347148
@@ -1518,6 +1520,7 @@ MonoBehaviour:
   - {fileID: 1796572086390300456, guid: 3d5be90560e1b534dbc47c5af26b92a3, type: 3}
   - {fileID: 1796572086390300456, guid: 3d5be90560e1b534dbc47c5af26b92a3, type: 3}
   index: 0
+  Repairindex: 0
 --- !u!1 &428494915
 GameObject:
   m_ObjectHideFlags: 0
@@ -5157,7 +5160,6 @@ MonoBehaviour:
   - {fileID: 994608171}
   - {fileID: 1345567977}
   - {fileID: 2035105371}
-  NewThing: {fileID: 0}
 --- !u!1 &1125769199
 GameObject:
   m_ObjectHideFlags: 0
