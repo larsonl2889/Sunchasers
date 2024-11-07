@@ -1498,25 +1498,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bar:
-  - {fileID: 1796572086390300456, guid: 3d5be90560e1b534dbc47c5af26b92a3, type: 3}
-  - {fileID: 1796572086390300456, guid: 3d5be90560e1b534dbc47c5af26b92a3, type: 3}
-  - {fileID: 1796572086390300456, guid: 3d5be90560e1b534dbc47c5af26b92a3, type: 3}
-  - {fileID: 1796572086390300456, guid: 3d5be90560e1b534dbc47c5af26b92a3, type: 3}
-  - {fileID: 1796572086390300456, guid: 3d5be90560e1b534dbc47c5af26b92a3, type: 3}
-  - {fileID: 1796572086390300456, guid: 3d5be90560e1b534dbc47c5af26b92a3, type: 3}
-  - {fileID: 1796572086390300456, guid: 3d5be90560e1b534dbc47c5af26b92a3, type: 3}
-  - {fileID: 1796572086390300456, guid: 3d5be90560e1b534dbc47c5af26b92a3, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   bar2:
+  - {fileID: 1796572086390300456, guid: 3d5be90560e1b534dbc47c5af26b92a3, type: 3}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1796572086390300456, guid: 3d5be90560e1b534dbc47c5af26b92a3, type: 3}
+  - {fileID: 1796572086390300456, guid: 3d5be90560e1b534dbc47c5af26b92a3, type: 3}
+  - {fileID: 1796572086390300456, guid: 3d5be90560e1b534dbc47c5af26b92a3, type: 3}
+  - {fileID: 1796572086390300456, guid: 3d5be90560e1b534dbc47c5af26b92a3, type: 3}
+  - {fileID: 1796572086390300456, guid: 3d5be90560e1b534dbc47c5af26b92a3, type: 3}
+  - {fileID: 1796572086390300456, guid: 3d5be90560e1b534dbc47c5af26b92a3, type: 3}
+  - {fileID: 1796572086390300456, guid: 3d5be90560e1b534dbc47c5af26b92a3, type: 3}
   index: 0
 --- !u!1 &428494915
 GameObject:

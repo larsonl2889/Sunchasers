@@ -28,8 +28,17 @@ public class HotBarUI : MonoBehaviour
         {
             for (int i = 0; i < 9; i++)
             {
-                sprite = hotbar.bar[i].GetComponent<Image>().sprite;
-                HotBarSlots[i].gameObject.GetComponent<Image>().sprite = sprite;
+                Debug.Log(i);
+                if (hotbar.bar[i] != null)
+                {
+                    sprite = hotbar.bar[i].GetComponent<Image>().sprite;
+                    HotBarSlots[i].gameObject.GetComponent<Image>().sprite = sprite;
+                }
+                else
+                {
+                    HotBarSlots[i].gameObject.GetComponent<Image>().sprite = null;
+                }
+                
 
                 //this.gameObject.GetComponent<Image>.sprite = NewThing;
                 //GameObject instantiated = Instantiate(slot, transform.position, transform.rotation) as GameObject;

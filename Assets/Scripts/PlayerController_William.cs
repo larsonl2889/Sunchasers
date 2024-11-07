@@ -27,7 +27,7 @@ public class PlayerController_Willliam : MonoBehaviour
     public GameObject currentBuildZone;
     public int currSlotSelected = 1;
     public GameObject UI;
-    public HotBarUI hotBarUI;
+    public HotBarUI hotBarUI = null;
     
 
     private void Awake()
