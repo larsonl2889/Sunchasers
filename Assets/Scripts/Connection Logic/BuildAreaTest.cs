@@ -22,6 +22,18 @@ public class BuildAreaTest : MonoBehaviour
     public Vector2Int SourceLocation;
     public Vector2Int ObjectiveLocation;
 
+    public void ToggleSource()
+    {
+        if (GetSteamState((Vector2)SourceLocation) == SteamState.SOURCE)
+        {
+            DeactivateSource();
+        }
+        else
+        {
+            ActivateSource();
+        }
+    }
+
     public void ActivateSource()
     {
         SetSteamState((Vector2)SourceLocation, SteamState.SOURCE);
