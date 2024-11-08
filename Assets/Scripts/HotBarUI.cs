@@ -1,7 +1,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
-
+using TMPro.Examples;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -85,6 +85,7 @@ public class HotBarUI : MonoBehaviour
         sprite = hotbar.bar[hotbar.Repairindex].GetComponent<Image>().sprite;
         HotBarSlots[hotbar.Repairindex].gameObject.GetComponent<Image>().sprite = sprite;
         HotBarSlots[hotbar.Repairindex].gameObject.GetComponent<Image>().color = Color.white;
+        Debug.Log("Test");
     }
 
 
