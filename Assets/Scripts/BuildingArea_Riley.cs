@@ -64,7 +64,7 @@ public class BuildingArea_Riley : MonoBehaviour
                 UISlotsHolder.GetComponent<HotBarUI>().BuildUISlot();
                 Destroy(Slot);
                 Slot = null;
-                SFXManager.instance.playSound(placeSound, instantiated.transform, 1f);
+                SFXManager.instance.playSound(placeSound, instantiated.transform, .5f);
                 Vector2 Spawnplace = new Vector2((int)xPos + 0.5f, (int)yPos + 0.5f);
                 buildArea.GetComponent<BuildAreaTest>().MergeTables(instantiated, new Vector2(xPos - minX, yPos - minY));
                 instantiated.transform.position = Spawnplace;
@@ -97,7 +97,7 @@ public class BuildingArea_Riley : MonoBehaviour
         instantiated.transform.localPosition = new Vector3(100, 100, 0);
         gameObject.GetComponent<HotBar>().repairArray(instantiated);
         part.GetComponentInParent<Part>().Extract();
-        SFXManager.instance.playSound(deletePartSound, part.transform, 1f);
+        SFXManager.instance.playSound(deletePartSound, part.transform, .5f);
 
         Debug.LogWarning("BuildingArea_Riley.delete(): updating steam");
         GetComponentInParent<BuildAreaTest>().UpdateSteam();
