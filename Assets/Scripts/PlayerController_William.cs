@@ -93,6 +93,7 @@ public class PlayerController_Willliam : MonoBehaviour
         if (IsGrounded())
         {
             animator.SetBool("IsFalling", false);
+            animator.SetBool("IsBuildFall", false);
             if (isBuilding == false)
             {
                 animator.SetBool("Building", false);
@@ -130,7 +131,15 @@ public class PlayerController_Willliam : MonoBehaviour
         }
         else
         {
-            animator.SetBool("IsFalling", true );
+            if (isBuilding == false)
+            {
+                animator.SetBool("IsFalling", true);
+            }
+            else
+            {
+                animator.SetBool("IsBuildFall", true);
+            }
+            
         }
         
     }
