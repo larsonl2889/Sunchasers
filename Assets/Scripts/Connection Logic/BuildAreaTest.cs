@@ -496,6 +496,8 @@ public class BuildAreaTest : MonoBehaviour
             }
             part.GetComponent<Part>().SetPosInWorld();
         }
+        // update steam here
+        UpdateSteam();
     }
 
     public void UpdateAllPipeLocations()

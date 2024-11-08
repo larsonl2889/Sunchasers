@@ -2459,12 +2459,24 @@ PrefabInstance:
       value: Lever
       objectReference: {fileID: 0}
     - target: {fileID: 8506681162453297690, guid: 677916169f9b6104b8fdc1ad2f18ff31, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5217
+      objectReference: {fileID: 0}
+    - target: {fileID: 8506681162453297690, guid: 677916169f9b6104b8fdc1ad2f18ff31, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5217
+      objectReference: {fileID: 0}
+    - target: {fileID: 8506681162453297690, guid: 677916169f9b6104b8fdc1ad2f18ff31, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5217
+      objectReference: {fileID: 0}
+    - target: {fileID: 8506681162453297690, guid: 677916169f9b6104b8fdc1ad2f18ff31, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.526
+      value: 4.635
       objectReference: {fileID: 0}
     - target: {fileID: 8506681162453297690, guid: 677916169f9b6104b8fdc1ad2f18ff31, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.668
+      value: 10.868
       objectReference: {fileID: 0}
     - target: {fileID: 8506681162453297690, guid: 677916169f9b6104b8fdc1ad2f18ff31, type: 3}
       propertyPath: m_LocalPosition.z

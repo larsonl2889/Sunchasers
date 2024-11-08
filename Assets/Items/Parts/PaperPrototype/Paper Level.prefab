@@ -591,11 +591,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 50390537450837299, guid: 691814ca686605144bcc4f220925d1e0, type: 3}
       propertyPath: isSource
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 50390537450837299, guid: 691814ca686605144bcc4f220925d1e0, type: 3}
       propertyPath: steamState
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 50390537450837299, guid: 691814ca686605144bcc4f220925d1e0, type: 3}
       propertyPath: directions.Array.size

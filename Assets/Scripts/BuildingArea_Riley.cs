@@ -67,6 +67,8 @@ public class BuildingArea_Riley : MonoBehaviour
                 SFXManager.instance.playSound(placeSound, instantiated.transform, .5f);
                 Vector2 Spawnplace = new Vector2((int)xPos + 0.5f, (int)yPos + 0.5f);
                 buildArea.GetComponent<BuildAreaTest>().MergeTables(instantiated, new Vector2(xPos - minX, yPos - minY));
+                // Try to update steam
+                buildArea.GetComponent<BuildAreaTest>().UpdateSteam(); 
                 instantiated.transform.position = Spawnplace;
                 return;
             }
@@ -82,8 +84,9 @@ public class BuildingArea_Riley : MonoBehaviour
         }
         //Deletes all the slots from the scene
 
+        // Try to update steam
+        buildArea.GetComponent<BuildAreaTest>().UpdateSteam();
         Debug.LogWarning("BuildingArea_Riley.build(): updating steam");
-        GetComponentInParent<BuildAreaTest>().UpdateSteam();
     }
     public void SetSlot(GameObject Slot)
     {
@@ -100,6 +103,7 @@ public class BuildingArea_Riley : MonoBehaviour
         SFXManager.instance.playSound(deletePartSound, part.transform, .5f);
 
         Debug.LogWarning("BuildingArea_Riley.delete(): updating steam");
+        // Update steam
         GetComponentInParent<BuildAreaTest>().UpdateSteam();
     }
 }
