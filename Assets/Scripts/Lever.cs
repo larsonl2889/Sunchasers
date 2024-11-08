@@ -4,7 +4,7 @@ using UnityEngine;
 using Cells;
 using Blocks;
 using Pipes;
-
+using UnityEngine.Events;
 public class Lever : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -12,7 +12,7 @@ public class Lever : MonoBehaviour
     [SerializeField] Sprite offSprite;
     private bool isOn = false;
     private SpriteRenderer spriteRenderer;
-    public GameObject source;
+    public UnityEvent onLeverPull;
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -29,13 +29,15 @@ public class Lever : MonoBehaviour
         if (isOn)
         {
             spriteRenderer.sprite = onSprite;
-            source.GetComponent<Cell>().GetBlock().GetComponent<Block>().SetSteamState(SteamState.SOURCE);
+            
+            
         }
         else
         {
             spriteRenderer.sprite = offSprite;
-            source.GetComponent<Cell>().GetBlock().GetComponent<Block>().SetSteamState(SteamState.EMPTY);
+            
         }
+        onLeverPull.Invoke();
 
     }
 }
