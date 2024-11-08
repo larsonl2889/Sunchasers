@@ -15,11 +15,12 @@ public class HotBarUI : MonoBehaviour
     public GameObject UIParent;
     public GameObject[] HotBarSlots = new GameObject[9];
     public GameObject[] HotBarNumSlots = new GameObject[9];
+    public GameObject SlotUIHolder;
     //public Sprite NewThing;
     // Start is called before the first frame update
     void Start()
     {
-        
+        SlotUIHolder.gameObject.GetComponent<Canvas>().enabled = false;
     }
 
     // Update is called once per frame
@@ -74,6 +75,7 @@ public class HotBarUI : MonoBehaviour
     {
         HotBarSlots[hotbar.index].gameObject.GetComponent<Image>().sprite = null;
         HotBarSlots[hotbar.index].gameObject.GetComponent<Image>().color = Color.clear;
+
         //UIindex=index;
         //UISlot = hotbar.bar[hotbar.index];
     }
