@@ -1722,7 +1722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a1f2add54835304a8f2af0366453cfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameScene: William 2
+  gameScene: PaperPrototype
   playButton: {fileID: 480532281}
   creditsButton: {fileID: 508691242}
   splashText: {fileID: 1565274328}
@@ -1730,15 +1730,15 @@ MonoBehaviour:
   - Chase the Sun!
   - Also try Minecraft!
   - Also try Terraria!
-  - Pengiuns are pretty cool!
+  - Penguins are pretty cool!
   - It's mechanic time!
-  - Don't look directly at the sun.
+  - Don't look directly at the sun!
   - Now in Beta!
-  - Crunchy
+  - Crunchy!
   - Press Start Game to Play!
   - Special thanks to some people!
   - Also known as Slunchmacers!
-  - 
+  - '"It worked on my machine!"'
   creditsPanel: {fileID: 1596152181}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
