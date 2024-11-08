@@ -77,6 +77,7 @@ public class BuildingArea_Riley : MonoBehaviour
         }
         //Deletes all the slots from the scene
 
+        Debug.LogWarning("BuildingArea_Riley.build(): updating steam");
         GetComponentInParent<BuildAreaTest>().UpdateSteam();
     }
     public void SetSlot(GameObject Slot)
@@ -93,6 +94,7 @@ public class BuildingArea_Riley : MonoBehaviour
         part.GetComponentInParent<Part>().Extract();
         SFXManager.instance.playSound(deletePartSound, part.transform, 1f);
 
+        Debug.LogWarning("BuildingArea_Riley.delete(): updating steam");
         GetComponentInParent<BuildAreaTest>().UpdateSteam();
     }
 }
