@@ -134,6 +134,7 @@ public class PlayerController_Willliam : MonoBehaviour
             if (isBuilding == false)
             {
                 animator.SetBool("IsFalling", true);
+
             }
             else
             {
