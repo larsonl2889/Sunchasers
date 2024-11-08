@@ -20,6 +20,11 @@ public class BuildingArea_Riley : MonoBehaviour
     [SerializeField] private AudioClip placeSound;
     [SerializeField] private AudioClip deletePartSound;
 
+    //void RepairSlots()
+    //{
+    //    for 
+    //}
+
     // Start is called before the first frame update
     void Start()
     {
