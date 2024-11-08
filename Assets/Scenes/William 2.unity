@@ -658,13 +658,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4613760430123586314, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
+      propertyPath: badCell
+      value: 
+      objectReference: {fileID: 3838098990102560207, guid: 63619360d97ea3447a373035a45470b8, type: 3}
+    - target: {fileID: 4613760430123586314, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
       propertyPath: emptyCell
       value: 
       objectReference: {fileID: 4436004687172942411, guid: a659f59ff8a797e4db971d9eff3ef8b4, type: 3}
     - target: {fileID: 4613760430123586314, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
       propertyPath: startingPart
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1796572086390300456, guid: 3d5be90560e1b534dbc47c5af26b92a3, type: 3}
     - target: {fileID: 8137689571561662768, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
       propertyPath: m_SortingOrder
       value: 0
@@ -673,6 +677,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 533955204539024251, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1454569678}
     - targetCorrespondingSourceObject: {fileID: 2550025435602192417, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
       insertIndex: -1
       addedObject: {fileID: 407347147}
@@ -3981,6 +3988,30 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8069938596471036334, guid: 52d657ca2c8b5ce4b80d71ab85ea8d58, type: 3}
   m_PrefabInstance: {fileID: 4411876417817201710}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1454569675 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 533955204539024251, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
+  m_PrefabInstance: {fileID: 301392820}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1454569678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454569675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88e52491b21b44c459560cff70896be5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectiveIsOn: 0
+  activator:
+    m_PersistentCalls:
+      m_Calls: []
+  deactivator:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1468264408 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2134307743249281657, guid: 52d657ca2c8b5ce4b80d71ab85ea8d58, type: 3}
@@ -6954,6 +6985,10 @@ PrefabInstance:
       value: Hotbar
       objectReference: {fileID: 0}
     - target: {fileID: 4616226820218073050, guid: 52d657ca2c8b5ce4b80d71ab85ea8d58, type: 3}
+      propertyPath: SlotUIHolder
+      value: 
+      objectReference: {fileID: 1109857266}
+    - target: {fileID: 4616226820218073050, guid: 52d657ca2c8b5ce4b80d71ab85ea8d58, type: 3}
       propertyPath: HotBarNumSlots.Array.data[0]
       value: 
       objectReference: {fileID: 1468264408}
@@ -6989,6 +7024,10 @@ PrefabInstance:
       propertyPath: HotBarNumSlots.Array.data[8]
       value: 
       objectReference: {fileID: 420381782}
+    - target: {fileID: 7452413486412338963, guid: 52d657ca2c8b5ce4b80d71ab85ea8d58, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
