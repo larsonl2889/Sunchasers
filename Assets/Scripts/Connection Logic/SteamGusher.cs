@@ -10,14 +10,6 @@ public class SteamGusher : MonoBehaviour
     public ParticleSystem down;
     public ParticleSystem right;
 
-    public void QuellAllGushers()
-    {
-        up.Stop();
-        left.Stop();
-        down.Stop();
-        right.Stop();
-    }
-
     /// <summary>
     /// Given a list of directions, update the gushers to match.
     /// </summary>
@@ -61,4 +53,16 @@ public class SteamGusher : MonoBehaviour
             right.Stop();
         }
     }
+
+    /// <summary>
+    /// Shuts off all gushers.
+    /// </summary>
+    public void QuellAllGushers()
+    {
+        up.Stop();
+        left.Stop();
+        down.Stop();
+        right.Stop();
+    }
+
 }
