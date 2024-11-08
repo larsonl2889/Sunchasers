@@ -33,10 +33,12 @@ public class HotBarUI : MonoBehaviour
                 {
                     sprite = hotbar.bar[i].GetComponent<Image>().sprite;
                     HotBarSlots[i].gameObject.GetComponent<Image>().sprite = sprite;
+                    HotBarSlots[i].gameObject.GetComponent<Image>().color = Color.white;
                 }
                 else
                 {
                     HotBarSlots[i].gameObject.GetComponent<Image>().sprite = null;
+                    HotBarSlots[i].gameObject.GetComponent<Image>().color = Color.clear;
                 }
                 
 
@@ -51,6 +53,7 @@ public class HotBarUI : MonoBehaviour
             {
                
                 HotBarSlots[i].gameObject.GetComponent<Image>().sprite = null;
+                HotBarSlots[i].gameObject.GetComponent<Image>().color = Color.clear;
 
                 //this.gameObject.GetComponent<Image>.sprite = NewThing;
                 //GameObject instantiated = Instantiate(slot, transform.position, transform.rotation) as GameObject;
@@ -67,6 +70,7 @@ public class HotBarUI : MonoBehaviour
     public void BuildUISlot()
     {
         HotBarSlots[hotbar.index].gameObject.GetComponent<Image>().sprite = null;
+        HotBarSlots[hotbar.Repairindex].gameObject.GetComponent<Image>().color = Color.clear;
         //UIindex=index;
         //UISlot = hotbar.bar[hotbar.index];
     }
@@ -75,6 +79,7 @@ public class HotBarUI : MonoBehaviour
     {
         sprite = hotbar.bar[hotbar.Repairindex].GetComponent<Image>().sprite;
         HotBarSlots[hotbar.Repairindex].gameObject.GetComponent<Image>().sprite = sprite;
+        HotBarSlots[hotbar.Repairindex].gameObject.GetComponent<Image>().color = Color.white;
     }
 
 
