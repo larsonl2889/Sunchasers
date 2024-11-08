@@ -7,6 +7,7 @@ using UnityEngine;
 using System.Data;
 using Pipes;
 using System;
+using DirectionOps;
 
 public class BuildAreaTest : MonoBehaviour
 {
@@ -122,7 +123,7 @@ public class BuildAreaTest : MonoBehaviour
     /// </summary>
     /// <param name="where">Where we're looking in the table.</param>
     /// <returns>A list of vectors indicating the directions this part is leaking steam.</returns>
-    public List<Vector2> GetLeakDirections(Vector2 where)
+    public List<Vector2> GetLeakVectors(Vector2 where)
     {
         List<Vector2> leakVectors = new();
         if (GetSteamState(where) == SteamState.LEAKING ||
@@ -146,6 +147,11 @@ public class BuildAreaTest : MonoBehaviour
             }
         }
         return leakVectors;
+    }
+
+    public List<Direction> GetLeakDirections()
+    {
+        return new List<Direction>(); // TODO stub
     }
 
     internal bool IsEmpty(Vector2 where)
