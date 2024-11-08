@@ -255,6 +255,7 @@ public class PlayerController_Willliam : MonoBehaviour
             hotBarUI.hotbar = currentBuildZone.GetComponent<HotBar>();
             hotBarUI.updateImages();
             isBuilding = true;
+            hotBarUI.gameObject.GetComponent<Canvas>().enabled = true;
         }
     }
     private void OnTriggerExit2D(Collider2D other)
@@ -272,7 +273,7 @@ public class PlayerController_Willliam : MonoBehaviour
             hotBarUI.hotbar = null;
             hotBarUI.updateImages();
             isBuilding = false;
-            
+            hotBarUI.gameObject.GetComponent<Canvas>().enabled = false;
         }
     }
    
