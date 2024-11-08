@@ -12,7 +12,7 @@ namespace TMPro.Examples
         public int NumberOfNPC = 12;
 
         public bool IsTextObjectScaleStatic;
-        private TextMeshProFloatingText floatingText_Script;
+        private TextMeshProUGMI floatingText_Script;
 
 
         void Start()
@@ -42,7 +42,7 @@ namespace TMPro.Examples
                     textMeshPro.isTextObjectScaleStatic = IsTextObjectScaleStatic;
 
                     // Spawn Floating Text
-                    floatingText_Script = go.AddComponent<TextMeshProFloatingText>();
+                    floatingText_Script = go.AddComponent<TextMeshProUGMI>();
                     floatingText_Script.SpawnType = 0;
                     floatingText_Script.IsTextObjectScaleStatic = IsTextObjectScaleStatic;
                 }
@@ -63,7 +63,7 @@ namespace TMPro.Examples
                     textMesh.text = "!";
 
                     // Spawn Floating Text
-                    floatingText_Script = go.AddComponent<TextMeshProFloatingText>();
+                    floatingText_Script = go.AddComponent<TextMeshProUGMI>();
                     floatingText_Script.SpawnType = 1;
                 }
                 else if (SpawnType == 2)
@@ -85,7 +85,7 @@ namespace TMPro.Examples
                     textObject.text = "!";
 
                     // Spawn Floating Text
-                    floatingText_Script = go.AddComponent<TextMeshProFloatingText>();
+                    floatingText_Script = go.AddComponent<TextMeshProUGMI>();
                     floatingText_Script.SpawnType = 0;
                 }
 
