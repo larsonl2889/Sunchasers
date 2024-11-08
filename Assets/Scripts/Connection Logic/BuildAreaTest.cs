@@ -37,11 +37,13 @@ public class BuildAreaTest : MonoBehaviour
     public void ActivateSource()
     {
         SetSteamState((Vector2)SourceLocation, SteamState.SOURCE);
+        UpdateSteam();
     }
 
     public void DeactivateSource()
     {
         SetSteamState((Vector2)SourceLocation, SteamState.EMPTY);
+        UpdateSteam();
     }
 
     public bool IsObjectiveOn()
@@ -55,7 +57,9 @@ public class BuildAreaTest : MonoBehaviour
     /// </summary>
     public void UpdateSteam()
     {
+        Debug.LogWarning("Updating steam...");
         List<List<Vector2>> allPipeSystems = GetAllPipeSystems();
+        Debug.LogWarning("System # = " + allPipeSystems.Count);
         for (int system_index = 0; system_index < allPipeSystems.Count; system_index++)
         {
             PropagateSteam(allPipeSystems[system_index]);
