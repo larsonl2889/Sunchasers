@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class Door : MonoBehaviour
 {
     [SerializeField] string sceneName;
+    [SerializeField] AudioClip openSound;
     private bool isOpen = false;
     private Animator animator;
 
@@ -18,6 +19,10 @@ public class Door : MonoBehaviour
     }
     public void open()
     {
+        if (openSound != null)
+        {
+            SFXManager.instance.playSound(openSound, transform, 1f);
+        }
         isOpen = true;
         animator.SetBool("isOpen", true);
     }
