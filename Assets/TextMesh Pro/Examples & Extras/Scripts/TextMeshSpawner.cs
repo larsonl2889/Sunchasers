@@ -13,7 +13,7 @@ namespace TMPro.Examples
 
         public Font TheFont;
 
-        private TextMeshProFloatingText floatingText_Script;
+        private TextMeshProUGMI floatingText_Script;
 
         void Awake()
         {
@@ -48,7 +48,7 @@ namespace TMPro.Examples
 
 
                     // Spawn Floating Text
-                    floatingText_Script = go.AddComponent<TextMeshProFloatingText>();
+                    floatingText_Script = go.AddComponent<TextMeshProUGMI>();
                     floatingText_Script.SpawnType = 0;
                 }
                 else
@@ -69,7 +69,7 @@ namespace TMPro.Examples
                     textMesh.text = "!";
 
                     // Spawn Floating Text
-                    floatingText_Script = go.AddComponent<TextMeshProFloatingText>();
+                    floatingText_Script = go.AddComponent<TextMeshProUGMI>();
                     floatingText_Script.SpawnType = 1;
                 }
             }

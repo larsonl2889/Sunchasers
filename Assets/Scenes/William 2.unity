@@ -985,6 +985,11 @@ MonoBehaviour:
   - {fileID: 1796572086390300456, guid: 3d5be90560e1b534dbc47c5af26b92a3, type: 3}
   index: 0
   Repairindex: 0
+--- !u!1 &420381782 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7027014592742060527, guid: 52d657ca2c8b5ce4b80d71ab85ea8d58, type: 3}
+  m_PrefabInstance: {fileID: 4411876417817201710}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &449454005
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3863,6 +3868,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4684e40cf8752244ac83e4532b8390c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1175446088 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 628994066084367772, guid: 52d657ca2c8b5ce4b80d71ab85ea8d58, type: 3}
+  m_PrefabInstance: {fileID: 4411876417817201710}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1188386883
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3952,6 +3962,26 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed60e30f7eb2c974095aec65c67989ad, type: 3}
+--- !u!1 &1268465881 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 186725521274145382, guid: 52d657ca2c8b5ce4b80d71ab85ea8d58, type: 3}
+  m_PrefabInstance: {fileID: 4411876417817201710}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1272633074 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2697366508403194029, guid: 52d657ca2c8b5ce4b80d71ab85ea8d58, type: 3}
+  m_PrefabInstance: {fileID: 4411876417817201710}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1277160630 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8069938596471036334, guid: 52d657ca2c8b5ce4b80d71ab85ea8d58, type: 3}
+  m_PrefabInstance: {fileID: 4411876417817201710}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1468264408 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2134307743249281657, guid: 52d657ca2c8b5ce4b80d71ab85ea8d58, type: 3}
+  m_PrefabInstance: {fileID: 4411876417817201710}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1483607904
 GameObject:
   m_ObjectHideFlags: 0
@@ -4054,6 +4084,11 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1535103635 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8374263880842323252, guid: 52d657ca2c8b5ce4b80d71ab85ea8d58, type: 3}
+  m_PrefabInstance: {fileID: 4411876417817201710}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1601948069
 GameObject:
   m_ObjectHideFlags: 0
@@ -4855,6 +4890,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c2433ff525ec0b448d0fbc890bdd58d, type: 3}
+--- !u!1 &1873380597 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 924549615230926208, guid: 52d657ca2c8b5ce4b80d71ab85ea8d58, type: 3}
+  m_PrefabInstance: {fileID: 4411876417817201710}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1937816591
 GameObject:
   m_ObjectHideFlags: 0
@@ -6804,6 +6844,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &2018672448 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5647517706669835582, guid: 52d657ca2c8b5ce4b80d71ab85ea8d58, type: 3}
+  m_PrefabInstance: {fileID: 4411876417817201710}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4411876417817201710
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6896,6 +6941,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hotbar
       objectReference: {fileID: 0}
+    - target: {fileID: 4616226820218073050, guid: 52d657ca2c8b5ce4b80d71ab85ea8d58, type: 3}
+      propertyPath: HotBarNumSlots.Array.data[0]
+      value: 
+      objectReference: {fileID: 1468264408}
+    - target: {fileID: 4616226820218073050, guid: 52d657ca2c8b5ce4b80d71ab85ea8d58, type: 3}
+      propertyPath: HotBarNumSlots.Array.data[1]
+      value: 
+      objectReference: {fileID: 1175446088}
+    - target: {fileID: 4616226820218073050, guid: 52d657ca2c8b5ce4b80d71ab85ea8d58, type: 3}
+      propertyPath: HotBarNumSlots.Array.data[2]
+      value: 
+      objectReference: {fileID: 1535103635}
+    - target: {fileID: 4616226820218073050, guid: 52d657ca2c8b5ce4b80d71ab85ea8d58, type: 3}
+      propertyPath: HotBarNumSlots.Array.data[3]
+      value: 
+      objectReference: {fileID: 2018672448}
+    - target: {fileID: 4616226820218073050, guid: 52d657ca2c8b5ce4b80d71ab85ea8d58, type: 3}
+      propertyPath: HotBarNumSlots.Array.data[4]
+      value: 
+      objectReference: {fileID: 1268465881}
+    - target: {fileID: 4616226820218073050, guid: 52d657ca2c8b5ce4b80d71ab85ea8d58, type: 3}
+      propertyPath: HotBarNumSlots.Array.data[5]
+      value: 
+      objectReference: {fileID: 1272633074}
+    - target: {fileID: 4616226820218073050, guid: 52d657ca2c8b5ce4b80d71ab85ea8d58, type: 3}
+      propertyPath: HotBarNumSlots.Array.data[6]
+      value: 
+      objectReference: {fileID: 1873380597}
+    - target: {fileID: 4616226820218073050, guid: 52d657ca2c8b5ce4b80d71ab85ea8d58, type: 3}
+      propertyPath: HotBarNumSlots.Array.data[7]
+      value: 
+      objectReference: {fileID: 1277160630}
+    - target: {fileID: 4616226820218073050, guid: 52d657ca2c8b5ce4b80d71ab85ea8d58, type: 3}
+      propertyPath: HotBarNumSlots.Array.data[8]
+      value: 
+      objectReference: {fileID: 420381782}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

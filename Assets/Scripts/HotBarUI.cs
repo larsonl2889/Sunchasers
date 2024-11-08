@@ -14,6 +14,7 @@ public class HotBarUI : MonoBehaviour
     public GameObject slot;
     public GameObject UIParent;
     public GameObject[] HotBarSlots = new GameObject[9];
+    public GameObject[] HotBarNumSlots = new GameObject[9];
     //public Sprite NewThing;
     // Start is called before the first frame update
     void Start()

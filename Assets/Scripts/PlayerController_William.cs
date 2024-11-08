@@ -7,6 +7,8 @@ using Cells;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro.Examples;
+using TMPro;
 
 public class PlayerController_Willliam : MonoBehaviour
 {
@@ -14,6 +16,7 @@ public class PlayerController_Willliam : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] float jumpForce;
     [SerializeField] bool isBuilding = false;
+    [SerializeField] public TextMeshProUGUI text;
     private Rigidbody2D rb;
     private Vector2 direction;
     private Controls playerControls;
@@ -165,10 +168,14 @@ public class PlayerController_Willliam : MonoBehaviour
     }
     public void selectSlot(InputAction.CallbackContext context)
     {
+       // text.color = Color.yellow;
         if (currentBuildZone != null)
         {
             currSlotSelected = (int)context.ReadValue<float>();
+            hotBarUI.HotBarNumSlots[currentBuildZone.GetComponent<HotBar>().index].GetComponent<TextMeshProUGUI>().color = Color.white;
             currentBuildZone.GetComponent<HotBar>().SetIndex(currSlotSelected - 1);
+            hotBarUI.HotBarNumSlots[currSlotSelected-1].GetComponent<TextMeshProUGUI>().color = Color.yellow;
+                //.gameObject.GetComponent<TMP_Text>().VertexColor=VertexColorCycler(vector3(0.96f, 0.66f, 0.22f));
             Debug.Log(currSlotSelected);
         }
         
