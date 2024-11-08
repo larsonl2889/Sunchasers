@@ -983,8 +983,8 @@ MonoBehaviour:
   - {fileID: 1796572086390300456, guid: d12e8beae89c71b418c8e00bd9f718d6, type: 3}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1796572086390300456, guid: 3f526867c7826da408be0fc8858cfeb2, type: 3}
+  - {fileID: 1796572086390300456, guid: d547f427584026e439d7593d7cf02ebb, type: 3}
   index: 0
   Repairindex: 0
 --- !u!1001 &449454005

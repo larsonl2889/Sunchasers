@@ -52,6 +52,14 @@ public class BuildAreaTest : MonoBehaviour
         return IsOn((Vector2)ObjectiveLocation);
     }
 
+    /// <summary>
+    /// Updates the steam gushers here.
+    /// </summary>
+    /// <param name="where">Where to update</param>
+    public void UpdateSteamGushers(Vector2 where)
+    {
+        GetBlockData(where).gusherParent.GetComponent<SteamGusher>().UpdateGushers(GetLeakDirections(where));
+    }
 
     /// <summary>
     /// Updates the steam states of all of the pipes in this build area.
@@ -66,12 +74,12 @@ public class BuildAreaTest : MonoBehaviour
             Debug.LogWarning("propagating at " + allPipeSystems[system_index]);
             PropagateSteam(allPipeSystems[system_index]);
         }
+        // update steam particles here
         foreach (Vector2 where in allPipeLocations)
         {
-
-            //GameObject block = table.Get(where);
-            // TODO update steam particles here!
+            UpdateSteamGushers(where);
         }
+
         GetComponent<BuildAreaDelegator>().UpdateObjective();
     }
 
@@ -149,9 +157,19 @@ public class BuildAreaTest : MonoBehaviour
         return leakVectors;
     }
 
-    public List<Direction> GetLeakDirections()
+    public List<Direction> GetLeakDirections(Vector2 where)
     {
-        return new List<Direction>(); // TODO stub
+        List<Vector2> lvecs = GetLeakVectors(where); // TODO stub
+        List<Direction> ldirs = new List<Direction>();
+        foreach (Vector2 vec in lvecs)
+        {
+            if (vec == Vector2.up) { ldirs.Add(Direction.UP); }
+            else if (vec == Vector2.down) { ldirs.Add(Direction.DOWN); }
+            else if (vec == Vector2.left) { ldirs.Add(Direction.LEFT); }
+            else if (vec == Vector2.right) { ldirs.Add(Direction.RIGHT); }
+            else { Debug.LogWarning("GetLeakDirections() defaulted on the Vector (" + vec.x + ", " + vec.y + ")"); }
+        }
+        return ldirs;
     }
 
     internal bool IsEmpty(Vector2 where)

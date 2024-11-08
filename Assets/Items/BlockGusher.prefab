@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7431802832079376445}
+  - component: {fileID: -1954040038218213567}
   m_Layer: 0
   m_Name: BlockGusher
   m_TagString: Untagged
@@ -35,6 +36,22 @@ Transform:
   - {fileID: 876951295300271470}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-1954040038218213567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3239594103952846769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 245514c7faf55c743a9cef6a49d6d333, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  up: {fileID: 6718877716697612451}
+  left: {fileID: 1486013264641620193}
+  down: {fileID: 8676219617362976284}
+  right: {fileID: 2825878510922161680}
 --- !u!1001 &935426191559017045
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -101,6 +118,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 58761907733544763, guid: 6007b36ad354409438ec62d423e86c5f, type: 3}
   m_PrefabInstance: {fileID: 935426191559017045}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &2825878510922161680 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3156113642442988613, guid: 6007b36ad354409438ec62d423e86c5f, type: 3}
+  m_PrefabInstance: {fileID: 935426191559017045}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4563172894794802340
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -158,6 +180,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6007b36ad354409438ec62d423e86c5f, type: 3}
+--- !u!198 &1486013264641620193 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3156113642442988613, guid: 6007b36ad354409438ec62d423e86c5f, type: 3}
+  m_PrefabInstance: {fileID: 4563172894794802340}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4576614032716815263 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 58761907733544763, guid: 6007b36ad354409438ec62d423e86c5f, type: 3}
@@ -225,6 +252,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 58761907733544763, guid: 6007b36ad354409438ec62d423e86c5f, type: 3}
   m_PrefabInstance: {fileID: 6027183437539312217}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &8676219617362976284 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3156113642442988613, guid: 6007b36ad354409438ec62d423e86c5f, type: 3}
+  m_PrefabInstance: {fileID: 6027183437539312217}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8571189077206408422
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -276,6 +308,10 @@ PrefabInstance:
     - target: {fileID: 3156113642442988613, guid: 6007b36ad354409438ec62d423e86c5f, type: 3}
       propertyPath: SizeModule.enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3156113642442988613, guid: 6007b36ad354409438ec62d423e86c5f, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3156113642442988613, guid: 6007b36ad354409438ec62d423e86c5f, type: 3}
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.size
@@ -354,6 +390,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6007b36ad354409438ec62d423e86c5f, type: 3}
+--- !u!198 &6718877716697612451 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3156113642442988613, guid: 6007b36ad354409438ec62d423e86c5f, type: 3}
+  m_PrefabInstance: {fileID: 8571189077206408422}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8512428546152506333 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 58761907733544763, guid: 6007b36ad354409438ec62d423e86c5f, type: 3}
