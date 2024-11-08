@@ -76,6 +76,8 @@ public class BuildingArea_Riley : MonoBehaviour
 
         }
         //Deletes all the slots from the scene
+
+        GetComponentInParent<BuildAreaTest>().UpdateSteam();
     }
     public void SetSlot(GameObject Slot)
     {
@@ -90,5 +92,7 @@ public class BuildingArea_Riley : MonoBehaviour
         gameObject.GetComponent<HotBar>().repairArray(instantiated);
         part.GetComponentInParent<Part>().Extract();
         SFXManager.instance.playSound(deletePartSound, part.transform, 1f);
+
+        GetComponentInParent<BuildAreaTest>().UpdateSteam();
     }
 }
