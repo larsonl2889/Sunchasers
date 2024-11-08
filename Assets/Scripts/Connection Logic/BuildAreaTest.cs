@@ -62,11 +62,13 @@ public class BuildAreaTest : MonoBehaviour
         Debug.LogWarning("System # = " + allPipeSystems.Count);
         for (int system_index = 0; system_index < allPipeSystems.Count; system_index++)
         {
+            Debug.LogWarning("propagating at " + allPipeSystems[system_index]);
             PropagateSteam(allPipeSystems[system_index]);
         }
         foreach (Vector2 where in allPipeLocations)
         {
-            GameObject block = GetComponent<Cell>().GetBlock();
+
+            //GameObject block = table.Get(where);
             // TODO update steam particles here!
         }
         GetComponent<BuildAreaDelegator>().UpdateObjective();
@@ -150,6 +152,8 @@ public class BuildAreaTest : MonoBehaviour
     {
         return table.Get(where).GetComponent<Cell>().isEmpty;
     }
+
+
 
     /// <summary>
     /// Return's the block's class data. If it doesn't exist, return's the bad block's data.
