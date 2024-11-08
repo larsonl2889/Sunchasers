@@ -10,6 +10,11 @@ public class SteamGusher : MonoBehaviour
     public ParticleSystem down;
     public ParticleSystem right;
 
+    void Start()
+    {
+        QuellAllGushers();
+    }
+
     /// <summary>
     /// Given a list of directions, update the gushers to match.
     /// </summary>
