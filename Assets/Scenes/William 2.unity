@@ -280,6 +280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Slot: {fileID: 3116988592714292705, guid: 253bd44c7b4edf74fb1155bf36f498cc, type: 3}
+  UISlotsHolder: {fileID: 0}
   placeSound: {fileID: 0}
   deletePartSound: {fileID: 0}
 --- !u!1 &36558993
@@ -1176,7 +1177,7 @@ PrefabInstance:
     - target: {fileID: 4613760430123586314, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
       propertyPath: badCell
       value: 
-      objectReference: {fileID: 4436004687172942411, guid: a659f59ff8a797e4db971d9eff3ef8b4, type: 3}
+      objectReference: {fileID: 3838098990102560207, guid: 63619360d97ea3447a373035a45470b8, type: 3}
     - target: {fileID: 4613760430123586314, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
       propertyPath: emptyCell
       value: 
@@ -1193,6 +1194,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 533955204539024251, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2112780166}
     - targetCorrespondingSourceObject: {fileID: 2550025435602192417, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
       insertIndex: -1
       addedObject: {fileID: 407347147}
@@ -1446,6 +1450,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Slot: {fileID: 1796572086390300456, guid: 3d5be90560e1b534dbc47c5af26b92a3, type: 3}
+  UISlotsHolder: {fileID: 0}
   placeSound: {fileID: 8300000, guid: 17140b36f8183ab4a914805113a4b5b0, type: 3}
   deletePartSound: {fileID: 8300000, guid: c22a6f837059477459926910414afc1b, type: 3}
 --- !u!114 &407347148
@@ -16602,6 +16607,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2105027528}
   m_CullTransparentMesh: 1
+--- !u!1 &2112780162 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 533955204539024251, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
+  m_PrefabInstance: {fileID: 301392820}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2112780166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112780162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88e52491b21b44c459560cff70896be5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectiveIsOn: 0
+  activator:
+    m_PersistentCalls:
+      m_Calls: []
+  deactivator:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &4935846728714271307
 PrefabInstance:
   m_ObjectHideFlags: 0
