@@ -93,14 +93,40 @@ public class PlayerController_Willliam : MonoBehaviour
         if (IsGrounded())
         {
             animator.SetBool("IsFalling", false);
-            if (direction.x != 0)
+            if (isBuilding == false)
             {
-                animator.SetBool("IsMoving", true);
+                animator.SetBool("Building", false);
+                if (direction.x != 0)
+                {
+                    animator.SetBool("IsMoving", true);
+
+                }
+                else
+                {
+
+                    animator.SetBool("IsMoving", false);
+
+                }
             }
             else
             {
-                animator.SetBool("IsMoving", false);
+                if (direction.x != 0)
+                {
+                    animator.SetBool("isBuildIdle", false);
+                    animator.SetBool("Building", true);
+
+                }
+                else
+                {
+                    
+                    animator.SetBool("IsMoving", false);
+                    animator.SetBool("isBuildIdle", true);
+                    
+
+                }
             }
+
+           
         }
         else
         {
