@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f43a3c6ea9fd58e43a6a869ed4790ce9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cell: {fileID: 0}
+  cell: {fileID: 3838098990102560207}
   directions: 0100000003000000
   isSource: 0
   steamState: 0
