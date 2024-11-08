@@ -10,23 +10,27 @@ public class HotBar : MonoBehaviour
     public GameObject[] bar2 = new GameObject[9];
     public int index = new int();
     public int Repairindex;
-
+    public GameObject badPartStorage;
     // Start is called before the first frame update
     void Start()
     {
-        anything = gameObject;
-        for (int i = 0; i < 9; i++)
+        if (badPartStorage != null)
         {
-            if (bar2[i] != null)
+            anything = gameObject;
+            for (int i = 0; i < 9; i++)
             {
-                bar[i] = Instantiate(bar2[i], transform.position, transform.rotation);
+                if (bar2[i] != null)
+                {
+                    bar[i] = Instantiate(bar2[i], badPartStorage.transform.position, transform.rotation);
+                }
+                else
+                {
+                    bar[i] = null;
+                }
+
             }
-            else
-            {
-                bar[i] = null;
-            }
-            
         }
+        
     }
 
     // Update is called once per frame
