@@ -33,10 +33,12 @@ public class HotBarUI : MonoBehaviour
                 {
                     sprite = hotbar.bar[i].GetComponent<Image>().sprite;
                     HotBarSlots[i].gameObject.GetComponent<Image>().sprite = sprite;
+                    HotBarSlots[i].gameObject.GetComponent<Image>().color = Color.white;
                 }
                 else
                 {
                     HotBarSlots[i].gameObject.GetComponent<Image>().sprite = null;
+                    HotBarSlots[i].gameObject.GetComponent<Image>().color = Color.clear;
                 }
                 
 
