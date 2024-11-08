@@ -147,7 +147,7 @@ public class BuildAreaTest : MonoBehaviour
                 else
                 {
                     // check if the direction is returned
-                    if (!GetConnectionLocations(link).Contains(where))
+                    if (!GetConnectionLocations(where + link).Contains(where))
                     {
                         leakVectors.Add(link);
                     }
