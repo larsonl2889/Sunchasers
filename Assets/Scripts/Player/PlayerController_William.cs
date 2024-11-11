@@ -9,6 +9,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro.Examples;
 using TMPro;
+using JetBrains.Annotations;
 
 public class PlayerController_Willliam : MonoBehaviour
 {
@@ -64,6 +65,7 @@ public class PlayerController_Willliam : MonoBehaviour
         playerControls.Player.RightClick.performed += OnRightClick;
         playerControls.Player.HotBar.performed += selectSlot;
         playerControls.Player.Pause.performed += pause;
+        playerControls.Player.Scroll.performed += scroll;
 
 
     }
@@ -208,11 +210,8 @@ public class PlayerController_Willliam : MonoBehaviour
         if (currentBuildZone != null)
         {
             currSlotSelected = (int)context.ReadValue<float>();
-            hotBarUI.HotBarNumSlots[currentBuildZone.GetComponent<HotBar>().index].GetComponent<TextMeshProUGUI>().color = Color.white;
-            currentBuildZone.GetComponent<HotBar>().SetIndex(currSlotSelected - 1);
-            hotBarUI.HotBarNumSlots[currSlotSelected-1].GetComponent<TextMeshProUGUI>().color = Color.yellow;
-                //.gameObject.GetComponent<TMP_Text>().VertexColor=VertexColorCycler(vector3(0.96f, 0.66f, 0.22f));
-            Debug.Log(currSlotSelected);
+            setSlotIndex(currSlotSelected);
+            
         }
         
         
@@ -222,8 +221,46 @@ public class PlayerController_Willliam : MonoBehaviour
         UI.GetComponent<PauseMenu>().changeMenuState();
     }
      
+    public void scroll(InputAction.CallbackContext context)
+    {
+        if (currentBuildZone != null)
+        {
+            float value = context.ReadValue<float>();
+            if (value > 0)
+            {
+                if (currSlotSelected + 1 <= 9)
+                {
+                    currSlotSelected++;
+                }
+                else
+                {
+                    currSlotSelected = 1;
+                }
+            }
+            else if (value < 0)
+            {
+                if (currSlotSelected - 1 >= 1)
+                {
+                    currSlotSelected--;
+                }
+                else
+                {
+                    currSlotSelected = 9;
+                }
+            }
+            setSlotIndex(currSlotSelected);
+        }
+        
+    }
     
-    
+    public void setSlotIndex(int slotIndex)
+    {
+        hotBarUI.HotBarNumSlots[currentBuildZone.GetComponent<HotBar>().index].GetComponent<TextMeshProUGUI>().color = Color.white;
+        currentBuildZone.GetComponent<HotBar>().SetIndex(slotIndex - 1);
+        hotBarUI.HotBarNumSlots[slotIndex - 1].GetComponent<TextMeshProUGUI>().color = Color.yellow;
+        //.gameObject.GetComponent<TMP_Text>().VertexColor=VertexColorCycler(vector3(0.96f, 0.66f, 0.22f));
+        Debug.Log(slotIndex);
+    }
 
     public bool IsGrounded()
     {
