@@ -809,7 +809,7 @@ GameObject:
   - component: {fileID: 599340789}
   - component: {fileID: 599340788}
   m_Layer: 5
-  m_Name: Image
+  m_Name: SunchaserGlow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1536,7 +1536,7 @@ GameObject:
   - component: {fileID: 1615123654}
   - component: {fileID: 1615123653}
   m_Layer: 5
-  m_Name: SunchasersTitle
+  m_Name: SunchaserTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
