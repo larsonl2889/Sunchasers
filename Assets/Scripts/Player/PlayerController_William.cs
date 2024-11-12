@@ -10,6 +10,7 @@ using UnityEngine.InputSystem;
 using TMPro.Examples;
 using TMPro;
 using JetBrains.Annotations;
+using UnityEngine.EventSystems;
 
 public class PlayerController_Willliam : MonoBehaviour
 {
@@ -170,13 +171,9 @@ public class PlayerController_Willliam : MonoBehaviour
     }
     public void OnClick(InputAction.CallbackContext context)
     {
-        var rayHit = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(pos: (Vector3)Mouse.current.position.ReadValue()));
-        if (rayHit.collider)
-        {
-            Debug.Log(rayHit.collider);
-        }
+        
         if (isBuilding) {
-            if (currentBuildZone != null)//currentBuildZone.GetComponent<HotBar>().GetIndex()!=null
+            if (currentBuildZone != null && !isMouseOverUI())//currentBuildZone.GetComponent<HotBar>().GetIndex()!=null
             {
                 //Checks to see if the index at bar has a object before trying to place the bar at index.
                 if (currentBuildZone.GetComponent<HotBar>().bar[currentBuildZone.GetComponent<HotBar>().index] != null) {
@@ -199,7 +196,7 @@ public class PlayerController_Willliam : MonoBehaviour
         if (!rayHit.collider) return;
        
 
-        if (currentBuildZone != null)
+        if (currentBuildZone != null && !isMouseOverUI())
         {
             if(rayHit.collider.gameObject.CompareTag("Part"))
             {
@@ -269,7 +266,10 @@ public class PlayerController_Willliam : MonoBehaviour
        
         //.gameObject.GetComponent<TMP_Text>().VertexColor=VertexColorCycler(vector3(0.96f, 0.66f, 0.22f));
     }
-
+    private bool isMouseOverUI()
+    {
+        return EventSystem.current.IsPointerOverGameObject();
+    }
     public bool IsGrounded()
     {
         return rb.velocity.y == 0;
