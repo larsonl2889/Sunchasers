@@ -42,7 +42,7 @@ public class PlayerController_Willliam : MonoBehaviour
         playerControls = new Controls();
         playerPlatformHandler = GetComponent<PlayerPlatformHandler>();
         objectsNear = new Stack<GameObject>();
-        
+        hotBarUI.player = this.gameObject;
         
     }
     private void OnEnable()
@@ -66,13 +66,13 @@ public class PlayerController_Willliam : MonoBehaviour
         playerControls.Player.HotBar.performed += selectSlot;
         playerControls.Player.Pause.performed += pause;
         playerControls.Player.Scroll.performed += scroll;
-
+       
 
     }
 
 
     private void FixedUpdate()
-    { 
+    {
         
         rb.velocity = new Vector2(direction.x * speed, rb.velocity.y);
         animate();
@@ -170,6 +170,11 @@ public class PlayerController_Willliam : MonoBehaviour
     }
     public void OnClick(InputAction.CallbackContext context)
     {
+        var rayHit = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(pos: (Vector3)Mouse.current.position.ReadValue()));
+        if (rayHit.collider)
+        {
+            Debug.Log(rayHit.collider);
+        }
         if (isBuilding) {
             if (currentBuildZone != null)//currentBuildZone.GetComponent<HotBar>().GetIndex()!=null
             {
@@ -189,11 +194,12 @@ public class PlayerController_Willliam : MonoBehaviour
     }
     public void OnRightClick(InputAction.CallbackContext context)
     {
-        
+
         var rayHit = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(pos: (Vector3)Mouse.current.position.ReadValue()));
         if (!rayHit.collider) return;
-        
-        if(currentBuildZone != null)
+       
+
+        if (currentBuildZone != null)
         {
             if(rayHit.collider.gameObject.CompareTag("Part"))
             {
@@ -255,11 +261,13 @@ public class PlayerController_Willliam : MonoBehaviour
     
     public void setSlotIndex(int slotIndex)
     {
-        hotBarUI.HotBarNumSlots[currentBuildZone.GetComponent<HotBar>().index].GetComponent<TextMeshProUGUI>().color = Color.white;
-        currentBuildZone.GetComponent<HotBar>().SetIndex(slotIndex - 1);
-        hotBarUI.HotBarNumSlots[slotIndex - 1].GetComponent<TextMeshProUGUI>().color = Color.yellow;
+        if (currentBuildZone != null) {
+            hotBarUI.HotBarNumSlots[currentBuildZone.GetComponent<HotBar>().index].GetComponent<TextMeshProUGUI>().color = Color.white;
+            currentBuildZone.GetComponent<HotBar>().SetIndex(slotIndex - 1);
+            hotBarUI.HotBarNumSlots[slotIndex - 1].GetComponent<TextMeshProUGUI>().color = Color.yellow;
+        }
+       
         //.gameObject.GetComponent<TMP_Text>().VertexColor=VertexColorCycler(vector3(0.96f, 0.66f, 0.22f));
-        Debug.Log(slotIndex);
     }
 
     public bool IsGrounded()
