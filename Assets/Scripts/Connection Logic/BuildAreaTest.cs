@@ -440,6 +440,11 @@ public class BuildAreaTest : MonoBehaviour
     //Checks if the part is able to be placed in that location
     public bool CanMerge(GameObject part, Vector2 startPosition)
     {
+        Debug.Log("Can merge Ran");
+        if(part.GetComponent<Part>().table == null)
+        {
+            Debug.Log("Bad Table");
+        }
         int boundsY = part.GetComponent<Part>().table.y_size;
         int boundsX = part.GetComponent<Part>().table.x_size;
         int startX = (int)startPosition.x;

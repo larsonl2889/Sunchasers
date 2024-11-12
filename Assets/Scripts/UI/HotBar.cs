@@ -22,6 +22,7 @@ public class HotBar : MonoBehaviour
                 if (bar2[i] != null)
                 {
                     bar[i] = Instantiate(bar2[i], badPartStorage.transform.position, transform.rotation);
+                    bar[i].GetComponent<Part>().FormTable();
                 }
                 else
                 {

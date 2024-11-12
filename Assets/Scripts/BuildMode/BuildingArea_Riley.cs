@@ -6,10 +6,14 @@ using Parts;
 using Cells;
 using Blocks;
 using UnityEngine.UIElements;
+using System.Linq;
 
 public class BuildingArea_Riley : MonoBehaviour
 {
     public GameObject Slot;
+    public Sprite ErrorSprite;
+    public Sprite SelectedSprite;
+    public Sprite PlacedSprite;
     public GameObject UISlotsHolder;
     internal GameObject buildArea;
     internal BuildMat buildMat;
@@ -38,7 +42,44 @@ public class BuildingArea_Riley : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Slot != null)
+        {
+            position = Mouse.current.position.ReadValue();
+            WorldPos = Camera.main.ScreenToWorldPoint(position);
+            float xPos = WorldPos.x;
+            float yPos = WorldPos.y;
+            int minX = (int)buildMat.xPos - (int)((float)buildArea.GetComponent<BuildAreaTest>().scale / 2);
+            int minY = (int)buildMat.yPos - (int)((float)buildArea.GetComponent<BuildAreaTest>().scale / 2);
+            int maxX = (int)buildMat.xPos + (int)((float)buildArea.GetComponent<BuildAreaTest>().scale / 2);
+            int maxY = (int)buildMat.yPos + (int)((float)buildArea.GetComponent<BuildAreaTest>().scale / 2);
+            if (xPos > minX && xPos < maxX && yPos > minY && yPos < maxY)
+            {
+                    Vector2 Spawnplace = new Vector2((int)xPos + 0.5f, (int)yPos + 0.5f);
+                    Slot.transform.position = Spawnplace;
+            }
+            if(!buildArea.GetComponent<BuildAreaTest>().CanMerge(Slot, new Vector2(xPos - minX, yPos - minY)))
+            {
+                Cell[] cells = Slot.GetComponentsInChildren<Cell>();
+                for (int i = 0; i < cells.Length; i++)
+                {
+                    if (!cells[i].isEmpty)
+                    {
+                        cells[i].gameObject.GetComponent<SpriteRenderer>().sprite = ErrorSprite;
+                    }
+                }
+            }
+            else
+            {
+                Cell[] cells = Slot.GetComponentsInChildren<Cell>();
+                for (int i = 0; i < cells.Length; i++)
+                {
+                    if (!cells[i].isEmpty)
+                    {
+                        cells[i].gameObject.GetComponent<SpriteRenderer>().sprite = SelectedSprite;
+                    }
+                }
+            }
+        }
     }
 
 
@@ -98,6 +139,7 @@ public class BuildingArea_Riley : MonoBehaviour
         GameObject realPart = PlaceHolder.gameObject;
         GameObject instantiated = Instantiate(realPart);
         instantiated.transform.localPosition = new Vector3(100, 100, 0);
+        instantiated.GetComponent<Part>().FormTable();
         gameObject.GetComponent<HotBar>().repairArray(instantiated);
         part.GetComponentInParent<Part>().Extract();
         SFXManager.instance.playSound(deletePartSound, part.transform, .5f);

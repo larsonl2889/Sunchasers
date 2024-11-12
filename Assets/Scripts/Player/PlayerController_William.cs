@@ -207,10 +207,15 @@ public class PlayerController_Willliam : MonoBehaviour
        // text.color = Color.yellow;
         if (currentBuildZone != null)
         {
+            if (currentBuildZone.GetComponent<BuildingArea_Riley>().Slot != null)
+            {
+                currentBuildZone.GetComponent<BuildingArea_Riley>().Slot.transform.localPosition = new Vector2(100, 100);
+            }
             currSlotSelected = (int)context.ReadValue<float>();
             hotBarUI.HotBarNumSlots[currentBuildZone.GetComponent<HotBar>().index].GetComponent<TextMeshProUGUI>().color = Color.white;
             currentBuildZone.GetComponent<HotBar>().SetIndex(currSlotSelected - 1);
             hotBarUI.HotBarNumSlots[currSlotSelected-1].GetComponent<TextMeshProUGUI>().color = Color.yellow;
+            currentBuildZone.GetComponent<HotBar>().setBar();
                 //.gameObject.GetComponent<TMP_Text>().VertexColor=VertexColorCycler(vector3(0.96f, 0.66f, 0.22f));
             Debug.Log(currSlotSelected);
         }
