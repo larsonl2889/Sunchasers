@@ -1,4 +1,5 @@
 
+using Parts;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro.Examples;
@@ -82,7 +83,8 @@ public class HotBarUI : MonoBehaviour
     //Places the image of the object being put back in the array back on the object.
     public void RemoveUISlot()
     {
-        sprite = hotbar.bar[hotbar.Repairindex].GetComponent<Image>().sprite;
+        int indexed = gameObject.GetComponent<Part>().index;
+        sprite = hotbar.bar2[indexed].GetComponent<Image>().sprite;
         HotBarSlots[hotbar.Repairindex].gameObject.GetComponent<Image>().sprite = sprite;
         HotBarSlots[hotbar.Repairindex].gameObject.GetComponent<Image>().color = Color.white;
         Debug.Log("Test");

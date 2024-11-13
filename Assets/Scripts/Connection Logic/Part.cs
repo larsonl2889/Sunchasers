@@ -9,6 +9,7 @@ namespace Parts
 {
     public class Part : MonoBehaviour
     {
+        public int index;
         public LookupTable<GameObject> table;
         public GameObject emptyCell;
         public int tableSize;
@@ -66,6 +67,11 @@ namespace Parts
         private void Awake()
         {
             
+        }
+
+        public void SetIndex(int index)
+        {
+            this.index = index;
         }
         public void Start()
         {

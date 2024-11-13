@@ -11,7 +11,7 @@ public class HotBar : MonoBehaviour
     public int index = new int();
     public int Repairindex;
     public GameObject badPartStorage;
-    public GameObject[] PartStorage = new GameObject[9];
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +23,7 @@ public class HotBar : MonoBehaviour
                 if (bar2[i] != null)
                 {
                     bar[i] = Instantiate(bar2[i], badPartStorage.transform.position, transform.rotation);
+                    bar[i].GetComponent<Part>().SetIndex(i);
                 }
                 else
                 {
@@ -52,7 +53,8 @@ public class HotBar : MonoBehaviour
     }
     public void repairArray(GameObject passedBar)
     {
-        bar[index]= PartStorage[index];
+        int putIndex = passedBar.GetComponent<Part>().index;
+        bar[putIndex] = passedBar;
         //for(int i = 0; i < 9; i++)
         //{
         //    if (bar[i] == null)
@@ -62,10 +64,6 @@ public class HotBar : MonoBehaviour
         //        return ;
         //    }
         //}
-    }
-    public void PartStore()
-    {
-        PartStorage[index] = bar[index];
     }
     public void setBar()
     {
