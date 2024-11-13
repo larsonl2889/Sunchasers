@@ -197,9 +197,9 @@ public class PlayerController_Willliam : MonoBehaviour
         {
             if(rayHit.collider.gameObject.CompareTag("Part"))
             {
-                
+                hotBarUI.RemoveUISlot(rayHit.collider.gameObject);
                 currentBuildZone.GetComponent<BuildingArea_Riley>().delete(rayHit.collider.gameObject);
-                hotBarUI.RemoveUISlot();
+                
             }
         }
         

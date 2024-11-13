@@ -81,12 +81,16 @@ public class HotBarUI : MonoBehaviour
         //UISlot = hotbar.bar[hotbar.index];
     }
     //Places the image of the object being put back in the array back on the object.
-    public void RemoveUISlot()
+    public void RemoveUISlot(GameObject part)
     {
-        int indexed = gameObject.GetComponent<Part>().index;
-        sprite = hotbar.bar2[indexed].GetComponent<Image>().sprite;
-        HotBarSlots[hotbar.Repairindex].gameObject.GetComponent<Image>().sprite = sprite;
-        HotBarSlots[hotbar.Repairindex].gameObject.GetComponent<Image>().color = Color.white;
+        if(part == null)
+        {
+            Debug.Log("part is null");
+        }
+        int index = part.GetComponentInParent<Part>().index;
+        sprite = hotbar.bar2[index].GetComponent<Image>().sprite;
+        HotBarSlots[index].gameObject.GetComponent<Image>().sprite = sprite;
+        HotBarSlots[index].gameObject.GetComponent<Image>().color = Color.white;
         Debug.Log("Test");
     }
 
