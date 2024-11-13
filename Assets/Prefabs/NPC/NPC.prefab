@@ -190,6 +190,7 @@ MonoBehaviour:
   - The bee, of course, flies anyway,
   - because bees don't care what humans think is impossible.
   wordSpeed: 0.05
+  squeak: {fileID: 8300000, guid: da2270eef82249145a9cb15b8d7d0ce9, type: 3}
 --- !u!95 &1943197176321596675
 Animator:
   serializedVersion: 5
