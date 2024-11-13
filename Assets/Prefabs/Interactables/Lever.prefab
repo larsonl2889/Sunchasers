@@ -121,7 +121,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   promptPrefab: {fileID: 3211661853732084645, guid: 424de07725274b740ad4468731ec2573, type: 3}
-  promptPosOffset: 1
+  promptPosOffset: 0.5
 --- !u!114 &1594545196290764436
 MonoBehaviour:
   m_ObjectHideFlags: 0
