@@ -8,38 +8,34 @@ using Unity.VisualScripting;
 public class TitleScreenController : MonoBehaviour
 {
     public string gameScene; // The scene to switch to when playing the game
-    public Button playButton;
-    public Button creditsButton;
+    public Button playButton; // Start button
+    public Button creditsButton; // Credits button
     public TextMeshProUGUI splashText; // Text UI element for the splash text
     public string[] splashTexts; // Array of possible splash texts
-    public GameObject creditsPanel; // A panel or canvas for displaying credits
+    public GameObject creditsPanel; // A panel or canvas for displaying creditsz
 
     private void Start()
     {
         // Assign the button listeners
-        playButton.onClick.AddListener(PlayGame);
+        //playButton.onClick.AddListener(PlayGame);
         creditsButton.onClick.AddListener(ShowCredits);
 
         // Make sure credits are hidden at the start
         if (creditsPanel == true)
-        {
             creditsPanel.SetActive(false);
-        }
         else
-        {
             creditsPanel.SetActive(false);
-        }
 
         // Display random splash text
         ShowRandomSplashText();
     }
 
     // Called when Play is clicked
-    public void PlayGame()
+    /*public void PlayGame()
     {
         SceneManager.LoadScene(gameScene);
        
-    }
+    }*/
 
     // Called when Credits is clicked
     public void ShowCredits()

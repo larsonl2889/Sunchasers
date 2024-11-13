@@ -435,6 +435,8 @@ GameObject:
   - component: {fileID: 480532283}
   - component: {fileID: 480532282}
   - component: {fileID: 480532281}
+  - component: {fileID: 480532285}
+  - component: {fileID: 480532284}
   m_Layer: 5
   m_Name: PlayButton
   m_TagString: Untagged
@@ -520,7 +522,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 30, y: 50, z: 35, w: 50}
+  m_RaycastPadding: {x: 27.77, y: 50, z: 35, w: 50}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -543,6 +545,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 480532279}
   m_CullTransparentMesh: 1
+--- !u!114 &480532284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480532279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4534e677561c4b343a81dac878093016, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playButton: {fileID: 480532281}
+  sceneloadtrigger: {fileID: 480532285}
+  waitTimeLoad: 5
+  nextSceneLoadStart: 0
+--- !u!114 &480532285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480532279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78afbf1516d29c24c815a1c34645aaf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetScene: PaperPrototype
 --- !u!1 &508691240
 GameObject:
   m_ObjectHideFlags: 0
@@ -1618,7 +1649,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: -0.78
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
