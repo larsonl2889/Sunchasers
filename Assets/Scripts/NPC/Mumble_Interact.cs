@@ -9,6 +9,7 @@ public class NPC : MonoBehaviour {
     public string[] dialogue; // Sets an string array for the programmer to set the dialogue
     private int index = 0; // Sets index to 0, and is used to print out each character one by one from the string
     public float wordSpeed; // Sets the word speed for how fast the text appears on screen (the lower, the faster).
+    public AudioClip squeak;
 
     void Start()
     {
@@ -22,6 +23,7 @@ public class NPC : MonoBehaviour {
         {
             dialoguePanel.SetActive(true);
             StartCoroutine(Typing());
+            SFXManager.instance.playSound(squeak, transform, .5f);
         }
         else if (dialogueText.text == dialogue[index])
         {
@@ -65,6 +67,7 @@ public class NPC : MonoBehaviour {
             index++;
             dialogueText.text = "";
             StartCoroutine(Typing());
+            SFXManager.instance.playSound(squeak, transform, .5f);
         }
         else
         {
