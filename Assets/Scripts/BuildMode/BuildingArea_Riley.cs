@@ -109,7 +109,15 @@ public class BuildingArea_Riley : MonoBehaviour
                 Vector2 Spawnplace = new Vector2((int)xPos + 0.5f, (int)yPos + 0.5f);
                 buildArea.GetComponent<BuildAreaTest>().MergeTables(instantiated, new Vector2(xPos - minX, yPos - minY));
                 // Try to update steam
-                buildArea.GetComponent<BuildAreaTest>().UpdateSteam(); 
+                buildArea.GetComponent<BuildAreaTest>().UpdateSteam();
+                Cell[] cells = instantiated.GetComponentsInChildren<Cell>();
+                for (int i = 0; i < cells.Length; i++)
+                {
+                    if (!cells[i].isEmpty)
+                    {
+                        cells[i].gameObject.GetComponent<SpriteRenderer>().sprite = PlacedSprite;
+                    }
+                }
                 instantiated.transform.position = Spawnplace;
                 return;
             }
