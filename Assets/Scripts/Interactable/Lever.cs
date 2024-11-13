@@ -13,6 +13,7 @@ public class Lever : MonoBehaviour
     private bool isOn = false;
     private SpriteRenderer spriteRenderer;
     public UnityEvent onLeverPull;
+    public AudioClip leverSound;
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -25,6 +26,7 @@ public class Lever : MonoBehaviour
     }
 
     public void changeState() {
+        SFXManager.instance.playSound(leverSound, transform, .5f);
         isOn = !isOn;
         if (isOn)
         {

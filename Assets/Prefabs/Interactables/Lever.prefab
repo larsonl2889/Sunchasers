@@ -136,6 +136,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onSprite: {fileID: -243516735, guid: 069bb7fd145c7db4187c4a6192ea11c6, type: 3}
   offSprite: {fileID: -1350538946, guid: 069bb7fd145c7db4187c4a6192ea11c6, type: 3}
+  onLeverPull:
+    m_PersistentCalls:
+      m_Calls: []
+  leverSound: {fileID: 8300000, guid: 6c0c60a4177f24f479f9a164430db309, type: 3}
 --- !u!58 &9195435974154422236
 CircleCollider2D:
   m_ObjectHideFlags: 0
