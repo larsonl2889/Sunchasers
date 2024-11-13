@@ -407,7 +407,7 @@ public class BuildAreaTest : MonoBehaviour
         {
             for(int j = 0; j < scale; j++)
             {
-                GameObject instantiated = Instantiate(emptyCell);
+                GameObject instantiated = Instantiate(emptyCell, gameObject.transform);
                 instantiated.transform.localPosition = new Vector3(i + xPos + 0.5f, j + yPos + 0.5f, 0);
                 instantiated.GetComponent<Cell>().xPos = i;
                 instantiated.GetComponent<Cell>().yPos = j;
@@ -415,7 +415,7 @@ public class BuildAreaTest : MonoBehaviour
                 table.Put(i, j, instantiated);
             }
         }
-        GameObject instantiatedPart = Instantiate(startingPart, gameObject.transform);
+        GameObject instantiatedPart = Instantiate(startingPart);
         instantiatedPart.GetComponent<Part>().FormTable();
         instantiatedPart.transform.localPosition = new Vector3(xPos + 0.5f, yPos + 0.5f, 0);
         Vector2 test = new Vector2(0, 0);

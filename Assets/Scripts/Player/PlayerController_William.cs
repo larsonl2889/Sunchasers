@@ -257,6 +257,15 @@ public class PlayerController_Willliam : MonoBehaviour
         if (other.gameObject.CompareTag("buildWorkshop"))
         {
             currentBuildZone = other.gameObject;
+            BuildAreaTest BAT = currentBuildZone.GetComponentInParent<BuildAreaTest>();
+            GameObject buildArea = BAT.gameObject;
+            Cell[] cells = buildArea.GetComponentsInChildren<Cell>();
+            Debug.Log("Cell Array Has " + cells.Length + " cells");
+            for (int i = 0; i < cells.Length; i++)
+            {
+                Debug.Log("Sprite Stuff Ran " + i);
+                cells[i].GameObject().GetComponent<SpriteRenderer>().enabled = true;
+            }
             hotBarUI.hotbar = currentBuildZone.GetComponent<HotBar>();
             hotBarUI.updateImages();
             isBuilding = true;
@@ -273,7 +282,15 @@ public class PlayerController_Willliam : MonoBehaviour
         }
         if (other.gameObject.CompareTag("buildWorkshop"))
         {
-
+            BuildAreaTest BAT = currentBuildZone.GetComponentInParent<BuildAreaTest>();
+            GameObject buildArea = BAT.gameObject;
+            Cell[] cells = buildArea.GetComponentsInChildren<Cell>();
+            Debug.Log("Cell Array Has " + cells.Length + " cells");
+            for (int i = 0; i < cells.Length; i++)
+            {
+                Debug.Log("Sprite Stuff Ran " + i);
+                cells[i].GameObject().GetComponent<SpriteRenderer>().enabled = false;
+            }
             currentBuildZone = null;
             hotBarUI.hotbar = null;
             hotBarUI.updateImages();
