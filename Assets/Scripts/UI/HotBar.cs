@@ -11,6 +11,7 @@ public class HotBar : MonoBehaviour
     public int index = new int();
     public int Repairindex;
     public GameObject badPartStorage;
+    public GameObject[] PartStorage = new GameObject[9];
     // Start is called before the first frame update
     void Start()
     {
@@ -51,16 +52,20 @@ public class HotBar : MonoBehaviour
     }
     public void repairArray(GameObject passedBar)
     {
-        
-        for(int i = 0; i < 9; i++)
-        {
-            if (bar[i] == null)
-            {
-                bar[i] = passedBar;
-                Repairindex = i;
-                return ;
-            }
-        }
+        bar[index]= PartStorage[index];
+        //for(int i = 0; i < 9; i++)
+        //{
+        //    if (bar[i] == null)
+        //    {
+        //        bar[i] = passedBar;
+        //        Repairindex = i;
+        //        return ;
+        //    }
+        //}
+    }
+    public void PartStore()
+    {
+        PartStorage[index] = bar[index];
     }
     public void setBar()
     {

@@ -12,6 +12,7 @@ public class BuildingArea_Riley : MonoBehaviour
     public GameObject Slot;
     public GameObject UISlotsHolder;
     internal GameObject buildArea;
+    internal HotBar hotbar;
     internal BuildMat buildMat;
     private bool isInRange;
     private Vector2 position;
@@ -60,6 +61,7 @@ public class BuildingArea_Riley : MonoBehaviour
             instantiated.GetComponent<Part>().FormTable();
             if (buildArea.GetComponent<BuildAreaTest>().CanMerge(instantiated, new Vector2(xPos - minX, yPos - minY)))
             {
+                gameObject.GetComponent<HotBar>().PartStore();
                 gameObject.GetComponent<HotBar>().DeleteIndex();
                 UISlotsHolder.GetComponent<HotBarUI>().BuildUISlot();
                 Destroy(Slot);
