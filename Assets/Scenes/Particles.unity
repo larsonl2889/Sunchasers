@@ -227,12 +227,28 @@ PrefabInstance:
       value: WaterfallTopEffect
       objectReference: {fileID: 0}
     - target: {fileID: 4164188964542542954, guid: b2107123447eddb4bba78f9b474a2c5f, type: 3}
+      propertyPath: ColorModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164188964542542954, guid: b2107123447eddb4bba78f9b474a2c5f, type: 3}
       propertyPath: InitialModule.gravitySource
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4164188964542542954, guid: b2107123447eddb4bba78f9b474a2c5f, type: 3}
       propertyPath: InitialModule.startSize.scalar
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164188964542542954, guid: b2107123447eddb4bba78f9b474a2c5f, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.b
+      value: 0.23529413
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164188964542542954, guid: b2107123447eddb4bba78f9b474a2c5f, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.g
+      value: 0.23529413
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164188964542542954, guid: b2107123447eddb4bba78f9b474a2c5f, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.r
+      value: 0.23529413
       objectReference: {fileID: 0}
     - target: {fileID: 8413478060894701075, guid: b2107123447eddb4bba78f9b474a2c5f, type: 3}
       propertyPath: m_LocalPosition.x
