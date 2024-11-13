@@ -2,18 +2,79 @@
 using System.Collections.Generic;
 using System.Reflection;
 using DirectionOps;
+using UnityEngine;
 
-public static class PipeIndex
+public static class PipeIndexer
 {
-    // internal indecies
-    /*  0=none   1=u     2=l     3=ul
-     *  4=d      5=ud    6=ld    7=uld
-     *  8=r      9=ur   10=lr   11=ulr
-     * 12=dr    13=udr  14=ldr  15=uldr
+    /// <summary>
+    /// The 16-element array of pipe prefab instances, in order of their math indecies.
+    /// </summary>
+    public static GameObject[] pipes;
+    public static Sprite[] pipeSprites;
+
+    // math indecies
+    /*  0=none   1=u     2=l     3=lu
+     *  4=d      5=du    6=dl    7=dlu
+     *  8=r      9=ru   10=rl   11=rlu
+     * 12=rd    13=rdu  14=rdl  15=rdlu
      */
     // Actual indecies depend on the order of the sprites in the sprite sheet.
 
+    internal static void GenerateData(GameObject[] new_pipes, Sprite[] new_pipeSprites)
+    {
+        pipes = new_pipes;
+        pipeSprites = new_pipeSprites;
+    }
 
+    internal static Sprite GetSprite(int mathIndex, int variant = 0)
+    {
+        //return pipeSpriteVariants[variant, mathIndex];
+        return pipeSprites[mathIndex];
+    }
+
+    /// <summary>
+    /// Create an instance of a pipe, given its math index and sprite variant number.
+    /// </summary>
+    /// <param name="mathIndex">given math index</param>
+    /// <param name="variant">sprite variant number</param>
+    /// <returns>new instance of the pipe</returns>
+    public static GameObject Instantiate(int mathIndex, int variant=0)
+    {
+        GameObject obj = GameObject.Instantiate(pipes[mathIndex]);
+        obj.GetComponent<SpriteRenderer>().sprite = GetSprite(mathIndex, variant);
+        return obj;
+    }
+
+    /// <summary>
+    /// Given the math index, returns the actual index on the sprite sheet.<br>
+    /// Returns -1 as a sentinel.
+    /// </summary>
+    /// <param name="mathIndex">The math index of the </param>
+    /// <returns>Sprite index. May return -1 if there is no corresponding pipe.</returns>
+    internal static int MathToSprite(int mathIndex)
+    {
+        return mathIndex switch
+        {
+            0 => -1,
+            1 => 11,
+            2 => 14,
+            3 => 6,
+            4 => 13,
+            5 => 10,
+            6 => 9,
+            7 => 5,
+            8 => 12,
+            9 => 7,
+            10=> 0,
+            11=> 2,
+            12=> 8,
+            13=> 4,
+            14=> 3,
+            15=> 1,
+            _ => -1 // default
+        };
+        
+    }
 
     /// <summary>
     /// Given the directions the pipe faces, returns the index in the sprite sheet.
@@ -27,26 +88,30 @@ public static class PipeIndex
     }
 
     /// <summary>
-    /// Convert from one pipe's internal index to the next pipe's internal index, given a rotation dir. 
+    /// Convert from one pipe's math index to the next pipe's math index, given a rotation dir.<br>
     /// Because I'm fancy like that.
     /// </summary>
-    /// <param name="internalIndex">starting index</param>
+    /// <param name="mathIndex">starting index</param>
     /// <param name="dir">direction to rotate to</param>
-    /// <returns>The new pipe's internal index</returns>
-    internal static int ApplyRotation(this int internalIndex, Direction dir)
+    /// <returns>The new pipe's math index</returns>
+    internal static int ApplyRotation(this int mathIndex, Direction dir)
     {
-        if (dir == Direction.LEFT)
+        int rotationId = dir.ToId();
+        int greatestAddend;
+        int leastAddend = mathIndex >> rotationId;
+        if (rotationId == 0)
         {
-            return internalIndex < 8 ? internalIndex * 2 : (internalIndex * 2 + 1) % 16;
+            greatestAddend = 0;
         }
-        if (dir == Direction.RIGHT)
+        else
         {
-            //return internalIndex % 2 == 1 ? internalIndex * 2 - 1 % 16;
+            greatestAddend = (1 << (4 - rotationId)) * (mathIndex % (1 << rotationId));
         }
-        return -1; // TODO implement! See notes.
+        return greatestAddend + leastAddend;
     }
 
-    internal static int DirectionsToInternalIndex(List<Direction> dirs)
+
+    internal static int DirectionsToMathIndex(List<Direction> dirs)
     {
         int index = 0;
         if (dirs.Contains(Direction.UP))
@@ -68,23 +133,22 @@ public static class PipeIndex
         return index;
     }
 
-    // TODO OMG PLEASE TEST THIS WHAT DOES << EVEN DO AND WHY AM I SO SURE OF MYSELF?!
-    internal static List<Direction> InternalIndexToDirections(int index)
+    internal static List<Direction> MathIndexToDirections(int index)
     {
         List<Direction> li = new();
         if (index % 2 == 1)
         {
             li.Add(Direction.UP);
         }
-        if ((index << 1) % 2 == 1)
+        if ((index >> 1) % 2 == 1)
         {
             li.Add(Direction.LEFT);
         }
-        if ((index << 2) % 2 == 1)
+        if ((index >> 2) % 2 == 1)
         {
             li.Add(Direction.DOWN);
         }
-        if ((index << 3) % 2 == 1)
+        if ((index >> 3) % 2 == 1)
         {
             li.Add(Direction.RIGHT);
         }
