@@ -26,7 +26,7 @@ namespace DirectionOps
     /// <summary>
     /// A utility class for performing operations on and with Direction objects.
     /// </summary>
-    public static class DirectionOps
+    public static class DirectionOperator
     {
         public static GameObject emptyPart;
 
@@ -70,7 +70,6 @@ namespace DirectionOps
             partObject.GetComponent<Part>().tableSize = newTable.x_size;
             partObject.GetComponent<Part>().SetPivot(part.GetPivot());
             // "childCells" is unused so I didn't bother setting it up.
-
         }
 
         /// <summary>
