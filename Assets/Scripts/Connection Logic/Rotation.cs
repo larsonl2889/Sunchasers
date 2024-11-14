@@ -6,8 +6,6 @@ namespace Parts
 {
     public static class Rotation
     {
-        ApplyRotation()
-
 
     }
 }
