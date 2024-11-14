@@ -53,6 +53,21 @@ public class PlayerController_Willliam : MonoBehaviour
         playerControls.Disable();
     }
 
+    public void RotateLeft()
+    {
+        if (currentBuildZone != null) 
+        { 
+            currentBuildZone.GetComponent<BuildingArea_Riley>().RotateLeft(); 
+        }
+    }
+    public void RotateRight()
+    {
+        if (currentBuildZone != null)
+        {
+            currentBuildZone.GetComponent<BuildingArea_Riley>().RotateRight();
+        }
+    }
+
     private void Start()
     {
 
@@ -258,6 +273,7 @@ public class PlayerController_Willliam : MonoBehaviour
             hotBarUI.gameObject.GetComponent<Canvas>().enabled = true;
         }
     }
+
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Interactable"))
