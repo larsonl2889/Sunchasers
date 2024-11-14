@@ -7,7 +7,7 @@ using Blocks;
 using System.Collections;
 
 // Contributors: Leif Larson
-// Last updated 13 Nov 2024
+// Last updated 14 Nov 2024
 
 // Contains Direction and DirectionOps
 namespace DirectionOps
@@ -36,13 +36,14 @@ namespace DirectionOps
         {
             Part part = partObject.GetComponent<Part>();
             LookupTable<GameObject> newTable = new LookupTable<GameObject>(part.table.x_size, part.table.y_size);
+            // iterate over all the cell objects in this table.
             for (int i_x = 0; i_x < newTable.x_size; i_x++)
             {
                 for (int i_y = 0; i_y < newTable.y_size; i_y++)
                 {
                     // calculate new position
                     Vector2 new_pos = dir.ApplyRotation((new Vector2(i_x, i_y) - part.GetPivot())) + part.GetPivot();
-                    // Calculate the new index...
+                    // Calculate the list of connection directions...
                     List<Vector2> vecsList = part.table.Get(i_x, i_y).GetComponent<Cell>().GetBlock().GetComponent<Block>().GetAllLinksList();
                     List<Direction> dirList = new();
                     int variant = part.table.Get(i_x, i_y).GetComponent<Cell>().GetBlock().GetComponent<Block>().GetVariant();
@@ -50,7 +51,7 @@ namespace DirectionOps
                     {
                         dirList.Add(v.ToDirection());
                     }
-                    // Finish calculating the new index
+                    // ... And use it to calculate the new index
                     int mathIndex = PipeIndexer.DirectionsToMathIndex(dirList);
                     GameObject newCellObject;
                     // if the object is a pipe
@@ -58,11 +59,6 @@ namespace DirectionOps
                     {
                         // Make the game object
                         newCellObject = PipeIndexer.Instantiate(mathIndex, variant);
-                        // Move it and update position...
-                        //      ... in engine
-                        newCellObject.transform.position = new_pos;
-                        //      ... in data
-                        newCellObject.GetComponent<Cell>().pos = new_pos;
                     }
                     // if the object is not a pipe
                     else
@@ -70,7 +66,12 @@ namespace DirectionOps
                         // Just don't rotate it if it's not a pipe.
                         newCellObject = GameObject.Instantiate(part.table.Get(i_x, i_y));
                     }
-                    
+                    // Move it and update position...
+                    //      ... in engine
+                    newCellObject.transform.position = new_pos;
+                    //      ... in data
+                    newCellObject.GetComponent<Cell>().pos = new_pos;
+
                 }
             }
             // Create the new rotated part
