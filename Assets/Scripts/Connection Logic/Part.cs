@@ -133,10 +133,9 @@ namespace Parts
             return table;
         }
 
-        public Vector2 GetPivot()
-        {
-            return pivot;
-        }
+        public void SetPivot(Vector2 newPivot) { pivot = newPivot; }
+
+        public Vector2 GetPivot() { return pivot; }
 
         /// <summary>
         /// Returns the position in the world. May return null if the part is not in play.

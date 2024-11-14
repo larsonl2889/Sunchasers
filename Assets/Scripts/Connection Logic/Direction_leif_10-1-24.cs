@@ -62,17 +62,16 @@ namespace DirectionOps
                 }
             }
             // Create the actual part
+            // TODO go over what data needs to be loaded into a part!
             if (emptyPart == null) { Debug.LogError("No 'emptyPart' set for DirectionOps!"); }
             GameObject partObject = GameObject.Instantiate(emptyPart);
             partObject.AddComponent<Part>();
             partObject.GetComponent<Part>().table = newTable;
             partObject.GetComponent<Part>().tableSize = newTable.x_size;
+            partObject.GetComponent<Part>().SetPivot(part.GetPivot());
+            // "childCells" is unused so I didn't bother setting it up.
 
         }
-
-        //public int tableSize;
-        //private Vector2 pivot; // location within its own table that'll be our "center". We place and rotate with respect to the pivot.
-        //private GameObject[] childCells;
 
         /// <summary>
         /// TODO document!<br>
