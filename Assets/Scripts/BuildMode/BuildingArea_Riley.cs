@@ -6,6 +6,7 @@ using Parts;
 using Cells;
 using Blocks;
 using UnityEngine.UIElements;
+using DirectionOps;
 
 public class BuildingArea_Riley : MonoBehaviour
 {
@@ -19,6 +20,23 @@ public class BuildingArea_Riley : MonoBehaviour
     Stack<GameObject> SlotHolder;
     [SerializeField] private AudioClip placeSound;
     [SerializeField] private AudioClip deletePartSound;
+
+    public void RotateRight()
+    {
+        RotateCurrentPart(Direction.RIGHT);
+    }
+
+    public void RotateLeft() 
+    {
+        RotateCurrentPart(Direction.LEFT);
+    }
+    private void RotateCurrentPart(Direction dir)
+    {
+        if ( Slot != null)
+        {
+            Slot = DirectionOperator.RotatePart(Slot, dir);
+        }
+    }
 
     //void RepairSlots()
     //{

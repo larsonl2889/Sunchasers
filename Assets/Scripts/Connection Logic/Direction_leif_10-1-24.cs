@@ -32,7 +32,7 @@ namespace DirectionOps
 
         public static void SetEmptyPart(GameObject newEmptyPart) { emptyPart = newEmptyPart; }
 
-        public static void RotatePart(GameObject partObject, Direction dir)
+        public static GameObject RotatePart(GameObject partObject, Direction dir)
         {
             Part part = partObject.GetComponent<Part>();
             LookupTable<GameObject> newTable = new LookupTable<GameObject>(part.table.x_size, part.table.y_size);
@@ -82,6 +82,7 @@ namespace DirectionOps
             partObject.GetComponent<Part>().tableSize = newTable.x_size;
             partObject.GetComponent<Part>().SetPivot(part.GetPivot());
             // "childCells" is unused so I didn't bother setting it up.
+            return partObject;
         }
 
         /// <summary>
