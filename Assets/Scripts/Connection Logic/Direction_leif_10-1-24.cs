@@ -1,12 +1,18 @@
 ﻿using System;
 using UnityEngine;
+using System.Collections.Generic;
+using Parts;
+using Cells;
+using Blocks;
+using System.Collections;
 
 // Contributors: Leif Larson
-// Last updated 10 Oct 2024
+// Last updated 13 Nov 2024
 
 // Contains Direction and DirectionOps
 namespace DirectionOps
 {
+
     /// <summary>
     /// An enum for handling the 4 cardinal directions efficiently.
     /// <br></br>Is usefuil for interfacing between the floats used by Unity's GameObjects for angles, and the coordinate system used by the LookupTable. 
@@ -22,6 +28,66 @@ namespace DirectionOps
     /// </summary>
     public static class DirectionOps
     {
+        public static GameObject emptyPart;
+
+        public static void SetEmptyPart(GameObject newEmptyPart) { emptyPart = newEmptyPart; }
+
+        public static void RotatePart(this Direction dir, Part part)
+        {
+            LookupTable<GameObject> newTable = new LookupTable<GameObject>(part.table.x_size, part.table.y_size);
+            for (int i_x = 0; i_x < newTable.x_size; i_x++)
+            {
+                for (int i_y = 0; i_y < newTable.y_size; i_y++)
+                {
+                    // calculate new position
+                    Vector2 new_pos = dir.ApplyRotation((new Vector2(i_x, i_y) - part.GetPivot())) + part.GetPivot();
+                    // Calculate the new index...
+                    List<Vector2> vecsList = part.table.Get(i_x, i_y).GetComponent<Cell>().GetBlock().GetComponent<Block>().GetAllLinksList();
+                    List<Direction> dirList = new();
+                    int variant = part.table.Get(i_x, i_y).GetComponent<Cell>().GetBlock().GetComponent<Block>().GetVariant();
+                    foreach (Vector2 v in vecsList)
+                    {
+                        dirList.Add(v.ToDirection());
+                    }
+                    // Finish calculating the new index
+                    int mathIndex = PipeIndexer.DirectionsToMathIndex(dirList);
+                    // Make the game object
+                    GameObject newObject = PipeIndexer.Instantiate(mathIndex, variant);
+                    // Move it and update position...
+                    //      ... in engine
+                    newObject.transform.position = new_pos;
+                    //      ... in data
+                    newObject.GetComponent<Cell>().pos = new_pos;
+
+                }
+            }
+            // Create the actual part
+            if (emptyPart == null) { Debug.LogError("No 'emptyPart' set for DirectionOps!"); }
+            GameObject partObject = GameObject.Instantiate(emptyPart);
+            partObject.AddComponent<Part>();
+            partObject.GetComponent<Part>().table = newTable;
+            partObject.GetComponent<Part>().tableSize = newTable.x_size;
+
+        }
+
+        //public int tableSize;
+        //private Vector2 pivot; // location within its own table that'll be our "center". We place and rotate with respect to the pivot.
+        //private GameObject[] childCells;
+
+        /// <summary>
+        /// TODO document!<br>
+        /// Default is Direction.UP
+        /// </summary>
+        /// <param name="vec">given vector</param>
+        /// <returns>direction</returns>
+        public static Direction ToDirection(this Vector2 vec)
+        {
+            if (vec == Vector2.up) { return (Direction.UP); }
+            if (vec == Vector2.right) { return (Direction.RIGHT); }
+            if (vec == Vector2.down) { return (Direction.DOWN); }
+            if (vec == Vector2.left) { return (Direction.LEFT); }
+            return Direction.UP; // default is Direction.UP
+        }
 
         public static string ToString(this Direction dir)
         {
@@ -134,6 +200,8 @@ namespace DirectionOps
                 _ => new Vector2(vec.y, -vec.x),
             };
         }
+
+
     }
 
 

@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3587047513052890029
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5602682431724619165}
+  - component: {fileID: 3045463156599494192}
+  m_Layer: 0
+  m_Name: PipeIndexController
+  m_TagString: PipeIndexer
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5602682431724619165
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3587047513052890029}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 890.2083, y: 529.20154, z: -7.000585}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3045463156599494192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3587047513052890029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f0452c85dbb72d4a973aa29334a13ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pipes:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 3838098990102560207, guid: c39a104eb72904c4d9133b650ce77610, type: 3}
+  - {fileID: 0}
+  - {fileID: 3838098990102560207, guid: 691814ca686605144bcc4f220925d1e0, type: 3}
+  - {fileID: 3838098990102560207, guid: 02b200348135feb4e944dd56f013b93e, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 3838098990102560207, guid: 9a477722cf719fa4a946d28733137208, type: 3}
+  - {fileID: 3838098990102560207, guid: 5a14ac7f5ad39324a93a208c939ded5b, type: 3}
+  - {fileID: 0}
+  - {fileID: 3838098990102560207, guid: 0c0e7e354edf33f439349038701c5a0a, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 3838098990102560207, guid: 64ef6f92f0d47b547b16541ed6562d4c, type: 3}
+  pipeSprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: -695826310, guid: e27c58e124c2b1848805b73219f41723, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 847056881, guid: e27c58e124c2b1848805b73219f41723, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
