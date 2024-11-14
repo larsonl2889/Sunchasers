@@ -32,7 +32,7 @@ namespace DirectionOps
 
         public static void SetEmptyPart(GameObject newEmptyPart) { emptyPart = newEmptyPart; }
 
-        public static void RotatePart(this Direction dir, Part part)
+        public static void RotatePart(Part part, Direction dir)
         {
             LookupTable<GameObject> newTable = new LookupTable<GameObject>(part.table.x_size, part.table.y_size);
             for (int i_x = 0; i_x < newTable.x_size; i_x++)
@@ -61,7 +61,7 @@ namespace DirectionOps
 
                 }
             }
-            // Create the actual part
+            // Create the new rotated part
             // TODO go over what data needs to be loaded into a part!
             if (emptyPart == null) { Debug.LogError("No 'emptyPart' set for DirectionOps!"); }
             GameObject partObject = GameObject.Instantiate(emptyPart);
