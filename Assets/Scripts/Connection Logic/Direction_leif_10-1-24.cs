@@ -52,14 +52,25 @@ namespace DirectionOps
                     }
                     // Finish calculating the new index
                     int mathIndex = PipeIndexer.DirectionsToMathIndex(dirList);
-                    // Make the game object
-                    GameObject newObject = PipeIndexer.Instantiate(mathIndex, variant);
-                    // Move it and update position...
-                    //      ... in engine
-                    newObject.transform.position = new_pos;
-                    //      ... in data
-                    newObject.GetComponent<Cell>().pos = new_pos;
-
+                    GameObject newCellObject;
+                    // if the object is a pipe
+                    if (mathIndex > 0)
+                    {
+                        // Make the game object
+                        newCellObject = PipeIndexer.Instantiate(mathIndex, variant);
+                        // Move it and update position...
+                        //      ... in engine
+                        newCellObject.transform.position = new_pos;
+                        //      ... in data
+                        newCellObject.GetComponent<Cell>().pos = new_pos;
+                    }
+                    // if the object is not a pipe
+                    else
+                    {
+                        // Just don't rotate it if it's not a pipe.
+                        newCellObject = GameObject.Instantiate(part.table.Get(i_x, i_y));
+                    }
+                    
                 }
             }
             // Create the new rotated part
