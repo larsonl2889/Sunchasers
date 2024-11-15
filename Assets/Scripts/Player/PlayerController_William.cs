@@ -172,8 +172,8 @@ public class PlayerController_Willliam : MonoBehaviour
             if (currentBuildZone != null)//currentBuildZone.GetComponent<HotBar>().GetIndex()!=null
             {
                 //Checks to see if the index at bar has a object before trying to place the bar at index.
-                if (currentBuildZone.GetComponent<HotBar>().bar[currentBuildZone.GetComponent<HotBar>().index] != null) {
-                    currentBuildZone.GetComponent<HotBar>().setBar();
+                if (currentBuildZone.GetComponent<BuildingArea_Riley>().Slot != null) {
+                    //currentBuildZone.GetComponent<HotBar>().setBar();
                     currentBuildZone.GetComponent<BuildingArea_Riley>().build();
                 }
                 
@@ -193,9 +193,8 @@ public class PlayerController_Willliam : MonoBehaviour
         
         if(currentBuildZone != null)
         {
-            if(rayHit.collider.gameObject.CompareTag("Part"))
+            if(rayHit.collider.gameObject.CompareTag("Part") && currentBuildZone.GetComponent<BuildingArea_Riley>().Slot == null)
             {
-                
                 currentBuildZone.GetComponent<BuildingArea_Riley>().delete(rayHit.collider.gameObject);
                 hotBarUI.RemoveUISlot();
             }
@@ -291,6 +290,11 @@ public class PlayerController_Willliam : MonoBehaviour
                 Debug.Log("Sprite Stuff Ran " + i);
                 cells[i].GameObject().GetComponent<SpriteRenderer>().enabled = false;
             }
+            if(currentBuildZone.GetComponent<BuildingArea_Riley>().Slot != null)
+            {
+                currentBuildZone.GetComponent<BuildingArea_Riley>().Slot.transform.localPosition = new Vector2(100, 100);
+            }
+            currentBuildZone.GetComponent<BuildingArea_Riley>().Slot = null;
             currentBuildZone = null;
             hotBarUI.hotbar = null;
             hotBarUI.updateImages();

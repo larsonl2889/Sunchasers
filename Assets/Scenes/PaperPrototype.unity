@@ -280,6 +280,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Slot: {fileID: 3116988592714292705, guid: 253bd44c7b4edf74fb1155bf36f498cc, type: 3}
+  ErrorSprite: {fileID: 0}
+  SelectedSprite: {fileID: 0}
+  PlacedSprite: {fileID: 0}
   UISlotsHolder: {fileID: 0}
   placeSound: {fileID: 0}
   deletePartSound: {fileID: 0}
@@ -936,6 +939,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Slot: {fileID: 1796572086390300456, guid: 40965d109c6ebcd49ac56e6bb1fa2e85, type: 3}
+  ErrorSprite: {fileID: 21300000, guid: 43ffa2e6883523d4e83342eab67eb9d2, type: 3}
+  SelectedSprite: {fileID: 21300000, guid: 43c46740a13584544a101ad5d3b96834, type: 3}
+  PlacedSprite: {fileID: 21300000, guid: 8f8da158be6bd4a4584e8d8ef80ced89, type: 3}
   UISlotsHolder: {fileID: 130602057}
   placeSound: {fileID: 8300000, guid: 17140b36f8183ab4a914805113a4b5b0, type: 3}
   deletePartSound: {fileID: 8300000, guid: c22a6f837059477459926910414afc1b, type: 3}

@@ -57,6 +57,7 @@ public class BuildingArea_Riley : MonoBehaviour
                     Vector2 Spawnplace = new Vector2((int)xPos + 0.5f, (int)yPos + 0.5f);
                     Slot.transform.position = Spawnplace;
             }
+            
             if(!buildArea.GetComponent<BuildAreaTest>().CanMerge(Slot, new Vector2(xPos - minX, yPos - minY)))
             {
                 Cell[] cells = Slot.GetComponentsInChildren<Cell>();
@@ -79,6 +80,7 @@ public class BuildingArea_Riley : MonoBehaviour
                     }
                 }
             }
+            
         }
     }
 

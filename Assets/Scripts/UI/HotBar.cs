@@ -63,6 +63,7 @@ public class HotBar : MonoBehaviour
             }
         }
     }
+    
     public void setBar()
     {
         if (bar[index] != null)
@@ -70,6 +71,7 @@ public class HotBar : MonoBehaviour
             anything.GetComponent<BuildingArea_Riley>().SetSlot(bar[index]);
         }
     }
+    
     public void DeleteIndex()
     {
         bar[index] = null;
