@@ -16,10 +16,9 @@ public class EndLevelZoneLoader : MonoBehaviour
     void Start()
     {
         sceneloadtrigger = GetComponent<SceneLoadTrigger>();
-        playButton.onClick.AddListener(PlayGame);
     }
 
-    void PlayGame()
+    public void PlayGame()
     {
         //Bool for when next scene load has been triggered
         nextSceneLoadStart = true;

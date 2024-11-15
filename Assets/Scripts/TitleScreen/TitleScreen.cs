@@ -27,7 +27,7 @@ public class TitleScreenController : MonoBehaviour
             creditsPanel.SetActive(false);
 
         // Display random splash text
-        ShowRandomSplashText();
+        RandomSplashText();
     }
 
     // Called when Play is clicked
@@ -44,7 +44,7 @@ public class TitleScreenController : MonoBehaviour
     }
 
     // Show random splash text
-    private void ShowRandomSplashText()
+    private void RandomSplashText()
     {
         splashText.text = ""; // Sets the text to nothing upon loading
         if (splashTexts.Length > 0)
