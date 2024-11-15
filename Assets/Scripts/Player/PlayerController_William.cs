@@ -252,6 +252,7 @@ public class PlayerController_Willliam : MonoBehaviour
                 }
             }
             setSlotIndex(currSlotSelected);
+           
         }
         
     }
@@ -262,6 +263,7 @@ public class PlayerController_Willliam : MonoBehaviour
             hotBarUI.HotBarNumSlots[currentBuildZone.GetComponent<HotBar>().index].GetComponent<TextMeshProUGUI>().color = Color.white;
             currentBuildZone.GetComponent<HotBar>().SetIndex(slotIndex - 1);
             hotBarUI.HotBarNumSlots[slotIndex - 1].GetComponent<TextMeshProUGUI>().color = Color.yellow;
+            hotBarUI.GetComponent<HotBarUI>().UpdateUI(slotIndex-1);
         }
        
         //.gameObject.GetComponent<TMP_Text>().VertexColor=VertexColorCycler(vector3(0.96f, 0.66f, 0.22f));

@@ -18,6 +18,8 @@ public class HotBarUI : MonoBehaviour
     public GameObject[] HotBarNumSlots = new GameObject[9];
     public GameObject SlotUIHolder;
     public GameObject player;
+    public Sprite[] sprites = new Sprite[9];
+    public GameObject HotBarImage;
     //public Sprite NewThing;
     // Start is called before the first frame update
     void Start()
@@ -99,7 +101,10 @@ public class HotBarUI : MonoBehaviour
         HotBarSlots[index].gameObject.GetComponent<Image>().color = Color.white;
         Debug.Log("Test");
     }
-
-
+    public void UpdateUI(int index)
+    {
+        sprite = sprites[index];
+        HotBarImage.gameObject.GetComponent<Image>().sprite = sprite;
+    }
 
 }
