@@ -541,6 +541,7 @@ GameObject:
   - component: {fileID: 292615963}
   - component: {fileID: 292615965}
   - component: {fileID: 292615966}
+  - component: {fileID: 292615967}
   m_Layer: 0
   m_Name: cinemachineCam
   m_TagString: Untagged
@@ -567,7 +568,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 859303260}
+  m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 4
@@ -630,6 +631,19 @@ MonoBehaviour:
   m_Offset: {x: 0, y: 1, z: 0}
   m_ApplyAfter: 1
   m_PreserveComposition: 0
+--- !u!114 &292615967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292615962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1acdcc04579064949a44b79227e4568c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  followTarget: {fileID: 365843771}
 --- !u!1001 &301392820
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2907,11 +2921,6 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!4 &859303260 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1005390596984356924, guid: 4c2433ff525ec0b448d0fbc890bdd58d, type: 3}
-  m_PrefabInstance: {fileID: 1771003556}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &957027130
 GameObject:
   m_ObjectHideFlags: 0

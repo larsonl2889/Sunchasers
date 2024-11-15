@@ -7,9 +7,11 @@ public class Fan : MonoBehaviour
     // Start is called before the first frame update
     public int fanForce;
     public bool isOn = false;
+    
     void Start()
     {
-        Debug.Log("WHAT");
+       
+       
     }
 
     // Update is called once per frame
@@ -20,6 +22,7 @@ public class Fan : MonoBehaviour
     public void changeState()
     {
         isOn = !isOn;
+        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

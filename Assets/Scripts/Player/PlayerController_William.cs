@@ -33,7 +33,7 @@ public class PlayerController_Willliam : MonoBehaviour
     public int currSlotSelected = 1;
     public GameObject UI;
     public HotBarUI hotBarUI = null;
-    
+    public Vector3 camOffset = new Vector3(0,1,0);
 
     private void Awake()
     {
@@ -58,7 +58,7 @@ public class PlayerController_Willliam : MonoBehaviour
     private void Start()
     {
 
-        
+        Cam.changeFollowTarget(this.gameObject);
 
         playerControls.Player.Interact.performed += interact;
         playerControls.Player.Down.performed += GoDownPlatform;
@@ -302,6 +302,7 @@ public class PlayerController_Willliam : MonoBehaviour
             hotBarUI.updateImages();
             isBuilding = true;
             hotBarUI.gameObject.GetComponent<Canvas>().enabled = true;
+            Cam.changeFollowTarget(currentBuildZone);
         }
     }
     private void OnTriggerExit2D(Collider2D other)
@@ -320,6 +321,7 @@ public class PlayerController_Willliam : MonoBehaviour
             hotBarUI.updateImages();
             isBuilding = false;
             hotBarUI.gameObject.GetComponent<Canvas>().enabled = false;
+            Cam.changeFollowTarget(this.gameObject);
         }
     }
    
