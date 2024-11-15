@@ -291,6 +291,14 @@ PrefabInstance:
       propertyPath: yPos
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7779811428497453959, guid: 899cbb789bb52044fadb0ec4e6559c9f, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7779811428497453959, guid: 899cbb789bb52044fadb0ec4e6559c9f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
