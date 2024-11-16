@@ -3975,6 +3975,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fan
       objectReference: {fileID: 0}
+    - target: {fileID: 3182016274062181384, guid: 3c04e2da7f891954c938122fb6ef1eb2, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 6c9435d9c89f74341886f4e7047f1238, type: 2}
     - target: {fileID: 3281039758264664124, guid: 3c04e2da7f891954c938122fb6ef1eb2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14
@@ -4017,7 +4021,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4144202810991686179, guid: 3c04e2da7f891954c938122fb6ef1eb2, type: 3}
       propertyPath: isOn
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4144202810991686179, guid: 3c04e2da7f891954c938122fb6ef1eb2, type: 3}
       propertyPath: fanForce
