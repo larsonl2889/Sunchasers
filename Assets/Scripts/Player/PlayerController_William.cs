@@ -35,6 +35,7 @@ public class PlayerController_Willliam : MonoBehaviour
     public HotBarUI hotBarUI = null;
     public Vector3 camOffset = new Vector3(0,1,0);
     public float zoom = 4;
+    public GameObject cam;
 
     private void Awake()
     {
@@ -45,6 +46,7 @@ public class PlayerController_Willliam : MonoBehaviour
         playerPlatformHandler = GetComponent<PlayerPlatformHandler>();
         objectsNear = new Stack<GameObject>();
         hotBarUI.player = this.gameObject;
+        
         
     }
     private void OnEnable()
@@ -59,8 +61,7 @@ public class PlayerController_Willliam : MonoBehaviour
     private void Start()
     {
 
-        Cam.changeFollowTarget(this.gameObject);
-
+        
         playerControls.Player.Interact.performed += interact;
         playerControls.Player.Down.performed += GoDownPlatform;
         playerControls.Player.Click.performed += OnClick;
@@ -227,6 +228,7 @@ public class PlayerController_Willliam : MonoBehaviour
      
     public void scroll(InputAction.CallbackContext context)
     {
+        Debug.Log("yes");
         if (currentBuildZone != null)
         {
             float value = context.ReadValue<float>();
@@ -303,7 +305,7 @@ public class PlayerController_Willliam : MonoBehaviour
             hotBarUI.updateImages();
             isBuilding = true;
             hotBarUI.gameObject.GetComponent<Canvas>().enabled = true;
-            Cam.changeFollowTarget(currentBuildZone);
+            cam.GetComponent<Cam>().changeFollowTarget(currentBuildZone);
         }
     }
     private void OnTriggerExit2D(Collider2D other)
@@ -322,7 +324,7 @@ public class PlayerController_Willliam : MonoBehaviour
             hotBarUI.updateImages();
             isBuilding = false;
             hotBarUI.gameObject.GetComponent<Canvas>().enabled = false;
-            Cam.changeFollowTarget(this.gameObject);
+            cam.GetComponent<Cam>().changeFollowTarget(this.gameObject);
         }
     }
    

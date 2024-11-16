@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3945482055475026010}
   - component: {fileID: 4613760430123586314}
+  - component: {fileID: 8178364077235218741}
   m_Layer: 0
   m_Name: BuildArea
-  m_TagString: Untagged
+  m_TagString: buildWorkshop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,9 +46,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f31094120ea2e704db90da935e2c696c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scale: 5
-  xPos: 0
-  yPos: 1
+  emptyCell: {fileID: 4436004687172942411, guid: a659f59ff8a797e4db971d9eff3ef8b4, type: 3}
+  badCell: {fileID: 3838098990102560207, guid: 63619360d97ea3447a373035a45470b8, type: 3}
+  startingPart: {fileID: 1796572086390300456, guid: 40965d109c6ebcd49ac56e6bb1fa2e85, type: 3}
+  scale: 9
+  xPos: 6
+  yPos: 8
+  SourceLocation: {x: 1, y: 8}
+  ObjectiveLocation: {x: 4, y: 8}
+--- !u!114 &8178364077235218741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533955204539024251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88e52491b21b44c459560cff70896be5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectiveIsOn: 0
+  activator:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Door, Assembly-CSharp
+        m_MethodName: open
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  deactivator:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2550025435602192417
 GameObject:
   m_ObjectHideFlags: 0
@@ -59,7 +96,10 @@ GameObject:
   - component: {fileID: 8921460082372699549}
   - component: {fileID: 8137689571561662768}
   - component: {fileID: 5566332845503092748}
+  - component: {fileID: 7336256261307187145}
   - component: {fileID: 3614276931606973988}
+  - component: {fileID: 6778021382238008959}
+  - component: {fileID: 4137482338389702608}
   m_Layer: 0
   m_Name: BuildMat
   m_TagString: buildWorkshop
@@ -124,7 +164,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -146,6 +186,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea430ad8143b8ae4cbf2b74879a97a7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7336256261307187145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2550025435602192417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1615b3176c634024c954eb275a021691, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Slot: {fileID: 1796572086390300456, guid: 40965d109c6ebcd49ac56e6bb1fa2e85, type: 3}
+  UISlotsHolder: {fileID: 0}
+  placeSound: {fileID: 8300000, guid: 17140b36f8183ab4a914805113a4b5b0, type: 3}
+  deletePartSound: {fileID: 8300000, guid: c22a6f837059477459926910414afc1b, type: 3}
+  camOffset: {x: 0, y: -1, z: 0}
+  camZoom: 5
 --- !u!61 &3614276931606973988
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -191,3 +249,61 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &6778021382238008959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2550025435602192417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6582644d5e6b354ca83f9de4fa899d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactAction:
+    m_PersistentCalls:
+      m_Calls: []
+  onEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  onExit:
+    m_PersistentCalls:
+      m_Calls: []
+  promptPrefab: {fileID: 0}
+  promptPosOffset: 1
+--- !u!114 &4137482338389702608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2550025435602192417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57c619aebd1d9964fa109b442a8d1277, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bar:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  bar2:
+  - {fileID: 1796572086390300456, guid: b860acdff0d59be4493110588ebf6129, type: 3}
+  - {fileID: 1796572086390300456, guid: 69b93f0cb9878ad468d52fcfa7593b18, type: 3}
+  - {fileID: 1796572086390300456, guid: d0a0af1bf522d29458ae8b61eed72d1e, type: 3}
+  - {fileID: 1796572086390300456, guid: 7eb2f78123f76ab449df33b0afea795f, type: 3}
+  - {fileID: 1796572086390300456, guid: d12e8beae89c71b418c8e00bd9f718d6, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  index: 0
+  Repairindex: 0
+  badPartStorage: {fileID: 0}
