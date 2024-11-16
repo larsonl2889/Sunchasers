@@ -31,24 +31,26 @@ public class Cam : MonoBehaviour
         Vector3 newPosition = newTarget.transform.position;
 
         // Tween to move smoothly to the new target's position
-        DOTween.To(() => currentPosition,x => cam.transform.position = x,newPosition,.5f).SetEase(Ease.InOutQuad).OnComplete(() =>
+        DOTween.To(() => currentPosition,x => cam.transform.position = x,newPosition,.1f).SetEase(Ease.InOutQuad).OnComplete(() =>
                {
                    // After reaching the new target, set the Follow property
                    cam.Follow = newTarget.transform;
-
-                   
-                   if (newTarget.CompareTag("Player"))
-                   {
-                       updateOffset(newTarget.GetComponent<PlayerController_Willliam>().camOffset);
-                       updateZoom(newTarget.GetComponent<PlayerController_Willliam>().zoom);
-                   }
-                   else
-                   {
-                       updateOffset(newTarget.GetComponent<BuildingArea_Riley>().camOffset);
-                       updateZoom(newTarget.GetComponent<BuildingArea_Riley>().camZoom);
-                   }
-                   
                });
+
+
+        if (newTarget.CompareTag("Player"))
+        {
+            updateOffset(newTarget.GetComponent<PlayerController_Willliam>().camOffset);
+            updateZoom(newTarget.GetComponent<PlayerController_Willliam>().zoom);
+        }
+        else
+        {
+            updateOffset(newTarget.GetComponent<BuildingArea_Riley>().camOffset);
+            updateZoom(newTarget.GetComponent<BuildingArea_Riley>().camZoom);
+        }
+
+
+
     }
     public void updateOffset(Vector3 offset)
     {
