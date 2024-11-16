@@ -26,17 +26,13 @@ public class Cam : MonoBehaviour
     }
     public void changeFollowTarget(GameObject newTarget)
     {
-        // Store the current target position and the new target position
         Vector3 currentPosition = cam.transform.position;
         Vector3 newPosition = newTarget.transform.position;
 
-        // Tween to move smoothly to the new target's position
         DOTween.To(() => currentPosition,x => cam.transform.position = x,newPosition,.1f).SetEase(Ease.InOutQuad).OnComplete(() =>
                {
-                   // After reaching the new target, set the Follow property
                    cam.Follow = newTarget.transform;
                });
-
 
         if (newTarget.CompareTag("Player"))
         {
