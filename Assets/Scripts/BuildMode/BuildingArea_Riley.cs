@@ -19,6 +19,8 @@ public class BuildingArea_Riley : MonoBehaviour
     Stack<GameObject> SlotHolder;
     [SerializeField] private AudioClip placeSound;
     [SerializeField] private AudioClip deletePartSound;
+    public Vector3 camOffset = Vector3.zero;
+    public float camZoom = 0;
 
     //void RepairSlots()
     //{

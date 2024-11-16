@@ -34,6 +34,7 @@ public class PlayerController_Willliam : MonoBehaviour
     public GameObject UI;
     public HotBarUI hotBarUI = null;
     public Vector3 camOffset = new Vector3(0,1,0);
+    public float zoom = 4;
 
     private void Awake()
     {

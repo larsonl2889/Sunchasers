@@ -2,6 +2,7 @@ using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Cam : MonoBehaviour
 {
@@ -27,12 +28,12 @@ public class Cam : MonoBehaviour
         if (newtarget.CompareTag("Player"))
         {
             updateOffset(newtarget.GetComponent<PlayerController_Willliam>().camOffset);
-            updateZoom(4);
+            updateZoom(newtarget.GetComponent<PlayerController_Willliam>().zoom);
         }
         else
         {
-            updateOffset(new Vector3(0,-1,0));
-            updateZoom(5);
+            updateOffset(newtarget.GetComponent<BuildingArea_Riley>().camOffset);
+            updateZoom(newtarget.GetComponent<BuildingArea_Riley>().camZoom);
         }
         
     }
@@ -40,8 +41,9 @@ public class Cam : MonoBehaviour
     {
         camOffset.m_Offset = offset;
     }
-    public static void updateZoom(float size)
+    public static void updateZoom(float targetZoom)
     {
-        cam.m_Lens.OrthographicSize = size;
+        DOTween.To(() => cam.m_Lens.OrthographicSize, x => cam.m_Lens.OrthographicSize = x,targetZoom, 1f).SetEase(Ease.InOutQuad);
+
     }
 }

@@ -283,6 +283,8 @@ MonoBehaviour:
   UISlotsHolder: {fileID: 0}
   placeSound: {fileID: 0}
   deletePartSound: {fileID: 0}
+  camOffset: {x: 0, y: 0, z: 0}
+  camZoom: 0
 --- !u!1 &88313433 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3345688009113088830, guid: 81886acb3d04c3b49b2c2bddb9998f03, type: 3}
@@ -898,6 +900,8 @@ MonoBehaviour:
   UISlotsHolder: {fileID: 130602057}
   placeSound: {fileID: 8300000, guid: 17140b36f8183ab4a914805113a4b5b0, type: 3}
   deletePartSound: {fileID: 8300000, guid: c22a6f837059477459926910414afc1b, type: 3}
+  camOffset: {x: 0, y: -1, z: 0}
+  camZoom: 5
 --- !u!114 &407347148
 MonoBehaviour:
   m_ObjectHideFlags: 0
