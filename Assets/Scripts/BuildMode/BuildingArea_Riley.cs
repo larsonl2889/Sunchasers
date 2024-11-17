@@ -21,22 +21,6 @@ public class BuildingArea_Riley : MonoBehaviour
     [SerializeField] private AudioClip placeSound;
     [SerializeField] private AudioClip deletePartSound;
 
-    public void RotateRight()
-    {
-        RotateCurrentPart(Direction.RIGHT);
-    }
-
-    public void RotateLeft() 
-    {
-        RotateCurrentPart(Direction.LEFT);
-    }
-    private void RotateCurrentPart(Direction dir)
-    {
-        if ( Slot != null)
-        {
-            Slot = DirectionOperator.RotatePart(Slot, dir);
-        }
-    }
 
     //void RepairSlots()
     //{

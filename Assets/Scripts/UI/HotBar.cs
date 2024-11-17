@@ -1,3 +1,4 @@
+using DirectionOps;
 using Parts;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,6 +12,12 @@ public class HotBar : MonoBehaviour
     public int index = new int();
     public int Repairindex;
     public GameObject badPartStorage;
+
+    public void RotateGivenPart(int slotIndex, Direction dir)
+    {
+        bar[slotIndex] = DirectionOperator.RotatePart(bar[slotIndex], dir);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +29,7 @@ public class HotBar : MonoBehaviour
                 if (bar2[i] != null)
                 {
                     bar[i] = Instantiate(bar2[i], badPartStorage.transform.position, transform.rotation);
+                    bar[i].GetComponent<Part>().FormTable();
                 }
                 else
                 {
