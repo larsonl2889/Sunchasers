@@ -34,9 +34,8 @@ namespace DirectionOps
 
         public static GameObject RotatePart(GameObject partObject, Direction dir)
         {
-            Debug.Log("Called DirectionOperator.RotatePart()");
             Part part = partObject.GetComponent<Part>();
-            LookupTable<GameObject> newTable = new (part.tableSize, part.tableSize);
+            LookupTable<GameObject> newTable = new LookupTable<GameObject>(part.table.x_size, part.table.y_size);
             // iterate over all the cell objects in this table.
             for (int i_x = 0; i_x < newTable.x_size; i_x++)
             {
@@ -45,63 +44,33 @@ namespace DirectionOps
                     // calculate new position
                     Vector2 new_pos = dir.ApplyRotation((new Vector2(i_x, i_y) - part.GetPivot())) + part.GetPivot();
                     // Calculate the list of connection directions...
-                    List<Vector2> vecsList = new();
-
-                    // debug stuff TODO
-                    GameObject CellObject = part.table.Get(i_x, i_y);
-                    Cell CellData = CellObject.GetComponent<Cell>();
-                    GameObject BlockObject = CellData.GetBlock();
-                    if (BlockObject != null)
+                    List<Vector2> vecsList = part.table.Get(i_x, i_y).GetComponent<Cell>().GetBlock().GetComponent<Block>().GetAllLinksList();
+                    List<Direction> dirList = new();
+                    int variant = part.table.Get(i_x, i_y).GetComponent<Cell>().GetBlock().GetComponent<Block>().GetVariant();
+                    foreach (Vector2 v in vecsList)
                     {
-                        Block BlockData;
-                        try
-                        {
-                            BlockData = BlockObject.GetComponent<Block>();
-                            vecsList = BlockData.GetAllLinksList();
-                        }
-                        catch (Exception e)
-                        {
-                            Debug.LogError("Failed getting BlockData, DirectionOperator.RotatePart(), Cell = " + CellObject.name + "\n" + e.Message);
-                        }
-
-                        // actual statement
-                        vecsList = part.table.Get(i_x, i_y).GetComponent<Cell>().GetBlock().GetComponent<Block>().GetAllLinksList();
-
-
-                        List<Direction> dirList = new();
-                        int variant = part.table.Get(i_x, i_y).GetComponent<Cell>().GetBlock().GetComponent<Block>().GetVariant();
-                        foreach (Vector2 v in vecsList)
-                        {
-                            dirList.Add(v.ToDirection());
-                        }
-                        // ... And use it to calculate the new index
-                        int mathIndex = PipeIndexer.DirectionsToMathIndex(dirList);
-                        GameObject newCellObject;
-                        // if the object is a pipe
-                        if (mathIndex > 0)
-                        {
-                            // Make the game object
-                            newCellObject = PipeIndexer.Instantiate(mathIndex, variant);
-                        }
-                        // if the object is not a pipe
-                        else
-                        {
-                            // Just don't rotate it if it's not a pipe.
-                            newCellObject = GameObject.Instantiate(part.table.Get(i_x, i_y));
-                        }
-                        // Move it and update position...
-                        //      ... in engine
-                        newCellObject.transform.position = new_pos;
-                        //      ... in data
-                        newCellObject.GetComponent<Cell>().pos = new_pos;
+                        dirList.Add(v.ToDirection());
                     }
+                    // ... And use it to calculate the new index
+                    int mathIndex = PipeIndexer.DirectionsToMathIndex(dirList);
+                    GameObject newCellObject;
+                    // if the object is a pipe
+                    if (mathIndex > 0)
+                    {
+                        // Make the game object
+                        newCellObject = PipeIndexer.Instantiate(mathIndex, variant);
+                    }
+                    // if the object is not a pipe
                     else
                     {
-                        // do nothing lol :)
-                        Debug.Log("DirectionOperator.RotatePart() ... Did nothing on (" + i_x + ", " + i_y + ")");
+                        // Just don't rotate it if it's not a pipe.
+                        newCellObject = GameObject.Instantiate(part.table.Get(i_x, i_y));
                     }
-                    
-                    
+                    // Move it and update position...
+                    //      ... in engine
+                    newCellObject.transform.position = new_pos;
+                    //      ... in data
+                    newCellObject.GetComponent<Cell>().pos = new_pos;
 
                 }
             }

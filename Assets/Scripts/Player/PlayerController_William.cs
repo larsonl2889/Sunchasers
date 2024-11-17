@@ -9,7 +9,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro.Examples;
 using TMPro;
-using DirectionOps;
 
 public class PlayerController_Willliam : MonoBehaviour
 {
@@ -54,27 +53,19 @@ public class PlayerController_Willliam : MonoBehaviour
         playerControls.Disable();
     }
 
-    public void RotateLeft(InputAction.CallbackContext context)
+    public void RotateLeft()
     {
-        Debug.Log("Calling PlayerController_William.RotateLeft()");
-        if (currentBuildZone != null)
-        {
-            RotateCurrentPart(Direction.LEFT);
+        if (currentBuildZone != null) 
+        { 
+            currentBuildZone.GetComponent<BuildingArea_Riley>().RotateLeft(); 
         }
     }
-
-    public void RotateRight(InputAction.CallbackContext context)
+    public void RotateRight()
     {
-        Debug.Log("Calling PlayerController_William.RotateRight()");
         if (currentBuildZone != null)
         {
-            RotateCurrentPart(Direction.RIGHT);
+            currentBuildZone.GetComponent<BuildingArea_Riley>().RotateRight();
         }
-    }
-
-    public void RotateCurrentPart(Direction dir)
-    {
-        currentBuildZone.GetComponent<HotBar>().RotateGivenPart(currSlotSelected, dir);
     }
 
     private void Start()
@@ -88,7 +79,7 @@ public class PlayerController_Willliam : MonoBehaviour
         playerControls.Player.RightClick.performed += OnRightClick;
         playerControls.Player.HotBar.performed += selectSlot;
         playerControls.Player.Pause.performed += pause;
-        playerControls.Player.Rotate.performed += RotateLeft;
+
 
     }
 
