@@ -176,8 +176,8 @@ public class PlayerController_Willliam : MonoBehaviour
             if (currentBuildZone != null && !isMouseOverUI())//currentBuildZone.GetComponent<HotBar>().GetIndex()!=null
             {
                 //Checks to see if the index at bar has a object before trying to place the bar at index.
-                if (currentBuildZone.GetComponent<HotBar>().bar[currentBuildZone.GetComponent<HotBar>().index] != null) {
-                    currentBuildZone.GetComponent<HotBar>().setBar();
+                if (currentBuildZone.GetComponent<BuildingArea_Riley>().Slot != null) {
+                    //currentBuildZone.GetComponent<HotBar>().setBar();
                     currentBuildZone.GetComponent<BuildingArea_Riley>().build();
                 }
                 
@@ -198,7 +198,7 @@ public class PlayerController_Willliam : MonoBehaviour
 
         if (currentBuildZone != null && !isMouseOverUI())
         {
-            if(rayHit.collider.gameObject.CompareTag("Part"))
+            if(rayHit.collider.gameObject.CompareTag("Part") && currentBuildZone.GetComponent<BuildingArea_Riley>().Slot == null)
             {
                 hotBarUI.RemoveUISlot(rayHit.collider.gameObject);
                 currentBuildZone.GetComponent<BuildingArea_Riley>().delete(rayHit.collider.gameObject);
@@ -212,9 +212,19 @@ public class PlayerController_Willliam : MonoBehaviour
        // text.color = Color.yellow;
         if (currentBuildZone != null)
         {
+            if (currentBuildZone.GetComponent<BuildingArea_Riley>().Slot != null)
+            {
+                currentBuildZone.GetComponent<BuildingArea_Riley>().Slot.transform.localPosition = new Vector2(100, 100);
+            }
             currSlotSelected = (int)context.ReadValue<float>();
             setSlotIndex(currSlotSelected);
             
+            hotBarUI.HotBarNumSlots[currentBuildZone.GetComponent<HotBar>().index].GetComponent<TextMeshProUGUI>().color = Color.white;
+            currentBuildZone.GetComponent<HotBar>().SetIndex(currSlotSelected - 1);
+            hotBarUI.HotBarNumSlots[currSlotSelected-1].GetComponent<TextMeshProUGUI>().color = Color.yellow;
+            currentBuildZone.GetComponent<HotBar>().setBar();
+                //.gameObject.GetComponent<TMP_Text>().VertexColor=VertexColorCycler(vector3(0.96f, 0.66f, 0.22f));
+            Debug.Log(currSlotSelected);
         }
         
         
@@ -299,6 +309,15 @@ public class PlayerController_Willliam : MonoBehaviour
         if (other.gameObject.CompareTag("buildWorkshop"))
         {
             currentBuildZone = other.gameObject;
+            BuildAreaTest BAT = currentBuildZone.GetComponentInParent<BuildAreaTest>();
+            GameObject buildArea = BAT.gameObject;
+            Cell[] cells = buildArea.GetComponentsInChildren<Cell>();
+            Debug.Log("Cell Array Has " + cells.Length + " cells");
+            for (int i = 0; i < cells.Length; i++)
+            {
+                Debug.Log("Sprite Stuff Ran " + i);
+                cells[i].GameObject().GetComponent<SpriteRenderer>().enabled = true;
+            }
             hotBarUI.hotbar = currentBuildZone.GetComponent<HotBar>();
             hotBarUI.updateImages();
             isBuilding = true;
@@ -315,7 +334,20 @@ public class PlayerController_Willliam : MonoBehaviour
         }
         if (other.gameObject.CompareTag("buildWorkshop"))
         {
-
+            BuildAreaTest BAT = currentBuildZone.GetComponentInParent<BuildAreaTest>();
+            GameObject buildArea = BAT.gameObject;
+            Cell[] cells = buildArea.GetComponentsInChildren<Cell>();
+            Debug.Log("Cell Array Has " + cells.Length + " cells");
+            for (int i = 0; i < cells.Length; i++)
+            {
+                Debug.Log("Sprite Stuff Ran " + i);
+                cells[i].GameObject().GetComponent<SpriteRenderer>().enabled = false;
+            }
+            if(currentBuildZone.GetComponent<BuildingArea_Riley>().Slot != null)
+            {
+                currentBuildZone.GetComponent<BuildingArea_Riley>().Slot.transform.localPosition = new Vector2(100, 100);
+            }
+            currentBuildZone.GetComponent<BuildingArea_Riley>().Slot = null;
             currentBuildZone = null;
             hotBarUI.hotbar = null;
             hotBarUI.updateImages();

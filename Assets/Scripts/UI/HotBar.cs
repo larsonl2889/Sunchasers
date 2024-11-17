@@ -24,6 +24,7 @@ public class HotBar : MonoBehaviour
                 {
                     bar[i] = Instantiate(bar2[i], badPartStorage.transform.position, transform.rotation);
                     bar[i].GetComponent<Part>().SetIndex(i);
+                    bar[i].GetComponent<Part>().FormTable();
                 }
                 else
                 {
@@ -65,6 +66,7 @@ public class HotBar : MonoBehaviour
         //    }
         //}
     }
+    
     public void setBar()
     {
         if (bar[index] != null)
@@ -72,6 +74,7 @@ public class HotBar : MonoBehaviour
             anything.GetComponent<BuildingArea_Riley>().SetSlot(bar[index]);
         }
     }
+    
     public void DeleteIndex()
     {
         bar[index] = null;
