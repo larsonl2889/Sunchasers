@@ -23,6 +23,7 @@ public class HotBar : MonoBehaviour
         {
             bar[index] = DirectionOperator.RotatePart(bar[index], dir);
             setBar();
+            //GetComponent<BuildingArea_Riley>().build();
         }
     }
 
