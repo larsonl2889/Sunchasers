@@ -1,3 +1,5 @@
+// https://www.reddit.com/r/Unity2D/comments/rebv6g/i_made_a_tutorial_on_how_to_fade_tofrom_a_load/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,8 +24,8 @@ public class LoadNewScene : MonoBehaviour
     float loadTextTimer = 0f;
     float fadeTimer = 0f;
     //Text gameobject
-    public TextMeshProUGUI loadingTextBox;
-    public TextMeshProUGUI percentLoaded;
+    public TextMeshProUGUI loadingTextBox; // Sets the loading text box | Loading...
+    public TextMeshProUGUI percentLoaded;  // Sets the loading percent text | 0%
     //Fade
     public CanvasGroup canvasGroup;
     bool fadeInLoad = true;
@@ -106,7 +108,6 @@ public class LoadNewScene : MonoBehaviour
             }
         }
 
-
         //Set text based on load time
         if (loadTextTimer < textChangeLoad)
         {
@@ -129,8 +130,6 @@ public class LoadNewScene : MonoBehaviour
             loadTextTimer = 0f;
         }
 
-
-
         //Increment load timer for changing text
         loadTextTimer += Time.deltaTime;
 
@@ -139,7 +138,5 @@ public class LoadNewScene : MonoBehaviour
 
         //Increment total load timer
         fadeTimer += Time.deltaTime;
-
     }
-
 }

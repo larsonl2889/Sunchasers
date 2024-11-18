@@ -1860,6 +1860,7 @@ MonoBehaviour:
   - Also known as Slunchmacers!
   - '"It worked on my machine!"'
   - getNull
+  - return GetComponent<Part>().table.Get(x, y).GetComponent<Cell>().GetBlock().GetComponent<Block>().IsOn();
   creditsPanel: {fileID: 1596152181}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

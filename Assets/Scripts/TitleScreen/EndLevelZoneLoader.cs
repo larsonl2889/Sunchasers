@@ -1,3 +1,5 @@
+// https://www.reddit.com/r/Unity2D/comments/rebv6g/i_made_a_tutorial_on_how_to_fade_tofrom_a_load/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +7,7 @@ using UnityEngine.UI;
 
 public class EndLevelZoneLoader : MonoBehaviour
 {
-    //Next level loader
+    // Next level loader
     public Button playButton; // Start button
     public SceneLoadTrigger sceneloadtrigger;
     [SerializeField] float waitTimeLoad = 0f;
@@ -32,12 +34,12 @@ public class EndLevelZoneLoader : MonoBehaviour
         }
     }
     */
+
+    // Called when the start button is clicked
     public void PlayGame()
     {
-        Debug.Log("Achoo");
         //Bool for when next scene load has been triggered
         nextSceneLoadStart = true;
-        
 
         //Start coroutine that loads next level
         StartCoroutine(LoadNextonTime(waitTimeLoad));

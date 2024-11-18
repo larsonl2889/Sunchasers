@@ -29,6 +29,7 @@ public class TitleScreenController : MonoBehaviour
         RandomSplashText();
     }
 
+    // Old code for the play button - not used with the new loading screen
     // Called when Play is clicked
     /*public void PlayGame()
     {
