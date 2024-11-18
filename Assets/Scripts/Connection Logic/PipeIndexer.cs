@@ -10,7 +10,7 @@ public static class PipeIndexer
     /// The 16-element array of pipe prefab instances, in order of their math indecies.
     /// </summary>
     public static GameObject[] pipes;
-    public static Sprite[] pipeSprites;
+    public static List<Sprite[]> pipeSpritesVariations;
 
     // math indecies
     /*  0=none   1=u     2=l     3=lu
@@ -20,16 +20,15 @@ public static class PipeIndexer
      */
     // Actual indecies depend on the order of the sprites in the sprite sheet.
 
-    internal static void GenerateData(GameObject[] new_pipes, Sprite[] new_pipeSprites)
+    internal static void GenerateData(GameObject[] new_pipes, List<Sprite[]> new_pipeSpritesVariations)
     {
         pipes = new_pipes;
-        pipeSprites = new_pipeSprites;
+        pipeSpritesVariations = new_pipeSpritesVariations;
     }
 
-    internal static Sprite GetSprite(int mathIndex, int variant = 0)
+    internal static Sprite SelectSprite(int mathIndex, int variant=0)
     {
-        //return pipeSpriteVariants[variant, mathIndex];
-        return pipeSprites[mathIndex];
+        return pipeSpritesVariations[variant][mathIndex];
     }
 
     /// <summary>
@@ -42,7 +41,7 @@ public static class PipeIndexer
     public static GameObject Instantiate(int mathIndex, Transform parent, int variant=0)
     {
         GameObject obj = GameObject.Instantiate(pipes[mathIndex], parent);
-        obj.GetComponent<SpriteRenderer>().sprite = GetSprite(mathIndex, variant);
+        obj.GetComponent<SpriteRenderer>().sprite = SelectSprite(mathIndex, variant);
         return obj;
     }
 
@@ -52,7 +51,7 @@ public static class PipeIndexer
     /// </summary>
     /// <param name="mathIndex">The math index of the </param>
     /// <returns>Sprite index. May return -1 if there is no corresponding pipe.</returns>
-    internal static int MathToSprite(int mathIndex)
+    internal static int MathIndexToSpriteIndex(int mathIndex)
     {
         return mathIndex switch
         {
@@ -111,7 +110,11 @@ public static class PipeIndexer
         return greatestAddend + leastAddend;
     }
 
-
+    /// <summary>
+    /// Converts from a List of Directions to the math index of the pipe.
+    /// </summary>
+    /// <param name="dirs">List of directions</param>
+    /// <returns>math index of the pipe</returns>
     internal static int DirectionsToMathIndex(List<Direction> dirs)
     {
         int index = 0;

@@ -8,6 +8,8 @@ using DirectionOps;
 // Last updated 18 Nov 2024
 // Last result: 18 Nov 2024, all tests PASSED
 
+// NOTE: Only the mathIndex rotation is tested here.
+
 public class PipeIndexTest : MonoBehaviour
 {
     // Start is called before the first frame update

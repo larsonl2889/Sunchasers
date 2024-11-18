@@ -14255,6 +14255,46 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3045463156599494192, guid: 103a7dc85ab0f9a42bac1ab4e33936c3, type: 3}
+      propertyPath: pipeSprites1.Array.size
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 3045463156599494192, guid: 103a7dc85ab0f9a42bac1ab4e33936c3, type: 3}
+      propertyPath: pipeSprites1.Array.data[8]
+      value: 
+      objectReference: {fileID: -1969095914, guid: 8c8a1efa2148da9478b8ffe25f7efba9, type: 3}
+    - target: {fileID: 3045463156599494192, guid: 103a7dc85ab0f9a42bac1ab4e33936c3, type: 3}
+      propertyPath: pipeSprites1.Array.data[9]
+      value: 
+      objectReference: {fileID: 886858472, guid: 8c8a1efa2148da9478b8ffe25f7efba9, type: 3}
+    - target: {fileID: 3045463156599494192, guid: 103a7dc85ab0f9a42bac1ab4e33936c3, type: 3}
+      propertyPath: pipeSprites1.Array.data[10]
+      value: 
+      objectReference: {fileID: -570560382, guid: 8c8a1efa2148da9478b8ffe25f7efba9, type: 3}
+    - target: {fileID: 3045463156599494192, guid: 103a7dc85ab0f9a42bac1ab4e33936c3, type: 3}
+      propertyPath: pipeSprites1.Array.data[11]
+      value: 
+      objectReference: {fileID: 1065654051, guid: 8c8a1efa2148da9478b8ffe25f7efba9, type: 3}
+    - target: {fileID: 3045463156599494192, guid: 103a7dc85ab0f9a42bac1ab4e33936c3, type: 3}
+      propertyPath: pipeSprites1.Array.data[12]
+      value: 
+      objectReference: {fileID: 1137688926, guid: 8c8a1efa2148da9478b8ffe25f7efba9, type: 3}
+    - target: {fileID: 3045463156599494192, guid: 103a7dc85ab0f9a42bac1ab4e33936c3, type: 3}
+      propertyPath: pipeSprites1.Array.data[13]
+      value: 
+      objectReference: {fileID: 2058331292, guid: 8c8a1efa2148da9478b8ffe25f7efba9, type: 3}
+    - target: {fileID: 3045463156599494192, guid: 103a7dc85ab0f9a42bac1ab4e33936c3, type: 3}
+      propertyPath: pipeSprites1.Array.data[14]
+      value: 
+      objectReference: {fileID: -1374826244, guid: 8c8a1efa2148da9478b8ffe25f7efba9, type: 3}
+    - target: {fileID: 3045463156599494192, guid: 103a7dc85ab0f9a42bac1ab4e33936c3, type: 3}
+      propertyPath: pipeSprites1.Array.data[15]
+      value: 
+      objectReference: {fileID: -860045951, guid: 8c8a1efa2148da9478b8ffe25f7efba9, type: 3}
+    - target: {fileID: 3045463156599494192, guid: 103a7dc85ab0f9a42bac1ab4e33936c3, type: 3}
+      propertyPath: pipeSprites_fresh.Array.size
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 3587047513052890029, guid: 103a7dc85ab0f9a42bac1ab4e33936c3, type: 3}
       propertyPath: m_Name
       value: PipeIndexController
