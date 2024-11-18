@@ -90,9 +90,9 @@ public class PlayerController_Willliam : MonoBehaviour
         playerControls.Player.RightClick.performed += OnRightClick;
         playerControls.Player.HotBar.performed += selectSlot;
         playerControls.Player.Pause.performed += pause;
-        playerControls.Player.Rotate.performed += RotateLeft;
         playerControls.Player.Scroll.performed += scroll;
        
+        playerControls.Player.Rotate.performed += RotateLeft;
 
     }
 
