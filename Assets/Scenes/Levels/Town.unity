@@ -285,6 +285,7 @@ MonoBehaviour:
   deletePartSound: {fileID: 0}
   camOffset: {x: 0, y: 0, z: 0}
   camZoom: 0
+  virtualCamera: {fileID: 0}
 --- !u!1 &88313433 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3345688009113088830, guid: 81886acb3d04c3b49b2c2bddb9998f03, type: 3}
@@ -883,8 +884,8 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
-  orthographic: 1
+  field of view: 30
+  orthographic: 0
   orthographic size: 4
   m_Depth: -1
   m_CullingMask:
