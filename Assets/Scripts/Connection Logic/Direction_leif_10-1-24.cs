@@ -49,6 +49,7 @@ namespace DirectionOps
 
                     // debug stuff TODO
                     GameObject CellObject = part.table.Get(i_x, i_y);
+                    Debug.LogWarning("name @ (" + i_x + ", " + i_y + ") = '" + CellObject.name + "'");
                     Cell CellData = CellObject.GetComponent<Cell>();
                     GameObject BlockObject = CellData.GetBlock();
                     if (BlockObject != null)
