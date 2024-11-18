@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PaperPrototype.unity
     guid: 4d2a4a2df313ce34da395f0c8704e311
+  - enabled: 1
+    path: Assets/Scenes/LoadingScreen.unity
+    guid: 2a99c5e930e30754985d38b1201a4e66
   m_configObjects: {}
