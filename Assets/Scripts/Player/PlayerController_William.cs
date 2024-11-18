@@ -9,6 +9,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro.Examples;
 using TMPro;
+using DirectionOps;
 using JetBrains.Annotations;
 using UnityEngine.EventSystems;
 
@@ -55,6 +56,29 @@ public class PlayerController_Willliam : MonoBehaviour
         playerControls.Disable();
     }
 
+    public void RotateLeft(InputAction.CallbackContext context)
+    {
+        Debug.Log("Calling PlayerController_William.RotateLeft()");
+        if (currentBuildZone != null)
+        {
+            RotateCurrentPart(Direction.LEFT);
+        }
+    }
+
+    public void RotateRight(InputAction.CallbackContext context)
+    {
+        Debug.Log("Calling PlayerController_William.RotateRight()");
+        if (currentBuildZone != null)
+        {
+            RotateCurrentPart(Direction.RIGHT);
+        }
+    }
+
+    public void RotateCurrentPart(Direction dir)
+    {
+        currentBuildZone.GetComponent<HotBar>().RotateGivenPart(dir);
+    }
+
     private void Start()
     {
 
@@ -66,6 +90,7 @@ public class PlayerController_Willliam : MonoBehaviour
         playerControls.Player.RightClick.performed += OnRightClick;
         playerControls.Player.HotBar.performed += selectSlot;
         playerControls.Player.Pause.performed += pause;
+        playerControls.Player.Rotate.performed += RotateLeft;
         playerControls.Player.Scroll.performed += scroll;
        
 
@@ -305,6 +330,7 @@ public class PlayerController_Willliam : MonoBehaviour
             hotBarUI.gameObject.GetComponent<Canvas>().enabled = true;
         }
     }
+
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Interactable"))

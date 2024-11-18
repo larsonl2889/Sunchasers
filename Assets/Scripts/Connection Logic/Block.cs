@@ -23,6 +23,7 @@ namespace Blocks
         public Direction[] directions;
         private List<Vector2> links;
         public bool isSource;
+        public int variant;
         public GameObject gusherParent;
         [SerializeField] private SteamState steamState;
 
@@ -39,6 +40,11 @@ namespace Blocks
             {
                 links.Add(directions[i].ToVector());
             }
+        }
+
+        public int GetVariant()
+        {
+            return variant; // TODO implement!
         }
 
         /// <summary>

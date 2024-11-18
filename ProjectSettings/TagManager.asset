@@ -10,6 +10,8 @@ TagManager:
   - Interactable
   - buildWorkshop
   - Part
+  - PipeIndexer
+  - EmptyPart
   layers:
   - Default
   - TransparentFX
