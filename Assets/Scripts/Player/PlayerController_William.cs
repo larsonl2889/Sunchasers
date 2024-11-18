@@ -74,7 +74,7 @@ public class PlayerController_Willliam : MonoBehaviour
 
     public void RotateCurrentPart(Direction dir)
     {
-        currentBuildZone.GetComponent<HotBar>().RotateGivenPart(currSlotSelected, dir);
+        currentBuildZone.GetComponent<HotBar>().RotateGivenPart(dir);
     }
 
     private void Start()

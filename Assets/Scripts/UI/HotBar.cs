@@ -13,9 +13,17 @@ public class HotBar : MonoBehaviour
     public int Repairindex;
     public GameObject badPartStorage;
 
-    public void RotateGivenPart(int slotIndex, Direction dir)
+    /// <summary>
+    /// Rotates the part at the given index
+    /// </summary>
+    /// <param name="dir">direction to rotate</param>
+    public void RotateGivenPart(Direction dir)
     {
-        bar[slotIndex] = DirectionOperator.RotatePart(bar[slotIndex], dir);
+        if (bar[index] != null)
+        {
+            bar[index] = DirectionOperator.RotatePart(bar[index], dir);
+            setBar();
+        }
     }
 
     // Start is called before the first frame update

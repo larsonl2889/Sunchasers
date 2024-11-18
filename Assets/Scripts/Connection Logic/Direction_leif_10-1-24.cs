@@ -37,6 +37,11 @@ namespace DirectionOps
             List<GameObject> newCellsList = new();
             Debug.Log("Called DirectionOperator.RotatePart()");
             Part part = partObject.GetComponent<Part>();
+            if (part.table == null)
+            {
+                Debug.Log("Forming previously empty table for rotation :)");
+                part.FormTable();
+            }
             GameObject newPartObject = GameObject.Instantiate(emptyPart);
             LookupTable<GameObject> newTable = new (part.tableSize, part.tableSize);
             // iterate over all the cell objects in this table.
