@@ -58,30 +58,35 @@ public class BuildingArea_Riley : MonoBehaviour
                     Vector2 Spawnplace = new Vector2((int)xPos + 0.5f, (int)yPos + 0.5f);
                     Slot.transform.position = Spawnplace;
             }
-            
-            if(!buildArea.GetComponent<BuildAreaTest>().CanMerge(Slot, new Vector2(xPos - minX, yPos - minY)))
+            if(xPos > maxX || xPos < minX || yPos > maxY || yPos < minY)
             {
-                Cell[] cells = Slot.GetComponentsInChildren<Cell>();
-                for (int i = 0; i < cells.Length; i++)
+                Slot.transform.localPosition = new Vector2(100, 100);
+                return;
+            }else
+            {
+                if (!buildArea.GetComponent<BuildAreaTest>().CanMerge(Slot, new Vector2(xPos - minX, yPos - minY)))
                 {
-                    if (!cells[i].isEmpty)
+                    Cell[] cells = Slot.GetComponentsInChildren<Cell>();
+                    for (int i = 0; i < cells.Length; i++)
                     {
-                        cells[i].gameObject.GetComponent<SpriteRenderer>().sprite = ErrorSprite;
+                        if (!cells[i].isEmpty)
+                        {
+                            cells[i].gameObject.GetComponent<SpriteRenderer>().sprite = ErrorSprite;
+                        }
+                    }
+                }
+                else
+                {
+                    Cell[] cells = Slot.GetComponentsInChildren<Cell>();
+                    for (int i = 0; i < cells.Length; i++)
+                    {
+                        if (!cells[i].isEmpty)
+                        {
+                            cells[i].gameObject.GetComponent<SpriteRenderer>().sprite = SelectedSprite;
+                        }
                     }
                 }
             }
-            else
-            {
-                Cell[] cells = Slot.GetComponentsInChildren<Cell>();
-                for (int i = 0; i < cells.Length; i++)
-                {
-                    if (!cells[i].isEmpty)
-                    {
-                        cells[i].gameObject.GetComponent<SpriteRenderer>().sprite = SelectedSprite;
-                    }
-                }
-            }
-            
         }
     }
 
@@ -153,6 +158,7 @@ public class BuildingArea_Riley : MonoBehaviour
         instantiated.transform.localPosition = new Vector3(100, 100, 0);
         instantiated.GetComponent<Part>().FormTable();
         gameObject.GetComponent<HotBar>().repairArray(instantiated);
+        gameObject.GetComponent<HotBar>().setBar();
         part.GetComponentInParent<Part>().Extract();
         SFXManager.instance.playSound(deletePartSound, part.transform, .5f);
 

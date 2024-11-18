@@ -54,8 +54,8 @@ public class HotBar : MonoBehaviour
     }
     public void repairArray(GameObject passedBar)
     {
-        int putIndex = passedBar.GetComponent<Part>().index;
-        bar[putIndex] = passedBar;
+        index = passedBar.GetComponent<Part>().index;
+        bar[index] = passedBar;
         //for(int i = 0; i < 9; i++)
         //{
         //    if (bar[i] == null)

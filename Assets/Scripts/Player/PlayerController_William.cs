@@ -272,8 +272,15 @@ public class PlayerController_Willliam : MonoBehaviour
         if (currentBuildZone != null) {
             hotBarUI.HotBarNumSlots[currentBuildZone.GetComponent<HotBar>().index].GetComponent<TextMeshProUGUI>().color = Color.white;
             currentBuildZone.GetComponent<HotBar>().SetIndex(slotIndex - 1);
+            if(currentBuildZone.GetComponent<BuildingArea_Riley>().Slot != null)
+            {
+                currentBuildZone.GetComponent<BuildingArea_Riley>().Slot.transform.localPosition = new Vector2(100, 100);
+            }
+            currentBuildZone.GetComponent<HotBar>().setBar();
             hotBarUI.HotBarNumSlots[slotIndex - 1].GetComponent<TextMeshProUGUI>().color = Color.yellow;
             hotBarUI.GetComponent<HotBarUI>().UpdateUI(slotIndex-1);
+            //currentBuildZone.GetComponent<BuildingArea_Riley>().SetSlot(hotBarUI.HotBarNumSlots[currentBuildZone.GetComponent<HotBar>().index]);
+
         }
        
         //.gameObject.GetComponent<TMP_Text>().VertexColor=VertexColorCycler(vector3(0.96f, 0.66f, 0.22f));
@@ -318,6 +325,7 @@ public class PlayerController_Willliam : MonoBehaviour
                 Debug.Log("Sprite Stuff Ran " + i);
                 cells[i].GameObject().GetComponent<SpriteRenderer>().enabled = true;
             }
+            currentBuildZone.GetComponent<HotBar>().setBar();
             hotBarUI.hotbar = currentBuildZone.GetComponent<HotBar>();
             hotBarUI.updateImages();
             isBuilding = true;
