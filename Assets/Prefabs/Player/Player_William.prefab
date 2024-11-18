@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a62bc2521beb254a9984934a2c21786, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 4
   jumpForce: 6.9
   isBuilding: 0
   text: {fileID: 0}
@@ -140,7 +140,7 @@ MonoBehaviour:
   UI: {fileID: 0}
   hotBarUI: {fileID: 0}
   camOffset: {x: 0, y: 1, z: 0}
-  zoom: 4
+  zoom: 40
   cam: {fileID: 0}
 --- !u!114 &3203166835970753945
 MonoBehaviour:
@@ -315,7 +315,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.54446244, y: 0.8928348}
+  m_Size: {x: 0.3, y: 0.8928348}
   m_EdgeRadius: 0
 --- !u!114 &3125312214202833633
 MonoBehaviour:

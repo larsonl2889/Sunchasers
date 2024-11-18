@@ -54,7 +54,7 @@ public class Cam : MonoBehaviour
     }
     public void updateZoom(float targetZoom)
     {
-        DOTween.To(() => cam.m_Lens.OrthographicSize, x => cam.m_Lens.OrthographicSize = x,targetZoom, 1f).SetEase(Ease.InOutQuad);
+        DOTween.To(() => cam.m_Lens.FieldOfView, x => cam.m_Lens.FieldOfView = x,targetZoom, 1f).SetEase(Ease.InOutQuad);
         
 
     }
