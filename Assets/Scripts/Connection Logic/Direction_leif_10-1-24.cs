@@ -34,8 +34,10 @@ namespace DirectionOps
 
         public static GameObject RotatePart(GameObject partObject, Direction dir)
         {
+            List<GameObject> newCellsList = new();
             Debug.Log("Called DirectionOperator.RotatePart()");
             Part part = partObject.GetComponent<Part>();
+            GameObject newPartObject = GameObject.Instantiate(emptyPart);
             LookupTable<GameObject> newTable = new (part.tableSize, part.tableSize);
             // iterate over all the cell objects in this table.
             for (int i_x = 0; i_x < newTable.x_size; i_x++)
@@ -46,7 +48,6 @@ namespace DirectionOps
                     Vector2 new_pos = dir.ApplyRotation((new Vector2(i_x, i_y) - part.GetPivot())) + part.GetPivot();
                     // Calculate the list of connection directions...
                     List<Vector2> vecsList = new();
-
                     // debug stuff TODO
                     GameObject CellObject = part.table.Get(i_x, i_y);
                     Debug.LogWarning("name @ (" + i_x + ", " + i_y + ") = '" + CellObject.name + "'");
@@ -82,15 +83,16 @@ namespace DirectionOps
                         if (mathIndex > 0)
                         {
                             // Make the game object
-                            newCellObject = PipeIndexer.Instantiate(mathIndex, variant);
+                            newCellObject = PipeIndexer.Instantiate(mathIndex, newPartObject.transform, variant);
                         }
                         // if the object is not a pipe
                         else
                         {
                             // Just don't rotate it if it's not a pipe.
-                            newCellObject = GameObject.Instantiate(part.table.Get(i_x, i_y));
+                            newCellObject = GameObject.Instantiate(part.table.Get(i_x, i_y), newPartObject.transform);
                         }
-                        // Move it and update position...
+                        
+                        // Adjust each cell's position...
                         //      ... in engine
                         newCellObject.transform.position = new_pos;
                         //      ... in data
@@ -109,12 +111,12 @@ namespace DirectionOps
             // Create the new rotated part
             // TODO go over what data needs to be loaded into a part!
             if (emptyPart == null) { Debug.LogError("No 'emptyPart' set for DirectionOps!"); }
-            GameObject newPartObject = GameObject.Instantiate(emptyPart);
             partObject.AddComponent<Part>();
             partObject.GetComponent<Part>().table = newTable;
             partObject.GetComponent<Part>().tableSize = newTable.x_size;
             partObject.GetComponent<Part>().SetPivot(part.GetPivot());
-            // "childCells" is unused so I didn't bother setting it up.
+            // And we'll call the actual method for this too
+            partObject.GetComponent<Part>().FormTable();
             return partObject;
         }
 

@@ -36,11 +36,12 @@ public static class PipeIndexer
     /// Create an instance of a pipe, given its math index and sprite variant number.
     /// </summary>
     /// <param name="mathIndex">given math index</param>
+    /// <param name="parent">this object's new parent</param>
     /// <param name="variant">sprite variant number</param>
     /// <returns>new instance of the pipe</returns>
-    public static GameObject Instantiate(int mathIndex, int variant=0)
+    public static GameObject Instantiate(int mathIndex, Transform parent, int variant=0)
     {
-        GameObject obj = GameObject.Instantiate(pipes[mathIndex]);
+        GameObject obj = GameObject.Instantiate(pipes[mathIndex], parent);
         obj.GetComponent<SpriteRenderer>().sprite = GetSprite(mathIndex, variant);
         return obj;
     }
