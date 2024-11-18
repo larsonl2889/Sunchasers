@@ -8,7 +8,6 @@ using Unity.VisualScripting;
 public class TitleScreenController : MonoBehaviour
 {
     public string gameScene; // The scene to switch to when playing the game
-    public Button playButton; // Start button
     public Button creditsButton; // Credits button
     public TextMeshProUGUI splashText; // Text UI element for the splash text
     public string[] splashTexts; // Array of possible splash texts

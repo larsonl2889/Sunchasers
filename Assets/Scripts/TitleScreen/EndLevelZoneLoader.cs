@@ -18,13 +18,29 @@ public class EndLevelZoneLoader : MonoBehaviour
         sceneloadtrigger = GetComponent<SceneLoadTrigger>();
     }
 
+    /*
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        //Check if sloth entered warp zone
+        SlothController player = other.GetComponent<SlothController>();
+        if (player != null)
+        {
+            //Bool for when next scene load has been triggered
+            nextSceneLoadStart = true;
+            //Start coroutine that loads next level
+            StartCoroutine(LoadNextonTime(waitTimeLoad, player));
+        }
+    }
+    */
     public void PlayGame()
     {
+        Debug.Log("Achoo");
         //Bool for when next scene load has been triggered
         nextSceneLoadStart = true;
+        
+
         //Start coroutine that loads next level
         StartCoroutine(LoadNextonTime(waitTimeLoad));
-        
     }
 
     IEnumerator LoadNextonTime(float timeWait)
