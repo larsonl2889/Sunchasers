@@ -100,10 +100,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Scroll"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""07faf989-218c-4b77-a6d9-67c1d030a4bf"",
-                    ""expectedControlType"": ""Axis"",
                     ""name"": ""Rotate"",
                     ""type"": ""Button"",
                     ""id"": ""0627bdb3-90b4-431f-8db8-70a4c964a08f"",
@@ -113,10 +109,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Rotate"",
-                    ""type"": ""Button"",
-                    ""id"": ""0627bdb3-90b4-431f-8db8-70a4c964a08f"",
-                    ""expectedControlType"": ""Button"",
                     ""name"": ""Scroll"",
                     ""type"": ""PassThrough"",
                     ""id"": ""07faf989-218c-4b77-a6d9-67c1d030a4bf"",
@@ -371,8 +363,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""a378ad5f-4d5b-4823-95a6-6c5883cf78d0"",
-                    ""path"": ""<Mouse>/scroll/y"",
                     ""id"": ""3f438edb-bdf2-4231-a0ac-95a99093db18"",
                     ""path"": ""<Keyboard>/r"",
                     ""interactions"": """",
@@ -384,14 +374,11 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""3f438edb-bdf2-4231-a0ac-95a99093db18"",
-                    ""path"": ""<Keyboard>/r"",
                     ""id"": ""a378ad5f-4d5b-4823-95a6-6c5883cf78d0"",
                     ""path"": ""<Mouse>/scroll/y"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Rotate"",
                     ""action"": ""Scroll"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -988,7 +975,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_Click = m_Player.FindAction("Click", throwIfNotFound: true);
         m_Player_RightClick = m_Player.FindAction("RightClick", throwIfNotFound: true);
         m_Player_HotBar = m_Player.FindAction("HotBar", throwIfNotFound: true);
-        m_Player_Scroll = m_Player.FindAction("Scroll", throwIfNotFound: true);
         m_Player_Rotate = m_Player.FindAction("Rotate", throwIfNotFound: true);
         m_Player_Scroll = m_Player.FindAction("Scroll", throwIfNotFound: true);
         // UI
@@ -1072,7 +1058,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Click;
     private readonly InputAction m_Player_RightClick;
     private readonly InputAction m_Player_HotBar;
-    private readonly InputAction m_Player_Scroll;
     private readonly InputAction m_Player_Rotate;
     private readonly InputAction m_Player_Scroll;
     public struct PlayerActions
@@ -1087,7 +1072,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @Click => m_Wrapper.m_Player_Click;
         public InputAction @RightClick => m_Wrapper.m_Player_RightClick;
         public InputAction @HotBar => m_Wrapper.m_Player_HotBar;
-        public InputAction @Scroll => m_Wrapper.m_Player_Scroll;
         public InputAction @Rotate => m_Wrapper.m_Player_Rotate;
         public InputAction @Scroll => m_Wrapper.m_Player_Scroll;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
@@ -1123,9 +1107,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @HotBar.started += instance.OnHotBar;
             @HotBar.performed += instance.OnHotBar;
             @HotBar.canceled += instance.OnHotBar;
-            @Scroll.started += instance.OnScroll;
-            @Scroll.performed += instance.OnScroll;
-            @Scroll.canceled += instance.OnScroll;
             @Rotate.started += instance.OnRotate;
             @Rotate.performed += instance.OnRotate;
             @Rotate.canceled += instance.OnRotate;
@@ -1160,9 +1141,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @HotBar.started -= instance.OnHotBar;
             @HotBar.performed -= instance.OnHotBar;
             @HotBar.canceled -= instance.OnHotBar;
-            @Scroll.started -= instance.OnScroll;
-            @Scroll.performed -= instance.OnScroll;
-            @Scroll.canceled -= instance.OnScroll;
             @Rotate.started -= instance.OnRotate;
             @Rotate.performed -= instance.OnRotate;
             @Rotate.canceled -= instance.OnRotate;
@@ -1359,7 +1337,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnClick(InputAction.CallbackContext context);
         void OnRightClick(InputAction.CallbackContext context);
         void OnHotBar(InputAction.CallbackContext context);
-        void OnScroll(InputAction.CallbackContext context);
         void OnRotate(InputAction.CallbackContext context);
         void OnScroll(InputAction.CallbackContext context);
     }
