@@ -52,7 +52,14 @@ public class BuildingArea_Riley : MonoBehaviour
     {
         //set the area that can be built in by reading the mouse position.
         position = Mouse.current.position.ReadValue();
-        position.z = Mathf.Abs(virtualCamera.transform.position.z);
+        if (virtualCamera != null) {
+            position.z = Mathf.Abs(virtualCamera.transform.position.z);
+        }
+        else
+        {
+            position.z = 9.9f;
+        }
+        
         WorldPos = Camera.main.ScreenToWorldPoint(position);
         Debug.LogWarning("Mouse " + position + " World " + WorldPos);
         float xPos = WorldPos.x;
