@@ -419,8 +419,15 @@ public class BuildAreaTest : MonoBehaviour
         instantiatedPart.GetComponent<Part>().FormTable();
         instantiatedPart.transform.localPosition = new Vector3(xPos + 0.5f, yPos + 0.5f, 0);
         Vector2 test = new Vector2(0, 0);
-        MergeTables(instantiatedPart, test);
+        DelayedPartPlacement(instantiatedPart, test);
     }
+
+    public IEnumerator DelayedPartPlacement(GameObject instantiatedPart, Vector2 position)
+    {
+        yield return new WaitForSeconds(0.2f);
+        MergeTables(instantiatedPart, position);
+    }
+
     //retrieves the cell at a specific location in the build area
     /*
     public Cell GetCell(Vector2 pos)
