@@ -5,6 +5,7 @@ using Parts;
 using Cells;
 using Blocks;
 using System.Collections;
+using UnityEngine.UIElements;
 
 // Contributors: Leif Larson
 // Last updated 14 Nov 2024
@@ -31,7 +32,7 @@ namespace DirectionOps
         public static GameObject emptyPart;
 
         public static void SetEmptyPart(GameObject newEmptyPart) { emptyPart = newEmptyPart; }
-
+        /*
         public static GameObject RotatePart(GameObject partObject, Direction dir)
         {
             List<GameObject> newCellsList = new();
@@ -123,6 +124,88 @@ namespace DirectionOps
             // And we'll call the actual method for this too
             newPartObject.GetComponent<Part>().FormTable();
             return newPartObject;
+        }
+        */
+        public static GameObject RotatePart(GameObject partObject, Direction dir)
+        {
+            List<GameObject> rotatedCells = new();
+            if(partObject.GetComponent<Part>().table == null)
+            {
+                partObject.GetComponent<Part>().FormTable();
+            }
+            for (int i = 0; i < partObject.GetComponent<Part>().tableSize; i++)
+            {
+                for (int j = 0; j < partObject.GetComponent<Part>().tableSize; j++)
+                {
+                    GameObject cell = partObject.GetComponent<Part>().table.Get(i, j);
+                    if (!cell.GetComponent<Cell>().isEmpty)
+                    {
+                        //Doing Rotation on each cell
+                        //TODO: Use DirectionOperator.ApplyRotation() instead
+                        Vector2 cellLocation = new Vector2(i, j);
+                        Vector2 newLocation = new Vector2(j, -i);
+                        cell.GetComponent<Cell>().xPos = (int)newLocation.x;
+                        cell.GetComponent<Cell>().yPos = (int)newLocation.y;
+                        rotatedCells.Add(cell);
+                    }
+                }
+            }
+            bool checking = true;
+            while(checking)
+            {
+                checking = false;
+                bool foundY = false;
+                bool foundX = false;
+                foreach(GameObject cell in rotatedCells)
+                {
+                    if(cell.GetComponent<Cell>().yPos < 0)
+                    {
+                        foundY = true; 
+                    }
+                    if(cell.GetComponent<Cell>().xPos == 0)
+                    {
+                        foundX = true;
+                    }
+                }
+                if (foundY)
+                {
+                    foreach (GameObject cell in rotatedCells)
+                    {
+                        cell.GetComponent<Cell>().yPos += 1;
+                    }
+                }
+                if(!foundX)
+                {
+                    foreach(GameObject cell in rotatedCells)
+                    {
+                        cell.GetComponent<Cell>().xPos -= 1;
+                    }
+                }
+                if(foundY || !foundX)
+                {
+                    checking = true;
+                }
+            }
+            List<GameObject> placementCells = new();
+            foreach(GameObject cell in rotatedCells)
+            {
+                Debug.Log("Rotated Cells Instantiated");
+                GameObject instantiated = GameObject.Instantiate(cell, partObject.transform);
+                //Update Sprited For Instantiated Cells
+                //TODO: ^^^^^
+                instantiated.transform.localPosition = new Vector2(instantiated.GetComponent<Cell>().xPos, instantiated.GetComponent<Cell>().yPos);
+                placementCells.Add(instantiated);
+            }
+            for(int i = 0; i < partObject.GetComponent<Part>().tableSize; i++)
+            {
+                for(int j = 0; j < partObject.GetComponent<Part>().tableSize; j++)
+                {
+                    GameObject.Destroy(partObject.GetComponent<Part>().table.Get(i, j));
+                }
+            }
+            partObject.GetComponent<Part>().FormTable();
+            Debug.Log("Part Rotated");
+            return partObject;
         }
 
         /// <summary>

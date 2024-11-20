@@ -22,9 +22,6 @@ public class HotBar : MonoBehaviour
         if (bar[index] != null)
         {
             GameObject tmp = DirectionOperator.RotatePart(bar[index], dir);
-            Destroy(bar[index]);
-            bar[index] = tmp;
-            setBar();
             //GetComponent<BuildingArea_Riley>().build();
         }
     }
