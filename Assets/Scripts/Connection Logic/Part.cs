@@ -79,7 +79,7 @@ namespace Parts
             
         }
         
-
+        
         public void FormTable()
         {
             table = new LookupTable<GameObject>(tableSize, tableSize, emptyCell);
@@ -141,7 +141,14 @@ namespace Parts
 
         public void SetPivot(Vector2 newPivot) { pivot = new Vector2Int((int)newPivot.x, (int)newPivot.y); }
 
-        public Vector2 GetPivot() { return (Vector2)pivot; }
+        public Vector2 GetPivot() { 
+            if (pivot == null || (int)pivot.x==0 && (int)pivot.y==0)
+            {
+                return new Vector2((int)(tableSize / 2 + 1), (int)(tableSize / 2 + 1));
+            }
+            return (Vector2)pivot; 
+        
+        }
 
         /// <summary>
         /// Returns the position in the world. May return null if the part is not in play.
