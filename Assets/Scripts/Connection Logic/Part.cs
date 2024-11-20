@@ -142,10 +142,11 @@ namespace Parts
         public void SetPivot(Vector2 newPivot) { pivot = new Vector2Int((int)newPivot.x, (int)newPivot.y); }
 
         public Vector2 GetPivot() { 
-            if (pivot == null || (int)pivot.x==0 && (int)pivot.y==0)
-            {
-                return new Vector2((int)(tableSize / 2 + 1), (int)(tableSize / 2 + 1));
-            }
+            // moves any pivot at (0, 0)
+            //if (pivot == null || (int)pivot.x==0 && (int)pivot.y==0)
+            //{
+            //    return new Vector2((int)(tableSize / 2 + 1), (int)(tableSize / 2 + 1));
+            //}
             return (Vector2)pivot; 
         
         }
