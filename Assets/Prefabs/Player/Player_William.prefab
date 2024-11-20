@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
-  jumpForce: 6.9
+  jumpForce: 5
   isBuilding: 0
   text: {fileID: 0}
   Slot: {fileID: 1796572086390300456, guid: 3d5be90560e1b534dbc47c5af26b92a3, type: 3}
@@ -360,8 +360,8 @@ AudioSource:
   m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6cb1fbac0d4dfcb4f8b556b2b26f36ea, type: 3}
-  m_PlayOnAwake: 0
+  m_audioClip: {fileID: 8300000, guid: cd86244f216888347b8fb216f96f9268, type: 3}
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 1

@@ -30849,10 +30849,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1863310108489197836, guid: 4c2433ff525ec0b448d0fbc890bdd58d, type: 3}
-      propertyPath: m_Simulated
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2322169793523948518, guid: 4c2433ff525ec0b448d0fbc890bdd58d, type: 3}
       propertyPath: m_Name
       value: Player
@@ -30862,25 +30858,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 88313433}
     - target: {fileID: 3517592384382409853, guid: 4c2433ff525ec0b448d0fbc890bdd58d, type: 3}
-      propertyPath: speed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3517592384382409853, guid: 4c2433ff525ec0b448d0fbc890bdd58d, type: 3}
       propertyPath: hotBarUI
       value: 
       objectReference: {fileID: 130602058}
-    - target: {fileID: 3517592384382409853, guid: 4c2433ff525ec0b448d0fbc890bdd58d, type: 3}
-      propertyPath: jumpForce
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5194568922231084593, guid: 4c2433ff525ec0b448d0fbc890bdd58d, type: 3}
-      propertyPath: m_Size.x
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6971976773886738811, guid: 4c2433ff525ec0b448d0fbc890bdd58d, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
