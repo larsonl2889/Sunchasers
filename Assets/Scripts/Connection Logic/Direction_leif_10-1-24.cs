@@ -72,7 +72,7 @@ namespace DirectionOps
                         }
 
                         // actual statement
-                        vecsList = part.table.Get(i_x, i_y).GetComponent<Cell>().GetBlock().GetComponent<Block>().GetAllLinksList();
+                        //vecsList = part.table.Get(i_x, i_y).GetComponent<Cell>().GetBlock().GetComponent<Block>().GetAllLinksList();
 
 
                         List<Direction> dirList = new();
@@ -99,7 +99,7 @@ namespace DirectionOps
                         
                         // Adjust each cell's position...
                         //      ... in engine
-                        newCellObject.transform.position = new_pos;
+                        newCellObject.transform.localPosition = new_pos;
                         //      ... in data
                         newCellObject.GetComponent<Cell>().pos = new_pos;
                     }
@@ -116,13 +116,13 @@ namespace DirectionOps
             // Create the new rotated part
             // TODO go over what data needs to be loaded into a part!
             if (emptyPart == null) { Debug.LogError("No 'emptyPart' set for DirectionOps!"); }
-            partObject.AddComponent<Part>();
-            partObject.GetComponent<Part>().table = newTable;
-            partObject.GetComponent<Part>().tableSize = newTable.x_size;
-            partObject.GetComponent<Part>().SetPivot(part.GetPivot());
+            newPartObject.AddComponent<Part>();
+            newPartObject.GetComponent<Part>().table = newTable;
+            newPartObject.GetComponent<Part>().tableSize = newTable.x_size;
+            newPartObject.GetComponent<Part>().SetPivot(part.GetPivot());
             // And we'll call the actual method for this too
-            partObject.GetComponent<Part>().FormTable();
-            return partObject;
+            newPartObject.GetComponent<Part>().FormTable();
+            return newPartObject;
         }
 
         /// <summary>
