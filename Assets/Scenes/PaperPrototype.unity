@@ -16014,6 +16014,10 @@ PrefabInstance:
       propertyPath: hotBarUI
       value: 
       objectReference: {fileID: 130602058}
+    - target: {fileID: 3517592384382409853, guid: 4c2433ff525ec0b448d0fbc890bdd58d, type: 3}
+      propertyPath: jumpForce
+      value: 6.9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
