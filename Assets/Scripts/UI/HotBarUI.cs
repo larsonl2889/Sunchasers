@@ -1,4 +1,5 @@
 
+using Parts;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro.Examples;
@@ -16,11 +17,19 @@ public class HotBarUI : MonoBehaviour
     public GameObject[] HotBarSlots = new GameObject[9];
     public GameObject[] HotBarNumSlots = new GameObject[9];
     public GameObject SlotUIHolder;
+    public GameObject player;
+    public Sprite[] sprites = new Sprite[9];
+    public GameObject HotBarImage;
     //public Sprite NewThing;
     // Start is called before the first frame update
     void Start()
     {
         SlotUIHolder.gameObject.GetComponent<Canvas>().enabled = false;
+        for (int i = 0; i < HotBarSlots.Length; i++)
+        {
+            HotBarSlots[i].GetComponent<hotbarbutton>().index = i + 1;
+            HotBarSlots[i].GetComponent<hotbarbutton>().player = player;
+        }
     }
 
     // Update is called once per frame
@@ -80,14 +89,22 @@ public class HotBarUI : MonoBehaviour
         //UISlot = hotbar.bar[hotbar.index];
     }
     //Places the image of the object being put back in the array back on the object.
-    public void RemoveUISlot()
+    public void RemoveUISlot(GameObject part)
     {
-        sprite = hotbar.bar[hotbar.Repairindex].GetComponent<Image>().sprite;
-        HotBarSlots[hotbar.Repairindex].gameObject.GetComponent<Image>().sprite = sprite;
-        HotBarSlots[hotbar.Repairindex].gameObject.GetComponent<Image>().color = Color.white;
+        if(part == null)
+        {
+            Debug.Log("part is null");
+        }
+        int index = part.GetComponentInParent<Part>().index;
+        sprite = hotbar.bar2[index].GetComponent<Image>().sprite;
+        HotBarSlots[index].gameObject.GetComponent<Image>().sprite = sprite;
+        HotBarSlots[index].gameObject.GetComponent<Image>().color = Color.white;
         Debug.Log("Test");
     }
-
-
+    public void UpdateUI(int index)
+    {
+        sprite = sprites[index];
+        HotBarImage.gameObject.GetComponent<Image>().sprite = sprite;
+    }
 
 }

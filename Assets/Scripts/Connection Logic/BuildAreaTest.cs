@@ -407,7 +407,7 @@ public class BuildAreaTest : MonoBehaviour
         {
             for(int j = 0; j < scale; j++)
             {
-                GameObject instantiated = Instantiate(emptyCell);
+                GameObject instantiated = Instantiate(emptyCell, gameObject.transform);
                 instantiated.transform.localPosition = new Vector3(i + xPos + 0.5f, j + yPos + 0.5f, 0);
                 instantiated.GetComponent<Cell>().xPos = i;
                 instantiated.GetComponent<Cell>().yPos = j;
@@ -415,7 +415,7 @@ public class BuildAreaTest : MonoBehaviour
                 table.Put(i, j, instantiated);
             }
         }
-        GameObject instantiatedPart = Instantiate(startingPart, gameObject.transform);
+        GameObject instantiatedPart = Instantiate(startingPart);
         instantiatedPart.GetComponent<Part>().FormTable();
         instantiatedPart.transform.localPosition = new Vector3(xPos + 0.5f, yPos + 0.5f, 0);
         Vector2 test = new Vector2(0, 0);
@@ -447,6 +447,11 @@ public class BuildAreaTest : MonoBehaviour
     //Checks if the part is able to be placed in that location
     public bool CanMerge(GameObject part, Vector2 startPosition)
     {
+        Debug.Log("Can merge Ran");
+        if(part.GetComponent<Part>().table == null)
+        {
+            Debug.Log("Bad Table");
+        }
         int boundsY = part.GetComponent<Part>().table.y_size;
         int boundsX = part.GetComponent<Part>().table.x_size;
         int startX = (int)startPosition.x;

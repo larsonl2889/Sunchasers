@@ -121,7 +121,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   promptPrefab: {fileID: 3211661853732084645, guid: 424de07725274b740ad4468731ec2573, type: 3}
-  promptPosOffset: 1
+  promptPosOffset: 0.5
 --- !u!114 &1594545196290764436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,6 +136,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onSprite: {fileID: -243516735, guid: 069bb7fd145c7db4187c4a6192ea11c6, type: 3}
   offSprite: {fileID: -1350538946, guid: 069bb7fd145c7db4187c4a6192ea11c6, type: 3}
+  onLeverPull:
+    m_PersistentCalls:
+      m_Calls: []
+  leverSound: {fileID: 8300000, guid: 6c0c60a4177f24f479f9a164430db309, type: 3}
 --- !u!58 &9195435974154422236
 CircleCollider2D:
   m_ObjectHideFlags: 0
