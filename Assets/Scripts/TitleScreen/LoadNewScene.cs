@@ -64,7 +64,7 @@ public class LoadNewScene : MonoBehaviour
                 //Load next scene
                 if (unLoadingOperation.isDone)
                 {
-                    loadingOperation = SceneManager.LoadSceneAsync(LoadingData.sceneToLoad, LoadSceneMode.Additive);
+                    loadingOperation = SceneManager.LoadSceneAsync(LoadingData.sceneToLoad, LoadSceneMode.Single);
                     //For preventing load screen from flashing too quickly
                     loadingOperation.allowSceneActivation = false;
                     fadeInLoad = false;
