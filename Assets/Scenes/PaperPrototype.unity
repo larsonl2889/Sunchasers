@@ -1081,22 +1081,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57c619aebd1d9964fa109b442a8d1277, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bar:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  bar2:
-  - {fileID: 1796572086390300456, guid: b860acdff0d59be4493110588ebf6129, type: 3}
+  Anything: {fileID: 0}
+  Originalbar:
   - {fileID: 1796572086390300456, guid: 69b93f0cb9878ad468d52fcfa7593b18, type: 3}
   - {fileID: 1796572086390300456, guid: d0a0af1bf522d29458ae8b61eed72d1e, type: 3}
-  - {fileID: 1796572086390300456, guid: 7eb2f78123f76ab449df33b0afea795f, type: 3}
   - {fileID: 1796572086390300456, guid: d12e8beae89c71b418c8e00bd9f718d6, type: 3}
+  - {fileID: 1796572086390300456, guid: 7eb2f78123f76ab449df33b0afea795f, type: 3}
+  - {fileID: 1796572086390300456, guid: b860acdff0d59be4493110588ebf6129, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
