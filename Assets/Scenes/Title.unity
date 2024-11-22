@@ -437,8 +437,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playButton: {fileID: 480532281}
   sceneloadtrigger: {fileID: 480532285}
-  waitTimeLoad: 2
-  nextSceneLoadStart: 0
+  waitTimeLoad: 0
+  nextSceneLoadStart: 1
 --- !u!114 &480532285
 MonoBehaviour:
   m_ObjectHideFlags: 0

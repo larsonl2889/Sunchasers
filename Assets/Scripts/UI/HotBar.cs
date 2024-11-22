@@ -7,7 +7,7 @@ using UnityEngine;
 public class HotBar : MonoBehaviour
 {
     public GameObject Anything;
-    private GameObject[] bar = new GameObject[9];
+    public GameObject[] bar = new GameObject[9];
     public GameObject[] Originalbar = new GameObject[9];
     public int index = new int();
     public int Repairindex;
