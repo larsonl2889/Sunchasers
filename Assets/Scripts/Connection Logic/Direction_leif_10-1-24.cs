@@ -197,17 +197,29 @@ namespace DirectionOps
                 {
                     listOfDirections.Add(link.ToDirection());
                 }
-                List<Direction> newListOfDirections = new();
-                foreach (Direction d in listOfDirections)
+                // calculate the new sprite, if the object is a pipe.
+                if (listOfDirections.Count > 0)
                 {
-                    newListOfDirections.Add(dir.Add(d));
-                }
-                // Get the new sprite
-                Sprite newSprite = PipeIndexer.SelectSprite(
-                    PipeIndexer.DirectionsToMathIndex(newListOfDirections),
-                    instantiated.GetComponent<Cell>().GetBlock().GetComponent<Block>().variant
+                    List<Direction> newListOfDirections = new();
+                    foreach (Direction d in listOfDirections)
+                    {
+                        newListOfDirections.Add(dir.Add(d));
+                    }
+                    // Calculate math index and variant from the instantiated block
+                    int mathIndex = PipeIndexer.DirectionsToMathIndex(newListOfDirections);
+                    int variant = instantiated.GetComponent<Cell>().GetBlock().GetComponent<Block>().variant;
+                    // destroy its block
+                    GameObject.Destroy(instantiated.GetComponent<Cell>().GetBlock());
+                    // and make the new one
+                    instantiated.GetComponent<Cell>().SetBlock(
+                        PipeIndexer.Instantiate(mathIndex, instantiated.transform, variant)
                     );
-                instantiated.GetComponent<Cell>().GetBlock().GetComponent<SpriteRenderer>().sprite = newSprite;
+                    // And give the block the reference to its cell
+                    instantiated.GetComponent<Cell>().GetBlock().GetComponent<Block>().SetCell(instantiated);
+                    
+                }
+                
+                
                 //Update Sprited For Instantiated Cells
                 //TODO: ^^^^^
                 instantiated.transform.localPosition = new Vector2(instantiated.GetComponent<Cell>().xPos, instantiated.GetComponent<Cell>().yPos);

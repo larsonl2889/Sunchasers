@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c300572c0f14f284fa5a055b57e472fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 0
   emptyCell: {fileID: 4436004687172942411, guid: a659f59ff8a797e4db971d9eff3ef8b4, type: 3}
   tableSize: 3
 --- !u!222 &8151709376316564071
@@ -142,11 +143,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3838098990102560207, guid: 5a14ac7f5ad39324a93a208c939ded5b, type: 3}
       propertyPath: m_Name
-      value: StraightHORIZ
+      value: StraightHORIZ vizier
       objectReference: {fileID: 0}
     - target: {fileID: 7384501332964567699, guid: 5a14ac7f5ad39324a93a208c939ded5b, type: 3}
       propertyPath: yPos
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7463079868834311164, guid: 5a14ac7f5ad39324a93a208c939ded5b, type: 3}
+      propertyPath: m_Name
+      value: StraightHORIZ Block vizier
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -208,7 +213,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3838098990102560207, guid: 5a14ac7f5ad39324a93a208c939ded5b, type: 3}
       propertyPath: m_Name
-      value: StraightHORIZ (1)
+      value: StraightHORIZ (1) vizier
       objectReference: {fileID: 0}
     - target: {fileID: 7384501332964567699, guid: 5a14ac7f5ad39324a93a208c939ded5b, type: 3}
       propertyPath: xPos
@@ -217,6 +222,10 @@ PrefabInstance:
     - target: {fileID: 7384501332964567699, guid: 5a14ac7f5ad39324a93a208c939ded5b, type: 3}
       propertyPath: yPos
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7463079868834311164, guid: 5a14ac7f5ad39324a93a208c939ded5b, type: 3}
+      propertyPath: m_Name
+      value: StraightHORIZ (1) Block vizier
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
