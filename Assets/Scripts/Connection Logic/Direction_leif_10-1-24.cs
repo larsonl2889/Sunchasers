@@ -7,8 +7,8 @@ using Blocks;
 using System.Collections;
 using UnityEngine.UIElements;
 
-// Contributors: Leif Larson
-// Last updated 14 Nov 2024
+// Contributors: Leif Larson, Kilian Wilinski
+// Last updated 21 Nov 2024
 
 // Contains Direction and DirectionOps
 namespace DirectionOps
@@ -142,6 +142,17 @@ namespace DirectionOps
                     {
                         //Doing Rotation on each cell
                         //TODO: Use DirectionOperator.ApplyRotation() instead
+                        List<Direction>  listOfDirections = new();
+                        foreach(Vector2 link in cell.GetComponent<Cell>().GetBlock().GetComponent<Block>().GetAllLinksList())
+                        {
+                            listOfDirections.Add(link.ToDirection());
+                        }
+                        List<Direction> newListOfDirections = new();
+                        foreach(Direction d in listOfDirections)
+                        {
+                            newListOfDirections.Add(dir.Add(d));
+                        }
+                        // TODO finish rotating the cell, or whatever
                         Vector2 cellLocation = new Vector2(i, j);
                         Vector2 newLocation = new Vector2(j, -i);
                         cell.GetComponent<Cell>().xPos = (int)newLocation.x;

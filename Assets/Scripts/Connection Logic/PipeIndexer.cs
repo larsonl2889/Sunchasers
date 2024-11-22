@@ -94,7 +94,7 @@ public static class PipeIndexer
     /// <param name="mathIndex">starting index</param>
     /// <param name="dir">direction to rotate to</param>
     /// <returns>The new pipe's math index</returns>
-    internal static int ApplyRotation(this int mathIndex, Direction dir)
+    public static int ApplyRotation(int mathIndex, Direction dir)
     {
         int rotationId = dir.ToId();
         int greatestAddend;
