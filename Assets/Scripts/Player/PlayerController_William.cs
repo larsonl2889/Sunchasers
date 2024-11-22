@@ -222,7 +222,7 @@ public class PlayerController_Willliam : MonoBehaviour
             hotBarUI.HotBarNumSlots[currentBuildZone.GetComponent<HotBar>().index].GetComponent<TextMeshProUGUI>().color = Color.white;
             currentBuildZone.GetComponent<HotBar>().SetIndex(currSlotSelected - 1);
             hotBarUI.HotBarNumSlots[currSlotSelected-1].GetComponent<TextMeshProUGUI>().color = Color.yellow;
-            currentBuildZone.GetComponent<HotBar>().setBar();
+            //currentBuildZone.GetComponent<HotBar>().setBar();
                 //.gameObject.GetComponent<TMP_Text>().VertexColor=VertexColorCycler(vector3(0.96f, 0.66f, 0.22f));
             Debug.Log(currSlotSelected);
         }
@@ -276,7 +276,7 @@ public class PlayerController_Willliam : MonoBehaviour
             {
                 currentBuildZone.GetComponent<BuildingArea_Riley>().Slot.transform.localPosition = new Vector2(100, 100);
             }
-            currentBuildZone.GetComponent<HotBar>().setBar();
+            currentBuildZone.GetComponent<HotBar>().MoveBarIndex();
             hotBarUI.HotBarNumSlots[slotIndex - 1].GetComponent<TextMeshProUGUI>().color = Color.yellow;
             hotBarUI.GetComponent<HotBarUI>().UpdateUI(slotIndex-1);
             //currentBuildZone.GetComponent<BuildingArea_Riley>().SetSlot(hotBarUI.HotBarNumSlots[currentBuildZone.GetComponent<HotBar>().index]);
@@ -325,7 +325,7 @@ public class PlayerController_Willliam : MonoBehaviour
                 Debug.Log("Sprite Stuff Ran " + i);
                 cells[i].GameObject().GetComponent<SpriteRenderer>().enabled = true;
             }
-            currentBuildZone.GetComponent<HotBar>().setBar();
+            currentBuildZone.GetComponent<HotBar>().MoveBarIndex();
             hotBarUI.hotbar = currentBuildZone.GetComponent<HotBar>();
             hotBarUI.updateImages();
             isBuilding = true;
