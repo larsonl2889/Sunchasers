@@ -77,11 +77,11 @@ public class SteamGusher : MonoBehaviour
             
         }
         if (dirs.Count > 0) {
-            steamSound.enabled = true;
+            steamSound.Play();
         }
         else
         {
-            steamSound.enabled = false;
+            steamSound.Stop();
         }
 
         
@@ -89,10 +89,7 @@ public class SteamGusher : MonoBehaviour
 
     }
     
-    public void playSound()
-    {
-        steamSound.enabled = true;
-    }
+   
     
     /// <summary>
     /// Shuts off all gushers.
@@ -103,7 +100,7 @@ public class SteamGusher : MonoBehaviour
         left.Stop();
         down.Stop();
         right.Stop();
-        steamSound.enabled = false;
+        steamSound.Stop();
 
     }
 
