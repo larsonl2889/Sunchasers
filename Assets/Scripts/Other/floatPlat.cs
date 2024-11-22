@@ -8,7 +8,8 @@ public class floatPlat : MonoBehaviour
     public bool isOn = false;
     private Animator animator;   
     public float speed;
-    public float targetHeight;
+    public float moveUnitsVertical = 0;
+    public float moveUnitsHorizontal = 0;
     private Vector3 startPos;
     private Vector3 targetPos;
    
@@ -19,7 +20,7 @@ public class floatPlat : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         startPos = transform.position;
-        targetPos = new Vector3(startPos.x, targetHeight + startPos.y, startPos.z);
+        targetPos = new Vector3(moveUnitsHorizontal + startPos.x, moveUnitsVertical + startPos.y, startPos.z);
     }
 
     // Update is called once per frame

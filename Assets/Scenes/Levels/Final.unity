@@ -31645,41 +31645,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2841075744733662579, guid: 19d374636b529b64091380b624256180, type: 3}
-      propertyPath: m_Size.y
-      value: 0.9603095
-      objectReference: {fileID: 0}
-    - target: {fileID: 2841075744733662579, guid: 19d374636b529b64091380b624256180, type: 3}
-      propertyPath: m_Offset.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6620140832276287836, guid: 19d374636b529b64091380b624256180, type: 3}
-      propertyPath: speed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6620140832276287836, guid: 19d374636b529b64091380b624256180, type: 3}
-      propertyPath: targetHeight
+      propertyPath: moveUnitsVertical
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6620140832276287836, guid: 19d374636b529b64091380b624256180, type: 3}
-      propertyPath: points.Array.size
+      propertyPath: moveUnitsHorizontal
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6620140832276287836, guid: 19d374636b529b64091380b624256180, type: 3}
-      propertyPath: points.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6620140832276287836, guid: 19d374636b529b64091380b624256180, type: 3}
-      propertyPath: points.Array.data[1]
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7100889649949264240, guid: 19d374636b529b64091380b624256180, type: 3}
       propertyPath: m_Name
       value: FloatPlat
-      objectReference: {fileID: 0}
-    - target: {fileID: 7100889649949264240, guid: 19d374636b529b64091380b624256180, type: 3}
-      propertyPath: m_TagString
-      value: Interactable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
