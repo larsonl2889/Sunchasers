@@ -26,7 +26,7 @@ public class HotBar : MonoBehaviour
                     bar[i] = Instantiate(Originalbar[i], badPartStorage.transform.position, transform.rotation);
                     bar[i].GetComponent<Part>().SetIndex(i);
                     bar[i].GetComponent<Part>().FormTable();
-                    Debug.Log("This is bar2 at i: "+bar2[i]+"This is bar:i:"+ bar[i]);
+                    Debug.Log("This is bar2 at i: "+Originalbar[i]+"This is bar:i:"+ bar[i]);
                 }
                 else
                 {

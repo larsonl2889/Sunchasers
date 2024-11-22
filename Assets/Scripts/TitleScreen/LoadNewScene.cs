@@ -54,11 +54,11 @@ public class LoadNewScene : MonoBehaviour
                 //Once fade in complete, set alpha purposefully
                 canvasGroup.alpha = 1;
                 //Unload previous scene
-                if (unloadStart)
+                /*if (unloadStart)
                 {
                     unLoadingOperation = SceneManager.UnloadSceneAsync(LoadingData.sceneToUnload, UnloadSceneOptions.UnloadAllEmbeddedSceneObjects);
                     unloadStart = false;
-                }
+                }*/
 
                 //Load next scene
                 if (unLoadingOperation.isDone)
