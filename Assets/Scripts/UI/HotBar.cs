@@ -10,7 +10,6 @@ public class HotBar : MonoBehaviour
     private GameObject[] bar = new GameObject[9];
     public GameObject[] Originalbar = new GameObject[9];
     public int index = new int();
-    public int Repairindex;
     public GameObject badPartStorage;
 
     // Start is called before the first frame update
@@ -54,13 +53,7 @@ public class HotBar : MonoBehaviour
     {
         return index;
     }
-    //public void repairArray(GameObject passedBar)
-    //{
-    //    index = passedBar.GetComponent<Part>().index;
-    //    bar[index] = passedBar;
-
-    //}
-
+    //Used to move the current index to the selected index
     public void MoveBarIndex()
     {
         Anything.GetComponent<BuildingArea_Riley>().SetSlot(bar[index]);
