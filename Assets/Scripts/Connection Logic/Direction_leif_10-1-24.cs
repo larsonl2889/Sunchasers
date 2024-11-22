@@ -193,7 +193,7 @@ namespace DirectionOps
                 //Doing Rotation on each cell
                 //TODO: Use DirectionOperator.ApplyRotation() instead
                 List<Direction> listOfDirections = new();
-                foreach (Vector2 link in cell.GetComponent<Cell>().GetBlock().GetComponent<Block>().GetAllLinksList())
+                foreach (Vector2 link in instantiated.GetComponent<Cell>().GetBlock().GetComponent<Block>().GetAllLinksList())
                 {
                     listOfDirections.Add(link.ToDirection());
                 }
@@ -202,14 +202,12 @@ namespace DirectionOps
                 {
                     newListOfDirections.Add(dir.Add(d));
                 }
-                // TODO finish rotating the cell, or whatever
-
-                //TODO why does the PipeIndexer not work here ??
+                // Get the new sprite
                 Sprite newSprite = PipeIndexer.SelectSprite(
                     PipeIndexer.DirectionsToMathIndex(newListOfDirections),
-                    cell.GetComponent<Cell>().GetBlock().GetComponent<Block>().variant
+                    instantiated.GetComponent<Cell>().GetBlock().GetComponent<Block>().variant
                     );
-                cell.GetComponent<Cell>().GetBlock().GetComponent<SpriteRenderer>().sprite = newSprite;
+                instantiated.GetComponent<Cell>().GetBlock().GetComponent<SpriteRenderer>().sprite = newSprite;
                 //Update Sprited For Instantiated Cells
                 //TODO: ^^^^^
                 instantiated.transform.localPosition = new Vector2(instantiated.GetComponent<Cell>().xPos, instantiated.GetComponent<Cell>().yPos);
