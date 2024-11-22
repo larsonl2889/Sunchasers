@@ -25,6 +25,7 @@ public class HotBar : MonoBehaviour
                     bar[i] = Instantiate(bar2[i], badPartStorage.transform.position, transform.rotation);
                     bar[i].GetComponent<Part>().SetIndex(i);
                     bar[i].GetComponent<Part>().FormTable();
+                    Debug.Log("This is bar2 at i: "+bar2[i]+"This is bar:i:"+ bar[i]);
                 }
                 else
                 {
@@ -37,7 +38,27 @@ public class HotBar : MonoBehaviour
     }
 
     // Update is called once per frame
+    void HotBarFixer()
+    {
+        //if (badPartStorage != null)
+        //{
+        //    anything = gameObject;
+        //    for (int i = 0; i < 9; i++)
+        //    {
+        //        if (bar2[i] != null)
+        //        {
+        //            bar[i] = Instantiate(bar2[i], badPartStorage.transform.position, transform.rotation);
+        //            bar[i].GetComponent<Part>().SetIndex(i);
+        //            bar[i].GetComponent<Part>().FormTable();
+        //        }
+        //        else
+        //        {
+        //            bar[i] = null;
+        //        }
 
+        //    }
+        //}
+    }
     void Update()
     {
        
