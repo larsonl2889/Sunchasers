@@ -204,12 +204,12 @@ namespace DirectionOps
                 }
                 // TODO finish rotating the cell, or whatever
 
-                // TODO why the *fuck* does the PipeIndexer not work here??
-                //Sprite newSprite = SelectSprite(
-                //    PipeIndexer.DirectionsToMathIndex(newListOfDirections),
-                //    cell.GetComponent<Cell>().GetBlock().GetComponent<Block>().variant
-                //    );
-
+                //TODO why does the PipeIndexer not work here ??
+                Sprite newSprite = PipeIndexer.SelectSprite(
+                    PipeIndexer.DirectionsToMathIndex(newListOfDirections),
+                    cell.GetComponent<Cell>().GetBlock().GetComponent<Block>().variant
+                    );
+                cell.GetComponent<Cell>().GetBlock().GetComponent<SpriteRenderer>().sprite = newSprite;
                 //Update Sprited For Instantiated Cells
                 //TODO: ^^^^^
                 instantiated.transform.localPosition = new Vector2(instantiated.GetComponent<Cell>().xPos, instantiated.GetComponent<Cell>().yPos);
