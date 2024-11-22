@@ -140,19 +140,7 @@ namespace DirectionOps
                     GameObject cell = partObject.GetComponent<Part>().table.Get(i, j);
                     if (!cell.GetComponent<Cell>().isEmpty)
                     {
-                        //Doing Rotation on each cell
-                        //TODO: Use DirectionOperator.ApplyRotation() instead
-                        List<Direction>  listOfDirections = new();
-                        foreach(Vector2 link in cell.GetComponent<Cell>().GetBlock().GetComponent<Block>().GetAllLinksList())
-                        {
-                            listOfDirections.Add(link.ToDirection());
-                        }
-                        List<Direction> newListOfDirections = new();
-                        foreach(Direction d in listOfDirections)
-                        {
-                            newListOfDirections.Add(dir.Add(d));
-                        }
-                        // TODO finish rotating the cell, or whatever
+                        
                         Vector2 cellLocation = new Vector2(i, j);
                         Vector2 newLocation = new Vector2(j, -i);
                         cell.GetComponent<Cell>().xPos = (int)newLocation.x;
@@ -202,6 +190,26 @@ namespace DirectionOps
             {
                 Debug.Log("Rotated Cells Instantiated");
                 GameObject instantiated = GameObject.Instantiate(cell, partObject.transform);
+                //Doing Rotation on each cell
+                //TODO: Use DirectionOperator.ApplyRotation() instead
+                List<Direction> listOfDirections = new();
+                foreach (Vector2 link in cell.GetComponent<Cell>().GetBlock().GetComponent<Block>().GetAllLinksList())
+                {
+                    listOfDirections.Add(link.ToDirection());
+                }
+                List<Direction> newListOfDirections = new();
+                foreach (Direction d in listOfDirections)
+                {
+                    newListOfDirections.Add(dir.Add(d));
+                }
+                // TODO finish rotating the cell, or whatever
+
+                // TODO why the *fuck* does the PipeIndexer not work here??
+                //Sprite newSprite = SelectSprite(
+                //    PipeIndexer.DirectionsToMathIndex(newListOfDirections),
+                //    cell.GetComponent<Cell>().GetBlock().GetComponent<Block>().variant
+                //    );
+
                 //Update Sprited For Instantiated Cells
                 //TODO: ^^^^^
                 instantiated.transform.localPosition = new Vector2(instantiated.GetComponent<Cell>().xPos, instantiated.GetComponent<Cell>().yPos);

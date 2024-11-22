@@ -77,17 +77,6 @@ public static class PipeIndexer
     }
 
     /// <summary>
-    /// Given the directions the pipe faces, returns the index in the sprite sheet.
-    /// </summary>
-    /// <param name="dirs"></param>
-    /// <returns></returns>
-    public static int DirectionsToIndex(List<Direction> dirs)
-    {
-        // TODO implement this stub!
-        return -1;
-    }
-
-    /// <summary>
     /// Convert from one pipe's math index to the next pipe's math index, given a rotation dir.<br>
     /// Because I'm fancy like that.
     /// </summary>
