@@ -6,33 +6,44 @@ using DG.Tweening;
 public class floatPlat : MonoBehaviour
 {
     public bool isOn = false;
-    private Animator animator;
-    
+    private Animator animator;   
     public float speed;
-    public int startingPoint;
-    public Transform[] points;
+    public float targetHeight;
+    private Vector3 startPos;
+    private Vector3 targetPos;
+   
+
     private int i;
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
-        
-        transform.position = points[startingPoint].position;
+        startPos = transform.position;
+        targetPos = new Vector3(startPos.x, targetHeight + startPos.y, startPos.z);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-       if (Vector2.Distance(transform.position, points[i].position) < .02f)
+    
+       if (isOn)
+       {
+            transform.position = Vector2.MoveTowards(transform.position,targetPos, speed * Time.deltaTime);
+       }
+       else
+       {
+            transform.position = Vector2.MoveTowards(transform.position, startPos, speed * Time.deltaTime);
+       }
+        if (transform.position == targetPos || transform.position == startPos)
         {
-            i++;
-            if (i == points.Length)
-            {
-                i = 0;
-            }
+            animator.SetBool("isOn", false);
         }
-       transform.position = Vector2.MoveTowards(transform.position, points[i].position, speed * Time.deltaTime);
+        else
+        {
+            animator.SetBool("isOn", true);
+        }
     }
+    
     
 
     public void changeState()
@@ -40,12 +51,12 @@ public class floatPlat : MonoBehaviour
         isOn = !isOn;
         if (isOn)
         {
-            animator.SetBool("isOn", true);
+            
             
         }
         else
         {
-            animator.SetBool("isOn", false);
+            
             
         }
     }

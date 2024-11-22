@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6620140832276287836}
   m_Layer: 0
   m_Name: FloatPlat
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -151,7 +151,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3, y: 1}
+  m_Size: {x: 3, y: 0.9603095}
   m_EdgeRadius: 0
 --- !u!114 &6620140832276287836
 MonoBehaviour:
@@ -166,3 +166,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOn: 0
+  speed: 2
+  targetHeight: 5
