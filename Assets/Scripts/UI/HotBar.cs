@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using Parts;
 using System.Collections;
 using System.Collections.Generic;
@@ -5,9 +6,9 @@ using UnityEngine;
 
 public class HotBar : MonoBehaviour
 {
-    internal GameObject anything;
-    public GameObject[] bar = new GameObject[9];
-    public GameObject[] bar2 = new GameObject[9];
+    public GameObject Anything;
+    private GameObject[] bar = new GameObject[9];
+    public GameObject[] Originalbar = new GameObject[9];
     public int index = new int();
     public int Repairindex;
     public GameObject badPartStorage;
@@ -17,12 +18,12 @@ public class HotBar : MonoBehaviour
     {
         if (badPartStorage != null)
         {
-            anything = gameObject;
+            Anything = gameObject;
             for (int i = 0; i < 9; i++)
             {
-                if (bar2[i] != null)
+                if (Originalbar[i] != null)
                 {
-                    bar[i] = Instantiate(bar2[i], badPartStorage.transform.position, transform.rotation);
+                    bar[i] = Instantiate(Originalbar[i], badPartStorage.transform.position, transform.rotation);
                     bar[i].GetComponent<Part>().SetIndex(i);
                     bar[i].GetComponent<Part>().FormTable();
                 }
@@ -48,30 +49,32 @@ public class HotBar : MonoBehaviour
     {
        this.index = index;
     }
+   
     public int GetIndex()
     {
         return index;
     }
-    public void repairArray(GameObject passedBar)
+    //public void repairArray(GameObject passedBar)
+    //{
+    //    index = passedBar.GetComponent<Part>().index;
+    //    bar[index] = passedBar;
+
+    //}
+
+    public void MoveBarIndex()
     {
-        index = passedBar.GetComponent<Part>().index;
-        bar[index] = passedBar;
-        //for(int i = 0; i < 9; i++)
-        //{
-        //    if (bar[i] == null)
-        //    {
-        //        bar[i] = passedBar;
-        //        Repairindex = i;
-        //        return ;
-        //    }
-        //}
+        Anything.GetComponent<BuildingArea_Riley>().SetSlot(bar[index]);
     }
-    
-    public void setBar()
+    public GameObject GetBar(int index)
     {
-            anything.GetComponent<BuildingArea_Riley>().SetSlot(bar[index]);
+        return bar[index];
     }
-    
+    public void SetBar(GameObject bar)
+    {
+        index = bar.GetComponent<Part>().index;
+        this.bar[index] = bar;
+    }
+
     public void DeleteIndex()
     {
         bar[index] = null;

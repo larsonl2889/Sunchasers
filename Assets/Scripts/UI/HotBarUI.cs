@@ -40,9 +40,9 @@ public class HotBarUI : MonoBehaviour
             for (int i = 0; i < 9; i++)
             {
                 Debug.Log(i);
-                if (hotbar.bar[i] != null)
+                if (hotbar.GetBar(i) != null)
                 {
-                    sprite = hotbar.bar[i].GetComponent<Image>().sprite;
+                    sprite = hotbar.GetBar(i).GetComponent<Image>().sprite;
                     HotBarSlots[i].gameObject.GetComponent<Image>().sprite = sprite;
                     HotBarSlots[i].gameObject.GetComponent<Image>().color = Color.white;
                     //HotBarSlots[i].gameObject.GetComponent<Image>().enabled = true;
@@ -96,7 +96,7 @@ public class HotBarUI : MonoBehaviour
             Debug.Log("part is null");
         }
         int index = part.GetComponentInParent<Part>().index;
-        sprite = hotbar.bar2[index].GetComponent<Image>().sprite;
+        sprite = hotbar.Originalbar[index].GetComponent<Image>().sprite;
         HotBarSlots[index].gameObject.GetComponent<Image>().sprite = sprite;
         HotBarSlots[index].gameObject.GetComponent<Image>().color = Color.white;
         Debug.Log("Test");
