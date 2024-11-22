@@ -211,8 +211,11 @@ namespace DirectionOps
                     // destroy its block
                     GameObject.Destroy(instantiated.GetComponent<Cell>().GetBlock());
                     // and make the new one
+                    GameObject instantiatedCell = PipeIndexer.Instantiate(mathIndex, instantiated.transform, variant);
+                    GameObject instantiatedBlock = GameObject.Instantiate(instantiatedCell.GetComponent<Cell>().GetBlock(), instantiated.transform);
+                    GameObject.Destroy(instantiatedCell);
                     instantiated.GetComponent<Cell>().SetBlock(
-                        PipeIndexer.Instantiate(mathIndex, instantiated.transform, variant)
+                        instantiatedBlock
                     );
                     // And give the block the reference to its cell
                     instantiated.GetComponent<Cell>().GetBlock().GetComponent<Block>().SetCell(instantiated);
