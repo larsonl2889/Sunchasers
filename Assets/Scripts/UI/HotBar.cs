@@ -19,6 +19,11 @@ public class HotBar : MonoBehaviour
     /// <param name="dir">direction to rotate</param>
     public void RotateGivenPart(Direction dir)
     {
+        // bandaid fix here 
+        if (dir == Direction.LEFT) { dir = Direction.RIGHT; }
+        else if (dir == Direction.RIGHT) { dir = Direction.LEFT; }
+        // end of bandaid fix
+
         if (bar[index] != null)
         {
             GameObject tmp = DirectionOperator.RotatePart(bar[index], dir);
