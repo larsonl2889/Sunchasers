@@ -5,7 +5,8 @@ using UnityEngine;
 using DG.Tweening;
 public class floatPlat : MonoBehaviour
 {
-    public bool isOn = false;
+    public bool movingToOtherPnt = false;
+    public bool isPowered = false;
     private Animator animator;   
     public float speed;
     public float moveUnitsVertical = 0;
@@ -26,40 +27,36 @@ public class floatPlat : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-    
-       if (isOn)
-       {
-            transform.position = Vector2.MoveTowards(transform.position,targetPos, speed * Time.deltaTime);
-       }
-       else
-       {
-            transform.position = Vector2.MoveTowards(transform.position, startPos, speed * Time.deltaTime);
-       }
-        if (transform.position == targetPos || transform.position == startPos)
+        if (isPowered)
         {
-            animator.SetBool("isOn", false);
-        }
-        else
-        {
-            animator.SetBool("isOn", true);
+            if (movingToOtherPnt)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+            }
+            else
+            {
+                transform.position = Vector2.MoveTowards(transform.position, startPos, speed * Time.deltaTime);
+            }
+            if (transform.position == targetPos || transform.position == startPos)
+            {
+                animator.SetBool("isOn", false);
+            }
+            else
+            {
+                animator.SetBool("isOn", true);
+            }
         }
     }
     
     
 
-    public void changeState()
+    public void move()
     {
-        isOn = !isOn;
-        if (isOn)
-        {
-            
-            
-        }
-        else
-        {
-            
-            
-        }
+        movingToOtherPnt = !movingToOtherPnt;
+    }
+    public void power()
+    {
+        isPowered = true;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

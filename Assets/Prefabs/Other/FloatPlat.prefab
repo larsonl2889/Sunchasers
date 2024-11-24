@@ -165,6 +165,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 119872ce5b730b14fa146cff7415fa26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOn: 0
+  movingtoOtherPnt: 0
+  isPowered: 0
   speed: 2
-  targetHeight: 5
+  moveUnitsVertical: 5
+  moveUnitsHorizontal: 0

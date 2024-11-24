@@ -61,6 +61,7 @@ public class Fan : MonoBehaviour
     private void woosh(GameObject player, int force)
     {
         Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
+        rb.velocity = new Vector2 (rb.velocity.x, 0);
         rb.AddForce(new Vector2(rb.velocity.x, fanForce), ForceMode2D.Impulse);
     }
 }

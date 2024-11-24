@@ -31645,14 +31645,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6620140832276287836, guid: 19d374636b529b64091380b624256180, type: 3}
-      propertyPath: moveUnitsVertical
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6620140832276287836, guid: 19d374636b529b64091380b624256180, type: 3}
-      propertyPath: moveUnitsHorizontal
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7100889649949264240, guid: 19d374636b529b64091380b624256180, type: 3}
       propertyPath: m_Name
       value: FloatPlat
@@ -35079,6 +35071,10 @@ PrefabInstance:
     - target: {fileID: 3281039758264664124, guid: 3c04e2da7f891954c938122fb6ef1eb2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4144202810991686179, guid: 3c04e2da7f891954c938122fb6ef1eb2, type: 3}
+      propertyPath: fanX
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4144202810991686179, guid: 3c04e2da7f891954c938122fb6ef1eb2, type: 3}
       propertyPath: isOn
