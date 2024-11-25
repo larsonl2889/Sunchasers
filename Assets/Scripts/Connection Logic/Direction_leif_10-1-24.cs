@@ -129,24 +129,22 @@ namespace DirectionOps
         public static GameObject RotatePart(GameObject partObject, Direction dir)
         {
             List<GameObject> rotatedCells = new();
-            if(partObject.GetComponent<Part>().table == null)
-            {
-                partObject.GetComponent<Part>().FormTable();
-            }
+
+            partObject.GetComponent<Part>().FormTable();
+
             for (int i = 0; i < partObject.GetComponent<Part>().tableSize; i++)
             {
                 for (int j = 0; j < partObject.GetComponent<Part>().tableSize; j++)
                 {
                     GameObject cell = partObject.GetComponent<Part>().table.Get(i, j);
-                    if (!cell.GetComponent<Cell>().isEmpty)
-                    {
-                        
-                        Vector2 cellLocation = new Vector2(i, j);
-                        Vector2 newLocation = new Vector2(j, -i);
-                        cell.GetComponent<Cell>().xPos = (int)newLocation.x;
-                        cell.GetComponent<Cell>().yPos = (int)newLocation.y;
-                        rotatedCells.Add(cell);
-                    }
+                        if (!cell.GetComponent<Cell>().isEmpty)
+                        {
+                            Vector2 cellLocation = new Vector2(i, j);
+                            Vector2 newLocation = new Vector2(j, -i);
+                            cell.GetComponent<Cell>().xPos = (int)newLocation.x;
+                            cell.GetComponent<Cell>().yPos = (int)newLocation.y;
+                            rotatedCells.Add(cell);
+                        }
                 }
             }
             bool checking = true;
@@ -237,6 +235,8 @@ namespace DirectionOps
             }
             partObject.GetComponent<Part>().FormTable();
             Debug.Log("Part Rotated");
+            //GameObject instantiatedPart = GameObject.Instantiate(partObject);
+            //GameObject.Destroy(partObject);
             return partObject;
         }
 

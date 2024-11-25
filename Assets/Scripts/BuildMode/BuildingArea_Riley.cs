@@ -7,6 +7,7 @@ using Cells;
 using Blocks;
 using UnityEngine.UIElements;
 using DirectionOps;
+using System;
 
 public class BuildingArea_Riley : MonoBehaviour
 {
@@ -109,5 +110,18 @@ public class BuildingArea_Riley : MonoBehaviour
         Debug.LogWarning("BuildingArea_Riley.delete(): updating steam");
         // Update steam
         GetComponentInParent<BuildAreaTest>().UpdateSteam();
+    }
+
+    public void RotateGivenPart(Direction dir)
+    {
+        if (Slot != null)
+        {
+            GameObject tmp = DirectionOperator.RotatePart(Slot, dir);
+            GameObject instantiated = Instantiate(tmp);
+            Destroy(tmp);
+            Slot = instantiated;
+            gameObject.GetComponent<HotBar>().repairArray(instantiated);
+            //GetComponent<BuildingArea_Riley>().build();
+        }
     }
 }
