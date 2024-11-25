@@ -6,24 +6,24 @@ using Parts;
 using Cells;
 using Blocks;
 using UnityEngine.UIElements;
-using System.Linq;
+using Cinemachine;
 
 public class BuildingArea_Riley : MonoBehaviour
 {
     public GameObject Slot;
-    public Sprite ErrorSprite;
-    public Sprite SelectedSprite;
-    public Sprite PlacedSprite;
     public GameObject UISlotsHolder;
     internal GameObject buildArea;
-    internal HotBar hotbar;
     internal BuildMat buildMat;
     private bool isInRange;
-    private Vector2 position;
-    private Vector2 WorldPos;
+    private Vector3 position;
+    private Vector3 WorldPos;
     Stack<GameObject> SlotHolder;
     [SerializeField] private AudioClip placeSound;
     [SerializeField] private AudioClip deletePartSound;
+    public Vector3 camOffset = Vector3.zero;
+    public float camZoom = 0;
+    public CinemachineVirtualCamera virtualCamera;
+   
 
     //void RepairSlots()
     //{
@@ -38,56 +38,13 @@ public class BuildingArea_Riley : MonoBehaviour
 
         SlotHolder = new Stack<GameObject>();
         buildMat = gameObject.GetComponent<BuildMat>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Slot != null)
-        {
-            position = Mouse.current.position.ReadValue();
-            WorldPos = Camera.main.ScreenToWorldPoint(position);
-            float xPos = WorldPos.x;
-            float yPos = WorldPos.y;
-            int minX = (int)buildMat.xPos - (int)((float)buildArea.GetComponent<BuildAreaTest>().scale / 2);
-            int minY = (int)buildMat.yPos - (int)((float)buildArea.GetComponent<BuildAreaTest>().scale / 2);
-            int maxX = (int)buildMat.xPos + (int)((float)buildArea.GetComponent<BuildAreaTest>().scale / 2);
-            int maxY = (int)buildMat.yPos + (int)((float)buildArea.GetComponent<BuildAreaTest>().scale / 2);
-            if (xPos > minX && xPos < maxX && yPos > minY && yPos < maxY)
-            {
-                    Vector2 Spawnplace = new Vector2((int)xPos + 0.5f, (int)yPos + 0.5f);
-                    Slot.transform.position = Spawnplace;
-            }
-            if(xPos > maxX || xPos < minX || yPos > maxY || yPos < minY)
-            {
-                Slot.transform.localPosition = new Vector2(100, 100);
-                return;
-            }else
-            {
-                if (!buildArea.GetComponent<BuildAreaTest>().CanMerge(Slot, new Vector2(xPos - minX, yPos - minY)))
-                {
-                    Cell[] cells = Slot.GetComponentsInChildren<Cell>();
-                    for (int i = 0; i < cells.Length; i++)
-                    {
-                        if (!cells[i].isEmpty)
-                        {
-                            cells[i].gameObject.GetComponent<SpriteRenderer>().sprite = ErrorSprite;
-                        }
-                    }
-                }
-                else
-                {
-                    Cell[] cells = Slot.GetComponentsInChildren<Cell>();
-                    for (int i = 0; i < cells.Length; i++)
-                    {
-                        if (!cells[i].isEmpty)
-                        {
-                            cells[i].gameObject.GetComponent<SpriteRenderer>().sprite = SelectedSprite;
-                        }
-                    }
-                }
-            }
-        }
+
     }
 
 
@@ -95,7 +52,13 @@ public class BuildingArea_Riley : MonoBehaviour
     {
         //set the area that can be built in by reading the mouse position.
         position = Mouse.current.position.ReadValue();
+        
+        position.z = Mathf.Abs(virtualCamera.transform.position.z);
+        
+        
+        
         WorldPos = Camera.main.ScreenToWorldPoint(position);
+        Debug.LogWarning("Mouse " + position + " World " + WorldPos);
         float xPos = WorldPos.x;
         float yPos = WorldPos.y;
         int minX = (int)buildMat.xPos - (int)((float)buildArea.GetComponent<BuildAreaTest>().scale / 2);
@@ -109,7 +72,6 @@ public class BuildingArea_Riley : MonoBehaviour
             instantiated.GetComponent<Part>().FormTable();
             if (buildArea.GetComponent<BuildAreaTest>().CanMerge(instantiated, new Vector2(xPos - minX, yPos - minY)))
             {
-
                 gameObject.GetComponent<HotBar>().DeleteIndex();
                 UISlotsHolder.GetComponent<HotBarUI>().BuildUISlot();
                 Destroy(Slot);
@@ -118,15 +80,7 @@ public class BuildingArea_Riley : MonoBehaviour
                 Vector2 Spawnplace = new Vector2((int)xPos + 0.5f, (int)yPos + 0.5f);
                 buildArea.GetComponent<BuildAreaTest>().MergeTables(instantiated, new Vector2(xPos - minX, yPos - minY));
                 // Try to update steam
-                buildArea.GetComponent<BuildAreaTest>().UpdateSteam();
-                Cell[] cells = instantiated.GetComponentsInChildren<Cell>();
-                for (int i = 0; i < cells.Length; i++)
-                {
-                    if (!cells[i].isEmpty)
-                    {
-                        cells[i].gameObject.GetComponent<SpriteRenderer>().sprite = PlacedSprite;
-                    }
-                }
+                buildArea.GetComponent<BuildAreaTest>().UpdateSteam(); 
                 instantiated.transform.position = Spawnplace;
                 return;
             }
@@ -156,9 +110,7 @@ public class BuildingArea_Riley : MonoBehaviour
         GameObject realPart = PlaceHolder.gameObject;
         GameObject instantiated = Instantiate(realPart);
         instantiated.transform.localPosition = new Vector3(100, 100, 0);
-        instantiated.GetComponent<Part>().FormTable();
-        gameObject.GetComponent<HotBar>().SetBar(instantiated);
-        gameObject.GetComponent<HotBar>().MoveBarIndex();
+        gameObject.GetComponent<HotBar>().repairArray(instantiated);
         part.GetComponentInParent<Part>().Extract();
         SFXManager.instance.playSound(deletePartSound, part.transform, .5f);
 
