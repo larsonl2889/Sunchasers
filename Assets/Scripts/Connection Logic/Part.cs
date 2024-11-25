@@ -87,9 +87,9 @@ namespace Parts
             {
                 for(int j = 0; j < tableSize; j++)
                 {
-                    emptyCell.GetComponent<Cell>().xPos = i;
-                    emptyCell.GetComponent<Cell>().yPos = j;
                     GameObject instantiated = Instantiate(emptyCell, gameObject.transform);
+                    instantiated.GetComponent<Cell>().xPos = i;
+                    instantiated.GetComponent<Cell>().yPos = j;
                     instantiated.transform.localPosition = new Vector3(100, 100, 0);
                     table.Put(i, j, instantiated);
                     Debug.Log("Added to part table (Empty)");

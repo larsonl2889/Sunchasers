@@ -287,6 +287,7 @@ public class PlayerController_Willliam : MonoBehaviour
         if (currentBuildZone != null) {
             hotBarUI.HotBarNumSlots[currentBuildZone.GetComponent<HotBar>().index].GetComponent<TextMeshProUGUI>().color = Color.white;
             currentBuildZone.GetComponent<HotBar>().SetIndex(slotIndex - 1);
+            currentBuildZone.GetComponent<HotBar>().setBar();
             hotBarUI.HotBarNumSlots[slotIndex - 1].GetComponent<TextMeshProUGUI>().color = Color.yellow;
             hotBarUI.GetComponent<HotBarUI>().UpdateUI(slotIndex-1);
         }

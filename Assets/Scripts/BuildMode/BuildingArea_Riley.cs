@@ -16,6 +16,8 @@ public class BuildingArea_Riley : MonoBehaviour
     internal GameObject buildArea;
     internal HotBar hotbar;
     internal BuildMat buildMat;
+    public Sprite SelectedSprite;
+    public Sprite ErrorSprite;
     private bool isInRange;
     private Vector2 position;
     private Vector2 WorldPos;
@@ -42,7 +44,52 @@ public class BuildingArea_Riley : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Slot != null)
+        {
+            position = Mouse.current.position.ReadValue();
+            WorldPos = Camera.main.ScreenToWorldPoint(position);
+            float xPos = WorldPos.x;
+            float yPos = WorldPos.y;
+            int minX = (int)buildMat.xPos - (int)((float)buildArea.GetComponent<BuildAreaTest>().scale / 2);
+            int minY = (int)buildMat.yPos - (int)((float)buildArea.GetComponent<BuildAreaTest>().scale / 2);
+            int maxX = (int)buildMat.xPos + (int)((float)buildArea.GetComponent<BuildAreaTest>().scale / 2);
+            int maxY = (int)buildMat.yPos + (int)((float)buildArea.GetComponent<BuildAreaTest>().scale / 2);
+            if (xPos > minX && xPos < maxX && yPos > minY && yPos < maxY)
+            {
+                Vector2 Spawnplace = new Vector2((int)xPos + 0.5f, (int)yPos + 0.5f);
+                Slot.transform.position = Spawnplace;
+            }
+            if (xPos > maxX || xPos < minX || yPos > maxY || yPos < minY)
+            {
+                Slot.transform.localPosition = new Vector2(100, 100);
+                return;
+            }
+            else
+            {
+                if (!buildArea.GetComponent<BuildAreaTest>().CanMerge(Slot, new Vector2(xPos - minX, yPos - minY)))
+                {
+                    Cell[] cells = Slot.GetComponentsInChildren<Cell>();
+                    for (int i = 0; i < cells.Length; i++)
+                    {
+                        if (!cells[i].isEmpty)
+                        {
+                            cells[i].gameObject.GetComponent<SpriteRenderer>().sprite = ErrorSprite;
+                        }
+                    }
+                }
+                else
+                {
+                    Cell[] cells = Slot.GetComponentsInChildren<Cell>();
+                    for (int i = 0; i < cells.Length; i++)
+                    {
+                        if (!cells[i].isEmpty)
+                        {
+                            cells[i].gameObject.GetComponent<SpriteRenderer>().sprite = SelectedSprite;
+                        }
+                    }
+                }
+            }
+        }
     }
 
 
