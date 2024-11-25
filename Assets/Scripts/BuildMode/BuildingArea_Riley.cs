@@ -178,7 +178,7 @@ public class BuildingArea_Riley : MonoBehaviour
             GameObject instantiated = Instantiate(tmp);
             Destroy(tmp);
             Slot = instantiated;
-            gameObject.GetComponent<HotBar>().repairArray(instantiated);
+            gameObject.GetComponent<HotBar>().SetBar(instantiated);
             //GetComponent<BuildingArea_Riley>().build();
         }
     }
