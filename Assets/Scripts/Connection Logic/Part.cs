@@ -83,7 +83,7 @@ namespace Parts
         public void FormTable()
         {
             table = new LookupTable<GameObject>(tableSize, tableSize, emptyCell);
-            for(int i = 0; i < tableSize; i++)
+            for (int i = 0; i < tableSize; i++)
             {
                 for(int j = 0; j < tableSize; j++)
                 {
