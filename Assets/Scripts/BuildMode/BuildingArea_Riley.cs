@@ -67,6 +67,7 @@ public class BuildingArea_Riley : MonoBehaviour
                 return;
             }else
             {
+                Slot.GetComponent<Part>().FormTable();
                 if (!buildArea.GetComponent<BuildAreaTest>().CanMerge(Slot, new Vector2(xPos - minX, yPos - minY)))
                 {
                     Cell[] cells = Slot.GetComponentsInChildren<Cell>();
@@ -178,6 +179,7 @@ public class BuildingArea_Riley : MonoBehaviour
             GameObject instantiated = Instantiate(tmp);
             Destroy(tmp);
             Slot = instantiated;
+            instantiated.GetComponent<Part>().FormTable();
             gameObject.GetComponent<HotBar>().SetBar(instantiated);
             //GetComponent<BuildingArea_Riley>().build();
         }

@@ -1,6 +1,7 @@
 ﻿using System;
 using Blocks;
 using Cells;
+using System.Collections.Generic;
 using DirectionOps;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -82,6 +83,14 @@ namespace Parts
         
         public void FormTable()
         {
+            Cell[] cells2 = gameObject.GetComponentsInChildren<Cell>();
+            for(int i = 0; i < cells2.Length; i++)
+            {
+                if (cells2[i].isEmpty)
+                {
+                    Destroy(cells2[i].gameObject);
+                }
+            }
             table = new LookupTable<GameObject>(tableSize, tableSize, emptyCell);
             for (int i = 0; i < tableSize; i++)
             {
