@@ -203,7 +203,7 @@ MonoBehaviour:
   placeSound: {fileID: 8300000, guid: 17140b36f8183ab4a914805113a4b5b0, type: 3}
   deletePartSound: {fileID: 8300000, guid: c22a6f837059477459926910414afc1b, type: 3}
   camOffset: {x: 0, y: -1, z: 0}
-  camZoom: 5
+  camZoom: 50
 --- !u!61 &3614276931606973988
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -146,8 +146,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f88c6b2f667684f498694113537fe4cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fanForce: 20
-  isOn: 0
+  fanForce: 15
+  isOn: 1
 --- !u!61 &5702446079821747987
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -203,9 +203,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 5941b0aaee73c9f4dbbadbc0459430c6, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.374
+  m_Volume: 0.035
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -299,7 +299,7 @@ Animator:
   m_GameObject: {fileID: 2437498312437058448}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6c9435d9c89f74341886f4e7047f1238, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

@@ -36,6 +36,7 @@ public class PlayerController_Willliam : MonoBehaviour
     public Vector3 camOffset = new Vector3(0,1,0);
     public float zoom = 4;
     public GameObject cam;
+    private AudioSource footStepSounds;  
 
     private void Awake()
     {
@@ -46,6 +47,8 @@ public class PlayerController_Willliam : MonoBehaviour
         playerPlatformHandler = GetComponent<PlayerPlatformHandler>();
         objectsNear = new Stack<GameObject>();
         hotBarUI.player = this.gameObject;
+        footStepSounds = GetComponent<AudioSource>();
+        
         
         
     }
@@ -76,15 +79,24 @@ public class PlayerController_Willliam : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
         rb.velocity = new Vector2(direction.x * speed, rb.velocity.y);
         animate();
-        
-    }
+        if (rb.velocity.x != 0 && IsGrounded())
+        {
+            footStepSounds.enabled = true;
+        }
+        else
+        {
+            footStepSounds.enabled = false;
+        }
+
+        }
     
     public void onMove(InputAction.CallbackContext context)
     {
         direction = context.ReadValue<Vector2>();
+        
+
 
         if (direction.x > 0)
         {
