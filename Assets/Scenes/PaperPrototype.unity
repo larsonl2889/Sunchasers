@@ -600,6 +600,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4684e40cf8752244ac83e4532b8390c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &205472678 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7753173940219570803, guid: bb653cf27650abc4eb22514fcba548de, type: 3}
+  m_PrefabInstance: {fileID: 346307303}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &266866088
 GameObject:
   m_ObjectHideFlags: 3
@@ -997,6 +1002,34 @@ PrefabInstance:
       propertyPath: sceneName
       value: William 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4985526262892325006, guid: bb653cf27650abc4eb22514fcba548de, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985526262892325006, guid: bb653cf27650abc4eb22514fcba548de, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985526262892325006, guid: bb653cf27650abc4eb22514fcba548de, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 346307304}
+    - target: {fileID: 4985526262892325006, guid: bb653cf27650abc4eb22514fcba548de, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985526262892325006, guid: bb653cf27650abc4eb22514fcba548de, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: enterDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985526262892325006, guid: bb653cf27650abc4eb22514fcba548de, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Door, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985526262892325006, guid: bb653cf27650abc4eb22514fcba548de, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7753173940219570803, guid: bb653cf27650abc4eb22514fcba548de, type: 3}
       propertyPath: m_Name
       value: Door
@@ -1004,19 +1037,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7753173940219570803, guid: bb653cf27650abc4eb22514fcba548de, type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 346307308}
   m_SourcePrefab: {fileID: 100100000, guid: bb653cf27650abc4eb22514fcba548de, type: 3}
 --- !u!114 &346307304 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3284714195678572908, guid: bb653cf27650abc4eb22514fcba548de, type: 3}
   m_PrefabInstance: {fileID: 346307303}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 205472678}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00218e4a4562c234c815be9e594adaf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &346307308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205472678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78afbf1516d29c24c815a1c34645aaf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetScene: EndScreen
 --- !u!1 &365843771 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2322169793523948518, guid: 4c2433ff525ec0b448d0fbc890bdd58d, type: 3}
@@ -1082,6 +1131,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Anything: {fileID: 0}
+  bar:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   Originalbar:
   - {fileID: 1796572086390300456, guid: 69b93f0cb9878ad468d52fcfa7593b18, type: 3}
   - {fileID: 1796572086390300456, guid: d0a0af1bf522d29458ae8b61eed72d1e, type: 3}
@@ -1093,7 +1152,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   index: 0
-  Repairindex: 0
   badPartStorage: {fileID: 1057455096}
 --- !u!1001 &505398424
 PrefabInstance:
@@ -1211,8 +1269,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -16835,8 +16893,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Mumble
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
