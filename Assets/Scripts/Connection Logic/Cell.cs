@@ -1,7 +1,8 @@
 ﻿using System;
 using UnityEngine;
 using Blocks;
-
+using DirectionOps;
+using System.Collections.Generic;
 // implements https://app.diagrams.net/#G1jlsRcd-Jo9MzWTEkTyTaZTvIuyx-oHzH#%7B%22pageId%22%3A%22C5RBs43oDa-KdzZeNtuy%22%7D
 
 // TODO test!
@@ -19,6 +20,23 @@ namespace Cells
         public int yPos;
         public GameObject block;
         public bool isEmpty = true;
+
+        public void UpdatePipeSprite()
+        {
+            if (block != null)
+            {
+                // Get directions list
+                List<Direction> dirs = new();
+                foreach(Vector2 vec in block.GetComponent<Block>().GetAllLinksList())
+                {
+                    dirs.Add(DirectionOperator.ToDirection(vec));
+                }
+                // Select sprite
+                PipeIndexer.SelectSprite(
+                    PipeIndexer.DirectionsToMathIndex(dirs), block.GetComponent<Block>().variant
+                );
+            }
+        }
 
         /*
         public Cell(Block block, Vector2 pos)

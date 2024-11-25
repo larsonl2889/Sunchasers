@@ -6,6 +6,7 @@ using Parts;
 using Cells;
 using Blocks;
 using UnityEngine.UIElements;
+using DirectionOps;
 using System.Linq;
 
 public class BuildingArea_Riley : MonoBehaviour
@@ -24,6 +25,7 @@ public class BuildingArea_Riley : MonoBehaviour
     Stack<GameObject> SlotHolder;
     [SerializeField] private AudioClip placeSound;
     [SerializeField] private AudioClip deletePartSound;
+
 
     //void RepairSlots()
     //{

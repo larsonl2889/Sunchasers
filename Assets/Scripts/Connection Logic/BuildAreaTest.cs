@@ -20,6 +20,8 @@ public class BuildAreaTest : MonoBehaviour
     public int xPos;
     public int yPos;
 
+    public float steamUpdateDelay;
+
     public Vector2Int SourceLocation;
     public Vector2Int ObjectiveLocation;
 
@@ -421,6 +423,7 @@ public class BuildAreaTest : MonoBehaviour
         Vector2 test = new Vector2(0, 0);
         MergeTables(instantiatedPart, test);
     }
+
     //retrieves the cell at a specific location in the build area
     /*
     public Cell GetCell(Vector2 pos)
@@ -474,6 +477,11 @@ public class BuildAreaTest : MonoBehaviour
         return true;
     }
 
+    //public void MergeTables(GameObject part, Vector2 startPosition)
+    //{
+    //    MergeTablesDelay(part, startPosition, -1.0f);
+    //}
+
     //Merges the table passed as a parameter into the one calling the function. (You would pass the part as parameter)
     public void MergeTables(GameObject part, Vector2 startPosition)
     {
@@ -502,6 +510,19 @@ public class BuildAreaTest : MonoBehaviour
             part.GetComponent<Part>().SetPosInWorld();
         }
         // update steam here
+        if (steamUpdateDelay > 0.0f)
+        {
+            DelayedUpdateSteam(steamUpdateDelay);
+        }
+        else
+        {
+            UpdateSteam();
+        }
+    }
+
+    public IEnumerator DelayedUpdateSteam(float delay) {
+        Debug.LogError("Hello world!");
+        yield return new WaitForSeconds(delay);
         UpdateSteam();
     }
 

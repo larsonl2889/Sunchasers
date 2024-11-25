@@ -13,7 +13,7 @@ namespace Parts
         public LookupTable<GameObject> table;
         public GameObject emptyCell;
         public int tableSize;
-        private Vector2 pivot; // location within its own table that'll be our "center". We place and rotate with respect to the pivot.
+        private Vector2Int pivot; // location within its own table that'll be our "center". We place and rotate with respect to the pivot.
         private bool posInWorld; // the position in world, if I'm in play.
         private LookupTable<GameObject> buildArea;
         private GameObject[] childCells;
@@ -79,7 +79,7 @@ namespace Parts
             
         }
         
-
+        
         public void FormTable()
         {
             table = new LookupTable<GameObject>(tableSize, tableSize, emptyCell);
@@ -139,9 +139,16 @@ namespace Parts
             return table;
         }
 
-        public Vector2 GetPivot()
-        {
-            return pivot;
+        public void SetPivot(Vector2 newPivot) { pivot = new Vector2Int((int)newPivot.x, (int)newPivot.y); }
+
+        public Vector2 GetPivot() { 
+            // moves any pivot at (0, 0)
+            //if (pivot == null || (int)pivot.x==0 && (int)pivot.y==0)
+            //{
+            //    return new Vector2((int)(tableSize / 2 + 1), (int)(tableSize / 2 + 1));
+            //}
+            return (Vector2)pivot; 
+        
         }
 
         /// <summary>

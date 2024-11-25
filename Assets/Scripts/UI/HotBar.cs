@@ -1,3 +1,4 @@
+using DirectionOps;
 using JetBrains.Annotations;
 using Parts;
 using System.Collections;
@@ -12,6 +13,24 @@ public class HotBar : MonoBehaviour
     public int index = new int();
     public GameObject badPartStorage;
 
+    /// <summary>
+    /// Rotates the part at the given index
+    /// </summary>
+    /// <param name="dir">direction to rotate</param>
+    public void RotateGivenPart(Direction dir)
+    {
+        // bandaid fix here 
+        if (dir == Direction.LEFT) { dir = Direction.RIGHT; }
+        else if (dir == Direction.RIGHT) { dir = Direction.LEFT; }
+        // end of bandaid fix
+
+        if (bar[index] != null)
+        {
+            GameObject tmp = DirectionOperator.RotatePart(bar[index], dir);
+            //GetComponent<BuildingArea_Riley>().build();
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +41,8 @@ public class HotBar : MonoBehaviour
             {
                 if (Originalbar[i] != null)
                 {
+                    bar[i] = Instantiate(bar2[i], badPartStorage.transform.position, transform.rotation);
+                    bar[i].GetComponent<Part>().FormTable();
                     bar[i] = Instantiate(Originalbar[i], badPartStorage.transform.position, transform.rotation);
                     bar[i].GetComponent<Part>().SetIndex(i);
                     bar[i].GetComponent<Part>().FormTable();
