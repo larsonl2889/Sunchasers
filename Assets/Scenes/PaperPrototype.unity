@@ -2196,6 +2196,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1594545196290764436, guid: 677916169f9b6104b8fdc1ad2f18ff31, type: 3}
+      propertyPath: onSprite
+      value: 
+      objectReference: {fileID: 533644805, guid: 94f9a7c7ae1a074458efb5b3e7c46910, type: 3}
+    - target: {fileID: 1594545196290764436, guid: 677916169f9b6104b8fdc1ad2f18ff31, type: 3}
+      propertyPath: offSprite
+      value: 
+      objectReference: {fileID: 1406763031, guid: 94f9a7c7ae1a074458efb5b3e7c46910, type: 3}
+    - target: {fileID: 1594545196290764436, guid: 677916169f9b6104b8fdc1ad2f18ff31, type: 3}
       propertyPath: onLeverPull.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -2279,6 +2287,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -22.919
       objectReference: {fileID: 0}
+    - target: {fileID: 8693249085188139088, guid: 677916169f9b6104b8fdc1ad2f18ff31, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1406763031, guid: 94f9a7c7ae1a074458efb5b3e7c46910, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
