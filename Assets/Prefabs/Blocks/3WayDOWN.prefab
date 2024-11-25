@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4988724870829157296}
   - component: {fileID: 7779811428497453959}
   m_Layer: 0
-  m_Name: 3WayLEFT
+  m_Name: 3WayDOWN
   m_TagString: Part
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -160,7 +160,7 @@ GameObject:
   - component: {fileID: 2394350095098055785}
   - component: {fileID: 50390537450837299}
   m_Layer: 0
-  m_Name: 3WayLEFT Block
+  m_Name: 3WayDOWN Block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -223,7 +223,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 2119630805, guid: 164200f213baaac41b068365ffae052a, type: 3}
+  m_Sprite: {fileID: -2041511531, guid: 164200f213baaac41b068365ffae052a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cell: {fileID: 3838098990102560207}
-  directions: 010000000200000003000000
+  directions: 000000000100000002000000
   isSource: 0
   variant: 0
   gusherParent: {fileID: 7551752199164361038}
