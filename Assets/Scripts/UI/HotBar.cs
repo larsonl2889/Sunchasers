@@ -41,7 +41,7 @@ public class HotBar : MonoBehaviour
             {
                 if (Originalbar[i] != null)
                 {
-                    bar[i] = Instantiate(bar2[i], badPartStorage.transform.position, transform.rotation);
+                    bar[i] = Instantiate(Originalbar[i], badPartStorage.transform.position, transform.rotation);
                     bar[i].GetComponent<Part>().FormTable();
                     bar[i] = Instantiate(Originalbar[i], badPartStorage.transform.position, transform.rotation);
                     bar[i].GetComponent<Part>().SetIndex(i);
