@@ -1097,7 +1097,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   index: 0
-  Repairindex: 0
   badPartStorage: {fileID: 1057455096}
 --- !u!1001 &505398424
 PrefabInstance:
