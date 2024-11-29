@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.97, y: 0.51, z: -0.015449987}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5217, y: 1.5217, z: 1.5217}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1350538946, guid: 069bb7fd145c7db4187c4a6192ea11c6, type: 3}
+  m_Sprite: {fileID: 1406763031, guid: 94f9a7c7ae1a074458efb5b3e7c46910, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -134,11 +134,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93486375b9561f84da7b7f487f0fd2b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onSprite: {fileID: -243516735, guid: 069bb7fd145c7db4187c4a6192ea11c6, type: 3}
-  offSprite: {fileID: -1350538946, guid: 069bb7fd145c7db4187c4a6192ea11c6, type: 3}
+  onSprite: {fileID: 533644805, guid: 94f9a7c7ae1a074458efb5b3e7c46910, type: 3}
+  offSprite: {fileID: 1406763031, guid: 94f9a7c7ae1a074458efb5b3e7c46910, type: 3}
   onLeverPull:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: BuildAreaTest, Assembly-CSharp
+        m_MethodName: ToggleSource
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   leverSound: {fileID: 8300000, guid: 6c0c60a4177f24f479f9a164430db309, type: 3}
 --- !u!58 &9195435974154422236
 CircleCollider2D:
