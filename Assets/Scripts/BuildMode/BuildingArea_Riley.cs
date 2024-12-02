@@ -6,6 +6,7 @@ using Parts;
 using Cells;
 using Blocks;
 using UnityEngine.UIElements;
+using Cinemachine;
 using DirectionOps;
 using System;
 
@@ -17,12 +18,15 @@ public class BuildingArea_Riley : MonoBehaviour
     internal HotBar hotbar;
     internal BuildMat buildMat;
     private bool isInRange;
-    private Vector2 position;
-    private Vector2 WorldPos;
+    private Vector3 position;
+    private Vector3 WorldPos;
     Stack<GameObject> SlotHolder;
     [SerializeField] private AudioClip placeSound;
     [SerializeField] private AudioClip deletePartSound;
-
+    public Vector3 camOffset = Vector3.zero;
+    public float camZoom = 0;
+    public CinemachineVirtualCamera virtualCamera;
+   
 
     //void RepairSlots()
     //{
@@ -37,6 +41,7 @@ public class BuildingArea_Riley : MonoBehaviour
 
         SlotHolder = new Stack<GameObject>();
         buildMat = gameObject.GetComponent<BuildMat>();
+        
     }
 
     // Update is called once per frame
@@ -50,7 +55,13 @@ public class BuildingArea_Riley : MonoBehaviour
     {
         //set the area that can be built in by reading the mouse position.
         position = Mouse.current.position.ReadValue();
+        
+        position.z = Mathf.Abs(virtualCamera.transform.position.z);
+        
+        
+        
         WorldPos = Camera.main.ScreenToWorldPoint(position);
+        Debug.LogWarning("Mouse " + position + " World " + WorldPos);
         float xPos = WorldPos.x;
         float yPos = WorldPos.y;
         int minX = (int)buildMat.xPos - (int)((float)buildArea.GetComponent<BuildAreaTest>().scale / 2);

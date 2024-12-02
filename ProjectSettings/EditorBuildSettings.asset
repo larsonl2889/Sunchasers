@@ -14,10 +14,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Inactive/TestArea.unity
     guid: 368983f3e88591743bcec8e03030ac1c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/William 2.unity
     guid: 1d22c6bceaa17cc43ab615419975f095
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/PaperPrototype.unity
     guid: 4d2a4a2df313ce34da395f0c8704e311
+  - enabled: 1
+    path: Assets/Scenes/Levels/Town dupe.unity
+    guid: 350c201dca4cfcf449ddfe1ddc36de7f
   m_configObjects: {}

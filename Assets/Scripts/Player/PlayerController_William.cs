@@ -34,7 +34,10 @@ public class PlayerController_Willliam : MonoBehaviour
     public int currSlotSelected = 1;
     public GameObject UI;
     public HotBarUI hotBarUI = null;
-    
+    public Vector3 camOffset = new Vector3(0,1,0);
+    public float zoom = 4;
+    public GameObject cam;
+    private AudioSource footStepSounds;  
 
     private void Awake()
     {
@@ -45,6 +48,9 @@ public class PlayerController_Willliam : MonoBehaviour
         playerPlatformHandler = GetComponent<PlayerPlatformHandler>();
         objectsNear = new Stack<GameObject>();
         hotBarUI.player = this.gameObject;
+        footStepSounds = GetComponent<AudioSource>();
+        
+        
         
     }
     private void OnEnable()
@@ -83,7 +89,6 @@ public class PlayerController_Willliam : MonoBehaviour
     {
 
         
-
         playerControls.Player.Interact.performed += interact;
         playerControls.Player.Down.performed += GoDownPlatform;
         playerControls.Player.Click.performed += OnClick;
@@ -99,15 +104,24 @@ public class PlayerController_Willliam : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
         rb.velocity = new Vector2(direction.x * speed, rb.velocity.y);
         animate();
-        
-    }
+        if (rb.velocity.x != 0 && IsGrounded())
+        {
+            footStepSounds.enabled = true;
+        }
+        else
+        {
+            footStepSounds.enabled = false;
+        }
+
+        }
     
     public void onMove(InputAction.CallbackContext context)
     {
         direction = context.ReadValue<Vector2>();
+        
+
 
         if (direction.x > 0)
         {
@@ -251,6 +265,7 @@ public class PlayerController_Willliam : MonoBehaviour
      
     public void scroll(InputAction.CallbackContext context)
     {
+        Debug.Log("yes");
         if (currentBuildZone != null)
         {
             float value = context.ReadValue<float>();
@@ -301,6 +316,7 @@ public class PlayerController_Willliam : MonoBehaviour
     {
         return rb.velocity.y == 0;
     }
+    
 
     public void GoDownPlatform(InputAction.CallbackContext context)
     {
@@ -328,6 +344,7 @@ public class PlayerController_Willliam : MonoBehaviour
             hotBarUI.updateImages();
             isBuilding = true;
             hotBarUI.gameObject.GetComponent<Canvas>().enabled = true;
+            cam.GetComponent<Cam>().changeFollowTarget(currentBuildZone);
         }
     }
 
@@ -347,6 +364,7 @@ public class PlayerController_Willliam : MonoBehaviour
             hotBarUI.updateImages();
             isBuilding = false;
             hotBarUI.gameObject.GetComponent<Canvas>().enabled = false;
+            cam.GetComponent<Cam>().changeFollowTarget(this.gameObject);
         }
     }
    
