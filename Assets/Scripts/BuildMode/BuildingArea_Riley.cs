@@ -54,6 +54,7 @@ public class BuildingArea_Riley : MonoBehaviour
         if (Slot != null)
         {
             position = Mouse.current.position.ReadValue();
+            position.z = Mathf.Abs(virtualCamera.transform.position.z);
             WorldPos = Camera.main.ScreenToWorldPoint(position);
             float xPos = WorldPos.x;
             float yPos = WorldPos.y;
