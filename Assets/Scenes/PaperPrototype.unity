@@ -280,12 +280,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Slot: {fileID: 3116988592714292705, guid: 253bd44c7b4edf74fb1155bf36f498cc, type: 3}
-  ErrorSprite: {fileID: 0}
-  SelectedSprite: {fileID: 0}
-  PlacedSprite: {fileID: 0}
   UISlotsHolder: {fileID: 0}
   placeSound: {fileID: 0}
   deletePartSound: {fileID: 0}
+  camOffset: {x: 0, y: 0, z: 0}
+  camZoom: 0
+  virtualCamera: {fileID: 0}
 --- !u!1 &88313433 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3345688009113088830, guid: 81886acb3d04c3b49b2c2bddb9998f03, type: 3}
@@ -1089,12 +1089,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Slot: {fileID: 0}
-  ErrorSprite: {fileID: 21300000, guid: 43ffa2e6883523d4e83342eab67eb9d2, type: 3}
-  SelectedSprite: {fileID: 21300000, guid: 43c46740a13584544a101ad5d3b96834, type: 3}
-  PlacedSprite: {fileID: 21300000, guid: 8f8da158be6bd4a4584e8d8ef80ced89, type: 3}
   UISlotsHolder: {fileID: 130602057}
   placeSound: {fileID: 8300000, guid: 17140b36f8183ab4a914805113a4b5b0, type: 3}
   deletePartSound: {fileID: 8300000, guid: c22a6f837059477459926910414afc1b, type: 3}
+  camOffset: {x: 0, y: 0, z: 0}
+  camZoom: 0
+  virtualCamera: {fileID: 0}
 --- !u!114 &407347148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2753,6 +2753,18 @@ PrefabInstance:
     - target: {fileID: 4943444774913355481, guid: 677916169f9b6104b8fdc1ad2f18ff31, type: 3}
       propertyPath: m_Name
       value: Lever
+      objectReference: {fileID: 0}
+    - target: {fileID: 7664789201650967424, guid: 677916169f9b6104b8fdc1ad2f18ff31, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 346307304}
+    - target: {fileID: 7664789201650967424, guid: 677916169f9b6104b8fdc1ad2f18ff31, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: open
+      objectReference: {fileID: 0}
+    - target: {fileID: 7664789201650967424, guid: 677916169f9b6104b8fdc1ad2f18ff31, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Door, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8506681162453297690, guid: 677916169f9b6104b8fdc1ad2f18ff31, type: 3}
       propertyPath: m_LocalScale.x
