@@ -110,7 +110,7 @@ public class BuildingArea_Riley : MonoBehaviour
         GameObject realPart = PlaceHolder.gameObject;
         GameObject instantiated = Instantiate(realPart);
         instantiated.transform.localPosition = new Vector3(100, 100, 0);
-        gameObject.GetComponent<HotBar>().repairArray(instantiated);
+        gameObject.GetComponent<HotBar>().SetBar(instantiated);
         part.GetComponentInParent<Part>().Extract();
         SFXManager.instance.playSound(deletePartSound, part.transform, .5f);
 
