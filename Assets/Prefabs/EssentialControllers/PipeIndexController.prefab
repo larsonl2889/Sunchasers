@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &165429117534427359
+--- !u!1 &3587047513052890029
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1551152309598902851}
-  - component: {fileID: 8752819413039386289}
-  - component: {fileID: 1880329711022636458}
+  - component: {fileID: 5602682431724619165}
+  - component: {fileID: 3045463156599494192}
   m_Layer: 0
   m_Name: PipeIndexController
   m_TagString: PipeIndexer
@@ -18,13 +17,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1551152309598902851
+--- !u!4 &5602682431724619165
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 165429117534427359}
+  m_GameObject: {fileID: 3587047513052890029}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 890.2083, y: 529.20154, z: -7.000585}
@@ -33,13 +32,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8752819413039386289
+--- !u!114 &3045463156599494192
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 165429117534427359}
+  m_GameObject: {fileID: 3587047513052890029}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0452c85dbb72d4a973aa29334a13ad, type: 3}
@@ -47,20 +46,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pipes:
   - {fileID: 0}
-  - {fileID: 3838098990102560207, guid: 3096ff5bdace6f140935b43dedb488b1, type: 3}
-  - {fileID: 3838098990102560207, guid: 42f8edf2ca5b6cd49b434850a19a8586, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 3838098990102560207, guid: c39a104eb72904c4d9133b650ce77610, type: 3}
-  - {fileID: 3838098990102560207, guid: 2096d29f1d14ade4f8a341042f8f9cc5, type: 3}
+  - {fileID: 0}
   - {fileID: 3838098990102560207, guid: 691814ca686605144bcc4f220925d1e0, type: 3}
   - {fileID: 3838098990102560207, guid: 02b200348135feb4e944dd56f013b93e, type: 3}
-  - {fileID: 3838098990102560207, guid: 817505adcf11dce48a066258f0f3cea7, type: 3}
-  - {fileID: 3838098990102560207, guid: ebfe29fcc59e798448ad5a4c6f435b77, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 3838098990102560207, guid: 9a477722cf719fa4a946d28733137208, type: 3}
   - {fileID: 3838098990102560207, guid: 5a14ac7f5ad39324a93a208c939ded5b, type: 3}
-  - {fileID: 3838098990102560207, guid: 6713be93ef537e64a93b608499b0749d, type: 3}
+  - {fileID: 0}
   - {fileID: 3838098990102560207, guid: 0c0e7e354edf33f439349038701c5a0a, type: 3}
-  - {fileID: 3838098990102560207, guid: 0e3262c7375e88c45983f3f50c6bebed, type: 3}
-  - {fileID: 3838098990102560207, guid: 9370eb9268f00ea46b8a5ca0ddba1074, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 3838098990102560207, guid: 64ef6f92f0d47b547b16541ed6562d4c, type: 3}
   pipeSprites_fresh:
   - {fileID: 0}
@@ -88,23 +87,11 @@ MonoBehaviour:
   - {fileID: -1964584843, guid: 8c8a1efa2148da9478b8ffe25f7efba9, type: 3}
   - {fileID: 366804855, guid: 8c8a1efa2148da9478b8ffe25f7efba9, type: 3}
   - {fileID: 1711212379, guid: 8c8a1efa2148da9478b8ffe25f7efba9, type: 3}
-  - {fileID: -1969095914, guid: 8c8a1efa2148da9478b8ffe25f7efba9, type: 3}
-  - {fileID: 886858472, guid: 8c8a1efa2148da9478b8ffe25f7efba9, type: 3}
-  - {fileID: -570560382, guid: 8c8a1efa2148da9478b8ffe25f7efba9, type: 3}
-  - {fileID: 1065654051, guid: 8c8a1efa2148da9478b8ffe25f7efba9, type: 3}
-  - {fileID: 1137688926, guid: 8c8a1efa2148da9478b8ffe25f7efba9, type: 3}
-  - {fileID: 2058331292, guid: 8c8a1efa2148da9478b8ffe25f7efba9, type: 3}
-  - {fileID: -1374826244, guid: 8c8a1efa2148da9478b8ffe25f7efba9, type: 3}
-  - {fileID: -860045951, guid: 8c8a1efa2148da9478b8ffe25f7efba9, type: 3}
---- !u!114 &1880329711022636458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 165429117534427359}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f8597f214c147249aa6caad4a34e2c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
