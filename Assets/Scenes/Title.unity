@@ -1722,7 +1722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a1f2add54835304a8f2af0366453cfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameScene: PaperPrototype
+  gameScene: Town dupe
   playButton: {fileID: 480532281}
   creditsButton: {fileID: 508691242}
   splashText: {fileID: 1565274328}
