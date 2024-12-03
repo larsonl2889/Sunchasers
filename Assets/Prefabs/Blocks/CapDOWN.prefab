@@ -223,7 +223,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 38dd9288f2da37043a8be24ce8e61d0b, type: 3}
+  m_Sprite: {fileID: -1503268560, guid: c0535876ca52ffd43a6ee1e3d934e86a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -249,6 +249,7 @@ MonoBehaviour:
   cell: {fileID: 3838098990102560207}
   directions: 02000000
   isSource: 0
+  variant: 0
   gusherParent: {fileID: 5485774709743056990}
   steamState: 0
 --- !u!1001 &6977266202955569135
