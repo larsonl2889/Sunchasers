@@ -49,9 +49,10 @@ public class PlayerController_Willliam : MonoBehaviour
         objectsNear = new Stack<GameObject>();
         hotBarUI.player = this.gameObject;
         footStepSounds = GetComponent<AudioSource>();
-        
-        
-        
+        SpriteRenderer.flipX = true;
+
+
+
     }
     private void OnEnable()
     {
