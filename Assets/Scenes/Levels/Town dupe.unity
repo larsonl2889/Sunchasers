@@ -528,6 +528,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Slot: {fileID: 3116988592714292705, guid: 253bd44c7b4edf74fb1155bf36f498cc, type: 3}
+  ErrorSprite: {fileID: 0}
+  SelectedSprite: {fileID: 0}
+  PlacedSprite: {fileID: 0}
   UISlotsHolder: {fileID: 0}
   placeSound: {fileID: 0}
   deletePartSound: {fileID: 0}
@@ -9054,7 +9057,7 @@ Transform:
   m_GameObject: {fileID: 723421400}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 47, y: 14, z: -10}
+  m_LocalPosition: {x: 15, y: 14, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -42363,7 +42366,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3032338440527926771, guid: 2921f1b9428adf54b86652fa78ad3ae6, type: 3}
       propertyPath: m_Name
-      value: DoorCam
+      value: cinemachineCam
       objectReference: {fileID: 0}
     - target: {fileID: 5557208945737705994, guid: 2921f1b9428adf54b86652fa78ad3ae6, type: 3}
       propertyPath: m_Follow
@@ -42379,7 +42382,7 @@ PrefabInstance:
       objectReference: {fileID: 365843771}
     - target: {fileID: 8405211947236633311, guid: 2921f1b9428adf54b86652fa78ad3ae6, type: 3}
       propertyPath: m_Offset.x
-      value: 32
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8405211947236633311, guid: 2921f1b9428adf54b86652fa78ad3ae6, type: 3}
       propertyPath: m_Offset.y
@@ -64345,6 +64348,14 @@ PrefabInstance:
       propertyPath: Slot
       value: 
       objectReference: {fileID: 1796572086390300456, guid: 6b0fc9cecf989ed438c86e96fcc44cf1, type: 3}
+    - target: {fileID: 7336256261307187145, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
+      propertyPath: camOffset.x
+      value: 42.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336256261307187145, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
+      propertyPath: camOffset.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7336256261307187145, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
       propertyPath: virtualCamera
       value: 
