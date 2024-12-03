@@ -1,17 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
-using System.Collections;
 using TMPro;
-using Unity.VisualScripting;
-
-public class TitleScreenController : MonoBehaviour
+public class TitleScreen : MonoBehaviour
 {
     public string gameScene; // The scene to switch to when playing the game
     public Button creditsButton; // Credits button
     public TextMeshProUGUI splashText; // Text UI element for the splash text
     public string[] splashTexts; // Array of possible splash texts
-    public GameObject creditsPanel; // A panel or canvas for displaying creditsz
+    public GameObject creditsPanel; // A panel or canvas for displaying credits
 
     private void Start()
     {
