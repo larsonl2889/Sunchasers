@@ -55,6 +55,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c300572c0f14f284fa5a055b57e472fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 0
   emptyCell: {fileID: 4436004687172942411, guid: a659f59ff8a797e4db971d9eff3ef8b4, type: 3}
   tableSize: 3
 --- !u!222 &5156806455582837955
@@ -224,10 +225,10 @@ PrefabInstance:
     - target: {fileID: 2394350095098055785, guid: 3096ff5bdace6f140935b43dedb488b1, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: -570560382, guid: 8c8a1efa2148da9478b8ffe25f7efba9, type: 3}
     - target: {fileID: 2394350095098055785, guid: 3096ff5bdace6f140935b43dedb488b1, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2394350095098055785, guid: 3096ff5bdace6f140935b43dedb488b1, type: 3}
       propertyPath: m_SortingLayer
@@ -235,7 +236,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2394350095098055785, guid: 3096ff5bdace6f140935b43dedb488b1, type: 3}
       propertyPath: m_WasSpriteAssigned
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3838098990102560207, guid: 3096ff5bdace6f140935b43dedb488b1, type: 3}
       propertyPath: m_Name
@@ -424,10 +425,10 @@ PrefabInstance:
     - target: {fileID: 2394350095098055785, guid: 3096ff5bdace6f140935b43dedb488b1, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: -1964584843, guid: 8c8a1efa2148da9478b8ffe25f7efba9, type: 3}
     - target: {fileID: 2394350095098055785, guid: 3096ff5bdace6f140935b43dedb488b1, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2394350095098055785, guid: 3096ff5bdace6f140935b43dedb488b1, type: 3}
       propertyPath: m_SortingLayer
@@ -435,7 +436,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2394350095098055785, guid: 3096ff5bdace6f140935b43dedb488b1, type: 3}
       propertyPath: m_WasSpriteAssigned
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3838098990102560207, guid: 3096ff5bdace6f140935b43dedb488b1, type: 3}
       propertyPath: m_Name
