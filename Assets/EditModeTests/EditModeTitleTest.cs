@@ -1,5 +1,6 @@
 using System.Collections;
 using NUnit.Framework;
+using TMPro;
 using UnityEngine;
 using UnityEngine.TestTools;
 using UnityEngine.UI;
@@ -11,6 +12,8 @@ public class EditModeTitleTest
     {
         public Button creditsButton; // Credits button
         public GameObject creditsPanel; // Credits panel
+        public TextMeshProUGUI splashText; // Text UI element for the splash text
+        public string[] splashTexts; // Array of splash texts
 
         public void Start()
         {
@@ -26,6 +29,18 @@ public class EditModeTitleTest
         {
             if (creditsPanel != null)
                 creditsPanel.SetActive(!creditsPanel.activeSelf);
+        }
+        
+
+        // Randomly set the splash text
+        public void RandomSplashText()
+        {
+            splashText.text = ""; // Clear text first
+            if (splashTexts != null && splashTexts.Length > 0)
+            {
+                int randomIndex = Random.Range(0, splashTexts.Length);
+                splashText.text = splashTexts[randomIndex];
+            }
         }
     }
 
@@ -56,6 +71,33 @@ public class EditModeTitleTest
         // imulate another button click
         creditsButton.onClick.Invoke(); // Simulate another click
         Assert.IsFalse(creditsPanel.activeSelf, "Credits panel should be inactive after the second click.");
+
+        yield return null;
+    }
+
+    [UnityTest]
+    public IEnumerator EditModeTitleTestSplashText()
+    {
+        // Creates title screen game object
+        var gameObject = new GameObject();
+        var controller = gameObject.AddComponent<TitleScreen>();
+
+        // Create a fake text mesh object for the splash text
+        var textGameObject = new GameObject();
+        var splashTextComponent = textGameObject.AddComponent<TextMeshProUGUI>();
+        controller.splashText = splashTextComponent;
+
+        // Set the splashTexts array with basic splash texts
+        controller.splashTexts = new string[] { "Splash 1", "Splash 2", "Splash 3" };
+
+        // Call the RandomSplashText method
+        controller.RandomSplashText();
+
+        // Assert that the splashText has been set to a valid value
+        Assert.IsTrue(
+            System.Array.Exists(controller.splashTexts, text => text == controller.splashText.text),
+            "The splash text should be one of the values in the splashTexts array."
+        );
 
         yield return null;
     }
