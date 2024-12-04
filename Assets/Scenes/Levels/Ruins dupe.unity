@@ -21939,7 +21939,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4613760430123586314, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
       propertyPath: xPos
-      value: 32
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4613760430123586314, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
       propertyPath: yPos
@@ -21947,7 +21947,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4613760430123586314, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
       propertyPath: scale
-      value: 9
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4613760430123586314, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
       propertyPath: startingPart
