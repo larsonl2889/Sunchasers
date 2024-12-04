@@ -23,4 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Town dupe.unity
     guid: 350c201dca4cfcf449ddfe1ddc36de7f
+  - enabled: 1
+    path: Assets/Scenes/Levels/Ruins dupe.unity
+    guid: 271a49647e3bce04e89ce8ba52dfb204
+  - enabled: 1
+    path: Assets/Scenes/Levels/Final dupe.unity
+    guid: 2589ec509098ef841ba3ea0fd9fd6224
   m_configObjects: {}
