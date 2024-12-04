@@ -52,6 +52,7 @@ MonoBehaviour:
   scale: 9
   xPos: 6
   yPos: 8
+  steamUpdateDelay: 0
   SourceLocation: {x: 1, y: 8}
   ObjectiveLocation: {x: 4, y: 8}
 --- !u!114 &8178364077235218741
@@ -198,12 +199,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1615b3176c634024c954eb275a021691, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Slot: {fileID: 1796572086390300456, guid: 40965d109c6ebcd49ac56e6bb1fa2e85, type: 3}
+  Slot: {fileID: 0}
+  ErrorSprite: {fileID: 21300000, guid: e491a0e006354a541a08f3450ba03c2e, type: 3}
+  SelectedSprite: {fileID: 21300000, guid: 4919338cce9285547b786ef03b6d1f0a, type: 3}
+  PlacedSprite: {fileID: 21300000, guid: b3e8b7bd4928d574e80e18e87271a4f7, type: 3}
   UISlotsHolder: {fileID: 0}
   placeSound: {fileID: 8300000, guid: 17140b36f8183ab4a914805113a4b5b0, type: 3}
   deletePartSound: {fileID: 8300000, guid: c22a6f837059477459926910414afc1b, type: 3}
   camOffset: {x: 0, y: -1, z: 0}
   camZoom: 50
+  virtualCamera: {fileID: 0}
 --- !u!61 &3614276931606973988
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -284,26 +289,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57c619aebd1d9964fa109b442a8d1277, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bar:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  bar2:
-  - {fileID: 1796572086390300456, guid: b860acdff0d59be4493110588ebf6129, type: 3}
+  Anything: {fileID: 0}
+  Originalbar:
   - {fileID: 1796572086390300456, guid: 69b93f0cb9878ad468d52fcfa7593b18, type: 3}
   - {fileID: 1796572086390300456, guid: d0a0af1bf522d29458ae8b61eed72d1e, type: 3}
   - {fileID: 1796572086390300456, guid: 7eb2f78123f76ab449df33b0afea795f, type: 3}
+  - {fileID: 1796572086390300456, guid: b860acdff0d59be4493110588ebf6129, type: 3}
   - {fileID: 1796572086390300456, guid: d12e8beae89c71b418c8e00bd9f718d6, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   index: 0
-  Repairindex: 0
   badPartStorage: {fileID: 0}

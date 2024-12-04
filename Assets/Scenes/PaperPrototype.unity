@@ -523,38 +523,6 @@ PrefabInstance:
       propertyPath: badPartStorage
       value: 
       objectReference: {fileID: 1057455096}
-    - target: {fileID: 4137482338389702608, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
-      propertyPath: Originalbar.Array.data[0]
-      value: 
-      objectReference: {fileID: 1796572086390300456, guid: 69b93f0cb9878ad468d52fcfa7593b18, type: 3}
-    - target: {fileID: 4137482338389702608, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
-      propertyPath: Originalbar.Array.data[1]
-      value: 
-      objectReference: {fileID: 1796572086390300456, guid: d0a0af1bf522d29458ae8b61eed72d1e, type: 3}
-    - target: {fileID: 4137482338389702608, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
-      propertyPath: Originalbar.Array.data[2]
-      value: 
-      objectReference: {fileID: 1796572086390300456, guid: 7eb2f78123f76ab449df33b0afea795f, type: 3}
-    - target: {fileID: 4137482338389702608, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
-      propertyPath: Originalbar.Array.data[3]
-      value: 
-      objectReference: {fileID: 1796572086390300456, guid: b860acdff0d59be4493110588ebf6129, type: 3}
-    - target: {fileID: 4137482338389702608, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
-      propertyPath: Originalbar.Array.data[4]
-      value: 
-      objectReference: {fileID: 1796572086390300456, guid: d12e8beae89c71b418c8e00bd9f718d6, type: 3}
-    - target: {fileID: 7336256261307187145, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
-      propertyPath: Slot
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7336256261307187145, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
-      propertyPath: ErrorSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 43ffa2e6883523d4e83342eab67eb9d2, type: 3}
-    - target: {fileID: 7336256261307187145, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
-      propertyPath: PlacedSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 8f8da158be6bd4a4584e8d8ef80ced89, type: 3}
     - target: {fileID: 7336256261307187145, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
       propertyPath: UISlotsHolder
       value: 
@@ -563,10 +531,6 @@ PrefabInstance:
       propertyPath: virtualCamera
       value: 
       objectReference: {fileID: 292615966}
-    - target: {fileID: 7336256261307187145, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
-      propertyPath: SelectedSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 43c46740a13584544a101ad5d3b96834, type: 3}
     - target: {fileID: 8178364077235218741, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
       propertyPath: activator.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -638,6 +602,10 @@ PrefabInstance:
     - target: {fileID: 3284714195678572908, guid: bb653cf27650abc4eb22514fcba548de, type: 3}
       propertyPath: sceneName
       value: William 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5384040603928610480, guid: bb653cf27650abc4eb22514fcba548de, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7753173940219570803, guid: bb653cf27650abc4eb22514fcba548de, type: 3}
       propertyPath: m_Name
