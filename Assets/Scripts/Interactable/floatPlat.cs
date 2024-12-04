@@ -70,6 +70,10 @@ public class floatPlat : MonoBehaviour
     {
         isPowered = true;
     }
+    public void powerOff()
+    {
+        isPowered = false;
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))

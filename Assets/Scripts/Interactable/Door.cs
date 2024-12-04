@@ -19,12 +19,27 @@ public class Door : MonoBehaviour
     }
     public void open()
     {
-        if (openSound != null)
+        if (isOpen == false)
         {
-            SFXManager.instance.playSound(openSound, transform, 1f);
+            if (openSound != null)
+            {
+                SFXManager.instance.playSound(openSound, transform, 1f);
+            }
+            isOpen = true;
+            animator.SetBool("isOpen", true);
         }
-        isOpen = true;
-        animator.SetBool("isOpen", true);
+    }
+    public void close()
+    {
+        if (isOpen)
+        {
+            if (openSound != null)
+            {
+                SFXManager.instance.playSound(openSound, transform, 1f);
+            }
+            isOpen = false;
+            animator.SetBool("isOpen", false);
+        }
     }
     public void enterDoor()
     {
