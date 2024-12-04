@@ -153,6 +153,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7779811428497453959, guid: c58349293d23f9a48bccb662bc4f6d3b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e491a0e006354a541a08f3450ba03c2e, type: 3}
+    - target: {fileID: 7779811428497453959, guid: c58349293d23f9a48bccb662bc4f6d3b, type: 3}
       propertyPath: m_SortingLayer
       value: 0
       objectReference: {fileID: 0}
@@ -271,6 +275,10 @@ PrefabInstance:
       value: HiddenObjective Block
       objectReference: {fileID: 0}
     - target: {fileID: 7779811428497453959, guid: 3096ff5bdace6f140935b43dedb488b1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e491a0e006354a541a08f3450ba03c2e, type: 3}
+    - target: {fileID: 7779811428497453959, guid: 3096ff5bdace6f140935b43dedb488b1, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
@@ -348,6 +356,10 @@ PrefabInstance:
       propertyPath: yPos
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7779811428497453959, guid: c58349293d23f9a48bccb662bc4f6d3b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e491a0e006354a541a08f3450ba03c2e, type: 3}
     - target: {fileID: 7779811428497453959, guid: c58349293d23f9a48bccb662bc4f6d3b, type: 3}
       propertyPath: m_SortingLayer
       value: 0
@@ -463,6 +475,10 @@ PrefabInstance:
       value: HiddenSource Block
       objectReference: {fileID: 0}
     - target: {fileID: 7779811428497453959, guid: 3096ff5bdace6f140935b43dedb488b1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e491a0e006354a541a08f3450ba03c2e, type: 3}
+    - target: {fileID: 7779811428497453959, guid: 3096ff5bdace6f140935b43dedb488b1, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
@@ -536,6 +552,10 @@ PrefabInstance:
       propertyPath: xPos
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7779811428497453959, guid: c58349293d23f9a48bccb662bc4f6d3b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e491a0e006354a541a08f3450ba03c2e, type: 3}
     - target: {fileID: 7779811428497453959, guid: c58349293d23f9a48bccb662bc4f6d3b, type: 3}
       propertyPath: m_SortingLayer
       value: 0
