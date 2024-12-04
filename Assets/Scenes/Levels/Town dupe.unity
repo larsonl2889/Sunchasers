@@ -9985,6 +9985,26 @@ PrefabInstance:
       propertyPath: bar2.Array.data[4]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4137482338389702608, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
+      propertyPath: Originalbar.Array.data[0]
+      value: 
+      objectReference: {fileID: 1796572086390300456, guid: d0a0af1bf522d29458ae8b61eed72d1e, type: 3}
+    - target: {fileID: 4137482338389702608, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
+      propertyPath: Originalbar.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4137482338389702608, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
+      propertyPath: Originalbar.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4137482338389702608, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
+      propertyPath: Originalbar.Array.data[3]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4137482338389702608, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
+      propertyPath: Originalbar.Array.data[4]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4613760430123586314, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
       propertyPath: xPos
       value: 15
