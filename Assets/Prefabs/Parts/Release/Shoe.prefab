@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5158559339925878886}
   - component: {fileID: 6032756113629371258}
   m_Layer: 0
-  m_Name: EmptyPart
+  m_Name: Shoe
   m_TagString: EmptyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,5 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c300572c0f14f284fa5a055b57e472fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 0
   emptyCell: {fileID: 4436004687172942411, guid: a659f59ff8a797e4db971d9eff3ef8b4, type: 3}
-  tableSize: 1
+  tableSize: 3
