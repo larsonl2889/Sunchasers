@@ -451,7 +451,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78afbf1516d29c24c815a1c34645aaf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetScene: PaperPrototype
+  targetScene: Town dupe
 --- !u!1 &508691240
 GameObject:
   m_ObjectHideFlags: 0

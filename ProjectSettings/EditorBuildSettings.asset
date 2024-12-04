@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Final dupe.unity
     guid: 2589ec509098ef841ba3ea0fd9fd6224
+  - enabled: 1
+    path: Assets/Scenes/LoadingScreen.unity
+    guid: 2a99c5e930e30754985d38b1201a4e66
   m_configObjects: {}
