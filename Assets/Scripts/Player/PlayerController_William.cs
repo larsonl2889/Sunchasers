@@ -234,6 +234,7 @@ public class PlayerController_Willliam : MonoBehaviour
     {
 
         var rayHit = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(pos: (Vector3)Mouse.current.position.ReadValue()));
+        
         if (!rayHit.collider) return;
        
 
@@ -241,6 +242,7 @@ public class PlayerController_Willliam : MonoBehaviour
         {
             if(rayHit.collider.gameObject.CompareTag("Part") && currentBuildZone.GetComponent<BuildingArea_Riley>().Slot == null)
             {
+                Debug.LogWarning("rayhit");
                 hotBarUI.RemoveUISlot(rayHit.collider.gameObject);
                 currentBuildZone.GetComponent<BuildingArea_Riley>().delete(rayHit.collider.gameObject);
                 
