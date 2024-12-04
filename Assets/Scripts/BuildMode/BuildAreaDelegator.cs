@@ -11,6 +11,8 @@ public class BuildAreaDelegator : MonoBehaviour
 
     public UnityEvent activator;
     public UnityEvent deactivator;
+    public UnityEvent secondActivator;
+    public UnityEvent secondDeactivator;
 
     public void UpdateObjective()
     {
@@ -22,6 +24,18 @@ public class BuildAreaDelegator : MonoBehaviour
         else if (!objectiveIsOn && GetData().IsObjectiveOn())
         {
             ActivateObjective();
+        }
+
+        // do the same to number two
+        // If we need to turn off the objective
+        if (objectiveIsOn && !GetData().IsSecondObjectiveOn())
+        {
+            DeactivateSecondObjective();
+        }
+        // If we need to turn on the objective
+        else if (!objectiveIsOn && GetData().IsSecondObjectiveOn())
+        {
+            ActivateSecondObjective();
         }
     }
 
@@ -35,6 +49,15 @@ public class BuildAreaDelegator : MonoBehaviour
         deactivator.Invoke();
     }
 
+    private void ActivateSecondObjective()
+    {
+        secondActivator.Invoke();
+    }
+
+    private void DeactivateSecondObjective()
+    {
+        secondDeactivator.Invoke();
+    }
     protected BuildAreaTest GetData()
     {
         return GetComponent<BuildAreaTest>();
