@@ -24272,10 +24272,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2846621705378837700, guid: 0e85c22f008fdad4799129b6b928c430, type: 3}
-      propertyPath: squeak
-      value: 
-      objectReference: {fileID: 8300000, guid: da2270eef82249145a9cb15b8d7d0ce9, type: 3}
-    - target: {fileID: 2846621705378837700, guid: 0e85c22f008fdad4799129b6b928c430, type: 3}
       propertyPath: dialogueText
       value: 
       objectReference: {fileID: 1527143178}
@@ -24381,10 +24377,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4682076243254301686, guid: af3f97db5dd1cd245aba96db81896cb8, type: 3}
-      propertyPath: squeak
-      value: 
-      objectReference: {fileID: 8300000, guid: da2270eef82249145a9cb15b8d7d0ce9, type: 3}
-    - target: {fileID: 4682076243254301686, guid: af3f97db5dd1cd245aba96db81896cb8, type: 3}
       propertyPath: dialogueText
       value: 
       objectReference: {fileID: 296423042}
@@ -24454,10 +24446,6 @@ PrefabInstance:
       value: Mumble
       objectReference: {fileID: 0}
     - target: {fileID: 7110232776964545003, guid: 6eb6ea4a622b2c440acfa406b7d236dc, type: 3}
-      propertyPath: squeak
-      value: 
-      objectReference: {fileID: 8300000, guid: da2270eef82249145a9cb15b8d7d0ce9, type: 3}
-    - target: {fileID: 7110232776964545003, guid: 6eb6ea4a622b2c440acfa406b7d236dc, type: 3}
       propertyPath: dialogueText
       value: 
       objectReference: {fileID: 531558774}
@@ -24523,10 +24511,6 @@ PrefabInstance:
       value: Hoot
       objectReference: {fileID: 0}
     - target: {fileID: 7110232776964545003, guid: 792eb0c87a6525c4195c10b0cbdc4bcf, type: 3}
-      propertyPath: squeak
-      value: 
-      objectReference: {fileID: 8300000, guid: da2270eef82249145a9cb15b8d7d0ce9, type: 3}
-    - target: {fileID: 7110232776964545003, guid: 792eb0c87a6525c4195c10b0cbdc4bcf, type: 3}
       propertyPath: dialogueText
       value: 
       objectReference: {fileID: 2104469331}
@@ -24547,10 +24531,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5085867154419736418, guid: 368e40a704833a54598d4fe707133e3c, type: 3}
-      propertyPath: squeak
-      value: 
-      objectReference: {fileID: 8300000, guid: da2270eef82249145a9cb15b8d7d0ce9, type: 3}
     - target: {fileID: 5085867154419736418, guid: 368e40a704833a54598d4fe707133e3c, type: 3}
       propertyPath: dialogueText
       value: 
