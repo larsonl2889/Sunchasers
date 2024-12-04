@@ -402,6 +402,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 365843771}
+    - target: {fileID: 4616226820218073050, guid: 52d657ca2c8b5ce4b80d71ab85ea8d58, type: 3}
+      propertyPath: HotBarImage
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5189127309391809867, guid: 52d657ca2c8b5ce4b80d71ab85ea8d58, type: 3}
       propertyPath: player
       value: 
@@ -418,6 +422,18 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 365843771}
+    - target: {fileID: 7072612466073704153, guid: 52d657ca2c8b5ce4b80d71ab85ea8d58, type: 3}
+      propertyPath: m_Color.b
+      value: 0.7686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 7072612466073704153, guid: 52d657ca2c8b5ce4b80d71ab85ea8d58, type: 3}
+      propertyPath: m_Color.g
+      value: 0.7686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 7072612466073704153, guid: 52d657ca2c8b5ce4b80d71ab85ea8d58, type: 3}
+      propertyPath: m_Color.r
+      value: 0.7686275
+      objectReference: {fileID: 0}
     - target: {fileID: 7206479095143540407, guid: 52d657ca2c8b5ce4b80d71ab85ea8d58, type: 3}
       propertyPath: player
       value: 
