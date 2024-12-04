@@ -56,7 +56,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 0
   emptyCell: {fileID: 4436004687172942411, guid: a659f59ff8a797e4db971d9eff3ef8b4, type: 3}
-  tableSize: 1
+  tableSize: 3
 --- !u!222 &2077286774895205223
 CanvasRenderer:
   m_ObjectHideFlags: 0
