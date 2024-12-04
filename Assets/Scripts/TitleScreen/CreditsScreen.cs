@@ -15,13 +15,9 @@ public class CreditsScreenController : MonoBehaviour
 
         // Make sure credits are hidden at the start
         if (titlePanel == true)
-        {
             titlePanel.SetActive(false);
-        }
         else
-        {
             titlePanel.SetActive(false);
-        }
     }
 
     // Called when Back is clicked

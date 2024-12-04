@@ -12,6 +12,7 @@ public class BuildMat : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("Starting build area");
         buildAreaTest = gameObject.GetComponentInParent<BuildAreaTest>();
         gameObject.transform.localScale = new Vector3(buildAreaTest.scale, buildAreaTest.scale, 1);
         if(buildAreaTest.scale % 2 != 0)
@@ -27,5 +28,6 @@ public class BuildMat : MonoBehaviour
         }
         
         gameObject.transform.localPosition = new Vector3(xPos, yPos, 0);
+        Debug.Log("Ending build area");
     }
 }
