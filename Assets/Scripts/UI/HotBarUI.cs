@@ -104,7 +104,7 @@ public class HotBarUI : MonoBehaviour
     public void UpdateUI(int index)
     {
         sprite = sprites[index];
-        HotBarImage.gameObject.GetComponent<Image>().sprite = sprite;
+        //HotBarImage.gameObject.GetComponent<Image>().sprite = sprite;
     }
 
 }
