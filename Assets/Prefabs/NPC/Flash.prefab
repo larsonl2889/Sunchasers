@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6621712640447001526
+--- !u!1 &8897607115443080402
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,42 +8,42 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2407868011373599562}
-  - component: {fileID: 1765704796537165965}
-  - component: {fileID: 3885520855756066845}
-  - component: {fileID: 421038686071866494}
-  - component: {fileID: 923866875921320346}
-  - component: {fileID: 1943197176321596675}
-  - component: {fileID: 727090379953854541}
+  - component: {fileID: 942400491315383281}
+  - component: {fileID: 6296319014127541610}
+  - component: {fileID: 1731539006676444991}
+  - component: {fileID: 3474150284519048551}
+  - component: {fileID: 4682076243254301686}
+  - component: {fileID: 6849479596378731612}
+  - component: {fileID: 1046675972680192005}
   m_Layer: 0
-  m_Name: NPC
-  m_TagString: Untagged
+  m_Name: Flash
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2407868011373599562
+--- !u!4 &942400491315383281
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6621712640447001526}
+  m_GameObject: {fileID: 8897607115443080402}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.514, y: 0.645, z: 0}
+  m_LocalPosition: {x: 4.28, y: 10.527431, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1765704796537165965
+--- !u!212 &6296319014127541610
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6621712640447001526}
+  m_GameObject: {fileID: 8897607115443080402}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -78,24 +78,24 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 38dd9288f2da37043a8be24ce8e61d0b, type: 3}
+  m_Sprite: {fileID: -425574252, guid: 725f2b6276fc7784a99dfd0149e1c34a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.28, y: 1.28}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &3885520855756066845
+--- !u!61 &1731539006676444991
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6621712640447001526}
+  m_GameObject: {fileID: 8897607115443080402}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -126,7 +126,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
-    newSize: {x: 1.28, y: 1.28}
+    newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -134,13 +134,13 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.65, y: 0.9798422}
   m_EdgeRadius: 0
---- !u!70 &421038686071866494
+--- !u!70 &3474150284519048551
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6621712640447001526}
+  m_GameObject: {fileID: 8897607115443080402}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -169,13 +169,13 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1.95, y: 1.28}
   m_Direction: 0
---- !u!114 &923866875921320346
+--- !u!114 &4682076243254301686
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6621712640447001526}
+  m_GameObject: {fileID: 8897607115443080402}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0815bf7af609c664e8ee8bf5a2f35cab, type: 3}
@@ -184,23 +184,23 @@ MonoBehaviour:
   dialoguePanel: {fileID: 0}
   dialogueText: {fileID: 0}
   dialogue:
-  - According to all known laws of aviation,
-  - there is no way a bee should be able to fly.
-  - Its wings are too small to get its fat little body off the ground.
-  - The bee, of course, flies anyway,
-  - because bees don't care what humans think is impossible.
+  - '*yawns*'
+  - Mechanic, thank goodness you're here!
+  - I need help with a leaky pipe.
+  - Can you head over to my house and fix the leak?
   wordSpeed: 0.05
---- !u!95 &1943197176321596675
+  squeak: {fileID: 8300000, guid: da2270eef82249145a9cb15b8d7d0ce9, type: 3}
+--- !u!95 &6849479596378731612
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6621712640447001526}
+  m_GameObject: {fileID: 8897607115443080402}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8bec86e1348c3b64294f79201690f051, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7d45fc3a6efd3a440983f946df5729af, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -211,13 +211,13 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &727090379953854541
+--- !u!114 &1046675972680192005
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6621712640447001526}
+  m_GameObject: {fileID: 8897607115443080402}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a6582644d5e6b354ca83f9de4fa899d9, type: 3}
@@ -226,7 +226,7 @@ MonoBehaviour:
   interactAction:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 923866875921320346}
+      - m_Target: {fileID: 4682076243254301686}
         m_TargetAssemblyTypeName: NPC, Assembly-CSharp
         m_MethodName: Interact
         m_Mode: 1
@@ -241,7 +241,7 @@ MonoBehaviour:
   onEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 923866875921320346}
+      - m_Target: {fileID: 4682076243254301686}
         m_TargetAssemblyTypeName: NPC, Assembly-CSharp
         m_MethodName: Enter
         m_Mode: 1
@@ -256,7 +256,7 @@ MonoBehaviour:
   onExit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 923866875921320346}
+      - m_Target: {fileID: 4682076243254301686}
         m_TargetAssemblyTypeName: NPC, Assembly-CSharp
         m_MethodName: Exit
         m_Mode: 1

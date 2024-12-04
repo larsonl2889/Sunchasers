@@ -23,7 +23,11 @@ public class NPC : MonoBehaviour {
         {
             dialoguePanel.SetActive(true);
             StartCoroutine(Typing());
-            SFXManager.instance.playSound(squeak, transform, .5f);
+            if (squeak != null)
+            {
+                SFXManager.instance.playSound(squeak, transform, .5f);
+            }
+            
         }
         else if (dialogueText.text == dialogue[index])
         {
@@ -67,7 +71,10 @@ public class NPC : MonoBehaviour {
             index++;
             dialogueText.text = "";
             StartCoroutine(Typing());
-            SFXManager.instance.playSound(squeak, transform, .5f);
+            if (squeak != null)
+            {
+                SFXManager.instance.playSound(squeak, transform, .5f);
+            }
         }
         else
         {

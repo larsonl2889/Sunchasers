@@ -38,6 +38,7 @@ public class PlayerController_Willliam : MonoBehaviour
     public float zoom = 4;
     public GameObject cam;
     private AudioSource footStepSounds;  
+    
 
     private void Awake()
     {
