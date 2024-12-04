@@ -60,8 +60,8 @@ public class BuildingArea_Riley : MonoBehaviour
             float yPos = WorldPos.y;
             int minX = (int)buildMat.xPos - (int)((float)buildArea.GetComponent<BuildAreaTest>().scale / 2);
             int minY = (int)buildMat.yPos - (int)((float)buildArea.GetComponent<BuildAreaTest>().scale / 2);
-            int maxX = (int)buildMat.xPos + (int)((float)buildArea.GetComponent<BuildAreaTest>().scale / 2);
-            int maxY = (int)buildMat.yPos + (int)((float)buildArea.GetComponent<BuildAreaTest>().scale / 2);
+            int maxX = (int)buildMat.xPos + (int)((float)buildArea.GetComponent<BuildAreaTest>().scale / 2) + 1;
+            int maxY = (int)buildMat.yPos + (int)((float)buildArea.GetComponent<BuildAreaTest>().scale / 2) + 1;
             if (xPos > minX && xPos < maxX && yPos > minY && yPos < maxY)
             {
                     Vector2 Spawnplace = new Vector2((int)xPos + 0.5f, (int)yPos + 0.5f);
