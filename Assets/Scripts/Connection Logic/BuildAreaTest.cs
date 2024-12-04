@@ -24,6 +24,7 @@ public class BuildAreaTest : MonoBehaviour
 
     public Vector2Int SourceLocation;
     public Vector2Int ObjectiveLocation;
+    public Vector2Int SecondObjectiveLocation;
 
     public void ToggleSource()
     {
@@ -52,6 +53,10 @@ public class BuildAreaTest : MonoBehaviour
     public bool IsObjectiveOn()
     {
         return IsOn((Vector2)ObjectiveLocation);
+    }
+    public bool IsSecondObjectiveOn()
+    {
+        return IsOn((Vector2)SecondObjectiveLocation);
     }
 
     /// <summary>
