@@ -834,6 +834,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3284714195678572908, guid: bb653cf27650abc4eb22514fcba548de, type: 3}
+      propertyPath: fadeInUI
+      value: 
+      objectReference: {fileID: 1326248860}
+    - target: {fileID: 3284714195678572908, guid: bb653cf27650abc4eb22514fcba548de, type: 3}
       propertyPath: sceneName
       value: Final dupe
       objectReference: {fileID: 0}
@@ -60811,6 +60815,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81886acb3d04c3b49b2c2bddb9998f03, type: 3}
+--- !u!114 &1326248860 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4068365061022335708, guid: 81886acb3d04c3b49b2c2bddb9998f03, type: 3}
+  m_PrefabInstance: {fileID: 1326248859}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b1c8c9f8fe03094ca033b79e1a3253b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1330623047
 GameObject:
   m_ObjectHideFlags: 0
