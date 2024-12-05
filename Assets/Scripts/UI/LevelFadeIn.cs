@@ -12,6 +12,7 @@ public class LevelFadeIn : MonoBehaviour
     void Start()
     {
         screen = GetComponent<Image>();
+        screen.enabled = true;
     }
 
     // Update is called once per frame
