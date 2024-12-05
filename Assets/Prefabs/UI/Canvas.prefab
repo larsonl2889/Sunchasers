@@ -818,6 +818,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelFadeIn
       objectReference: {fileID: 0}
+    - target: {fileID: 5784334525536996316, guid: b00083999afc75d4b84a02c22c7ca11d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8107511856275497925, guid: b00083999afc75d4b84a02c22c7ca11d, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -919,6 +923,10 @@ PrefabInstance:
     - target: {fileID: 890658818487050719, guid: 1a1590a73146d804dab3da1bf9bc2921, type: 3}
       propertyPath: m_Name
       value: LevelFadeOut
+      objectReference: {fileID: 0}
+    - target: {fileID: 8261550012418424592, guid: 1a1590a73146d804dab3da1bf9bc2921, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9117480774807377110, guid: 1a1590a73146d804dab3da1bf9bc2921, type: 3}
       propertyPath: m_Pivot.x

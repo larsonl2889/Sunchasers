@@ -11,6 +11,7 @@ public class LevelFadeOut : MonoBehaviour
     void Start()
     {
         screen = GetComponent<Image>();
+        screen.enabled = true;
         Color startColor = new Color(0, 0, 0, 1);
 
         Color endColor = new Color(0, 0, 0, 0);
