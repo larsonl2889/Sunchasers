@@ -33,6 +33,7 @@ public class Door : MonoBehaviour
     }
     public void close()
     {
+        Debug.LogWarning("close");
         if (isOpen)
         {
             if (openSound != null)
