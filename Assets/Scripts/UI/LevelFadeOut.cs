@@ -8,14 +8,15 @@ public class LevelFadeOut : MonoBehaviour
 {
     // Start is called before the first frame update
     private Image screen;
+    private Color fadeColor = Color.black;
     void Start()
     {
         screen = GetComponent<Image>();
         screen.enabled = true;
-        Color startColor = new Color(0, 0, 0, 1);
+        
 
         Color endColor = new Color(0, 0, 0, 0);
-        DOTween.To(() => startColor, x => screen.color = x, endColor, 1f).SetEase(Ease.InOutQuad);
+        DOTween.To(() => fadeColor, x => screen.color = x, endColor, 1f).SetEase(Ease.InOutQuad);
     }
 
     // Update is called once per frame

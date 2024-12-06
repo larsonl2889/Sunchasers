@@ -50,7 +50,7 @@ public class Door : MonoBehaviour
         {
             if (fadeInUI != null)
             {
-                fadeInUI.GetComponent<LevelFadeIn>().fadeIn(this.gameObject);
+                fadeInUI.GetComponent<LevelFadeIn>().fadeInDoor(this.gameObject);
             }
             else
             {

@@ -8,6 +8,8 @@ using UnityEngine.UI;
 public class LevelFadeIn : MonoBehaviour
 {
     private Image screen;
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,16 +23,28 @@ public class LevelFadeIn : MonoBehaviour
         
     }
 
-    public void fadeIn(GameObject exitObject)
+    public void fadeInEnd(GameObject endTrigger)
     {
         Color startColor = new Color(0, 0, 0, 0);
-        
-        Color endColor = new Color(0, 0, 0, 1);
-        DOTween.To(() => startColor, x => screen.color = x, endColor, 1f).SetEase(Ease.InOutQuad).OnComplete(() =>
+        Color targetColor = Color.white;
+        DOTween.To(() => startColor, x => screen.color = x, targetColor, 1f).SetEase(Ease.InOutQuad).OnComplete(() =>
+        {
+            
+        });
+
+
+    }
+    public void fadeInDoor(GameObject exitObject)
+    {
+        Color startColor = new Color(0, 0, 0, 0);
+        Color targetColor =Color.black;
+
+        DOTween.To(() => startColor, x => screen.color = x, targetColor, 1f).SetEase(Ease.InOutQuad).OnComplete(() =>
         {
             exitObject.GetComponent<Door>().switchScene();
         });
-        
-       
+
     }
+
+
 }
