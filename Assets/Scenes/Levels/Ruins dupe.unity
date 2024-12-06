@@ -133,7 +133,7 @@ PrefabInstance:
     - target: {fileID: 1594545196290764436, guid: 677916169f9b6104b8fdc1ad2f18ff31, type: 3}
       propertyPath: onLeverPull.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 199658363}
+      objectReference: {fileID: 1695383004}
     - target: {fileID: 1594545196290764436, guid: 677916169f9b6104b8fdc1ad2f18ff31, type: 3}
       propertyPath: onLeverPull.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: move
@@ -64423,6 +64423,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6620140832276287836, guid: 19d374636b529b64091380b624256180, type: 3}
+      propertyPath: isPowered
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7100889649949264240, guid: 19d374636b529b64091380b624256180, type: 3}
       propertyPath: m_Name
       value: FloatPlat
@@ -64451,6 +64455,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2362621975477513852, guid: 19d374636b529b64091380b624256180, type: 3}
   m_PrefabInstance: {fileID: 1695383002}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1695383004 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6620140832276287836, guid: 19d374636b529b64091380b624256180, type: 3}
+  m_PrefabInstance: {fileID: 1695383002}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 119872ce5b730b14fa146cff7415fa26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1696363119 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3284714195678572908, guid: bb653cf27650abc4eb22514fcba548de, type: 3}
