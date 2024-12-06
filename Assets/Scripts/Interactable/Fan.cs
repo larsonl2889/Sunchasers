@@ -34,20 +34,18 @@ public class Fan : MonoBehaviour
 
 
     }
-    public void changeState()
+   
+    public void turnOn()
     {
-        isOn = !isOn;
-        if (isOn)
-        {
-            animator.SetBool("isOn", true);
-            fanSound.Play();
-        }
-        else
-        {
-            animator.SetBool("isOn", false);
-            fanSound.Stop();
-        }
-
+        isOn = true;
+        animator.SetBool("isOn", true);
+        fanSound.Play();
+    }
+    public void turnOff()
+    {
+        isOn = false;
+        animator.SetBool("isOn", false);
+        fanSound.Stop();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

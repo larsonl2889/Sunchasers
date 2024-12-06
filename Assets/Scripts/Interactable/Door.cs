@@ -8,10 +8,12 @@ public class Door : MonoBehaviour
     [SerializeField] AudioClip openSound;
     private bool isOpen = false;
     private Animator animator;
+    public LevelFadeIn fadeInUI;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
+       
     }
     private void Start()
     {
@@ -19,22 +21,48 @@ public class Door : MonoBehaviour
     }
     public void open()
     {
-        if (openSound != null)
+        if (isOpen == false)
         {
-            SFXManager.instance.playSound(openSound, transform, 1f);
+            if (openSound != null)
+            {
+                SFXManager.instance.playSound(openSound, transform, 1f);
+            }
+            isOpen = true;
+            animator.SetBool("isOpen", true);
         }
-        isOpen = true;
-        animator.SetBool("isOpen", true);
+    }
+    public void close()
+    {
+        if (isOpen)
+        {
+            if (openSound != null)
+            {
+                SFXManager.instance.playSound(openSound, transform, 1f);
+            }
+            isOpen = false;
+            animator.SetBool("isOpen", false);
+        }
     }
     public void enterDoor()
     {
         if (isOpen)
         {
-            if (sceneName != null)
+            if (fadeInUI != null)
             {
-                SceneManager.LoadScene(sceneName);
+                fadeInUI.GetComponent<LevelFadeIn>().fadeIn(this.gameObject);
+            }
+            else
+            {
+                switchScene();
             }
         }
         
+    }
+    public void switchScene()
+    {
+        if (sceneName != null)
+        {
+            SceneManager.LoadScene(sceneName);
+        }
     }
 }
