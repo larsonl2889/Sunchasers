@@ -36,12 +36,14 @@ public class Interactable_William : MonoBehaviour
         }
     }
     
-    public void showPrompt(Vector2 objectPos)
+    public void showPrompt(GameObject theObject)
     {
+        Vector2 objectPos = theObject.transform.position;
         promptPos = new Vector2(objectPos.x, objectPos.y + promptPosOffset);
         if (promptPrefab != null)
         {
             currentPrompt = Instantiate(promptPrefab, promptPos, Quaternion.identity);
+            currentPrompt.transform.parent = theObject.transform;
         }
         
     }

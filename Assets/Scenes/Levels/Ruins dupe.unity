@@ -843,7 +843,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4985526262892325006, guid: bb653cf27650abc4eb22514fcba548de, type: 3}
       propertyPath: promptPosOffset
-      value: 0.25
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5384040603928610480, guid: bb653cf27650abc4eb22514fcba548de, type: 3}
       propertyPath: m_SortingOrder

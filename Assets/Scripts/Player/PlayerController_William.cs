@@ -353,7 +353,7 @@ public class PlayerController_Willliam : MonoBehaviour
         if (other.gameObject.CompareTag("Interactable"))
         {
             
-            other.gameObject.GetComponent<Interactable_William>().showPrompt(other.transform.position);
+            other.gameObject.GetComponent<Interactable_William>().showPrompt(other.gameObject);
             objectsNear.Push(other.gameObject);
             
             
