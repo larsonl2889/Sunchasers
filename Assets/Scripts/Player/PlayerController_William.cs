@@ -378,7 +378,9 @@ public class PlayerController_Willliam : MonoBehaviour
             hotBarUI.gameObject.GetComponent<Canvas>().enabled = true;
             if (exitedBuildZone == false)
             {
+                //StartCoroutine(camStartDelay(cam));
                 cam.GetComponent<Cam>().changeFollowTarget(currentBuildZone);
+
             }
             
             
@@ -414,10 +416,21 @@ public class PlayerController_Willliam : MonoBehaviour
             hotBarUI.updateImages();
             isBuilding = false;
             hotBarUI.gameObject.GetComponent<Canvas>().enabled = false;
-            StartCoroutine(camMoveDelay(cam));
+            StartCoroutine(camExitDelay(cam));
         }
     }
-    IEnumerator camMoveDelay(GameObject camera)
+    /*
+    IEnumerator camStartDelay(GameObject camera)
+    {
+        yield return new WaitForSeconds(.5f);
+        if (currentBuildZone != null)
+        {
+            cam.GetComponent<Cam>().changeFollowTarget(currentBuildZone);
+        }
+        
+    }
+    */
+    IEnumerator camExitDelay(GameObject camera)
     {
         exitedBuildZone = true;
         yield return new WaitForSeconds(1);
