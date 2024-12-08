@@ -29,7 +29,7 @@ public class LevelFadeIn : MonoBehaviour
         Color targetColor = Color.white;
         DOTween.To(() => startColor, x => screen.color = x, targetColor, 1f).SetEase(Ease.InOutQuad).OnComplete(() =>
         {
-            
+            endTrigger.GetComponent<endTrigger>().switchScene();
         });
 
 

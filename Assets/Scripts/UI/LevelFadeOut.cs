@@ -8,7 +8,7 @@ public class LevelFadeOut : MonoBehaviour
 {
     // Start is called before the first frame update
     private Image screen;
-    private Color fadeColor = Color.black;
+    public Color fadeColor = Color.black;
     void Start()
     {
         screen = GetComponent<Image>();

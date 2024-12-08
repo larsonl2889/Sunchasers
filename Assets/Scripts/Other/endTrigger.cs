@@ -28,8 +28,8 @@ public class endTrigger : MonoBehaviour
             }
         }
     }
-    private void switchScene()
+    public void switchScene()
     {
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("EndScreen");
     }
 }
