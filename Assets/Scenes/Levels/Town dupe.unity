@@ -9711,7 +9711,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4613760430123586314, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
       propertyPath: scale
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4613760430123586314, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
       propertyPath: startingPart
@@ -9724,6 +9724,10 @@ PrefabInstance:
     - target: {fileID: 4613760430123586314, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
       propertyPath: SourceLocation.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613760430123586314, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
+      propertyPath: steamUpdateDelay
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4613760430123586314, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
       propertyPath: ObjectiveLocation.x
@@ -64774,7 +64778,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4613760430123586314, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
       propertyPath: steamUpdateDelay
-      value: 0
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4613760430123586314, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
       propertyPath: ObjectiveLocation.x
@@ -65122,7 +65126,6 @@ SceneRoots:
   - {fileID: 130602056}
   - {fileID: 505398424}
   - {fileID: 174836813197899304}
-  - {fileID: 2817062360701464780}
   - {fileID: 1326248859}
   - {fileID: 838933056}
   - {fileID: 65010068}
@@ -65131,5 +65134,6 @@ SceneRoots:
   - {fileID: 1538428257}
   - {fileID: 144539916}
   - {fileID: 502463855}
-  - {fileID: 1252142057}
   - {fileID: 958912776}
+  - {fileID: 2817062360701464780}
+  - {fileID: 1252142057}

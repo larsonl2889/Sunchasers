@@ -73,6 +73,7 @@ public class BuildAreaTest : MonoBehaviour
     /// </summary>
     public IEnumerator UpdateSteam()
     {
+        yield return new WaitForSeconds(steamUpdateDelay);
         Debug.LogWarning("Updating steam...");
         List<List<Vector2>> allPipeSystems = GetAllPipeSystems();
         Debug.LogWarning("System # = " + allPipeSystems.Count);
