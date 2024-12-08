@@ -67,13 +67,17 @@ public class BuildingArea_Riley : MonoBehaviour
                     Vector2 Spawnplace = new Vector2((int)xPos + 0.5f, (int)yPos + 0.5f);
                     Slot.transform.position = Spawnplace;
             }
-            if(xPos > maxX || xPos < minX || yPos > maxY || yPos < minY)
+            // out of bounds
+            if (xPos > maxX || xPos < minX || yPos > maxY || yPos < minY)
             {
                 Slot.transform.localPosition = new Vector2(100, 100);
                 return;
-            }else
+            }
+            else
             {
+                Debug.LogWarning("calling FormTable() on Part = \"" + Slot.gameObject.name + "\"");
                 Slot.GetComponent<Part>().FormTable();
+                Debug.LogWarning("didn't implode when calling FormTable() on Part = \"" + Slot.gameObject.name + "\"");
                 if (!buildArea.GetComponent<BuildAreaTest>().CanMerge(Slot, new Vector2(xPos - minX, yPos - minY)))
                 {
                     Cell[] cells = Slot.GetComponentsInChildren<Cell>();
