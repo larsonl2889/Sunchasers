@@ -26,6 +26,7 @@ namespace Blocks
         public int variant;
         public GameObject gusherParent;
         [SerializeField] private SteamState steamState;
+        public bool isWalkable;
 
         public void Awake()
         {

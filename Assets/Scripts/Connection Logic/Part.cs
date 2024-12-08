@@ -127,19 +127,38 @@ namespace Parts
                 }
             }
         }
-            /*
-            for (int i = 0; i < tableSize; i++)
+        /*
+        for (int i = 0; i < tableSize; i++)
+        {
+            for (int j = 0; j < tableSize; j++)
             {
-                for (int j = 0; j < tableSize; j++)
+                if (!table.Get(i, j).IsEmpty())
                 {
-                    if (!table.Get(i, j).IsEmpty())
+                    Debug.Log("Block has Cell X = " + table.Get(i, j).GetBlock().GetComponent<Block>().GetCell().xPos + " Y = " + table.Get(i, j).GetBlock().GetComponent<Block>().GetCell().yPos);
+                }
+            }
+        }
+        */
+
+        public void SetWalkableColliders(bool doEnable)
+        {
+            for (int i_x = 0; i_x < tableSize; i_x++)
+            {
+                for (int i_y = 0; i_y < tableSize; i_y++)
+                {
+                    // make sure it's not empty!
+                    if (!table.Get(i_x, i_y).GetComponent<Cell>().isEmpty)
                     {
-                        Debug.Log("Block has Cell X = " + table.Get(i, j).GetBlock().GetComponent<Block>().GetCell().xPos + " Y = " + table.Get(i, j).GetBlock().GetComponent<Block>().GetCell().yPos);
+                        // If the block is walkable, change its collider
+                        if (table.Get(i_x, i_y).GetComponent<Cell>().GetBlock().GetComponent<Block>().isWalkable)
+                        {
+                            table.Get(i_x, i_y).GetComponent<Cell>().GetBlock().GetComponent<BoxCollider>().enabled = doEnable;
+                        }
+                        
                     }
                 }
             }
-            */
-
+        }
 
         public void Update()
         {
