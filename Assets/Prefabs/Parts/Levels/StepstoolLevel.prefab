@@ -101,6 +101,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NonCell
       objectReference: {fileID: 0}
+    - target: {fileID: 7384501332964567699, guid: c58349293d23f9a48bccb662bc4f6d3b, type: 3}
+      propertyPath: xPos
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -162,6 +166,14 @@ PrefabInstance:
     - target: {fileID: 3838098990102560207, guid: c58349293d23f9a48bccb662bc4f6d3b, type: 3}
       propertyPath: m_Name
       value: NonCell (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7384501332964567699, guid: c58349293d23f9a48bccb662bc4f6d3b, type: 3}
+      propertyPath: xPos
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7384501332964567699, guid: c58349293d23f9a48bccb662bc4f6d3b, type: 3}
+      propertyPath: yPos
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
