@@ -96,12 +96,20 @@ namespace Parts
             {
                 for(int j = 0; j < tableSize; j++)
                 {
-                    emptyCell.GetComponent<Cell>().xPos = i;
-                    emptyCell.GetComponent<Cell>().yPos = j;
-                    GameObject instantiated = Instantiate(emptyCell, this.gameObject.transform);
-                    instantiated.transform.localPosition = new Vector3(100, 100, 0);
-                    table.Put(i, j, instantiated);
-                    Debug.Log("Added to part table (Empty)");
+                    try
+                    {
+                        emptyCell.GetComponent<Cell>().xPos = i;
+                        emptyCell.GetComponent<Cell>().yPos = j;
+                        GameObject instantiated = Instantiate(emptyCell, this.gameObject.transform);
+                        instantiated.transform.localPosition = new Vector3(100, 100, 0);
+                        table.Put(i, j, instantiated);
+                        Debug.Log("Added to part table (Empty)");
+                    }
+                    catch (Exception e)
+                    {
+                        Debug.LogError("\"" + gameObject.name + "\", (Part.cs) ERROR = " + e.Message);
+                        throw e;
+                    }
                 }
             }
             Cell[] cellsOne = gameObject.GetComponentsInChildren<Cell>();
