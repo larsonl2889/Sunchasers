@@ -60846,6 +60846,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4068365061022335708, guid: 81886acb3d04c3b49b2c2bddb9998f03, type: 3}
+      propertyPath: music
+      value: 
+      objectReference: {fileID: 174836813197899305}
     - target: {fileID: 4604638176505583241, guid: 81886acb3d04c3b49b2c2bddb9998f03, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -79446,6 +79450,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be1a23e84202a5b4cb77bf2e46a2f88c, type: 3}
+--- !u!82 &174836813197899305 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3947856167131890480, guid: be1a23e84202a5b4cb77bf2e46a2f88c, type: 3}
+  m_PrefabInstance: {fileID: 174836813197899304}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2817062360701464780
 PrefabInstance:
   m_ObjectHideFlags: 0

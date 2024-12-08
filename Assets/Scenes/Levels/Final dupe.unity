@@ -34672,6 +34672,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeInUI: {fileID: 1002348148}
+  music: {fileID: 1116097208}
 --- !u!61 &1014048690
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -34896,6 +34897,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1259600715}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 176.312}
+--- !u!82 &1116097208 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3947856167131890480, guid: be1a23e84202a5b4cb77bf2e46a2f88c, type: 3}
+  m_PrefabInstance: {fileID: 174836813197899304}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1156526846 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3281039758264664124, guid: 3c04e2da7f891954c938122fb6ef1eb2, type: 3}
@@ -35155,6 +35161,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4068365061022335708, guid: 81886acb3d04c3b49b2c2bddb9998f03, type: 3}
+      propertyPath: music
+      value: 
+      objectReference: {fileID: 1116097208}
     - target: {fileID: 4604638176505583241, guid: 81886acb3d04c3b49b2c2bddb9998f03, type: 3}
       propertyPath: m_Pivot.x
       value: 0
