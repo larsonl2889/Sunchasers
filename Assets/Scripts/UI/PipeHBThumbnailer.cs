@@ -2,29 +2,43 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
+using DirectionOps;
 
-// MUST BE ON A BUILD AREA!
+// Attach me to a part!
 
 public class PipeHBThumbnailer : MonoBehaviour
 {
-    public Image[] orderedSprites;
-    public int currentIndex;
+    public Sprite upSprite;
+    public Sprite rightSprite;
+    public Sprite downSprite;
+    public Sprite leftSprite;
+    public Direction currentDirection;
 
-    
+    private Sprite GetSprite()
+    {
+        return currentDirection switch
+        {
+            Direction.UP => upSprite,
+            Direction.LEFT => leftSprite,
+            Direction.DOWN => downSprite,
+            Direction.RIGHT => rightSprite,
+            _ => null
+        };
+    }
+
+    public void Start() { UpdateThumbnail(); }
+
+    public void UpdateThumbnail() { GetComponent<Image>().sprite = GetSprite(); }
 
     private void Ncrement(int n)
     {
-        currentIndex += n + 4; // add 4 because negatives and % are dumb and dumber in C#.
-        currentIndex %= 4;
-        GetComponent<Image>() = orderedSprites[currentIndex];
+        currentDirection.Add(n.ToDirection());
+        UpdateThumbnail();
     }
 
-    public void Increment() {
-        Ncrement(1);
-    }
+    public void Increment() { Ncrement(1); }
 
-    public void Decrement() {
-        Ncrement(-1);
-    }
+    public void Decrement() { Ncrement(3); }
 
 }
