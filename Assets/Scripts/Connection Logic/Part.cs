@@ -140,6 +140,10 @@ namespace Parts
         }
         */
 
+        /// <summary>
+        /// Sets the colliders for boxes.
+        /// </summary>
+        /// <param name="doEnable"></param>
         public void SetWalkableColliders(bool doEnable)
         {
             for (int i_x = 0; i_x < tableSize; i_x++)
