@@ -184,7 +184,7 @@ public class BuildingArea_Riley : MonoBehaviour
 
         Debug.LogWarning("BuildingArea_Riley.delete(): updating steam");
         // Update steam
-        GetComponentInParent<BuildAreaTest>().UpdateSteam();
+        StartCoroutine(GetComponentInParent<BuildAreaTest>().UpdateSteam());
     }
 
     public void RotateGivenPart(Direction dir)
