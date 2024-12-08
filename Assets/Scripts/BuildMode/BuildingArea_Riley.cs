@@ -138,7 +138,7 @@ public class BuildingArea_Riley : MonoBehaviour
                 Vector2 Spawnplace = new Vector2((int)xPos + 0.5f, (int)yPos + 0.5f);
                 buildArea.GetComponent<BuildAreaTest>().MergeTables(instantiated, new Vector2(xPos - minX, yPos - minY));
                 // Try to update steam
-                buildArea.GetComponent<BuildAreaTest>().UpdateSteam();
+                StartCoroutine(buildArea.GetComponent<BuildAreaTest>().UpdateSteam());
                 Cell[] cells = instantiated.GetComponentsInChildren<Cell>();
                 for (int i = 0; i < cells.Length; i++)
                 {
@@ -163,7 +163,7 @@ public class BuildingArea_Riley : MonoBehaviour
         //Deletes all the slots from the scene
 
         // Try to update steam
-        buildArea.GetComponent<BuildAreaTest>().UpdateSteam();
+        StartCoroutine(buildArea.GetComponent<BuildAreaTest>().UpdateSteam());
         Debug.LogWarning("BuildingArea_Riley.build(): updating steam");
     }
     public void SetSlot(GameObject Slot)
