@@ -1188,7 +1188,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b120c1ffff15abb40b65c38ad4312385, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 58e132b125c553044bda14847cde829e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1359,6 +1359,7 @@ GameObject:
   - component: {fileID: 3854929311583355308}
   - component: {fileID: 6815926143364875513}
   - component: {fileID: 4616226820218073050}
+  - component: {fileID: 3878192091679934320}
   m_Layer: 5
   m_Name: Hotbar
   m_TagString: Untagged
@@ -1422,10 +1423,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -1463,7 +1464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hotbar: {fileID: 0}
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 58e132b125c553044bda14847cde829e, type: 3}
   slot: {fileID: 0}
   UIParent: {fileID: 0}
   HotBarSlots:
@@ -1489,16 +1490,24 @@ MonoBehaviour:
   SlotUIHolder: {fileID: 3586584165555890816}
   player: {fileID: 0}
   sprites:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  HotBarImage: {fileID: 0}
+  - {fileID: 21300000, guid: fb2c91bc234e8624196be1b2c2eadd42, type: 3}
+  - {fileID: 21300000, guid: a86fe6103af4f55418c45167ce1b7d37, type: 3}
+  - {fileID: 21300000, guid: 952e4b0b420eac447836100a3ca1f131, type: 3}
+  - {fileID: 21300000, guid: dc288dc36df0ae044a72f19616babc37, type: 3}
+  - {fileID: 21300000, guid: 049d187ebfade2c468dfb84efee5416b, type: 3}
+  - {fileID: 21300000, guid: 9c54dc36d7e05be4db871caad78677f1, type: 3}
+  - {fileID: 21300000, guid: 9d159e94bdd7a5d4fb5734d6b2f51890, type: 3}
+  - {fileID: 21300000, guid: b386b956e0a484047aa89f34de7e6c58, type: 3}
+  - {fileID: 21300000, guid: 5168ad141b1affa40b96f5e77ccd3f1e, type: 3}
+  HotBarImage: {fileID: 3138679543587829230}
+--- !u!222 &3878192091679934320
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3586584165555890816}
+  m_CullTransparentMesh: 1
 --- !u!1 &4161890390840947808
 GameObject:
   m_ObjectHideFlags: 0
@@ -2674,9 +2683,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2645911338096855378}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -502, y: -440}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -502, y: 100}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3885493737217361509
