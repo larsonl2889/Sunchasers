@@ -33,6 +33,7 @@ public class Door : MonoBehaviour
     }
     public void close()
     {
+        Debug.LogWarning("close");
         if (isOpen)
         {
             if (openSound != null)
@@ -49,7 +50,7 @@ public class Door : MonoBehaviour
         {
             if (fadeInUI != null)
             {
-                fadeInUI.GetComponent<LevelFadeIn>().fadeIn(this.gameObject);
+                fadeInUI.GetComponent<LevelFadeIn>().fadeInDoor(this.gameObject);
             }
             else
             {

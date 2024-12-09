@@ -51,6 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c300572c0f14f284fa5a055b57e472fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 0
   emptyCell: {fileID: 4436004687172942411, guid: a659f59ff8a797e4db971d9eff3ef8b4, type: 3}
   tableSize: 1
 --- !u!222 &1127081474231750755
@@ -81,7 +82,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0531bf5d0b2c1a3469be4c9a7506b41e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1caac7e760931344a8d44426b80e7135, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

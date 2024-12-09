@@ -433,7 +433,7 @@ public class PlayerController_Willliam : MonoBehaviour
     IEnumerator camExitDelay(GameObject camera)
     {
         exitedBuildZone = true;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(.75f);
         if (currentBuildZone == null)
         {
             cam.GetComponent<Cam>().changeFollowTarget(this.gameObject);
