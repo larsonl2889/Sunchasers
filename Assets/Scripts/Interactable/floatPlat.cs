@@ -24,7 +24,15 @@ public class floatPlat : MonoBehaviour
         startPos = transform.position;
         targetPos = new Vector3(moveUnitsHorizontal + startPos.x, moveUnitsVertical + startPos.y, startPos.z);
         platSound = GetComponent<AudioSource>();
-        platSound.enabled = false;
+        if (isPowered)
+        {
+            platSound.enabled = true;
+        }
+        else
+        {
+            platSound.enabled = false;
+        }
+       
     }
 
     // Update is called once per frame
