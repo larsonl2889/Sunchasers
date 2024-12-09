@@ -55,7 +55,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 0
   emptyCell: {fileID: 4436004687172942411, guid: a659f59ff8a797e4db971d9eff3ef8b4, type: 3}
-  tableSize: 1
+  tableSize: 2
 --- !u!222 &6931774246746442507
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7270952319147065869}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fbef42ceb25df83468db6c07800f3d71, type: 3}
   m_Name: 
