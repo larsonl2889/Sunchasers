@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fanForce: 15
-  isOn: 1
+  isOn: 0
 --- !u!61 &5702446079821747987
 BoxCollider2D:
   m_ObjectHideFlags: 0
