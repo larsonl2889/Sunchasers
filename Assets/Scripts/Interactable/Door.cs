@@ -21,6 +21,7 @@ public class Door : MonoBehaviour
     }
     public void open()
     {
+        Debug.Log("Door Should Be Open");
         if (isOpen == false)
         {
             if (openSound != null)
@@ -29,6 +30,10 @@ public class Door : MonoBehaviour
             }
             isOpen = true;
             animator.SetBool("isOpen", true);
+        }
+        if(isOpen == true)
+        {
+            Debug.Log("Boolean for door worked");
         }
     }
     public void close()

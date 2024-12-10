@@ -8,6 +8,7 @@ using UnityEngine.Events;
 public class BuildAreaDelegator : MonoBehaviour
 {
     public bool objectiveIsOn;
+    public bool secondObjectiveIsOn;
 
     public UnityEvent activator;
     public UnityEvent deactivator;
@@ -19,23 +20,27 @@ public class BuildAreaDelegator : MonoBehaviour
         // If we need to turn off the objective
         if (objectiveIsOn && !GetData().IsObjectiveOn()) {
             DeactivateObjective();
+            objectiveIsOn = false;
         }
         // If we need to turn on the objective
         else if (!objectiveIsOn && GetData().IsObjectiveOn())
         {
             ActivateObjective();
+            objectiveIsOn = true;
         }
 
         // do the same to number two
         // If we need to turn off the objective
-        if (objectiveIsOn && !GetData().IsSecondObjectiveOn())
+        if (secondObjectiveIsOn && !GetData().IsSecondObjectiveOn())
         {
             DeactivateSecondObjective();
+            secondObjectiveIsOn = false;
         }
         // If we need to turn on the objective
-        else if (!objectiveIsOn && GetData().IsSecondObjectiveOn())
+        else if (!secondObjectiveIsOn && GetData().IsSecondObjectiveOn())
         {
             ActivateSecondObjective();
+            secondObjectiveIsOn = true;
         }
     }
 
