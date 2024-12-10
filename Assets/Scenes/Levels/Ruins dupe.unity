@@ -21653,12 +21653,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4682076243254301686, guid: af3f97db5dd1cd245aba96db81896cb8, type: 3}
       propertyPath: dialogue.Array.data[1]
-      value: It looks like this one is already powered, but sometimes you have to
-        do it yourself.
+      value: I tried to use the lever but the platform wouldn't budge.
       objectReference: {fileID: 0}
     - target: {fileID: 4682076243254301686, guid: af3f97db5dd1cd245aba96db81896cb8, type: 3}
       propertyPath: dialogue.Array.data[2]
-      value: You can use the lever to make them move.
+      value: I think you'll need to power it with this steam over here.
       objectReference: {fileID: 0}
     - target: {fileID: 6296319014127541610, guid: af3f97db5dd1cd245aba96db81896cb8, type: 3}
       propertyPath: m_SortingOrder
