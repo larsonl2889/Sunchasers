@@ -77,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 3a6fa5cbeddf0e9439fa43d00ad3a21a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -166,8 +166,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.95, y: 1.28}
+  m_Offset: {x: -0.25570947, y: 0}
+  m_Size: {x: 1.4385811, y: 1.95}
   m_Direction: 0
 --- !u!114 &5085867154419736418
 MonoBehaviour:
@@ -184,10 +184,8 @@ MonoBehaviour:
   dialoguePanel: {fileID: 0}
   dialogueText: {fileID: 0}
   dialogue:
-  - '*yawns*'
-  - Mechanic, thank goodness you're here!
-  - I need help with a leaky pipe.
-  - Can you head over to my house and fix the leak?
+  - Your looking to go to the surface right?
+  - Almost like some sort of Sunchaser
   wordSpeed: 0.05
   squeak: {fileID: 8300000, guid: da2270eef82249145a9cb15b8d7d0ce9, type: 3}
 --- !u!95 &8005431457240652528

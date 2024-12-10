@@ -184,10 +184,8 @@ MonoBehaviour:
   dialoguePanel: {fileID: 0}
   dialogueText: {fileID: 0}
   dialogue:
-  - '*yawns*'
-  - Mechanic, thank goodness you're here!
-  - I need help with a leaky pipe.
-  - Can you head over to my house and fix the leak?
+  - Hey Mechanic, bring back stories from the surface!
+  - Let me know if those birds from the stories are real
   wordSpeed: 0.05
   squeak: {fileID: 8300000, guid: da2270eef82249145a9cb15b8d7d0ce9, type: 3}
 --- !u!95 &3303695847494350667
