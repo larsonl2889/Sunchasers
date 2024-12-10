@@ -148,6 +148,7 @@ public class BuildingArea_Riley : MonoBehaviour
                     }
                 }
                 instantiated.transform.position = Spawnplace;
+                instantiated.GetComponent<Part>().SetWalkableColliders(true);
                 return;
             }
             Destroy(instantiated);
@@ -179,6 +180,7 @@ public class BuildingArea_Riley : MonoBehaviour
         instantiated.GetComponent<Part>().FormTable();
         gameObject.GetComponent<HotBar>().SetBar(instantiated);
         gameObject.GetComponent<HotBar>().MoveBarIndex();
+        instantiated.GetComponent<Part>().SetWalkableColliders(false);
         part.GetComponentInParent<Part>().Extract();
         SFXManager.instance.playSound(deletePartSound, part.transform, .5f);
 

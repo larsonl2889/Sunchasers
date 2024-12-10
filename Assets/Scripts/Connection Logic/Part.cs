@@ -156,7 +156,7 @@ namespace Parts
                         // If the block is walkable, change its collider
                         if (table.Get(i_x, i_y).GetComponent<Cell>().GetBlock().GetComponent<Block>().isWalkable)
                         {
-                            table.Get(i_x, i_y).GetComponent<Cell>().GetBlock().GetComponent<BoxCollider>().enabled = doEnable;
+                            table.Get(i_x, i_y).GetComponent<Cell>().GetBlock().GetComponent<BoxCollider2D>().enabled = doEnable;
                         }
                         
                     }
