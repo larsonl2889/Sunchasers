@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6032756113629371258}
   - component: {fileID: 2077286774895205223}
   - component: {fileID: 7850567391814991354}
+  - component: {fileID: 5111666410305873048}
   m_Layer: 0
   m_Name: MouseEars
   m_TagString: EmptyPart
@@ -85,7 +86,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 7fb4730493c74eb4ca577f4f773fea17, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -95,6 +96,23 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5111666410305873048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7270952319147065869}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbef42ceb25df83468db6c07800f3d71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upSprite: {fileID: 0}
+  rightSprite: {fileID: 0}
+  downSprite: {fileID: 0}
+  leftSprite: {fileID: 0}
+  currentDirection: 0
 --- !u!1001 &8237533213694985
 PrefabInstance:
   m_ObjectHideFlags: 0

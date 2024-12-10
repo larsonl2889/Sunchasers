@@ -96,12 +96,20 @@ namespace Parts
             {
                 for(int j = 0; j < tableSize; j++)
                 {
-                    emptyCell.GetComponent<Cell>().xPos = i;
-                    emptyCell.GetComponent<Cell>().yPos = j;
-                    GameObject instantiated = Instantiate(emptyCell, this.gameObject.transform);
-                    instantiated.transform.localPosition = new Vector3(100, 100, 0);
-                    table.Put(i, j, instantiated);
-                    Debug.Log("Added to part table (Empty)");
+                    try
+                    {
+                        emptyCell.GetComponent<Cell>().xPos = i;
+                        emptyCell.GetComponent<Cell>().yPos = j;
+                        GameObject instantiated = Instantiate(emptyCell, this.gameObject.transform);
+                        instantiated.transform.localPosition = new Vector3(100, 100, 0);
+                        table.Put(i, j, instantiated);
+                        Debug.Log("Added to part table (Empty)");
+                    }
+                    catch (Exception e)
+                    {
+                        Debug.LogError("\"" + gameObject.name + "\", (Part.cs) ERROR = " + e.Message);
+                        throw e;
+                    }
                 }
             }
             Cell[] cellsOne = gameObject.GetComponentsInChildren<Cell>();
@@ -119,19 +127,42 @@ namespace Parts
                 }
             }
         }
-            /*
-            for (int i = 0; i < tableSize; i++)
+        /*
+        for (int i = 0; i < tableSize; i++)
+        {
+            for (int j = 0; j < tableSize; j++)
             {
-                for (int j = 0; j < tableSize; j++)
+                if (!table.Get(i, j).IsEmpty())
                 {
-                    if (!table.Get(i, j).IsEmpty())
+                    Debug.Log("Block has Cell X = " + table.Get(i, j).GetBlock().GetComponent<Block>().GetCell().xPos + " Y = " + table.Get(i, j).GetBlock().GetComponent<Block>().GetCell().yPos);
+                }
+            }
+        }
+        */
+
+        /// <summary>
+        /// Sets the colliders for boxes.
+        /// </summary>
+        /// <param name="doEnable">whether to turn on or off the colliders</param>
+        public void SetWalkableColliders(bool doEnable)
+        {
+            for (int i_x = 0; i_x < tableSize; i_x++)
+            {
+                for (int i_y = 0; i_y < tableSize; i_y++)
+                {
+                    // make sure it's not empty!
+                    if (!table.Get(i_x, i_y).GetComponent<Cell>().isEmpty)
                     {
-                        Debug.Log("Block has Cell X = " + table.Get(i, j).GetBlock().GetComponent<Block>().GetCell().xPos + " Y = " + table.Get(i, j).GetBlock().GetComponent<Block>().GetCell().yPos);
+                        // If the block is walkable, change its collider
+                        if (table.Get(i_x, i_y).GetComponent<Cell>().GetBlock().GetComponent<Block>().isWalkable)
+                        {
+                            table.Get(i_x, i_y).GetComponent<Cell>().GetBlock().GetComponent<BoxCollider>().enabled = doEnable;
+                        }
+                        
                     }
                 }
             }
-            */
-
+        }
 
         public void Update()
         {

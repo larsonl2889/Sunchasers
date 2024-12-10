@@ -24,7 +24,15 @@ public class floatPlat : MonoBehaviour
         startPos = transform.position;
         targetPos = new Vector3(moveUnitsHorizontal + startPos.x, moveUnitsVertical + startPos.y, startPos.z);
         platSound = GetComponent<AudioSource>();
-        platSound.enabled = false;
+        if (isPowered)
+        {
+            platSound.enabled = true;
+        }
+        else
+        {
+            platSound.enabled = false;
+        }
+       
     }
 
     // Update is called once per frame
@@ -69,6 +77,10 @@ public class floatPlat : MonoBehaviour
     public void power()
     {
         isPowered = true;
+    }
+    public void powerOff()
+    {
+        isPowered = false;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

@@ -16,7 +16,7 @@ public class LoadNewScene : MonoBehaviour
     AsyncOperation unLoadingTransitionOperation;
     //Load scene control variables
     //Have load screen show for at least 3 seconds
-    float minLoadTime = 5f;
+    float minLoadTime = 1f;
     //Have "Loading..." graphic change every .5 seconds
     float textChangeLoad = .3f;
     //Timers

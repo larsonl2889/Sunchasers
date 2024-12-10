@@ -184,10 +184,10 @@ MonoBehaviour:
   dialoguePanel: {fileID: 0}
   dialogueText: {fileID: 0}
   dialogue:
-  - '*yawns*'
-  - Mechanic, thank goodness you're here!
-  - I need help with a leaky pipe.
-  - Can you head over to my house and fix the leak?
+  - You want to get to the surface?
+  - The only way there is through the ruins, but the door to there isn't working
+  - Do you think you could redirect the steam to power the door?
+  - You can use 'R' to rotate the pipes to fit better.
   wordSpeed: 0.05
   squeak: {fileID: 8300000, guid: da2270eef82249145a9cb15b8d7d0ce9, type: 3}
 --- !u!95 &6849479596378731612

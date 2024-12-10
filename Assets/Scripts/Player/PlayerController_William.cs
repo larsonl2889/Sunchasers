@@ -37,7 +37,8 @@ public class PlayerController_Willliam : MonoBehaviour
     public Vector3 camOffset = new Vector3(0,1,0);
     public float zoom = 4;
     public GameObject cam;
-    private AudioSource footStepSounds;  
+    private AudioSource footStepSounds;
+    private bool exitedBuildZone = false;
     
 
     private void Awake()
@@ -353,7 +354,7 @@ public class PlayerController_Willliam : MonoBehaviour
         if (other.gameObject.CompareTag("Interactable"))
         {
             
-            other.gameObject.GetComponent<Interactable_William>().showPrompt(other.transform.position);
+            other.gameObject.GetComponent<Interactable_William>().showPrompt(other.gameObject);
             objectsNear.Push(other.gameObject);
             
             
@@ -375,7 +376,14 @@ public class PlayerController_Willliam : MonoBehaviour
             hotBarUI.updateImages();
             isBuilding = true;
             hotBarUI.gameObject.GetComponent<Canvas>().enabled = true;
-            cam.GetComponent<Cam>().changeFollowTarget(currentBuildZone);
+            if (exitedBuildZone == false)
+            {
+                //StartCoroutine(camStartDelay(cam));
+                cam.GetComponent<Cam>().changeFollowTarget(currentBuildZone);
+
+            }
+            
+            
         }
     }
 
@@ -408,8 +416,29 @@ public class PlayerController_Willliam : MonoBehaviour
             hotBarUI.updateImages();
             isBuilding = false;
             hotBarUI.gameObject.GetComponent<Canvas>().enabled = false;
+            StartCoroutine(camExitDelay(cam));
+        }
+    }
+    /*
+    IEnumerator camStartDelay(GameObject camera)
+    {
+        yield return new WaitForSeconds(.5f);
+        if (currentBuildZone != null)
+        {
+            cam.GetComponent<Cam>().changeFollowTarget(currentBuildZone);
+        }
+        
+    }
+    */
+    IEnumerator camExitDelay(GameObject camera)
+    {
+        exitedBuildZone = true;
+        yield return new WaitForSeconds(.75f);
+        if (currentBuildZone == null)
+        {
             cam.GetComponent<Cam>().changeFollowTarget(this.gameObject);
         }
+        exitedBuildZone = false;
     }
    
 }

@@ -77,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 10
   m_Sprite: {fileID: -1156771969, guid: 93ce1828c558dff488bb6d57443a5161, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -166,8 +166,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.95, y: 1.28}
+  m_Offset: {x: 0.24134147, y: 0}
+  m_Size: {x: 1.4673173, y: 1.95}
   m_Direction: 0
 --- !u!114 &2846621705378837700
 MonoBehaviour:
@@ -184,10 +184,9 @@ MonoBehaviour:
   dialoguePanel: {fileID: 0}
   dialogueText: {fileID: 0}
   dialogue:
-  - '*yawns*'
-  - Mechanic, thank goodness you're here!
-  - I need help with a leaky pipe.
-  - Can you head over to my house and fix the leak?
+  - Ignore my sibling
+  - If your trying to leave the city go talk to Flash.
+  - I heard they like to spend their time in the ruins.
   wordSpeed: 0.05
   squeak: {fileID: 8300000, guid: da2270eef82249145a9cb15b8d7d0ce9, type: 3}
 --- !u!95 &185638235206969211

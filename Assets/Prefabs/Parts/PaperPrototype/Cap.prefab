@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4427694852539439579}
   - component: {fileID: 1127081474231750755}
   - component: {fileID: 2633303124429774839}
+  - component: {fileID: -7535803615130542574}
   m_Layer: 0
   m_Name: Cap
   m_TagString: Part
@@ -51,6 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c300572c0f14f284fa5a055b57e472fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 0
   emptyCell: {fileID: 4436004687172942411, guid: a659f59ff8a797e4db971d9eff3ef8b4, type: 3}
   tableSize: 1
 --- !u!222 &1127081474231750755
@@ -81,7 +83,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0531bf5d0b2c1a3469be4c9a7506b41e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1caac7e760931344a8d44426b80e7135, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -91,6 +93,23 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &-7535803615130542574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796572086390300456}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbef42ceb25df83468db6c07800f3d71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upSprite: {fileID: 0}
+  rightSprite: {fileID: 0}
+  downSprite: {fileID: 0}
+  leftSprite: {fileID: 0}
+  currentDirection: 0
 --- !u!1001 &3102338433187440877
 PrefabInstance:
   m_ObjectHideFlags: 0

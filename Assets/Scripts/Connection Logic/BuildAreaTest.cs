@@ -41,13 +41,13 @@ public class BuildAreaTest : MonoBehaviour
     public void ActivateSource()
     {
         SetSteamState((Vector2)SourceLocation, SteamState.SOURCE);
-        UpdateSteam();
+        StartCoroutine(UpdateSteam());
     }
 
     public void DeactivateSource()
     {
         SetSteamState((Vector2)SourceLocation, SteamState.EMPTY);
-        UpdateSteam();
+        StartCoroutine(UpdateSteam());
     }
 
     public bool IsObjectiveOn()
@@ -71,8 +71,9 @@ public class BuildAreaTest : MonoBehaviour
     /// <summary>
     /// Updates the steam states of all of the pipes in this build area.
     /// </summary>
-    public void UpdateSteam()
+    public IEnumerator UpdateSteam()
     {
+        yield return new WaitForSeconds(steamUpdateDelay);
         Debug.LogWarning("Updating steam...");
         List<List<Vector2>> allPipeSystems = GetAllPipeSystems();
         Debug.LogWarning("System # = " + allPipeSystems.Count);
@@ -81,14 +82,42 @@ public class BuildAreaTest : MonoBehaviour
             Debug.LogWarning("propagating at " + allPipeSystems[system_index]);
             PropagateSteam(allPipeSystems[system_index]);
         }
+
+        GetComponent<BuildAreaDelegator>().UpdateObjective();
+
+        yield return null; // wait for a frame
+
         // update steam particles here
         foreach (Vector2 where in allPipeLocations)
         {
             UpdateSteamGushers(where);
         }
 
-        GetComponent<BuildAreaDelegator>().UpdateObjective();
+
+        
     }
+
+    /// <summary>
+    /// Updates the steam states of all of the pipes in this build area.
+    /// </summary>
+    //public void UpdateSteam()
+    //{
+    //    Debug.LogWarning("Updating steam...");
+    //    List<List<Vector2>> allPipeSystems = GetAllPipeSystems();
+    //    Debug.LogWarning("System # = " + allPipeSystems.Count);
+    //    for (int system_index = 0; system_index < allPipeSystems.Count; system_index++)
+    //    {
+    //        Debug.LogWarning("propagating at " + allPipeSystems[system_index]);
+    //        PropagateSteam(allPipeSystems[system_index]);
+    //    }
+    //    // update steam particles here
+    //    foreach (Vector2 where in allPipeLocations)
+    //    {
+    //        UpdateSteamGushers(where);
+    //    }
+
+    //    GetComponent<BuildAreaDelegator>().UpdateObjective();
+    //}
 
 
 
@@ -515,18 +544,19 @@ public class BuildAreaTest : MonoBehaviour
             part.GetComponent<Part>().SetPosInWorld();
         }
         // update steam here
-        if (steamUpdateDelay > 0.0f)
-        {
-            DelayedUpdateSteam(steamUpdateDelay);
-        }
-        else
-        {
-            UpdateSteam();
-        }
+        //if (steamUpdateDelay > 0.0f)
+        //{
+        //    StartCoroutine(DelayedUpdateSteam(steamUpdateDelay));
+        //}
+        //else
+        //{
+        //    UpdateSteam();
+        //}
+        StartCoroutine(UpdateSteam());
     }
 
     public IEnumerator DelayedUpdateSteam(float delay) {
-        Debug.LogError("Hello world!");
+        Debug.Log("Delaying steam update for " + delay + "s.");
         yield return new WaitForSeconds(delay);
         UpdateSteam();
     }

@@ -26,6 +26,7 @@ namespace Blocks
         public int variant;
         public GameObject gusherParent;
         [SerializeField] private SteamState steamState;
+        public bool isWalkable;
 
         public void Awake()
         {
@@ -54,10 +55,15 @@ namespace Blocks
         public List<Vector2> GetAllLinksList()
         {
             List<Vector2> list = new();
-            foreach (Vector2 link in links)
+            if (links != null)
             {
-                list.Add(link);
+                foreach (Vector2 link in links)
+                {
+                    list.Add(link);
+                }
             }
+            
+            
             return list;
         }
         public void ApplyRotation(Direction rotation)

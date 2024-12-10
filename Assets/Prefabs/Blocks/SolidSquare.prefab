@@ -253,6 +253,7 @@ MonoBehaviour:
   variant: 0
   gusherParent: {fileID: 0}
   steamState: 0
+  isWalkable: 1
 --- !u!61 &6182515484196211594
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6032756113629371258}
   - component: {fileID: 6931774246746442507}
   - component: {fileID: 7098615460084702650}
+  - component: {fileID: 3492424823900474513}
   m_Layer: 0
   m_Name: Vorstadt
   m_TagString: EmptyPart
@@ -54,7 +55,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 0
   emptyCell: {fileID: 4436004687172942411, guid: a659f59ff8a797e4db971d9eff3ef8b4, type: 3}
-  tableSize: 1
+  tableSize: 2
 --- !u!222 &6931774246746442507
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -83,7 +84,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 707d7b2125c7d4348a3991c6cea7b73f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -93,6 +94,23 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3492424823900474513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7270952319147065869}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbef42ceb25df83468db6c07800f3d71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upSprite: {fileID: 0}
+  rightSprite: {fileID: 0}
+  downSprite: {fileID: 0}
+  leftSprite: {fileID: 0}
+  currentDirection: 0
 --- !u!1001 &3058796917908903650
 PrefabInstance:
   m_ObjectHideFlags: 0
