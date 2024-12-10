@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7686492457662928525}
   - component: {fileID: 2841075744733662579}
   - component: {fileID: 6620140832276287836}
-  - component: {fileID: 1372450829622786586}
+  - component: {fileID: -8916493010244731553}
   m_Layer: 0
   m_Name: FloatPlat
   m_TagString: Interactable
@@ -171,7 +171,7 @@ MonoBehaviour:
   speed: 2
   moveUnitsVertical: 5
   moveUnitsHorizontal: 0
---- !u!82 &1372450829622786586
+--- !u!82 &-8916493010244731553
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -181,9 +181,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4e0155fffec2b90468456b8bda9b2460, type: 3}
+  m_audioClip: {fileID: 8300000, guid: bfbddd122750b8443b8279641fa071f7, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.191
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -191,10 +191,10 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 0
-  MaxDistance: 9
+  MinDistance: 1
+  MaxDistance: 500
   Pan2D: 0
-  rolloffMode: 1
+  rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
