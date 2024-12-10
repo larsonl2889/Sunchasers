@@ -45433,6 +45433,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7336256261307187145, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
+      propertyPath: UISlotsHolder
+      value: 
+      objectReference: {fileID: 130602057}
+    - target: {fileID: 7336256261307187145, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
       propertyPath: virtualCamera
       value: 
       objectReference: {fileID: 1277691617}
