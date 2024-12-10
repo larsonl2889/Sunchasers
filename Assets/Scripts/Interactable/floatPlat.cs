@@ -65,6 +65,7 @@ public class floatPlat : MonoBehaviour
         {
             platSound.enabled = false;
             animator.SetBool("isOn", false);
+            transform.position = Vector2.MoveTowards(transform.position, startPos, speed * Time.deltaTime);
         }
     }
     
