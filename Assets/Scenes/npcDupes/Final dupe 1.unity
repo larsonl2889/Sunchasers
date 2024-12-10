@@ -45436,6 +45436,18 @@ PrefabInstance:
       propertyPath: virtualCamera
       value: 
       objectReference: {fileID: 1277691617}
+    - target: {fileID: 8178364077235218741, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
+      propertyPath: activator.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2109721250}
+    - target: {fileID: 8178364077235218741, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
+      propertyPath: activator.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: turnOn
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178364077235218741, guid: 3d51e0c30f0432b439531abbbcc649ae, type: 3}
+      propertyPath: activator.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Fan, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -62576,6 +62588,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1259600715}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 183.418}
+--- !u!114 &2109721250 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4144202810991686179, guid: 3c04e2da7f891954c938122fb6ef1eb2, type: 3}
+  m_PrefabInstance: {fileID: 1070192895}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f88c6b2f667684f498694113537fe4cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2135340474
 GameObject:
   m_ObjectHideFlags: 0
