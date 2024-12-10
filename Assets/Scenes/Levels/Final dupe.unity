@@ -49636,9 +49636,37 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1277691617}
     - target: {fileID: 6633189833422726169, guid: 68e18ca5490a26a49b9b1653624729e4, type: 3}
+      propertyPath: deactivator.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6633189833422726169, guid: 68e18ca5490a26a49b9b1653624729e4, type: 3}
       propertyPath: activator.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2020334952}
+    - target: {fileID: 6633189833422726169, guid: 68e18ca5490a26a49b9b1653624729e4, type: 3}
+      propertyPath: deactivator.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6633189833422726169, guid: 68e18ca5490a26a49b9b1653624729e4, type: 3}
+      propertyPath: deactivator.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2020334952}
+    - target: {fileID: 6633189833422726169, guid: 68e18ca5490a26a49b9b1653624729e4, type: 3}
+      propertyPath: deactivator.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6633189833422726169, guid: 68e18ca5490a26a49b9b1653624729e4, type: 3}
+      propertyPath: deactivator.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: turnOff
+      objectReference: {fileID: 0}
+    - target: {fileID: 6633189833422726169, guid: 68e18ca5490a26a49b9b1653624729e4, type: 3}
+      propertyPath: deactivator.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Fan, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6633189833422726169, guid: 68e18ca5490a26a49b9b1653624729e4, type: 3}
+      propertyPath: deactivator.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
