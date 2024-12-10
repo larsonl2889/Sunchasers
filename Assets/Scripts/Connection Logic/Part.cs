@@ -65,6 +65,7 @@ namespace Parts
             
         }
         */
+
         private void Awake()
         {
             
@@ -159,6 +160,21 @@ namespace Parts
                             table.Get(i_x, i_y).GetComponent<Cell>().GetBlock().GetComponent<BoxCollider2D>().enabled = doEnable;
                         }
                         
+                    }
+                }
+            }
+        }
+
+        public void SetCellVisibility(bool doEnable)
+        {
+            for (int i_x = 0; i_x < tableSize; i_x++)
+            {
+                for (int i_y = 0; i_y < tableSize; i_y++)
+                {
+                    // make sure it's not empty!
+                    if (!table.Get(i_x, i_y).GetComponent<Cell>().isEmpty)
+                    {
+                        table.Get(i_x, i_y).GetComponent<Cell>().GetComponent<SpriteRenderer>().enabled = doEnable;
                     }
                 }
             }

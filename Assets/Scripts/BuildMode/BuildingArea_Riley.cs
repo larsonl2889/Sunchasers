@@ -149,6 +149,7 @@ public class BuildingArea_Riley : MonoBehaviour
                 }
                 instantiated.transform.position = Spawnplace;
                 instantiated.GetComponent<Part>().SetWalkableColliders(true);
+                instantiated.GetComponent<Part>().SetCellVisibility(false);
                 return;
             }
             Destroy(instantiated);
@@ -181,6 +182,7 @@ public class BuildingArea_Riley : MonoBehaviour
         gameObject.GetComponent<HotBar>().SetBar(instantiated);
         gameObject.GetComponent<HotBar>().MoveBarIndex();
         instantiated.GetComponent<Part>().SetWalkableColliders(false);
+        instantiated.GetComponent<Part>().SetCellVisibility(true);
         part.GetComponentInParent<Part>().Extract();
         SFXManager.instance.playSound(deletePartSound, part.transform, .5f);
 
