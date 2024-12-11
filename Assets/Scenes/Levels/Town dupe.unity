@@ -48328,10 +48328,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1261542672986939290, guid: ff85cdfd14ca67541b0772e88e8c9a71, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: af9fe38a318459f42a2249db781254c6, type: 3}
     - target: {fileID: 7263843083449865210, guid: ff85cdfd14ca67541b0772e88e8c9a71, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -52646,10 +52642,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Hoot_Dialogue '
       objectReference: {fileID: 0}
-    - target: {fileID: 8814331587067643793, guid: 2f04c1a6ce6f7d945a3f8678af10700f, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: af9fe38a318459f42a2249db781254c6, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -65977,10 +65969,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mumble_Dialogue
       objectReference: {fileID: 0}
-    - target: {fileID: 6294829153185557725, guid: de5a7e06b3c8fc34a92ca0410e25c025, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: af9fe38a318459f42a2249db781254c6, type: 3}
     - target: {fileID: 8325810315010197502, guid: de5a7e06b3c8fc34a92ca0410e25c025, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -66368,10 +66356,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crunch_Dialogue
       objectReference: {fileID: 0}
-    - target: {fileID: 8899151180826921906, guid: d1044d075695d504d87fdc425c5735e3, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: af9fe38a318459f42a2249db781254c6, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
