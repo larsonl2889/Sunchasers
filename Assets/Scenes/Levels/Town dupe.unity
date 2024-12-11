@@ -5794,6 +5794,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2134987437}
     - target: {fileID: 5085867154419736418, guid: 368e40a704833a54598d4fe707133e3c, type: 3}
+      propertyPath: dialogue.Array.data[0]
+      value: You're looking to go to the surface right?
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085867154419736418, guid: 368e40a704833a54598d4fe707133e3c, type: 3}
       propertyPath: dialogue.Array.data[1]
       value: Almost like some sort of Sunchaser!
       objectReference: {fileID: 0}
@@ -10788,6 +10792,10 @@ PrefabInstance:
     - target: {fileID: 2846621705378837700, guid: 0e85c22f008fdad4799129b6b928c430, type: 3}
       propertyPath: dialogue.Array.data[0]
       value: Ignore my sibling.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2846621705378837700, guid: 0e85c22f008fdad4799129b6b928c430, type: 3}
+      propertyPath: dialogue.Array.data[1]
+      value: If you're trying to leave the city go talk to Flash.
       objectReference: {fileID: 0}
     - target: {fileID: 3938618542727252450, guid: 0e85c22f008fdad4799129b6b928c430, type: 3}
       propertyPath: m_LocalPosition.x
@@ -65942,7 +65950,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7110232776964545003, guid: 792eb0c87a6525c4195c10b0cbdc4bcf, type: 3}
       propertyPath: dialogue.Array.data[1]
-      value: Let me know if the owls from the stories are real!
+      value: Let me know if the owls from the stories are true
       objectReference: {fileID: 0}
     - target: {fileID: 7110232776964545003, guid: 792eb0c87a6525c4195c10b0cbdc4bcf, type: 3}
       propertyPath: dialogue.Array.data[2]
