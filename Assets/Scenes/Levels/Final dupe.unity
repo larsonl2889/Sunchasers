@@ -48026,10 +48026,18 @@ PrefabInstance:
       objectReference: {fileID: 1631025223}
     - target: {fileID: 4682076243254301686, guid: af3f97db5dd1cd245aba96db81896cb8, type: 3}
       propertyPath: dialogue.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4682076243254301686, guid: af3f97db5dd1cd245aba96db81896cb8, type: 3}
       propertyPath: dialogue.Array.data[0]
+      value: This fan seems to be our way out.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4682076243254301686, guid: af3f97db5dd1cd245aba96db81896cb8, type: 3}
+      propertyPath: dialogue.Array.data[1]
+      value: Though I can't seem to get it working.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4682076243254301686, guid: af3f97db5dd1cd245aba96db81896cb8, type: 3}
+      propertyPath: dialogue.Array.data[2]
       value: Remember you have to use all of the parts to complete a puzzle.
       objectReference: {fileID: 0}
     - target: {fileID: 6296319014127541610, guid: af3f97db5dd1cd245aba96db81896cb8, type: 3}
