@@ -51014,10 +51014,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Flash_Dialogue
       objectReference: {fileID: 0}
-    - target: {fileID: 5716062201613113835, guid: d530a7f3b2f82ca4099e2da2a32303d5, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: af9fe38a318459f42a2249db781254c6, type: 3}
     - target: {fileID: 8333828967718048191, guid: d530a7f3b2f82ca4099e2da2a32303d5, type: 3}
       propertyPath: m_Pivot.x
       value: 0
