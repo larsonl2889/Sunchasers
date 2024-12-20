@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc568cdb50ff3f14dad88278c9496e54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xPos: 4
-  yPos: 4
+  xPos: 1
+  yPos: 1
   block: {fileID: 0}
   isEmpty: 1
