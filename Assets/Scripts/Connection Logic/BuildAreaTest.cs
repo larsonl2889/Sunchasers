@@ -329,7 +329,7 @@ public class BuildAreaTest : MonoBehaviour
         // (1): Add self to fullSystem
         fullSystem.Add(where);
         // (2): Get the list of locations I'm connected to
-        List<Vector2> allConnectedLocations = GetTwoWayConnectionLocations(where);
+        List<Vector2> allConnectedLocations = GetConnectionLocations(where);
         for (int i = 0; i < allConnectedLocations.Count; i++)
         {
             // (2a): Check if I'm already accounted for in fullSystem. If so, do NOT proceed to (2b) with me.
@@ -347,8 +347,16 @@ public class BuildAreaTest : MonoBehaviour
             if (!isAlreadyInSystem)
             {
                 // (2b): Check to see if I connect back to the location in "where"
-                bool connectsBack = true; // already guaranteed earlier
-                
+                List<Vector2> subConnectedLocations = GetConnectionLocations(allConnectedLocations[i]);
+                bool connectsBack = false;
+                for (int j = 0; j < subConnectedLocations.Count; j++)
+                {
+                    if (subConnectedLocations[j] == where)
+                    {
+                        connectsBack = true;
+                        break;
+                    }
+                }
                 // (2b_i): If YES, do recursion on me.
                 if (connectsBack)
                 {
@@ -416,7 +424,7 @@ public class BuildAreaTest : MonoBehaviour
             for (int i = 0; i < system.Count; i++)
             {
                 // Get all connections
-                List<Vector2> checkLocations = GetConnectionLocations(system[i]);
+                List<Vector2> checkLocations = GetTwoWayConnectionLocations(system[i]);
                 for (int i2 = 0; i2 < checkLocations.Count; i2++)
                 {
                     bool isInTheSystem = false;
