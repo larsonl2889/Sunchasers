@@ -233,7 +233,7 @@ public class BuildAreaTest : MonoBehaviour
     }
 
     /// <summary>
-    /// Gets the absolute locations the pipe here connects to within the build area.
+    /// Gets the absolute locations the pipe here tries to connect to within the build area.
     /// </summary>
     /// <param name="where">the location of the pipe we're looking at.</param>
     /// <returns>the list of locations this pipe tries to connect to.</returns>
@@ -253,6 +253,41 @@ public class BuildAreaTest : MonoBehaviour
             }
         }
         return augmentedLinks;
+    }
+
+    // Note: Not optimized. There's a clever way to do this, I don't have time to
+    // debug and diagram &c, so we're just going to ship a feature that works.
+    // TODO: test!
+    /// <summary>
+    /// Returns a list of absolute locations the pipe here connects to within the build area.
+    /// Only includes locations that connect back.
+    /// </summary>
+    /// <param name="where">the location of the pipe we're looking at.</param>
+    /// <returns>the list of locations this pipe actually connects to.</returns>
+    internal List<Vector2> GetTwoWayConnectionLocations(Vector2 where)
+    {
+        int x = (int)where.x;
+        int y = (int)where.y;
+        List<Vector2> twoWayConnections = new();
+        if (table.IsIndexInBounds(x, y))
+        {
+            List<Vector2> connectionAttemptLocations = GetConnectionLocations(where);
+            for (int i = 0; i < connectionAttemptLocations.Count; i++)
+            {
+                // Check if the pipe connects back
+                List<Vector2> returnConnectionCandidates = GetConnectionLocations(connectionAttemptLocations[i]);
+                for (int j = 0; j < returnConnectionCandidates.Count; j++)
+                {
+                    if (returnConnectionCandidates[j] == where)
+                    {
+                        // if it does, add that location to the list as a two-way connection.
+                        twoWayConnections.Add(connectionAttemptLocations[i]);
+                        break;
+                    }
+                }
+            }
+        }
+        return twoWayConnections;
     }
 
     /// <summary>
