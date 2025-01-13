@@ -424,7 +424,7 @@ public class BuildAreaTest : MonoBehaviour
             for (int i = 0; i < system.Count; i++)
             {
                 // Get all connections
-                List<Vector2> checkLocations = GetTwoWayConnectionLocations(system[i]);
+                List<Vector2> checkLocations = GetConnectionLocations(system[i]);
                 for (int i2 = 0; i2 < checkLocations.Count; i2++)
                 {
                     bool isInTheSystem = false;
