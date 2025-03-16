@@ -17,6 +17,17 @@ public class Lever : MonoBehaviour
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        if (isOn)
+        {
+            spriteRenderer.sprite = onSprite;
+
+
+        }
+        else
+        {
+            spriteRenderer.sprite = offSprite;
+
+        }
     }
 
     // Update is called once per frame

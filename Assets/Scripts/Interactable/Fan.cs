@@ -9,15 +9,17 @@ public class Fan : MonoBehaviour
     public bool isOn = false;
     private Animator animator;
     private AudioSource fanSound;
+    
+   
     void Start()
     {
-       animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         fanSound = GetComponent<AudioSource>();
         if (isOn)
         {
             animator.SetBool("isOn", true);
             fanSound.Play();
-           
+
         }
         else
         {
@@ -27,10 +29,10 @@ public class Fan : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
-      
+
+
     }
     public void changeState()
     {
@@ -45,7 +47,7 @@ public class Fan : MonoBehaviour
             animator.SetBool("isOn", false);
             fanSound.Stop();
         }
-        
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -53,15 +55,13 @@ public class Fan : MonoBehaviour
         {
             if (collision.CompareTag("Player"))
             {
-                woosh(collision.gameObject, fanForce);
+                Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
+                rb.velocity = new Vector2(rb.velocity.x, 0);
+                rb.AddForce(new Vector2(rb.velocity.x, fanForce), ForceMode2D.Impulse);
+               
             }
         }
-        
     }
-    private void woosh(GameObject player, int force)
-    {
-        Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
-        rb.velocity = new Vector2 (rb.velocity.x, 0);
-        rb.AddForce(new Vector2(rb.velocity.x, fanForce), ForceMode2D.Impulse);
-    }
+    
 }
+    

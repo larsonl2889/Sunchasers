@@ -13,15 +13,18 @@ public class floatPlat : MonoBehaviour
     public float moveUnitsHorizontal = 0;
     private Vector3 startPos;
     private Vector3 targetPos;
+    private AudioSource platSound;
    
 
-    private int i;
+    
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
         startPos = transform.position;
         targetPos = new Vector3(moveUnitsHorizontal + startPos.x, moveUnitsVertical + startPos.y, startPos.z);
+        platSound = GetComponent<AudioSource>();
+        platSound.enabled = false;
     }
 
     // Update is called once per frame
@@ -37,6 +40,8 @@ public class floatPlat : MonoBehaviour
             {
                 transform.position = Vector2.MoveTowards(transform.position, startPos, speed * Time.deltaTime);
             }
+            animator.SetBool("isOn", true);
+            /*
             if (transform.position == targetPos || transform.position == startPos)
             {
                 animator.SetBool("isOn", false);
@@ -45,6 +50,13 @@ public class floatPlat : MonoBehaviour
             {
                 animator.SetBool("isOn", true);
             }
+            */
+            platSound.enabled = true;
+        }
+        else
+        {
+            platSound.enabled = false;
+            animator.SetBool("isOn", false);
         }
     }
     
